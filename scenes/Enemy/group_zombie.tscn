@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://djvhem28mu4oi"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_sj8lo"]
+[ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_xkxfd"]
+[ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/zombie.png" id="3_hp627"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckssn"]
+radius = 5.70575
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao62x"]
+atlas = ExtResource("3_hp627")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77uga"]
+atlas = ExtResource("3_hp627")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlmwa"]
+atlas = ExtResource("3_hp627")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrtym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao62x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77uga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlmwa")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="GroupZombie" type="CharacterBody2D" groups=["enemy", "zombie"]]
+scale = Vector2(3, 3)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_sj8lo")
+mov_speed = 75.0
+hp = 200
+knock_back_recovery = 4.0
+max_coins = 8
+money = 6
+enemy_damage = 10
+
+[node name="CollisionEnemy" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 0.333333)
+shape = SubResource("CircleShape2D_ckssn")
+
+[node name="EnemyBody" parent="." instance=ExtResource("2_xkxfd")]
+
+[node name="AnimatedSprite2D" parent="EnemyBody" index="0"]
+sprite_frames = SubResource("SpriteFrames_vrtym")
+
+[editable path="EnemyBody"]
+[editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HitBox"]

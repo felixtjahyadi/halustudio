@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgdbeulmf1isn"]
+
+[ext_resource type="AudioStream" uid="uid://dnrdbnokrrk51" path="res://assets/Audio/death.mp3" id="1_t7r7r"]
+
+[node name="Death" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_t7r7r")
+autoplay = true

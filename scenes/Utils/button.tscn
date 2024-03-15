@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://by60aag4ff5ly"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_vreaw"]
+[ext_resource type="AudioStream" uid="uid://c17wih7gva4fh" path="res://assets/Audio/mouse-click-153941.mp3" id="2_18rpd"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(125, 56)
+offset_right = 125.0
+offset_bottom = 56.0
+text = "EXAMPLE"
+script = ExtResource("1_vreaw")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_18rpd")
+volume_db = -10.0
+pitch_scale = 2.85
+
+[node name="Hover" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="finished" from="Click" to="." method="_on_click_finished"]

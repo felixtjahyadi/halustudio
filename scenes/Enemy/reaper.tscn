@@ -1,0 +1,140 @@
+[gd_scene load_steps=20 format=3 uid="uid://bxcq1mp35kfjs"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_i7axl"]
+[ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_lsu58"]
+[ext_resource type="Texture2D" uid="uid://b6xu1sv7gxy6g" path="res://assets/Enemy/Reaper (Animated Pixel Art)/Animation Sprite Sheets (PNG)/PassiveIdleReaper-Sheet.png" id="3_mb4nm"]
+[ext_resource type="Texture2D" uid="uid://brx20f1go0iom" path="res://assets/Enemy/Reaper (Animated Pixel Art)/Animation Sprite Sheets (PNG)/HostileRunningReaper-Sheet.png" id="4_5qjrn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckssn"]
+radius = 5.70575
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jycu"]
+atlas = ExtResource("3_mb4nm")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54u30"]
+atlas = ExtResource("3_mb4nm")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0uoh"]
+atlas = ExtResource("3_mb4nm")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs5la"]
+atlas = ExtResource("3_mb4nm")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8v3y"]
+atlas = ExtResource("3_mb4nm")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jry1"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rng88"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ypoq"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33jjr"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rieh6"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ml2"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6my3q"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elket"]
+atlas = ExtResource("4_5qjrn")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lqwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jycu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54u30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0uoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs5la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8v3y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jry1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rng88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ypoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33jjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rieh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ml2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6my3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elket")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Reaper" type="CharacterBody2D" groups=["enemy", "zombie"]]
+scale = Vector2(3, 3)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_i7axl")
+mov_speed = 200.0
+hp = 999999
+knock_back_recovery = 999.0
+max_coins = 1
+money = 1
+enemy_damage = 100
+
+[node name="CollisionEnemy" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 0.333333)
+shape = SubResource("CircleShape2D_ckssn")
+disabled = true
+
+[node name="EnemyBody" parent="." instance=ExtResource("2_lsu58")]
+
+[node name="AnimatedSprite2D" parent="EnemyBody" index="0"]
+sprite_frames = SubResource("SpriteFrames_4lqwm")
+
+[editable path="EnemyBody"]
+[editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HitBox"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://nrep1d6etjpn"]
+
+[ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/zombie.png" id="1_tb4pv"]
+[ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="2_03hjd"]
+[ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="3_sckq2"]
+[ext_resource type="AudioStream" uid="uid://dqerx2lgfqcu1" path="res://assets/Audio/hurt.mp3" id="4_bdmyk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck2sn"]
+atlas = ExtResource("1_tb4pv")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbr0e"]
+atlas = ExtResource("1_tb4pv")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga8lg"]
+atlas = ExtResource("1_tb4pv")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnuoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck2sn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbr0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga8lg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvife"]
+size = Vector2(17, 22.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k14a3"]
+size = Vector2(13.6667, 13.1667)
+
+[node name="EnemyBody" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rnuoa")
+animation = &"walk"
+
+[node name="HurtBox" parent="." instance=ExtResource("2_03hjd")]
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0.166666, 0.666667)
+shape = SubResource("RectangleShape2D_xvife")
+
+[node name="HitBox" parent="." instance=ExtResource("3_sckq2")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 0.666667)
+shape = SubResource("RectangleShape2D_k14a3")
+
+[node name="HideTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="hurt_sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_bdmyk")
+volume_db = -15.0
+pitch_scale = 1.5
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

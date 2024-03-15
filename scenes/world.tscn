@@ -1,0 +1,129 @@
+[gd_scene load_steps=20 format=3 uid="uid://dadyistu52sqk"]
+
+[ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="1_agw06"]
+[ext_resource type="Texture2D" uid="uid://cd2wqc6ipwolg" path="res://assets/Map/grass.png" id="1_x8ml8"]
+[ext_resource type="PackedScene" uid="uid://bdo7wpfoo7ltd" path="res://scenes/Utils/enemy_spawner.tscn" id="2_r34ht"]
+[ext_resource type="PackedScene" uid="uid://gmb3iiva6oe1" path="res://scenes/Enemy/normal_zombie.tscn" id="3_meox3"]
+[ext_resource type="Script" path="res://scripts/Spawn_info.gd" id="4_tmvuc"]
+[ext_resource type="PackedScene" uid="uid://dqc1vllouv2mb" path="res://scenes/Enemy/runner_zombie.tscn" id="6_aot00"]
+[ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_g5j1p"]
+[ext_resource type="PackedScene" uid="uid://djvhem28mu4oi" path="res://scenes/Enemy/group_zombie.tscn" id="7_2ec4n"]
+[ext_resource type="PackedScene" uid="uid://bxcq1mp35kfjs" path="res://scenes/Enemy/reaper.tscn" id="8_kmsk2"]
+[ext_resource type="AudioStream" uid="uid://chuemd2dyhcga" path="res://assets/Audio/bgm.mp3" id="9_2rht0"]
+[ext_resource type="Script" path="res://scripts/BGM.gd" id="10_hpxte"]
+
+[sub_resource type="Resource" id="Resource_komvg"]
+script = ExtResource("4_tmvuc")
+time_start = 0
+time_end = 10000
+enemy = ExtResource("3_meox3")
+enemy_num = 1
+hp_multiplier = 1
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_fidvi"]
+script = ExtResource("4_tmvuc")
+time_start = 60
+time_end = 100000
+enemy = ExtResource("6_aot00")
+enemy_num = 2
+hp_multiplier = 1
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 60
+
+[sub_resource type="Resource" id="Resource_l7rck"]
+script = ExtResource("4_tmvuc")
+time_start = 210
+time_end = 100000
+enemy = ExtResource("7_2ec4n")
+enemy_num = 5
+hp_multiplier = 1
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 90
+
+[sub_resource type="Resource" id="Resource_r6x2t"]
+script = ExtResource("4_tmvuc")
+time_start = 0
+time_end = 100000
+enemy = ExtResource("3_meox3")
+enemy_num = 1
+hp_multiplier = 2
+scale_multiplier = 2
+money_multiplier = 5
+spawn_delay = 180
+
+[sub_resource type="Resource" id="Resource_1sj4b"]
+script = ExtResource("4_tmvuc")
+time_start = 0
+time_end = 100000
+enemy = ExtResource("6_aot00")
+enemy_num = 1
+hp_multiplier = 2
+scale_multiplier = 2
+money_multiplier = 5
+spawn_delay = 300
+
+[sub_resource type="Resource" id="Resource_gm3bm"]
+script = ExtResource("4_tmvuc")
+time_start = 0
+time_end = 100000
+enemy = ExtResource("7_2ec4n")
+enemy_num = 3
+hp_multiplier = 2
+scale_multiplier = 2
+money_multiplier = 5
+spawn_delay = 480
+
+[sub_resource type="Resource" id="Resource_jkvqp"]
+script = ExtResource("4_tmvuc")
+time_start = 0
+time_end = 3
+enemy = ExtResource("3_meox3")
+enemy_num = 1
+hp_multiplier = 1
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_sosie"]
+script = ExtResource("4_tmvuc")
+time_start = 1500
+time_end = 1500
+enemy = ExtResource("8_kmsk2")
+enemy_num = 1
+hp_multiplier = 1
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 0
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("1_x8ml8")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
+
+[node name="Player" parent="." instance=ExtResource("1_agw06")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_r34ht")]
+spawns = Array[ExtResource("4_tmvuc")]([SubResource("Resource_komvg"), SubResource("Resource_fidvi"), SubResource("Resource_l7rck"), SubResource("Resource_r6x2t"), SubResource("Resource_1sj4b"), SubResource("Resource_gm3bm"), SubResource("Resource_jkvqp"), SubResource("Resource_sosie")])
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="FrameSaver" parent="." instance=ExtResource("6_g5j1p")]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("9_2rht0")
+volume_db = -13.0
+autoplay = true
+script = ExtResource("10_hpxte")
+
+[connection signal="player_death" from="Player" to="BGM" method="_on_player_player_death"]
