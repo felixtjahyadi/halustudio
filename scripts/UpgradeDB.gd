@@ -49,7 +49,7 @@ var UPGRADES = {
 	"add_attack":{
 		"icon":"res://assets/Icon/add_atk.png",
 		"name":"ADD ATK",
-		"description":"Add One to Projectile",
+		"description":"+1 to Projectile MAX 3, More does nothing",
 		"price":null,
 		"type":"stats"
 	},

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dadyistu52sqk"]
+[gd_scene load_steps=22 format=3 uid="uid://dadyistu52sqk"]
 
 [ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="1_agw06"]
 [ext_resource type="Texture2D" uid="uid://cd2wqc6ipwolg" path="res://assets/Map/grass.png" id="1_x8ml8"]
@@ -15,18 +15,18 @@
 [sub_resource type="Resource" id="Resource_komvg"]
 script = ExtResource("4_tmvuc")
 time_start = 0
-time_end = 10000
+time_end = 600
 enemy = ExtResource("3_meox3")
 enemy_num = 1
 hp_multiplier = 1
 scale_multiplier = 1
 money_multiplier = 1
-spawn_delay = 5
+spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_fidvi"]
 script = ExtResource("4_tmvuc")
 time_start = 60
-time_end = 100000
+time_end = 600
 enemy = ExtResource("6_aot00")
 enemy_num = 2
 hp_multiplier = 1
@@ -37,7 +37,7 @@ spawn_delay = 60
 [sub_resource type="Resource" id="Resource_l7rck"]
 script = ExtResource("4_tmvuc")
 time_start = 210
-time_end = 100000
+time_end = 600
 enemy = ExtResource("7_2ec4n")
 enemy_num = 5
 hp_multiplier = 1
@@ -51,7 +51,7 @@ time_start = 0
 time_end = 100000
 enemy = ExtResource("3_meox3")
 enemy_num = 1
-hp_multiplier = 2
+hp_multiplier = 3
 scale_multiplier = 2
 money_multiplier = 5
 spawn_delay = 180
@@ -62,7 +62,7 @@ time_start = 0
 time_end = 100000
 enemy = ExtResource("6_aot00")
 enemy_num = 1
-hp_multiplier = 2
+hp_multiplier = 3
 scale_multiplier = 2
 money_multiplier = 5
 spawn_delay = 300
@@ -78,27 +78,49 @@ scale_multiplier = 2
 money_multiplier = 5
 spawn_delay = 480
 
-[sub_resource type="Resource" id="Resource_jkvqp"]
-script = ExtResource("4_tmvuc")
-time_start = 0
-time_end = 3
-enemy = ExtResource("3_meox3")
-enemy_num = 1
-hp_multiplier = 1
-scale_multiplier = 1
-money_multiplier = 1
-spawn_delay = 0
-
 [sub_resource type="Resource" id="Resource_sosie"]
 script = ExtResource("4_tmvuc")
-time_start = 1500
-time_end = 1500
+time_start = 1800
+time_end = 2000
 enemy = ExtResource("8_kmsk2")
 enemy_num = 1
 hp_multiplier = 1
 scale_multiplier = 1
 money_multiplier = 1
 spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_6yv6h"]
+script = ExtResource("4_tmvuc")
+time_start = 600
+time_end = 100000
+enemy = ExtResource("3_meox3")
+enemy_num = 3
+hp_multiplier = 2
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_pp6sk"]
+script = ExtResource("4_tmvuc")
+time_start = 540
+time_end = 100000
+enemy = ExtResource("6_aot00")
+enemy_num = 4
+hp_multiplier = 2
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 60
+
+[sub_resource type="Resource" id="Resource_xvyug"]
+script = ExtResource("4_tmvuc")
+time_start = 510
+time_end = 100000
+enemy = ExtResource("7_2ec4n")
+enemy_num = 7
+hp_multiplier = 2
+scale_multiplier = 1
+money_multiplier = 1
+spawn_delay = 90
 
 [node name="World" type="Node2D"]
 
@@ -113,7 +135,7 @@ region_rect = Rect2(0, 0, 10000, 10000)
 [node name="Player" parent="." instance=ExtResource("1_agw06")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_r34ht")]
-spawns = Array[ExtResource("4_tmvuc")]([SubResource("Resource_komvg"), SubResource("Resource_fidvi"), SubResource("Resource_l7rck"), SubResource("Resource_r6x2t"), SubResource("Resource_1sj4b"), SubResource("Resource_gm3bm"), SubResource("Resource_jkvqp"), SubResource("Resource_sosie")])
+spawns = Array[ExtResource("4_tmvuc")]([SubResource("Resource_komvg"), SubResource("Resource_fidvi"), SubResource("Resource_l7rck"), SubResource("Resource_r6x2t"), SubResource("Resource_1sj4b"), SubResource("Resource_gm3bm"), SubResource("Resource_sosie"), SubResource("Resource_6yv6h"), SubResource("Resource_pp6sk"), SubResource("Resource_xvyug")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
@@ -124,6 +146,7 @@ process_mode = 3
 stream = ExtResource("9_2rht0")
 volume_db = -13.0
 autoplay = true
+max_distance = 1e+07
 script = ExtResource("10_hpxte")
 
 [connection signal="player_death" from="Player" to="BGM" method="_on_player_player_death"]

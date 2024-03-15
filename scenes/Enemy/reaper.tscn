@@ -134,6 +134,7 @@ disabled = true
 
 [node name="AnimatedSprite2D" parent="EnemyBody" index="0"]
 sprite_frames = SubResource("SpriteFrames_4lqwm")
+frame_progress = 0.381686
 
 [editable path="EnemyBody"]
 [editable path="EnemyBody/HurtBox"]

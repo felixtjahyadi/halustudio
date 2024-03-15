@@ -81,7 +81,7 @@ func _on_hurt_box_hurt(damage, _angle, _knock_back_amount):
 		death()
 
 func _on_juice_box_timer_timeout():
-	juice_ammo += juice_base_ammo + additional_atk
+	juice_ammo += clamp(juice_base_ammo + additional_atk,0,3)
 	juiceboxAttackTimer.start()
 
 func _on_juice_box_attack_timer_timeout():
@@ -158,11 +158,11 @@ func upgrade_char(upgrade, price):
 	if money >= price:
 		match upgrade:
 			"attack_up":
-				damage_up += 0.3
-				cooldown -= 0.2
+				damage_up += 0.5
+				cooldown -= 0.3
 			"atk_speed_up":
-				cooldown += 0.3
-				damage_up -= 0.2
+				cooldown += 0.5
+				damage_up -= 0.3
 			"shield_up":
 				armor += 1
 				mov_speed -= 20
@@ -171,13 +171,12 @@ func upgrade_char(upgrade, price):
 				armor -= 1
 			"health_up":
 				maxhp += 20
-				hp += 5
+				hp += 10
 				_on_hurt_box_hurt(0,0,0)
 			"pick_range_up":
 				grab_area.shape.radius *= 1.2
 			"add_attack":
 				additional_atk += 1
-				cooldown -= 0.5
 			"food":
 				hp += 20
 				hp = clamp(hp, 0, maxhp)
