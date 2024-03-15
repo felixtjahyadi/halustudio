@@ -14,7 +14,6 @@ var juice_attack_level = 1
 
 var enemy_close = []
 
-var collected_upgrades = []
 var upgrade_options = []
 var damage_up = 0
 var armor = 0
@@ -69,7 +68,7 @@ func movement():
 
 func attack():
 	if juice_attack_level > 0:
-		juiceboxTimer.wait_time = juice_attack_speed * (1-cooldown)
+		juiceboxTimer.wait_time = juice_attack_speed * clamp(1-cooldown, 0.99, 3)
 		if juiceboxTimer.is_stopped():
 			juiceboxTimer.start()
 
@@ -81,7 +80,7 @@ func _on_hurt_box_hurt(damage, _angle, _knock_back_amount):
 		death()
 
 func _on_juice_box_timer_timeout():
-	juice_ammo += clamp(juice_base_ammo + additional_atk,0,3)
+	juice_ammo += clamp(juice_base_ammo + additional_atk,1,3)
 	juiceboxAttackTimer.start()
 
 func _on_juice_box_attack_timer_timeout():
@@ -158,11 +157,11 @@ func upgrade_char(upgrade, price):
 	if money >= price:
 		match upgrade:
 			"attack_up":
-				damage_up += 0.5
-				cooldown -= 0.3
+				damage_up += 0.3
+				cooldown -= 0.1
 			"atk_speed_up":
-				cooldown += 0.5
-				damage_up -= 0.3
+				cooldown += 0.05
+				damage_up -= 0.05
 			"shield_up":
 				armor += 1
 				mov_speed -= 20
@@ -174,7 +173,7 @@ func upgrade_char(upgrade, price):
 				hp += 10
 				_on_hurt_box_hurt(0,0,0)
 			"pick_range_up":
-				grab_area.shape.radius *= 1.2
+				grab_area.shape.radius *= 1.05
 			"add_attack":
 				additional_atk += 1
 			"food":
@@ -186,7 +185,6 @@ func upgrade_char(upgrade, price):
 		for i in option_children:
 			i.queue_free()
 		upgrade_options.clear()
-		collected_upgrades.append(upgrade)
 		store_panel.visible = false
 		store_panel.position = Vector2(1240,70)
 		get_tree().paused = false
@@ -235,7 +233,6 @@ func death():
 func _on_menu_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://scenes/Utils/title.tscn")
-
 
 func _on_close_button_click_end():
 	var option_children = store_options.get_children()

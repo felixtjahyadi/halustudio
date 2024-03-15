@@ -3,7 +3,7 @@ extends Area2D
 var level = 1
 var hp = 1
 var speed = 100
-var damage = 20
+var damage = 50
 var knock_back = 100
 var size = 1.0
 
@@ -21,7 +21,7 @@ func _ready():
 		1:
 			hp = 1
 			speed = 100
-			damage = clamp(20 * (1+player.damage_up), 5, 9999)
+			damage = clamp(50 * (1+player.damage_up), 5, 9999)
 			knock_back = 100
 			size = 1.0
 	var tween = create_tween()

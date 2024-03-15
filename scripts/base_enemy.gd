@@ -31,7 +31,6 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	hurtbox.connect("hurt", Callable(self, "_on_hurt_box_hurt"))
 	hideTimer.connect("timeout", Callable(self, "_on_hide_timer_timeout"))
-	death.connect("finished", Callable(self,"_on"))
 
 func _physics_process(_delta):
 	knock_back = knock_back.move_toward(Vector2.ZERO, knock_back_recovery)
