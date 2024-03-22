@@ -8,7 +8,11 @@ class_name BaseEnemy
 @export var max_coins = 6
 @export var money = 2
 @export var enemy_damage = 1
+
 var knock_back = Vector2.ZERO
+var screen_size
+var death = preload("res://scenes/Enemy/death.tscn")
+var coins = preload("res://scenes/Loot/Coin.tscn")
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
@@ -19,12 +23,7 @@ var knock_back = Vector2.ZERO
 @onready var hurtbox = $EnemyBody/HurtBox
 @onready var sound = $EnemyBody/hurt_sound
 
-var death = preload("res://scenes/Enemy/death.tscn")
-var coins = preload("res://scenes/Loot/Coin.tscn")
-
 signal remove_from_array(object)
-
-var screen_size
 
 func _ready():
 	hitbox.damage = enemy_damage

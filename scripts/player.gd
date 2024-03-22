@@ -6,7 +6,7 @@ var maxhp = 80
 var money = 0
 var total_money_collected = 0
 
-var juicebox = preload("res://scenes/Player/juice_box.tscn")
+var juicebox = preload("res://scenes/Player/player_projectile.tscn")
 var juice_ammo = 0
 var juice_base_ammo = 1
 var juice_attack_speed = 1.5

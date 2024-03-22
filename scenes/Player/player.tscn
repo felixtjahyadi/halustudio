@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bky7hirsru46f"]
+[gd_scene load_steps=18 format=3 uid="uid://bky7hirsru46f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7cii0"]
 [ext_resource type="Texture2D" uid="uid://cprcas524dhbt" path="res://assets/Player/apple.png" id="1_w788x"]
@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bq38uuoqahboy" path="res://assets/Icon/hp_bar.png" id="5_n86ik"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="6_b0kyk"]
 [ext_resource type="Texture2D" uid="uid://drj12skd22c7b" path="res://assets/Enemy/insuranceguy.png" id="6_s6ljq"]
-[ext_resource type="AudioStream" uid="uid://cxrjm1opanghk" path="res://assets/Audio/store.mp3" id="8_7xrxv"]
-[ext_resource type="AudioStream" uid="uid://dsopxo5q7cf11" path="res://assets/Audio/lost.mp3" id="8_tr5cm"]
-[ext_resource type="AudioStream" uid="uid://1ilpyocr671u" path="res://assets/Audio/win.mp3" id="9_vkrri"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1jvf"]
 atlas = ExtResource("1_w788x")
@@ -249,14 +246,12 @@ text = "MENU"
 unique_name_in_owner = true
 position = Vector2(-140, 700)
 scale = Vector2(3, 3)
-stream = ExtResource("8_tr5cm")
 volume_db = -10.0
 
 [node name="win" type="AudioStreamPlayer2D" parent="GUILayer/Control/Death"]
 unique_name_in_owner = true
 position = Vector2(-140, 700)
 scale = Vector2(3, 3)
-stream = ExtResource("9_vkrri")
 volume_db = -10.0
 
 [node name="LabelTimer" type="Label" parent="GUILayer/Control"]
@@ -272,7 +267,6 @@ text = "00:00"
 [node name="store_sound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-stream = ExtResource("8_7xrxv")
 volume_db = -10.0
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

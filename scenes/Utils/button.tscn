@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by60aag4ff5ly"]
 
 [ext_resource type="Script" path="res://scripts/button.gd" id="1_vreaw"]
-[ext_resource type="AudioStream" uid="uid://c17wih7gva4fh" path="res://assets/Audio/mouse-click-153941.mp3" id="2_18rpd"]
+[ext_resource type="AudioStream" uid="uid://instngy7814" path="res://assets/Audio/mouse-click-153941.mp3" id="2_18rpd"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(125, 56)

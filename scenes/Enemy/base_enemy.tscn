@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://nrep1d6etjpn"]
+[gd_scene load_steps=10 format=3 uid="uid://nrep1d6etjpn"]
 
 [ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/zombie.png" id="1_tb4pv"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="2_03hjd"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="3_sckq2"]
-[ext_resource type="AudioStream" uid="uid://dqerx2lgfqcu1" path="res://assets/Audio/hurt.mp3" id="4_bdmyk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck2sn"]
 atlas = ExtResource("1_tb4pv")
@@ -73,7 +72,6 @@ unique_name_in_owner = true
 
 [node name="hurt_sound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_bdmyk")
 volume_db = -15.0
 pitch_scale = 1.5
 

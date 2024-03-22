@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu33rde0hnixg"]
+
+[ext_resource type="Script" path="res://scripts/player_projectile.gd" id="1_1vxxn"]
+[ext_resource type="Texture2D" uid="uid://catnbvhli7a3h" path="res://assets/Player/juice.png" id="2_jb73q"]
+[ext_resource type="AudioStream" uid="uid://pjkaglcjpxly" path="res://assets/Audio/throw.mp3" id="3_ihvpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs5ii"]
+size = Vector2(10, 14)
+
+[node name="JuiceBox" type="Area2D" groups=["attack"]]
+top_level = true
+light_mask = 5
+visibility_layer = 5
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_1vxxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jb73q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gs5ii")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ihvpj")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
