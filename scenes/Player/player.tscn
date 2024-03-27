@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bky7hirsru46f"]
+[gd_scene load_steps=20 format=3 uid="uid://bky7hirsru46f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7cii0"]
 [ext_resource type="Texture2D" uid="uid://cprcas524dhbt" path="res://assets/Player/apple.png" id="1_w788x"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bq38uuoqahboy" path="res://assets/Icon/hp_bar.png" id="5_n86ik"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="6_b0kyk"]
 [ext_resource type="Texture2D" uid="uid://drj12skd22c7b" path="res://assets/Enemy/insuranceguy.png" id="6_s6ljq"]
+[ext_resource type="Script" path="res://scenes/Skill/Shoot/shoot_skill.gd" id="8_c4u1l"]
+[ext_resource type="PackedScene" uid="uid://otyaqrxusqei" path="res://scenes/Skill/Shoot/Projectile/bullet.tscn" id="9_h5qbh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1jvf"]
 atlas = ExtResource("1_w788x")
@@ -268,6 +270,13 @@ text = "00:00"
 unique_name_in_owner = true
 process_mode = 3
 volume_db = -10.0
+
+[node name="ShootSkill" type="Node2D" parent="." groups=["player"]]
+script = ExtResource("8_c4u1l")
+projectile_scene = ExtResource("9_h5qbh")
+
+[node name="ProjectileSpawnPosition" type="Marker2D" parent="ShootSkill"]
+position = Vector2(20, 0)
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/JuiceBoxTimer" to="." method="_on_juice_box_timer_timeout"]

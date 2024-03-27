@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://chi6oe4mv0gbf"]
+
+[ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/arrow.gd" id="1_pvqj1"]
+[ext_resource type="Texture2D" uid="uid://bdd2ahb6um4rw" path="res://assets/Projectile/arrow.png" id="2_kbega"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhcy"]
+size = Vector2(256, 96)
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_pvqj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_kbega")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_vjhcy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
