@@ -6,8 +6,14 @@ extends Node2D
 @export var projectile_speed: int = 1000
 @export var projectile_delay_second: float = 0.25
 @export var projectile_range: int = 600
+@export var projectile_spawn_offset: float = 15
 
 var can_shoot = true
+
+func _ready():
+	var transform = Transform2D()
+	transform.origin = Vector2(projectile_spawn_offset, 0)
+	projectileSpawnPosition.transform = transform
 
 func _process(delta):
 	handle_shoot()
