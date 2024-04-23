@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://by60aag4ff5ly"]
+[gd_scene load_steps=4 format=3 uid="uid://by60aag4ff5ly"]
 
 [ext_resource type="Script" path="res://scripts/button.gd" id="1_vreaw"]
+[ext_resource type="FontFile" uid="uid://dwnvyvhbkpxe3" path="res://assets/Font/Raw/continuum bold.ttf" id="1_wa0dn"]
 [ext_resource type="AudioStream" uid="uid://instngy7814" path="res://assets/Audio/mouse-click-153941.mp3" id="2_18rpd"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(125, 56)
 offset_right = 125.0
 offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("1_wa0dn")
+theme_override_font_sizes/font_size = 25
 text = "EXAMPLE"
 script = ExtResource("1_vreaw")
 
