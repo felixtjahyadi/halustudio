@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bf5pxyiauu4ph"]
 
 [ext_resource type="TileSet" uid="uid://bnosdv0754byi" path="res://assets/Map/TileSet/MapTileSet.tres" id="1_chvog"]
-[ext_resource type="Script" path="res://scripts/Map/DummyMap.gd" id="1_gjv2i"]
+[ext_resource type="Script" path="res://scripts/Map/RoomLogic.gd" id="1_gjv2i"]
 [ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="2_infgv"]
 [ext_resource type="Texture2D" uid="uid://bo1i3a3pdjja" path="res://assets/Map/door.png" id="3_xl25t"]
 
@@ -58,10 +58,9 @@ layer_0/name = "Door"
 layer_0/tile_data = PackedInt32Array(131073, 65536, 0, 196609, 65536, 0, 131083, 65536, 0, 196619, 65536, 0, 262145, 65536, 0, 327681, 65536, 0, 262155, 65536, 0, 327691, 65536, 0)
 
 [node name="RoomArea" type="Area2D" parent="."]
-position = Vector2(64, 32)
+position = Vector2(208, 224)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea"]
-position = Vector2(144, 192)
 shape = SubResource("RectangleShape2D_5f6xw")
 
 [node name="Player" parent="." instance=ExtResource("2_infgv")]

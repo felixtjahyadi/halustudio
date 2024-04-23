@@ -6,10 +6,12 @@ func _toggleIsDoorClosed():
 
 var _isRoomNotExplored = true
 
+@export var skippable = false
 
 @onready var doorTileMap : TileMap = get_node("DoorTileMap")
 
 func _ready():
+	_isRoomNotExplored = false if skippable else true
 	toggleDoor()
 
 # func _process(delta):
