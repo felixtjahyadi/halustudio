@@ -1,23 +1,34 @@
 extends Node2D
 
-var doorId = 0
+var _isDoorClosed : bool = false
+func _toggleIsDoorClosed():
+	_isDoorClosed = !_isDoorClosed
+
+var _isRoomNotExplored = true
+
 
 @onready var doorTileMap : TileMap = get_node("DoorTileMap")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	toggleDoor()
 
+# func _process(delta):
+# 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# test enable disable door
-	#if Input.is_action_just_pressed("click"):
-		#var doorTiles = doorTileMap.get_used_cells_by_id(0)
-		#print(doorTiles)
-		#print(doorTileMap.get_used_cells(0))
-		#print(doorTileMap.visibility_layer)
-		#doorTileMap.set_layer_enabled(0, doorId == 1)
-		#
-		#doorId = (doorId + 1) % 2
-	pass
+func toggleDoor():
+	doorTileMap.set_layer_enabled(0, _isDoorClosed)
+	_toggleIsDoorClosed()
+
+func startRoom():
+	if _isRoomNotExplored:
+		_isRoomNotExplored = false
+		toggleDoor()
+		endRoom() # for test
+
+func endRoom():
+	await get_tree().create_timer(1.0).timeout
+	toggleDoor()
+
+func _on_room_area_body_entered(body):
+	if body.get_name() == "Player":
+		startRoom()
