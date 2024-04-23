@@ -124,6 +124,7 @@ spawn_delay = 90
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 2
 texture_repeat = 2
 scale = Vector2(5, 5)

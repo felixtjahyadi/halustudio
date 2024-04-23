@@ -15,8 +15,6 @@ var angle = Vector2.ZERO
 signal remove_from_array(object)
 
 func _ready():
-	angle = global_position.direction_to(target)
-	rotation = angle.angle() + deg_to_rad(135)
 	match level:
 		1:
 			hp = 1
@@ -24,19 +22,9 @@ func _ready():
 			damage = clamp(100 * (1+player.damage_up), 5, 9999)
 			knock_back = 100
 			size = 1.0
-	var tween = create_tween()
-	tween.tween_property(self,"scale",Vector2(2,2)*size,1).set_trans(tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
-				
-func _physics_process(delta):
-	position += angle*speed*delta
-	
+
 func enemy_hit(charge = 1):
 	hp -= charge
 	if hp <= 0:
 		emit_signal("remove_from_array", self)
 		queue_free()
-
-func _on_timer_timeout():
-	emit_signal("remove_from_array", self)
-	queue_free()

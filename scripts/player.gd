@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 var mov_speed = 100.0
-var hp = 80
-var maxhp = 80
+var hp = 8000
+var maxhp = 8000
 var money = 0
 var total_money_collected = 0
 
@@ -133,10 +133,10 @@ func _on_collect_area_entered(area):
 		money += money_value
 		coin_amount.text = str(money)
 		total_money_collected += money_value
-		if total_money_collected >= 100:
-			store_sound.play()
-			store_open()
-			total_money_collected -= 100
+		#if total_money_collected >= 100:
+			#store_sound.play()
+			#store_open()
+			#total_money_collected -= 100
 		
 func store_open():
 	var tween = store_panel.create_tween()
