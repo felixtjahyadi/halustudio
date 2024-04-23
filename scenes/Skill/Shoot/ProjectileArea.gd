@@ -27,4 +27,4 @@ func enemy_hit(charge = 1):
 	hp -= charge
 	if hp <= 0:
 		emit_signal("remove_from_array", self)
-		queue_free()
+		get_parent().queue_free()

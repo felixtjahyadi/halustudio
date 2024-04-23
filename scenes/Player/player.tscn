@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bky7hirsru46f"]
+[gd_scene load_steps=21 format=3 uid="uid://bky7hirsru46f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7cii0"]
 [ext_resource type="Texture2D" uid="uid://cprcas524dhbt" path="res://assets/Player/apple.png" id="1_w788x"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="3_m30x5"]
+[ext_resource type="Texture2D" uid="uid://c0g3xbif02ejy" path="res://assets/Icon/new_hp_bar_temp.png" id="5_860lk"]
 [ext_resource type="Texture2D" uid="uid://c7wnglkox06uh" path="res://assets/Object/coin.png" id="5_cnse2"]
-[ext_resource type="Texture2D" uid="uid://bq38uuoqahboy" path="res://assets/Icon/hp_bar.png" id="5_n86ik"]
+[ext_resource type="Texture2D" uid="uid://cwxl3wm3m717d" path="res://assets/Icon/frame_temp.png" id="6_4ldg8"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="6_b0kyk"]
 [ext_resource type="Texture2D" uid="uid://drj12skd22c7b" path="res://assets/Enemy/insuranceguy.png" id="6_s6ljq"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_16uom"]
@@ -165,12 +166,21 @@ text = "####"
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.666667)
 layout_mode = 0
-offset_left = 536.0
-offset_top = 368.0
-offset_right = 616.0
-offset_bottom = 389.0
+offset_left = 29.0
+offset_top = -25.0
+offset_right = 45.0
+offset_bottom = -9.0
+scale = Vector2(30, 10)
 value = 100.0
-texture_progress = ExtResource("5_n86ik")
+texture_progress = ExtResource("5_860lk")
+
+[node name="TextureRect2" type="TextureRect" parent="GUILayer/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -9.0
+offset_right = 533.0
+offset_bottom = 114.0
+texture = ExtResource("6_4ldg8")
 
 [node name="Store" type="Panel" parent="GUILayer/Control"]
 unique_name_in_owner = true
