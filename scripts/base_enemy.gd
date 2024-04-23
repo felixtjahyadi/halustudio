@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name BaseEnemy
 
-@export var mov_speed = 80.0
+@export var mov_speed = 100.0
 @export var hp = 10
 @export var knock_back_recovery = 3.5
 @export var max_coins = 6
@@ -13,6 +13,7 @@ var knock_back = Vector2.ZERO
 var screen_size
 var death = preload("res://scenes/Enemy/death.tscn")
 var coins = preload("res://scenes/Loot/Coin.tscn")
+var chase = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
@@ -21,6 +22,7 @@ var coins = preload("res://scenes/Loot/Coin.tscn")
 @onready var sprite = $EnemyBody/AnimatedSprite2D
 @onready var hideTimer = $EnemyBody/HideTimer
 @onready var hurtbox = $EnemyBody/HurtBox
+@onready var detectionArea = $EnemyBody/DetectionArea
 @onready var sound = $EnemyBody/hurt_sound
 
 signal remove_from_array(object)
@@ -30,21 +32,34 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	hurtbox.connect("hurt", Callable(self, "_on_hurt_box_hurt"))
 	hideTimer.connect("timeout", Callable(self, "_on_hide_timer_timeout"))
+	detectionArea.body_entered.connect(_on_detection_area_body_entered)
+	detectionArea.body_exited.connect(_on_detection_area_body_exited)
+	
 
 func _physics_process(_delta):
-	knock_back = knock_back.move_toward(Vector2.ZERO, knock_back_recovery)
-	var direction = global_position.direction_to(player.global_position)
-	if direction.x > 0.1:
-		sprite.flip_h = true
-	elif direction.x < -0.1:
-		sprite.flip_h = false
-		
-	if direction != Vector2.ZERO:
-		sprite.play("walk")
-	velocity = direction*mov_speed
-	velocity += knock_back
-	move_and_slide()
-
+	if chase == true:
+		knock_back = knock_back.move_toward(Vector2.ZERO, knock_back_recovery)
+		var direction = global_position.direction_to(player.global_position)
+		if direction.x > 0.1:
+			sprite.flip_h = true
+		elif direction.x < -0.1:
+			sprite.flip_h = false
+			
+		if direction != Vector2.ZERO:
+			sprite.play("walk")
+		velocity = direction*mov_speed
+		velocity += knock_back
+		move_and_slide()
+	
+func _on_detection_area_body_entered(body):
+	if body == player:
+		chase = true
+	
+func _on_detection_area_body_exited(body):
+	if body == player:
+		chase = false
+	
+	
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	hp -= damage
 	knock_back = angle*knock_back_amount
