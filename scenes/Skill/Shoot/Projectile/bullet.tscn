@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://otyaqrxusqei"]
+
+[ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/bullet.gd" id="1_5pcpg"]
+[ext_resource type="Texture2D" uid="uid://djcsm80dw7bfo" path="res://assets/Projectile/bullet.png" id="1_mkki0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhcy"]
+size = Vector2(128, 64)
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_5pcpg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_mkki0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_vjhcy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
