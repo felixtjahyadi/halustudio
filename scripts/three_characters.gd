@@ -35,7 +35,6 @@ func swap_character():
 func spawn_selected_character():
 	selected_character_node.position = get_global_position()
 	add_child(selected_character_node)
-	print(get_children())
 
 func change_current_selected_charater():
 	match selected_character_node:
