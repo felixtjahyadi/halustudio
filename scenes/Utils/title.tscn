@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://tosur4j40spc"]
+[gd_scene load_steps=4 format=3 uid="uid://tosur4j40spc"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_pfnru"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="2_qfooj"]
-[ext_resource type="Texture2D" uid="uid://crstkvlfvg7rv" path="res://assets/Enemy/zombie_idle.png" id="3_1b6sy"]
-[ext_resource type="Texture2D" uid="uid://dvpli33nvuqmu" path="res://assets/Player/apple_idle.png" id="4_gpsc2"]
+[ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_y4aph"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -14,52 +13,45 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pfnru")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1149.0
-offset_bottom = 651.0
-color = Color(0.407843, 0.0941176, 0.254902, 1)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 166.0
-theme_override_font_sizes/font_size = 60
-text = "An Apple A Day Keep The Doctor Away"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y4aph")
+expand_mode = 2
 
 [node name="Play" parent="." instance=ExtResource("2_qfooj")]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 413.0
-offset_right = 625.0
-offset_bottom = 469.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = 1.0
+offset_right = 62.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Play"
 
 [node name="Quit" parent="." instance=ExtResource("2_qfooj")]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 540.0
-offset_right = 625.0
-offset_bottom = 596.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = 176.0
+offset_right = 62.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 748.0
-offset_top = 255.0
-offset_right = 1048.0
-offset_bottom = 555.0
-texture = ExtResource("3_1b6sy")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 104.0
-offset_top = 255.0
-offset_right = 404.0
-offset_bottom = 555.0
-texture = ExtResource("4_gpsc2")
 
 [connection signal="click_end" from="Play" to="." method="_on_play_click_end"]
 [connection signal="click_end" from="Quit" to="." method="_on_quit_click_end"]

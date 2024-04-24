@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var mov_speed = 100.0
 var hp = 8000
