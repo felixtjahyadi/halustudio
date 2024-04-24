@@ -2,7 +2,7 @@ extends BaseEnemy
 
 class_name CorruptedTreeGuardian
 
-@export var maxMinionCount : int = 15
+@export var maxMinionCount : int = 100
 @export var minionList : Array = [
 	preload("res://scenes/Enemy/Boss/BranchMinion.tscn"),
 ]
@@ -10,7 +10,7 @@ class_name CorruptedTreeGuardian
 
 #@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-@export var attack_cooldown : float = 5.0
+@export var attack_cooldown : float = 3.0
 
 var isAwake : bool = false
 
@@ -58,9 +58,9 @@ func _spawn():
 	minion.position = spawn_pos
 
 func start_animation():
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	sprite.play("start")
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	sprite.play("idle")
 	_reset()
 

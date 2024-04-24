@@ -64,6 +64,7 @@ animations = [{
 [node name="CorruptedTreeGuardian" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_73na8")
 hp = 1000
+enemy_damage = 5
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -74,7 +75,7 @@ shape = SubResource("CircleShape2D_8tryo")
 [node name="AnimatedSprite2D" parent="EnemyBody" index="0"]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_sl4op")
-animation = &"sleep"
+animation = &"idle"
 
 [node name="HurtBox" parent="EnemyBody" index="2"]
 visible = true
