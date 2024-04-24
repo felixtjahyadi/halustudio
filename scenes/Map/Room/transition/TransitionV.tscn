@@ -1,60 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqut748wo8ffe"]
+[gd_scene load_steps=4 format=3 uid="uid://cpolnt1n00ra"]
 
 [ext_resource type="Script" path="res://scripts/Map/RoomLogic.gd" id="1_t7mnq"]
-[ext_resource type="TileSet" uid="uid://bnosdv0754byi" path="res://assets/Map/TileSet/MapTileSet.tres" id="2_o8u1j"]
-[ext_resource type="Texture2D" uid="uid://bo1i3a3pdjja" path="res://assets/Map/door.png" id="3_u47bq"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ln47a"]
-resource_name = "Door"
-texture = ExtResource("3_u47bq")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0/terrains_peering_bit/bottom_side = 0
-1:0/0/terrains_peering_bit/top_side = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[sub_resource type="TileSet" id="TileSet_05lbc"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Door Terrain"
-terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.847059, 1)
-sources/0 = SubResource("TileSetAtlasSource_ln47a")
+[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/Room/RoomTileMap.tscn" id="2_13df1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6xw"]
-size = Vector2(352, 128)
+size = Vector2(128, 352)
 
 [node name="TransitionV" type="Node2D"]
-rotation = 1.5708
 script = ExtResource("1_t7mnq")
 
-[node name="RoomTileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_o8u1j")
-format = 2
-layer_0/tile_data = PackedInt32Array(131066, 2, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 5, 2, 0, 4, 2, 0, -65532, 2, 0, -65531, 2, 0, -131067, 2, 0, -131068, 2, 0, -131069, 2, 0, -131070, 2, 0, -131071, 2, 0, -131072, 2, 0, -65537, 2, 0, -65538, 2, 0, -65539, 2, 0, -65540, 2, 0, -65541, 2, 0, -65542, 2, 0, -6, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, -65533, 2, 0, -65534, 2, 0, -65535, 2, 0, -5, 2, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -131078, 65536, 3, -131077, 65536, 3, -131076, 65536, 3, -131075, 65536, 3, -131074, 65536, 3, -131073, 65536, 3, -196608, 65536, 3, -196607, 65536, 3, -196606, 65536, 3, -196605, 65536, 3, -196604, 65536, 3, -196603, 65536, 3, 196602, 65536, 3, 196603, 65536, 3, 196604, 65536, 3, 196605, 65536, 3, 196606, 65536, 3, 196607, 65536, 3, 131072, 65536, 3, 131073, 65536, 3, 131074, 65536, 3, 131075, 65536, 3, 131076, 65536, 3, 131077, 65536, 3)
-
-[node name="DoorTileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_05lbc")
-format = 2
-layer_0/name = "Door"
+[node name="RoomTileMap" parent="." instance=ExtResource("2_13df1")]
+layer_0/tile_data = PackedInt32Array(131069, 196608, 1, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, -131070, 196608, 1, -131071, 1, 0, -131072, 1, 0, -65537, 1, 0, -65538, 1, 0, -65539, 196608, 1, 2, 196608, 1, 1, 1, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 65533, 196608, 1, -3, 196608, 1, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 196608, 1, -131075, 262144, 4, -131074, 1, 0, -131073, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 458752, 4, -196611, 196608, 1, -262147, 196608, 1, -327683, 196608, 0, -393214, 196608, 0, -327678, 196608, 1, -262142, 196608, 1, 65538, 196608, 1, 131074, 196608, 1, 196610, 196608, 1, 262146, 196608, 1, 327682, 196608, 2, 196605, 196608, 1, 262141, 196608, 1, 327677, 196608, 1, 393213, 196608, 2, 327678, 1, 0, 393214, 1, 0, 393215, 1, 0, 327680, 1, 0, 327681, 1, 0, 262145, 1, 0, 196609, 1, 0, 131073, 1, 0, -262143, 1, 0, -327679, 1, 0, -393215, 1, 0, -393216, 1, 0, -327681, 1, 0, -327682, 1, 0, -262146, 1, 0, -196610, 1, 0, 196606, 1, 0, 262142, 1, 0, 327679, 1, 0, 262143, 1, 0, 196607, 1, 0, -196609, 1, 0, 131072, 1, 0, 262144, 1, 0, 196608, 1, 0, -262144, 1, 0, -327680, 1, 0, -262145, 1, 0)
 
 [node name="RoomArea" type="Area2D" parent="."]
 

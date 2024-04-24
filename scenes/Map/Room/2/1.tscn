@@ -1,60 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdi35uciw3ksg"]
+[gd_scene load_steps=4 format=3 uid="uid://d3at5v3cdqcxt"]
 
 [ext_resource type="Script" path="res://scripts/Map/RoomLogic.gd" id="1_8ylyn"]
-[ext_resource type="TileSet" uid="uid://bnosdv0754byi" path="res://assets/Map/TileSet/MapTileSet.tres" id="2_vkdra"]
-[ext_resource type="Texture2D" uid="uid://bo1i3a3pdjja" path="res://assets/Map/door.png" id="3_4w8nl"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ln47a"]
-resource_name = "Door"
-texture = ExtResource("3_4w8nl")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0/terrains_peering_bit/bottom_side = 0
-1:0/0/terrains_peering_bit/top_side = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[sub_resource type="TileSet" id="TileSet_05lbc"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Door Terrain"
-terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.847059, 1)
-sources/0 = SubResource("TileSetAtlasSource_ln47a")
+[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/Room/RoomTileMap.tscn" id="2_fudo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6xw"]
 size = Vector2(224, 224)
 
-[node name="Room2-1" type="Node2D"]
+[node name="Room2" type="Node2D"]
 script = ExtResource("1_8ylyn")
 
-[node name="RoomTileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_vkdra")
-format = 2
-layer_0/tile_data = PackedInt32Array(-196612, 2, 0, -131076, 2, 0, -65540, 2, 0, -4, 2, 0, 65532, 2, 0, 131068, 2, 0, 196604, 2, 0, 262140, 2, 0, 262141, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 131075, 2, 0, 65539, 2, 0, 3, 2, 0, -65533, 2, 0, -131069, 2, 0, -196605, 2, 0, -262141, 2, 0, -262142, 2, 0, -262143, 2, 0, -262144, 2, 0, -196609, 2, 0, -196610, 2, 0, -196611, 2, 0, -131075, 2, 0, -65539, 2, 0, -3, 2, 0, 65533, 2, 0, 131069, 2, 0, 196605, 2, 0, -131074, 2, 0, -65538, 2, 0, -2, 2, 0, 65534, 2, 0, 131070, 2, 0, 196606, 2, 0, 196607, 2, 0, 131071, 2, 0, 65535, 2, 0, -1, 2, 0, -65537, 2, 0, -131073, 2, 0, 65536, 2, 0, 131072, 2, 0, 0, 2, 0, -65536, 2, 0, -131072, 2, 0, -196608, 2, 0, -196607, 2, 0, -131071, 2, 0, -65535, 2, 0, 1, 2, 0, 65537, 2, 0, 131073, 2, 0, 131074, 2, 0, 65538, 2, 0, 2, 2, 0, -65534, 2, 0, -131070, 2, 0, -196606, 2, 0, -262149, 262144, 0, -196613, 196608, 1, -131077, 196608, 2, 196603, 196608, 0, 262139, 196608, 1, 327675, 262144, 3, 327676, 65536, 3, 327677, 65536, 3, 262146, 65536, 3, 262147, 65536, 3, 262148, 458752, 3, 196612, 196608, 1, 131076, 196608, 0, -196604, 196608, 2, -262140, 196608, 1, -327676, 458752, 0, -327677, 65536, 3, -327678, 65536, 3, -262147, 65536, 3, -262148, 65536, 3, -262146, 65536, 3, -262145, 65536, 3, -327680, 65536, 3, -327679, 65536, 3, 327678, 65536, 3, 327679, 65536, 3, 262144, 65536, 3, 262145, 65536, 3)
-
-[node name="DoorTileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_05lbc")
-format = 2
-layer_0/name = "Door"
-layer_0/tile_data = PackedInt32Array(-131068, 65536, 0, -65532, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 131067, 65536, 0, 65531, 65536, 0, -5, 65536, 0, -65541, 65536, 0)
+[node name="RoomTileMap" parent="." instance=ExtResource("2_fudo1")]
+layer_0/tile_data = PackedInt32Array(-196612, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 1, 0, 65532, 1, 0, 131068, 1, 0, 196604, 1, 0, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 131075, 1, 0, 65539, 1, 0, 3, 1, 0, -65533, 1, 0, -131069, 1, 0, -196605, 1, 0, -262141, 1, 0, -262142, 1, 0, -262143, 1, 0, -262144, 1, 0, -196609, 1, 0, -196610, 1, 0, -196611, 1, 0, -65539, 1, 0, -3, 1, 0, 65533, 1, 0, 131069, 1, 0, -131075, 1, 0, -131074, 1, 0, -65538, 1, 0, -2, 1, 0, 196605, 1, 0, 196606, 1, 0, 131070, 1, 0, 65534, 1, 0, -65537, 1, 0, -131073, 1, 0, -196608, 1, 0, -131072, 1, 0, -65536, 1, 0, 65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 131072, 1, 0, 65536, 1, 0, 0, 1, 0, -1, 1, 0, 131073, 1, 0, 65537, 1, 0, 1, 1, 0, -65535, 1, 0, -131071, 1, 0, -196607, 1, 0, -196606, 1, 0, -131070, 1, 0, -65534, 1, 0, 2, 1, 0, 65538, 1, 0, 131074, 1, 0, 131076, 196608, 0, 196612, 196608, 1, 262148, 458752, 3, 262147, 65536, 3, 262146, 65536, 3, 262145, 65536, 3, 327677, 65536, 3, 327676, 65536, 3, 327675, 262144, 3, 262139, 196608, 1, 196603, 196608, 0, -131077, 196608, 2, -196613, 196608, 1, -262149, 262144, 0, -262148, 65536, 3, -262147, 65536, 3, -262146, 65536, 3, -262145, 65536, 3, -327680, 65536, 3, -327679, 65536, 3, -327678, 65536, 3, -327677, 65536, 3, -327676, 458752, 0, -262140, 196608, 1, -196604, 196608, 2, 327678, 65536, 3, 327679, 65536, 3, 262144, 65536, 3)
+layer_1/tile_data = PackedInt32Array(65540, 65538, 0, 4, 65538, 0, -65532, 65538, 0, -131068, 65538, 0, 131067, 65538, 0, 65531, 65538, 0, -5, 65538, 0, -65541, 65538, 0)
 
 [node name="RoomArea" type="Area2D" parent="."]
 

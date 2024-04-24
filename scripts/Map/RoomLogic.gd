@@ -42,8 +42,8 @@ func _updateRoomTexture():
 # 	pass
 
 func toggleDoor():
-	# layer door = 2
-	roomTileMap.set_layer_enabled(2, _isDoorClosed)
+	# layer door = 1
+	roomTileMap.set_layer_enabled(1, _isDoorClosed)
 	_toggleIsDoorClosed()
 
 func startRoom():
