@@ -84,4 +84,4 @@ func character_dead_handler(character: Node):
 	
 	if total_character_alive == 0:
 		# TODO: game over logic
-		get_tree().change_scene_to_file("res://scenes/Utils/title.tscn")
+		get_tree().change_scene_to_file("res://scenes/Map/Level/LoseScreen.tscn")
