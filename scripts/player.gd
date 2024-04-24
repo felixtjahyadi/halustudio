@@ -40,6 +40,8 @@ var time = 0
 @onready var store_sound = $store_sound
 @onready var win_sound = get_node("%win")
 @onready var lost_sound = get_node("%lost")
+@onready var gun: Node2D = get_node("Gun")
+@onready var gun_sprite = get_node("Gun/Node2D/Sprite2D")
 
 signal player_death
 
@@ -50,6 +52,14 @@ func _ready():
 
 func _physics_process(_delta):
 	movement()
+	
+func _process(delta):
+	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	gun.rotation = mouse_direction.angle()
+	if gun.scale.y == 1 and mouse_direction.x<0:
+		gun.scale.y = -1
+	elif gun.scale.y == -1 and mouse_direction.x>0:
+		gun.scale.y = 1
 		
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
