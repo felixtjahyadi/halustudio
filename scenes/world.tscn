@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="5_masnx"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_g5j1p"]
 [ext_resource type="PackedScene" uid="uid://clmhwvftcd3hf" path="res://scenes/Player/Morin.tscn" id="6_msreh"]
+[ext_resource type="PackedScene" uid="uid://gmb3iiva6oe1" path="res://scenes/Enemy/normal_zombie.tscn" id="7_u4nb2"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="10_hpxte"]
 
 [node name="World" type="Node2D"]
@@ -35,3 +36,6 @@ script = ExtResource("10_hpxte")
 character1 = ExtResource("5_masnx")
 character2 = ExtResource("6_msreh")
 character_change_delay_second = 0.0
+
+[node name="NormalZombie" parent="." instance=ExtResource("7_u4nb2")]
+position = Vector2(436, 150)

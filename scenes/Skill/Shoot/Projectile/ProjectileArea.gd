@@ -17,7 +17,7 @@ signal remove_from_array(object)
 func _ready():
 	hp = 1
 	speed = 100
-	damage = 100
+	damage = damage
 	knock_back = 100
 	size = 1.0
 

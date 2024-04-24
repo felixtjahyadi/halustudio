@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cl7xliq7ky1jf"]
+[gd_scene load_steps=36 format=3 uid="uid://bnx5t715bgwxt"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Wade.gd" id="1_6pyor"]
 [ext_resource type="Texture2D" uid="uid://c54kpimagwkd1" path="res://assets/Player/spritesheets/wade-idle-anim-sheet-flip.png" id="2_r0l7o"]

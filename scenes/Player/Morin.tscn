@@ -305,7 +305,6 @@ script = ExtResource("1_jlina")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -341,8 +340,6 @@ shape = SubResource("CapsuleShape2D_a3ikf")
 [node name="ShootSkill" parent="." instance=ExtResource("8_xpdsv")]
 projectile_scene = ExtResource("9_gq6ev")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Grab" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
@@ -359,6 +356,8 @@ collision_mask = 8
 [node name="CollectAreaCol" type="CollisionShape2D" parent="Collect"]
 position = Vector2(0.666667, 3.66667)
 shape = SubResource("CircleShape2D_aihvg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]

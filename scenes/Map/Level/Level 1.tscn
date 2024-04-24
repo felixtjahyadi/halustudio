@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://boh7xpne8v8n1" path="res://scenes/Map/Room/3/3-123.tscn" id="5_f6kvy"]
 [ext_resource type="PackedScene" uid="uid://bfvojt4y1ba3h" path="res://scenes/Map/Room/1/1-3.tscn" id="7_jioex"]
 [ext_resource type="PackedScene" uid="uid://bpksiove5g5iw" path="res://scenes/Map/Room/2/2-13.tscn" id="7_wn1tw"]
-[ext_resource type="PackedScene" uid="uid://drsoa466bigti" path="res://scenes/Player/three_characters.tscn" id="8_wp32q"]
+[ext_resource type="PackedScene" uid="uid://d1mm83cxhap7r" path="res://scenes/Player/three_characters.tscn" id="8_wp32q"]
 [ext_resource type="PackedScene" uid="uid://baed4td4m8wpf" path="res://scenes/Map/Room/1/3-0.tscn" id="8_y7tcb"]
-[ext_resource type="PackedScene" uid="uid://kxp25rllhgyv" path="res://scenes/Player/Archie.tscn" id="9_q15d3"]
-[ext_resource type="PackedScene" uid="uid://ddm87ipcchlfw" path="res://scenes/Player/Morin.tscn" id="10_bk0kd"]
+[ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="9_q15d3"]
+[ext_resource type="PackedScene" uid="uid://clmhwvftcd3hf" path="res://scenes/Player/Morin.tscn" id="10_bk0kd"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="11_arhbg"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="12_dppyl"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="13_b0gg8"]
@@ -43,15 +43,53 @@ levelPath = "Level 2"
 [node name="Room3" parent="Rooms" instance=ExtResource("5_f6kvy")]
 position = Vector2(1472, 0)
 
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room3/EnemyPosition" index="0"]
+position = Vector2(97, -188)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room3/EnemyPosition" index="1"]
+position = Vector2(101, -87)
+
+[node name="PlayerDetector" parent="Rooms/Room3" index="3"]
+position = Vector2(-1, 2.5)
+
+[node name="CollisionShape2D" parent="Rooms/Room3/PlayerDetector" index="0"]
+position = Vector2(1, -3.5)
+
 [node name="Room2" parent="Rooms" instance=ExtResource("7_wn1tw")]
 position = Vector2(704, 0)
+
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room2/EnemyPosition" index="0"]
+position = Vector2(113, 114)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room2/EnemyPosition" index="1"]
+position = Vector2(-82, 112)
+
+[node name="PlayerDetector" parent="Rooms/Room2" index="3"]
+position = Vector2(0, 0)
 
 [node name="Room1" parent="Rooms" instance=ExtResource("8_y7tcb")]
 position = Vector2(1472, 896)
 
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room1/EnemyPosition" index="0"]
+position = Vector2(-96, -206.5)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room1/EnemyPosition" index="1"]
+position = Vector2(-50, -158.5)
+
+[node name="Marker2D3" type="Marker2D" parent="Rooms/Room1/EnemyPosition" index="2"]
+position = Vector2(43.5, -162)
+
+[node name="Marker2D4" type="Marker2D" parent="Rooms/Room1/EnemyPosition" index="3"]
+position = Vector2(84, -207.5)
+
 [node name="ThreeCharacters" parent="." instance=ExtResource("8_wp32q")]
+position = Vector2(-152, 148)
 character1 = ExtResource("9_q15d3")
 character2 = ExtResource("10_bk0kd")
+
+[editable path="Rooms/Room3"]
+[editable path="Rooms/Room2"]
+[editable path="Rooms/Room1"]
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 

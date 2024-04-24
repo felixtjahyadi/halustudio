@@ -29,6 +29,7 @@ var chase = false
 signal remove_from_array(object)
 
 func _ready():
+	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 	hitbox.damage = enemy_damage
 	screen_size = get_viewport_rect().size
 	hurtbox.connect("hurt", Callable(self, "_on_hurt_box_hurt"))
@@ -70,15 +71,15 @@ func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 		get_parent().call_deferred("add_child", enemy_death)
 		emit_signal("remove_from_array", self)
 		var num_coins = randi() % int(max_coins) + 1
-		for i in range(num_coins):
-			var new_coin = coins.instantiate()
-			var new_potion = potions.instantiate()
-			new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-			new_coin.money = money
-			new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-			new_potion.money = money
-			loot_base.call_deferred("add_child", new_coin)
-			loot_base.call_deferred("add_child", new_potion)
+		#for i in range(num_coins):
+			#var new_coin = coins.instantiate()
+			#var new_potion = potions.instantiate()
+			#new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			#new_coin.money = money
+			#new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			#new_potion.money = money
+			#loot_base.call_deferred("add_child", new_coin)
+			#loot_base.call_deferred("add_child", new_potion)
 		queue_free()
 	else:
 		sound.play()

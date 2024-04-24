@@ -54,17 +54,64 @@ skippable = true
 [node name="Room4" parent="Rooms" instance=ExtResource("4_0v20o")]
 position = Vector2(0, 768)
 
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room4/EnemyPosition" index="0"]
+position = Vector2(-75, 102.5)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room4/EnemyPosition" index="1"]
+position = Vector2(135.5, 166)
+
+[node name="Marker2D3" type="Marker2D" parent="Rooms/Room4/EnemyPosition" index="2"]
+position = Vector2(-31, -60)
+
 [node name="Room2" parent="Rooms" instance=ExtResource("5_wqm6t")]
 position = Vector2(-768, 768)
+
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room2/EnemyPosition" index="0"]
+position = Vector2(-85.5, 79.5)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room2/EnemyPosition" index="1"]
+position = Vector2(-140, -52.5)
+
+[node name="Marker2D3" type="Marker2D" parent="Rooms/Room2/EnemyPosition" index="2"]
+position = Vector2(-5, -107)
+
+[node name="CollisionShape2D" parent="Rooms/Room2/PlayerDetector" index="0"]
+position = Vector2(154.25, -0.75)
 
 [node name="Room3" parent="Rooms" instance=ExtResource("6_0ft3i")]
 position = Vector2(0, 1536)
 
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room3/EnemyPosition" index="0"]
+
 [node name="Room5" parent="Rooms" instance=ExtResource("7_c5sno")]
 position = Vector2(816, 1536)
 
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room5/EnemyPosition" index="0"]
+position = Vector2(141, -143)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room5/EnemyPosition" index="1"]
+position = Vector2(-81, 99)
+
+[node name="Marker2D3" type="Marker2D" parent="Rooms/Room5/EnemyPosition" index="2"]
+position = Vector2(1, 218.5)
+
+[node name="CollisionShape2D" parent="Rooms/Room5/PlayerDetector" index="0"]
+position = Vector2(-45.5, -85.5)
+
 [node name="Room6" parent="Rooms" instance=ExtResource("8_caj7j")]
 position = Vector2(816, 768)
+
+[node name="Marker2D" type="Marker2D" parent="Rooms/Room6/EnemyPosition" index="0"]
+position = Vector2(-103.5, -131)
+
+[node name="Marker2D2" type="Marker2D" parent="Rooms/Room6/EnemyPosition" index="1"]
+position = Vector2(-103.5, 103.5)
+
+[node name="Marker2D3" type="Marker2D" parent="Rooms/Room6/EnemyPosition" index="2"]
+position = Vector2(-15.5, 53)
+
+[node name="Marker2D4" type="Marker2D" parent="Rooms/Room6/EnemyPosition" index="3"]
+position = Vector2(110.5, -49)
 
 [node name="RoomBoss" parent="Rooms" instance=ExtResource("9_1yxft")]
 position = Vector2(1680, 768)
@@ -74,6 +121,13 @@ levelPath = "WinScreen"
 [node name="ThreeCharacters" parent="." instance=ExtResource("10_vm4bb")]
 character1 = ExtResource("11_203ud")
 character2 = ExtResource("12_4bjco")
+
+[editable path="Rooms/Room4"]
+[editable path="Rooms/Room2"]
+[editable path="Rooms/Room3"]
+[editable path="Rooms/Room5"]
+[editable path="Rooms/Room6"]
+[editable path="Rooms/RoomBoss"]
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 

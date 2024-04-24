@@ -330,19 +330,17 @@ parameters/Walk/blend_position = 0.0
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="Weapon/Node2D" index="0"]
-position = Vector2(18.3137, 0.313708)
+position = Vector2(21.5, 0.5)
 rotation = 5.49779
 texture = ExtResource("7_b4w3a")
 
 [node name="CollisionShape2D" parent="Weapon/PlayerDetector" index="0"]
-position = Vector2(18.3137, 0.313708)
+position = Vector2(25, 0.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_whd8m")
 
 [node name="ShootSkill" parent="." instance=ExtResource("8_h0j7f")]
 projectile_scene = ExtResource("9_xplul")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Grab" type="Area2D" parent="."]
 collision_layer = 0
@@ -360,6 +358,10 @@ collision_mask = 8
 [node name="CollectAreaCol" type="CollisionShape2D" parent="Collect"]
 position = Vector2(0.666667, 3.66667)
 shape = SubResource("CircleShape2D_6pi4r")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
