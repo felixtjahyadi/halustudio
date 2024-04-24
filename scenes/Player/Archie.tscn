@@ -1,11 +1,12 @@
-[gd_scene load_steps=42 format=3 uid="uid://clldvw3fgw8d8"]
+[gd_scene load_steps=44 format=3 uid="uid://clldvw3fgw8d8"]
 
 [ext_resource type="Texture2D" uid="uid://bt8d06wklsuca" path="res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png" id="1_0xl11"]
 [ext_resource type="Texture2D" uid="uid://b0bnpvr578rmt" path="res://assets/Player/spritesheets/archie-idle-anim-sheet.png" id="1_4il6w"]
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Archie.gd" id="1_7p78a"]
-[ext_resource type="Texture2D" uid="uid://jfi8vmglh206" path="res://assets/Player/spritesheets/archie-walk-anim-sheet.png" id="3_ddk5v"]
+[ext_resource type="Texture2D" uid="uid://d1xmw6hgn1brq" path="res://assets/Player/spritesheets/archie-walk-anim-sheet.png" id="3_ddk5v"]
 [ext_resource type="Texture2D" uid="uid://b0s33x5dq38bo" path="res://assets/Player/spritesheets/archie-walk-anim-sheet-flip.png" id="3_jko0j"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_2w84m"]
+[ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="6_erdj2"]
 [ext_resource type="Texture2D" uid="uid://b561hydikthvs" path="res://assets/Weapons/bow.png" id="7_b4w3a"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_h0j7f"]
 [ext_resource type="PackedScene" uid="uid://chi6oe4mv0gbf" path="res://scenes/Skill/Shoot/Projectile/arrow.tscn" id="9_xplul"]
@@ -118,8 +119,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xfye0"]
-radius = 18.0
-height = 48.0
+radius = 8.0
+height = 32.0
 
 [sub_resource type="Animation" id="Animation_p4f8q"]
 length = 0.8
@@ -288,6 +289,9 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace1D_e0ys0")
 states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kfmx"]
+size = Vector2(48, 64)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whd8m"]
 radius = 3.0
 height = 6.0
@@ -300,6 +304,7 @@ radius = 7.6956
 
 [node name="Archie" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7p78a")
+armor = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -325,6 +330,13 @@ parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
+
+[node name="HurtBox" parent="." instance=ExtResource("6_erdj2")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_8kfmx")
 
 [node name="Weapon" parent="." instance=ExtResource("6_2w84m")]
 scale = Vector2(2, 2)
@@ -363,7 +375,9 @@ shape = SubResource("CircleShape2D_6pi4r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
+[editable path="HurtBox"]
 [editable path="Weapon"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://wq0udb2cgi3d"]
+[gd_scene load_steps=44 format=3 uid="uid://wq0udb2cgi3d"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Reina.gd" id="1_usv2g"]
 [ext_resource type="Texture2D" uid="uid://1iu8w3ms703o" path="res://assets/Player/spritesheets/reina-idle-anim-sheet-flip.png" id="2_0yfsk"]
-[ext_resource type="Texture2D" uid="uid://dj641w2tdg7wv" path="res://assets/Player/spritesheets/reina-idle-anim-sheet.png" id="3_i5kk0"]
+[ext_resource type="Texture2D" uid="uid://dqqhb6n6bqdgb" path="res://assets/Player/spritesheets/reina-idle-anim-sheet.png" id="3_i5kk0"]
 [ext_resource type="Texture2D" uid="uid://b8wlu7qv4q7uk" path="res://assets/Player/spritesheets/reina-walk-anim-sheet-flip.png" id="4_ciwyb"]
-[ext_resource type="Texture2D" uid="uid://8gu0pawcj7bg" path="res://assets/Player/spritesheets/reina-walk-anim-sheet.png" id="5_qumjl"]
+[ext_resource type="Texture2D" uid="uid://crq5am8iid83v" path="res://assets/Player/spritesheets/reina-walk-anim-sheet.png" id="5_qumjl"]
+[ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="6_3qs88"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_55blr"]
 [ext_resource type="Texture2D" uid="uid://c8by2gqvdx4b7" path="res://assets/Weapons/book.png" id="7_hns04"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_nuxm6"]
@@ -288,6 +289,9 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace1D_e0ys0")
 states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7n2o"]
+size = Vector2(48, 64)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e52"]
 size = Vector2(15.625, 16.125)
 
@@ -299,6 +303,7 @@ radius = 7.6956
 
 [node name="Reina" type="CharacterBody2D"]
 script = ExtResource("1_usv2g")
+armor = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -324,6 +329,13 @@ parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
+
+[node name="HurtBox" parent="." instance=ExtResource("6_3qs88")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_q7n2o")
 
 [node name="Weapon" parent="." instance=ExtResource("6_55blr")]
 scale = Vector2(2, 2)
@@ -358,7 +370,9 @@ shape = SubResource("CircleShape2D_5rpj2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
+[editable path="HurtBox"]
 [editable path="Weapon"]

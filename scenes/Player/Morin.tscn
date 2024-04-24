@@ -1,10 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://clmhwvftcd3hf"]
+[gd_scene load_steps=44 format=3 uid="uid://clmhwvftcd3hf"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
-[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
+[ext_resource type="Texture2D" uid="uid://p1vdybmk15gh" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
 [ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
-[ext_resource type="Texture2D" uid="uid://dd66et6q4ccr8" path="res://assets/Player/spritesheets/morin-walk-anim-sheet.png" id="5_ywmoq"]
+[ext_resource type="Texture2D" uid="uid://o2yrcp474x8b" path="res://assets/Player/spritesheets/morin-walk-anim-sheet.png" id="5_ywmoq"]
+[ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="6_m1uwh"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_r8lj7"]
 [ext_resource type="Texture2D" uid="uid://n8y0hk7tyohu" path="res://assets/Weapons/Gun.png" id="7_3rxp8"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_xpdsv"]
@@ -288,6 +289,9 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace1D_e0ys0")
 states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if4gi"]
+size = Vector2(48, 64)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3ikf"]
 radius = 3.0
 height = 16.0
@@ -300,6 +304,7 @@ radius = 7.6956
 
 [node name="Morin" type="CharacterBody2D"]
 script = ExtResource("1_jlina")
+armor = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -324,6 +329,13 @@ parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
+
+[node name="HurtBox" parent="." instance=ExtResource("6_m1uwh")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_if4gi")
 
 [node name="Weapon" parent="." instance=ExtResource("6_r8lj7")]
 scale = Vector2(2, 2)
@@ -359,7 +371,9 @@ shape = SubResource("CircleShape2D_aihvg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
+[editable path="HurtBox"]
 [editable path="Weapon"]

@@ -4,9 +4,9 @@ class_name Character
 
 signal dead(character: Character)
 
-@export var health = 500
+@export var health = 10
 @export var speed = 300
-@export var armor = 100
+@export var armor = 2
 @export var weapon_scene: PackedScene
 
 var current_weapon: Node
@@ -59,3 +59,9 @@ func set_walking():
 func set_blend_position():
 	animations["parameters/Idle/blend_position"] = last_direction.x
 	animations["parameters/Walk/blend_position"] = last_direction.x
+
+func _on_hurt_box_hurt(damage, angle, knock_back_amount):
+	print(damage)
+	get_damage(damage)
+	if health <= 0:
+		queue_free()
