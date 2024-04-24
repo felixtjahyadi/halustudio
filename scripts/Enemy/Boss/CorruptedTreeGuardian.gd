@@ -5,7 +5,6 @@ class_name CorruptedTreeGuardian
 @export var maxMinionCount : int = 15
 @export var minionList : Array = [
 	preload("res://scenes/Enemy/Boss/BranchMinion.tscn"),
-	preload("res://scenes/Enemy/normal_zombie.tscn")
 ]
 @export var intervalSpawn : float = 1.0
 
@@ -66,6 +65,6 @@ func start_animation():
 	_reset()
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
-	print(get_child_count())
-	if get_child_count() == 0:
-		super(damage, angle, knock_back_amount)
+	#print(get_child_count())
+	#if get_child_count() == 0:
+	super(damage, angle, knock_back_amount)
