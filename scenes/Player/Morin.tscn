@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://cg2q4b3i7av65"]
 
-[ext_resource type="Script" path="res://scripts/Character/Morin.gd" id="1_jlina"]
+[ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
 [ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
 [ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
