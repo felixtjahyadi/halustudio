@@ -305,7 +305,7 @@ script = ExtResource("1_jlina")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
