@@ -2,17 +2,26 @@ extends CharacterBody2D
 
 class_name Character
 
-@export var speed = 300.0
+@export var health = 500
+@export var speed = 300
+@export var armor = 100
 @export var weapon_scene: PackedScene
 
 var current_weapon: Node
+var current_health = health
+var current_armor = armor
+var is_alive = true
 
 func set_weapon():
 	pass
 	
 func attack():
 	pass
+	
+func get_damage(value):
+	pass
 
+# Movement
 func _physics_process(delta):
 	move()
 
