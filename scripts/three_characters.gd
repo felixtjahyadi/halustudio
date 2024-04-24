@@ -57,9 +57,15 @@ func change_current_selected_charater():
 	
 	selected_character_node = character_swap[selected_character_node][0]
 	
+	animate_swap(prev_character_position)
 	selected_character_node.position = prev_character_position
 	selected_character_node.last_direction = prev_character_last_direction
-	
+
+func animate_swap(pos):
+	$Swap.position.x = pos.x
+	$Swap.position.y = pos.y-20
+	$Swap/AnimatedSprite2D.visible = true
+
 func remove_current_selected_charater():
 	remove_child(selected_character_node)
 

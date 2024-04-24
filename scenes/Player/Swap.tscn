@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bckuskx4gcxgq"]
+[gd_scene load_steps=12 format=3 uid="uid://bckuskx4gcxgq"]
 
 [ext_resource type="Texture2D" uid="uid://dn868fyo740i7" path="res://assets/UI/spawn-sheet.png" id="1_j28jm"]
+[ext_resource type="Script" path="res://scripts/animatedsprite2d_autoplay.gd" id="2_cis8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3t71a"]
 atlas = ExtResource("1_j28jm")
@@ -70,4 +71,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_64ouq")
-frame_progress = 0.240053
+script = ExtResource("2_cis8r")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_frame_changed"]
+[connection signal="visibility_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_visibility_changed"]
