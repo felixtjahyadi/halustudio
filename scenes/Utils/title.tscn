@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://tosur4j40spc"]
+[gd_scene load_steps=9 format=3 uid="uid://tosur4j40spc"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_pfnru"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="2_qfooj"]
 [ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_y4aph"]
+[ext_resource type="PackedScene" uid="uid://qir7vrt1qhuj" path="res://scenes/Audio/menu_theme.tscn" id="4_vpp7n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbqax"]
 bg_color = Color(0.380392, 0.458824, 0.584314, 1)
@@ -77,6 +78,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_02x6o")
 text = "Quit"
+
+[node name="MenuTheme" parent="." instance=ExtResource("4_vpp7n")]
 
 [connection signal="click_end" from="Play" to="." method="_on_play_click_end"]
 [connection signal="click_end" from="Quit" to="." method="_on_quit_click_end"]

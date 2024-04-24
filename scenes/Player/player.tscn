@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bky7hirsru46f"]
+[gd_scene load_steps=21 format=3 uid="uid://bky7hirsru46f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7cii0"]
 [ext_resource type="Texture2D" uid="uid://cprcas524dhbt" path="res://assets/Player/apple.png" id="1_w788x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bq38uuoqahboy" path="res://assets/Icon/hp_bar.png" id="5_n86ik"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="6_b0kyk"]
 [ext_resource type="Texture2D" uid="uid://drj12skd22c7b" path="res://assets/Enemy/insuranceguy.png" id="6_s6ljq"]
+[ext_resource type="AudioStream" path="res://assets/Audio/MenuBGM.ogg" id="8_8xj0d"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_16uom"]
 [ext_resource type="PackedScene" uid="uid://otyaqrxusqei" path="res://scenes/Skill/Shoot/Projectile/bullet.tscn" id="9_h5qbh"]
 
@@ -248,7 +249,7 @@ text = "MENU"
 unique_name_in_owner = true
 position = Vector2(-140, 700)
 scale = Vector2(3, 3)
-volume_db = -10.0
+stream = ExtResource("8_8xj0d")
 
 [node name="win" type="AudioStreamPlayer2D" parent="GUILayer/Control/Death"]
 unique_name_in_owner = true
