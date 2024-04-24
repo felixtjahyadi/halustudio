@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dadyistu52sqk"]
 
 [ext_resource type="Texture2D" uid="uid://cd2wqc6ipwolg" path="res://assets/Map/grass.png" id="1_x8ml8"]
-[ext_resource type="PackedScene" path="res://scenes/Player/three_characters.tscn" id="4_lxcc5"]
+[ext_resource type="PackedScene" uid="uid://d1mm83cxhap7r" path="res://scenes/Player/three_characters.tscn" id="4_lxcc5"]
 [ext_resource type="PackedScene" uid="uid://dfttiawlfctn4" path="res://scenes/Player/Archie.tscn" id="5_masnx"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_g5j1p"]
 [ext_resource type="PackedScene" uid="uid://cg2q4b3i7av65" path="res://scenes/Player/Morin.tscn" id="6_msreh"]
