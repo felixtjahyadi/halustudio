@@ -13,6 +13,6 @@ func startRoom():
 		# TODO : remove this after endRoom in super() was deleted
 
 func _on_room_area_body_entered(body):
-	if body.get_name() == "Player":
+	if _isRoomNotExplored and body.get_name() == "Player":
 		super(body)
 		boss.start_animation()

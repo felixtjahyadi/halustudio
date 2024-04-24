@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4is5l764xsf7"]
+[gd_scene load_steps=8 format=3 uid="uid://b4is5l764xsf7"]
 
+[ext_resource type="Script" path="res://scripts/Enemy/Boss/BranchMinion.gd" id="1_7yqod"]
 [ext_resource type="Texture2D" uid="uid://2wiwtic0pe2n" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eofuj"]
@@ -39,6 +40,7 @@ animations = [{
 }]
 
 [node name="BranchMinion" type="Node2D"]
+script = ExtResource("1_7yqod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o0wl0")

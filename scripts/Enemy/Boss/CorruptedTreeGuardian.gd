@@ -21,6 +21,11 @@ func _process(delta):
 		_spawn_minion(count)
 	super(delta)
 
+func _reset():
+	await get_tree().create_timer(attack_cooldown).timeout
+	attack()
+	_reset()
+
 func attack():
 	if (onFieldMinions.size() <= maxMinionCount):
 		var count = _get_minion_count_randomizer()
@@ -40,8 +45,8 @@ func _spawn():
 	get_parent().add_child(minion)
 	
 	var spawn_pos = Vector2(0, 0)
-	spawn_pos.x = randf_range(-100, 100)
-	spawn_pos.y = randf_range(-100, 100)
+	spawn_pos.x = randf_range(-32 * 9, 32 * 9)
+	spawn_pos.y = randf_range(-32 * 9, 32 * 9)
 	
 	minion.position = spawn_pos
 	
@@ -52,4 +57,5 @@ func start_animation():
 	sprite.play("awake")
 	await get_tree().create_timer(2.0).timeout
 	sprite.play("idle")
+	_reset()
 	super()
