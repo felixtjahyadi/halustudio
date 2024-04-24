@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cs0i36in38kiy"
+path="res://.godot/imported/Metal Sword Slash.ogg-298663e00fef0df2b380550c6b3d0d64.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Audio/Metal Sword Slash.ogg"
+dest_files=["res://.godot/imported/Metal Sword Slash.ogg-298663e00fef0df2b380550c6b3d0d64.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
