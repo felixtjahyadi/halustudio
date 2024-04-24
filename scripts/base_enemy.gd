@@ -13,6 +13,7 @@ var knock_back = Vector2.ZERO
 var screen_size
 var death = preload("res://scenes/Enemy/death.tscn")
 var coins = preload("res://scenes/Loot/Coin.tscn")
+var potions = preload("res://scenes/Loot/Potion.tscn")
 var chase = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -71,9 +72,13 @@ func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 		var num_coins = randi() % int(max_coins) + 1
 		for i in range(num_coins):
 			var new_coin = coins.instantiate()
+			var new_potion = potions.instantiate()
 			new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
 			new_coin.money = money
+			new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			new_potion.money = money
 			loot_base.call_deferred("add_child", new_coin)
+			loot_base.call_deferred("add_child", new_potion)
 		queue_free()
 	else:
 		sound.play()

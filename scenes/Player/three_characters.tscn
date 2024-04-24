@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://du3b0tqm03akh"]
+[gd_scene load_steps=3 format=3 uid="uid://d1mm83cxhap7r"]
 
 [ext_resource type="Script" path="res://scripts/three_characters.gd" id="1_rr6xm"]
 [ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="2_yplmq"]

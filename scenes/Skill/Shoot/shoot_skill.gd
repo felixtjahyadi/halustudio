@@ -14,9 +14,11 @@ func _ready():
 	var transform = Transform2D()
 	transform.origin = Vector2(projectile_spawn_offset, 0)
 	projectileSpawnPosition.transform = transform
+	
 
 func _process(delta):
 	handle_shoot()
+	
 
 func handle_shoot():
 	if Input.is_action_just_pressed("click") and can_shoot:
