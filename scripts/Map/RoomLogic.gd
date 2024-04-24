@@ -37,7 +37,7 @@ func _ready():
 	_updateRoomTexture()
 	toggleDoor()
 	
-	if skippable and lastRoom:
+	if lastRoom:
 		showPortal()
 
 func _updateRoomTexture():

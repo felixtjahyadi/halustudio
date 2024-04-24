@@ -1,47 +1,79 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4is5l764xsf7"]
+[gd_scene load_steps=12 format=3 uid="uid://b4is5l764xsf7"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/BranchMinion.gd" id="1_7yqod"]
 [ext_resource type="Texture2D" uid="uid://2wiwtic0pe2n" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
+[ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_hx0y6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eofuj"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xv3oq"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_levx3"]
 atlas = ExtResource("1_ebsuk")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ox3wn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5wto"]
 atlas = ExtResource("1_ebsuk")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y1mub"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mdo1"]
 atlas = ExtResource("1_ebsuk")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ch68y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcsft"]
 atlas = ExtResource("1_ebsuk")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_o0wl0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkupf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eofuj")
+"texture": SubResource("AtlasTexture_levx3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ox3wn")
+"texture": SubResource("AtlasTexture_x5wto")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y1mub")
+"texture": SubResource("AtlasTexture_6mdo1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ch68y")
+"texture": SubResource("AtlasTexture_mcsft")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[node name="BranchMinion" type="Node2D"]
-script = ExtResource("1_7yqod")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mf7q"]
+size = Vector2(25.8333, 56)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_o0wl0")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13n8c"]
+size = Vector2(26, 40)
+
+[node name="BranchMinion" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_7yqod")
+hp = 30
+enemy_damage = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_xv3oq")
+
+[node name="EnemyBody" parent="." instance=ExtResource("2_hx0y6")]
+
+[node name="AnimatedSprite2D" parent="EnemyBody" index="0"]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_bkupf")
 animation = &"idle"
+
+[node name="CollisionShape2D" parent="EnemyBody/HurtBox" index="0"]
+position = Vector2(3.08333, -4)
+shape = SubResource("RectangleShape2D_5mf7q")
+
+[node name="CollisionShape2D" parent="EnemyBody/HitBox" index="1"]
+position = Vector2(3, 4)
+shape = SubResource("RectangleShape2D_13n8c")
+
+[editable path="EnemyBody"]
+[editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HitBox"]
