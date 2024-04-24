@@ -6,6 +6,7 @@ var total_money_collected = 0
 @onready var weapon: Node2D = get_node("Weapon")
 
 func _process(delta):
+	super._process(delta)
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	weapon.rotation = mouse_direction.angle()
 	if weapon.scale.y == 2 and mouse_direction.x<0:
