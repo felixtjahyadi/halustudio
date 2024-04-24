@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name RoomLogic
+
 var _isDoorClosed : bool = false
 func _toggleIsDoorClosed():
 	_isDoorClosed = !_isDoorClosed

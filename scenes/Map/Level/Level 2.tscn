@@ -66,3 +66,4 @@ lastRoom = true
 levelPath = "WinScreen"
 
 [node name="Player" parent="." instance=ExtResource("9_faksg")]
+position = Vector2(1288, 768)
