@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3d1ov44reo7d"]
+[gd_scene load_steps=9 format=3 uid="uid://c3d1ov44reo7d"]
 
 [ext_resource type="PackedScene" uid="uid://c0nuxoqqoqbde" path="res://scenes/Map/Room/1/1-1.tscn" id="1_ckb1b"]
 [ext_resource type="PackedScene" uid="uid://c3h8kyqjwwqi1" path="res://scenes/Map/Room/transition/TransitionH.tscn" id="1_qbtoq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bfvojt4y1ba3h" path="res://scenes/Map/Room/1/1-3.tscn" id="7_jioex"]
 [ext_resource type="PackedScene" uid="uid://bpksiove5g5iw" path="res://scenes/Map/Room/2/2-13.tscn" id="7_wn1tw"]
 [ext_resource type="PackedScene" uid="uid://baed4td4m8wpf" path="res://scenes/Map/Room/1/3-0.tscn" id="8_y7tcb"]
-[ext_resource type="PackedScene" uid="uid://dbu6ev5y48jv" path="res://scenes/Map/Objects/Portal.tscn" id="9_dndcq"]
 
 [node name="Level1" type="Node2D"]
 
@@ -32,8 +31,7 @@ skippable = true
 [node name="Room1-5(Finish)" parent="Rooms" instance=ExtResource("7_jioex")]
 position = Vector2(2176, 0)
 skippable = true
-
-[node name="Portal" parent="Rooms/Room1-5(Finish)" instance=ExtResource("9_dndcq")]
+lastRoom = true
 levelPath = "Level 2"
 
 [node name="Room3" parent="Rooms" instance=ExtResource("5_f6kvy")]

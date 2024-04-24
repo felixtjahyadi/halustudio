@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2yejcyogg2jr"]
+[gd_scene load_steps=11 format=3 uid="uid://b2yejcyogg2jr"]
 
 [ext_resource type="PackedScene" uid="uid://c3h8kyqjwwqi1" path="res://scenes/Map/Room/transition/TransitionH.tscn" id="1_24tnm"]
 [ext_resource type="PackedScene" uid="uid://cpolnt1n00ra" path="res://scenes/Map/Room/transition/TransitionV.tscn" id="2_gylsu"]
 [ext_resource type="PackedScene" uid="uid://bjicd8nx62s8k" path="res://scenes/Map/Room/1/1-2.tscn" id="3_8sk72"]
 [ext_resource type="PackedScene" uid="uid://c4unejtvnx0wv" path="res://scenes/Map/Room/4/3-0123.tscn" id="4_0v20o"]
-[ext_resource type="PackedScene" uid="uid://dbu6ev5y48jv" path="res://scenes/Map/Objects/Portal.tscn" id="5_8ir52"]
 [ext_resource type="PackedScene" uid="uid://dd42ksorndm73" path="res://scenes/Map/Room/1/2-1.tscn" id="5_wqm6t"]
 [ext_resource type="PackedScene" uid="uid://d0ogqte53im0x" path="res://scenes/Map/Room/2/1-01.tscn" id="6_0ft3i"]
 [ext_resource type="PackedScene" uid="uid://c11p44s35a54q" path="res://scenes/Map/Room/2/3-03.tscn" id="7_c5sno"]
@@ -63,8 +62,7 @@ position = Vector2(816, 768)
 
 [node name="RoomBoss" parent="Rooms" instance=ExtResource("9_1yxft")]
 position = Vector2(1680, 768)
-
-[node name="Portal" parent="Rooms/RoomBoss" instance=ExtResource("5_8ir52")]
+lastRoom = true
 levelPath = "WinScreen"
 
 [node name="Player" parent="." instance=ExtResource("9_faksg")]
