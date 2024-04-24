@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2yejcyogg2jr"]
+[gd_scene load_steps=16 format=3 uid="uid://b2yejcyogg2jr"]
 
 [ext_resource type="PackedScene" uid="uid://c3h8kyqjwwqi1" path="res://scenes/Map/Room/transition/TransitionH.tscn" id="1_24tnm"]
 [ext_resource type="PackedScene" uid="uid://cpolnt1n00ra" path="res://scenes/Map/Room/transition/TransitionV.tscn" id="2_gylsu"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://drsoa466bigti" path="res://scenes/Player/three_characters.tscn" id="10_vm4bb"]
 [ext_resource type="PackedScene" uid="uid://kxp25rllhgyv" path="res://scenes/Player/Archie.tscn" id="11_203ud"]
 [ext_resource type="PackedScene" uid="uid://ddm87ipcchlfw" path="res://scenes/Player/Morin.tscn" id="12_4bjco"]
+[ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="13_o3yxj"]
+[ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="14_a4y8u"]
+[ext_resource type="Script" path="res://scripts/BGM.gd" id="15_sao4w"]
 
 [node name="Level1" type="Node2D"]
 
@@ -71,3 +74,15 @@ levelPath = "WinScreen"
 [node name="ThreeCharacters" parent="." instance=ExtResource("10_vm4bb")]
 character1 = ExtResource("11_203ud")
 character2 = ExtResource("12_4bjco")
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="FrameSaver" parent="." instance=ExtResource("13_o3yxj")]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("14_a4y8u")
+volume_db = -10.028
+autoplay = true
+max_distance = 1e+07
+script = ExtResource("15_sao4w")
