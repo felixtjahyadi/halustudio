@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bky7hirsru46f"]
+[gd_scene load_steps=21 format=3 uid="uid://bky7hirsru46f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7cii0"]
 [ext_resource type="Texture2D" uid="uid://cprcas524dhbt" path="res://assets/Player/apple.png" id="1_w788x"]
-[ext_resource type="PackedScene" uid="uid://dnrw33143k5c2" path="res://scenes/Weapons/sword_ability/sword.tscn" id="3_em1pk"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="3_m30x5"]
 [ext_resource type="Texture2D" uid="uid://c7wnglkox06uh" path="res://assets/Object/coin.png" id="5_cnse2"]
 [ext_resource type="Texture2D" uid="uid://bq38uuoqahboy" path="res://assets/Icon/hp_bar.png" id="5_n86ik"]
@@ -77,18 +76,15 @@ script = ExtResource("1_7cii0")
 sprite_frames = SubResource("SpriteFrames_rygh0")
 animation = &"idle"
 
-[node name="Weapon" type="Node2D" parent="AnimatedSprite2D"]
-
-[node name="Sword" parent="AnimatedSprite2D/Weapon" instance=ExtResource("3_em1pk")]
-position = Vector2(12, 0)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.333333, 3.66667)
 shape = SubResource("CircleShape2D_nwelv")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_m30x5")]
+visible = false
 collision_layer = 2
 collision_mask = 2
 HurtBoxType = 2
@@ -108,6 +104,7 @@ unique_name_in_owner = true
 wait_time = 0.075
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 monitorable = false

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/bullet.gd" id="1_5pcpg"]
 [ext_resource type="Texture2D" uid="uid://djcsm80dw7bfo" path="res://assets/Projectile/bullet.png" id="1_mkki0"]
-[ext_resource type="PackedScene" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_cgyq3"]
+[ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_cgyq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhcy"]
-size = Vector2(128, 64)
+size = Vector2(140, 64)
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 4
