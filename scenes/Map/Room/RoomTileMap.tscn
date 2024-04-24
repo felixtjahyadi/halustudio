@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://drssvftnrptff"]
+
+[ext_resource type="TileSet" uid="uid://bnosdv0754byi" path="res://assets/Map/TileSet/MapTileSet.tres" id="1_owg0q"]
+
+[node name="RoomTileMap" type="TileMap"]
+tile_set = ExtResource("1_owg0q")
+format = 2
+layer_0/name = "World"
+layer_0/z_index = -1
+layer_1/name = "Door"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Objects"
+layer_2/tile_data = PackedInt32Array()

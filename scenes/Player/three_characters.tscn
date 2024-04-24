@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1mm83cxhap7r"]
+[gd_scene load_steps=5 format=3 uid="uid://d1mm83cxhap7r"]
 
 [ext_resource type="Script" path="res://scripts/three_characters.gd" id="1_rr6xm"]
 [ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="2_yplmq"]
-[ext_resource type="PackedScene" uid="uid://dahpaqbumotlj" path="res://scenes/Player/Archie.tscn" id="3_psulc"]
-[ext_resource type="PackedScene" uid="uid://bp58r37yvimfm" path="res://scenes/Player/Reina.tscn" id="4_axsod"]
+[ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="3_psulc"]
+[ext_resource type="PackedScene" uid="uid://wq0udb2cgi3d" path="res://scenes/Player/Reina.tscn" id="4_axsod"]
 
 [node name="ThreeCharacters" type="Node2D"]
 script = ExtResource("1_rr6xm")

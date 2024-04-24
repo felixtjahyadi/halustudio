@@ -1,10 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://clmhwvftcd3hf"]
+[gd_scene load_steps=42 format=3 uid="uid://clmhwvftcd3hf"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
-[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
+[ext_resource type="Texture2D" uid="uid://p1vdybmk15gh" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
 [ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
-[ext_resource type="Texture2D" uid="uid://dd66et6q4ccr8" path="res://assets/Player/spritesheets/morin-walk-anim-sheet.png" id="5_ywmoq"]
+[ext_resource type="Texture2D" uid="uid://o2yrcp474x8b" path="res://assets/Player/spritesheets/morin-walk-anim-sheet.png" id="5_ywmoq"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_r8lj7"]
 [ext_resource type="Texture2D" uid="uid://n8y0hk7tyohu" path="res://assets/Weapons/Gun.png" id="7_3rxp8"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_xpdsv"]
@@ -292,6 +292,12 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 radius = 3.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrixo"]
+radius = 31.6947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aihvg"]
+radius = 7.6956
+
 [node name="Morin" type="CharacterBody2D"]
 script = ExtResource("1_jlina")
 
@@ -299,6 +305,7 @@ script = ExtResource("1_jlina")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -333,5 +340,27 @@ shape = SubResource("CapsuleShape2D_a3ikf")
 
 [node name="ShootSkill" parent="." instance=ExtResource("8_xpdsv")]
 projectile_scene = ExtResource("9_gq6ev")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Grab" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="GrabAreaCol" type="CollisionShape2D" parent="Grab"]
+unique_name_in_owner = true
+position = Vector2(0, 1.66667)
+shape = SubResource("CircleShape2D_jrixo")
+
+[node name="Collect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollectAreaCol" type="CollisionShape2D" parent="Collect"]
+position = Vector2(0.666667, 3.66667)
+shape = SubResource("CircleShape2D_aihvg")
+
+[connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
+[connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
 [editable path="Weapon"]
