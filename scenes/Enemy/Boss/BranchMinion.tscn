@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4is5l764xsf7"]
+
+[ext_resource type="Texture2D" uid="uid://2wiwtic0pe2n" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eofuj"]
+atlas = ExtResource("1_ebsuk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox3wn"]
+atlas = ExtResource("1_ebsuk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1mub"]
+atlas = ExtResource("1_ebsuk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch68y"]
+atlas = ExtResource("1_ebsuk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0wl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eofuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1mub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch68y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="BranchMinion" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o0wl0")
+animation = &"idle"
