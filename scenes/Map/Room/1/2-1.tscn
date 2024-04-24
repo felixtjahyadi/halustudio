@@ -7,7 +7,7 @@
 size = Vector2(352, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2qf6"]
-size = Vector2(40, 88)
+size = Vector2(38.5, 183.5)
 
 [node name="Room1" type="Node2D"]
 script = ExtResource("1_rqesn")
@@ -32,3 +32,4 @@ position = Vector2(155, -6)
 shape = SubResource("RectangleShape2D_b2qf6")
 
 [connection signal="body_entered" from="RoomArea" to="." method="_on_room_area_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

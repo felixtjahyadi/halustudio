@@ -32,3 +32,4 @@ position = Vector2(-44.5, -79.5)
 shape = SubResource("RectangleShape2D_jfqku")
 
 [connection signal="body_entered" from="RoomArea" to="." method="_on_room_area_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

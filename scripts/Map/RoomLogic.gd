@@ -41,11 +41,12 @@ var portalScenePath : String = "res://scenes/Map/Objects/Portal.tscn"
 var num_enemies: int
 
 func _ready():
-	num_enemies = enemy_positions_container.get_child_count()
-	
 	_isRoomNotExplored = false if skippable else true
 	_updateRoomTexture()
 	toggleDoor()
+	
+	num_enemies = enemy_positions_container.get_child_count()
+	#num_enemies = 0
 	
 	if skippable and lastRoom:
 		showPortal()
@@ -98,7 +99,6 @@ func endRoom():
 func _on_room_area_body_entered(body):
 	if body.is_in_group("player"):
 		startRoom()
-
 
 func _on_player_detector_body_entered(_body: CharacterBody2D):
 	player_detector.queue_free()
