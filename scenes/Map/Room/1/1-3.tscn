@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfvojt4y1ba3h"]
+[gd_scene load_steps=5 format=3 uid="uid://bfvojt4y1ba3h"]
 
 [ext_resource type="Script" path="res://scripts/Map/RoomLogic.gd" id="1_em15j"]
 [ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/Room/RoomTileMap.tscn" id="2_pcrpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6xw"]
 size = Vector2(224, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5vo"]
+size = Vector2(40, 88)
 
 [node name="Room1" type="Node2D"]
 script = ExtResource("1_em15j")
@@ -17,5 +20,15 @@ layer_1/tile_data = PackedInt32Array(131067, 65538, 0, 65531, 65538, 0, -5, 6553
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea"]
 shape = SubResource("RectangleShape2D_5f6xw")
+
+[node name="EnemyPosition" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-101, 0)
+shape = SubResource("RectangleShape2D_kh5vo")
 
 [connection signal="body_entered" from="RoomArea" to="." method="_on_room_area_body_entered"]

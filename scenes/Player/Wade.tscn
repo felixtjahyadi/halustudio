@@ -1,10 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://cl7xliq7ky1jf"]
+[gd_scene load_steps=36 format=3 uid="uid://bnx5t715bgwxt"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Wade.gd" id="1_6pyor"]
 [ext_resource type="Texture2D" uid="uid://c54kpimagwkd1" path="res://assets/Player/spritesheets/wade-idle-anim-sheet-flip.png" id="2_r0l7o"]
-[ext_resource type="Texture2D" uid="uid://d0kiqqv3c7i7j" path="res://assets/Player/spritesheets/wade-idle-anim-sheet.png" id="3_5qkn2"]
+[ext_resource type="Texture2D" uid="uid://b7ru6vl7xmymu" path="res://assets/Player/spritesheets/wade-idle-anim-sheet.png" id="3_5qkn2"]
 [ext_resource type="Texture2D" uid="uid://dwy8lb005ckrb" path="res://assets/Player/spritesheets/wade-walk-anim-sheet-flip.png" id="4_vlp5w"]
-[ext_resource type="Texture2D" uid="uid://2yehd2d6148i" path="res://assets/Player/spritesheets/wade-walk-anim-sheet.png" id="5_p52iv"]
+[ext_resource type="Texture2D" uid="uid://bbce3le8tm6kp" path="res://assets/Player/spritesheets/wade-walk-anim-sheet.png" id="5_p52iv"]
 [ext_resource type="PackedScene" uid="uid://dnrw33143k5c2" path="res://scenes/Weapons/sword_ability/sword.tscn" id="6_vufsm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1a3n"]
@@ -319,9 +319,6 @@ scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="Sword" index="1"]
 position = Vector2(17.5, 0)
-
-[node name="CollisionShape2D" parent="Sword/Area2D" index="0"]
-position = Vector2(25.5, -2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

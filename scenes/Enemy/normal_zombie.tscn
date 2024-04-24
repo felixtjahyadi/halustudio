@@ -26,6 +26,9 @@ shape = SubResource("CircleShape2D_ckssn")
 [node name="AnimatedSprite2D" parent="EnemyBody" index="0"]
 animation = &"idle"
 
+[node name="HurtBox" parent="EnemyBody" index="2"]
+visible = true
+
 [editable path="EnemyBody"]
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HitBox"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4is5l764xsf7"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/BranchMinion.gd" id="1_7yqod"]
-[ext_resource type="Texture2D" uid="uid://2wiwtic0pe2n" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
+[ext_resource type="Texture2D" uid="uid://b0beroofxtxeg" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eofuj"]
 atlas = ExtResource("1_ebsuk")
