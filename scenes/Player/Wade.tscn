@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bnx5t715bgwxt"]
+[gd_scene load_steps=35 format=3 uid="uid://j2naauopbtkw"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Wade.gd" id="1_6pyor"]
 [ext_resource type="Texture2D" uid="uid://c54kpimagwkd1" path="res://assets/Player/spritesheets/wade-idle-anim-sheet-flip.png" id="2_r0l7o"]
@@ -302,9 +302,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false

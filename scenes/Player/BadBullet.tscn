@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://beux873j684d1"]
+[gd_scene load_steps=35 format=3 uid="uid://dshd7es3sgy4h"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/BadBullet.gd" id="1_atb8h"]
 [ext_resource type="Texture2D" uid="uid://cmtmbdj1kk1lv" path="res://assets/Player/spritesheets/badbullet-idle-anim-sheet-flip.png" id="2_0kd4t"]
@@ -302,9 +302,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false

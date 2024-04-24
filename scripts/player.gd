@@ -11,7 +11,7 @@ var juicebox = preload("res://scenes/Player/player_projectile.tscn")
 var juice_ammo = 0
 var juice_base_ammo = 1
 var juice_attack_speed = 1.5
-var juice_attack_level = 1
+var juice_attack_level = 0
 
 var enemy_close = []
 
@@ -40,7 +40,6 @@ var time = 0
 @onready var store_sound = $store_sound
 @onready var win_sound = get_node("%win")
 @onready var lost_sound = get_node("%lost")
-
 signal player_death
 
 func _ready():
@@ -58,7 +57,7 @@ func movement():
 	if mov.x > 0:
 		sprite.flip_h = false
 	elif mov.x < 0:
-		sprite.flip_h = true
+		sprite.flip_h = true 
 		
 	if mov != Vector2.ZERO:
 		sprite.play("walk")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bb0hx7n87chhn"]
+[gd_scene load_steps=35 format=3 uid="uid://bp58r37yvimfm"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Reina.gd" id="1_usv2g"]
 [ext_resource type="Texture2D" uid="uid://1iu8w3ms703o" path="res://assets/Player/spritesheets/reina-idle-anim-sheet-flip.png" id="2_0yfsk"]
@@ -291,7 +291,7 @@ script = ExtResource("1_usv2g")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 2
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -302,9 +302,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["player"]]
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false

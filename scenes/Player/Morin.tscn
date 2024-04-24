@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cg2q4b3i7av65"]
+[gd_scene load_steps=35 format=3 uid="uid://bf4t31p45m2cs"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
@@ -291,7 +291,6 @@ script = ExtResource("1_jlina")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -302,9 +301,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["player"]]
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
