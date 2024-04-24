@@ -3,6 +3,17 @@ extends RigidBody2D
 var projectile_range: int
 var start_position: Vector2
 
+var hp = 1
+var level = 1
+var damage = 100
+var speed = 100
+var knock_back = 100
+var size = 1.0
+
+@onready var player = get_tree().get_first_node_in_group("player")
+
+signal remove_from_array(object)
+
 func setup(start: Vector2, range: int):
 	projectile_range = range
 	start_position = start
