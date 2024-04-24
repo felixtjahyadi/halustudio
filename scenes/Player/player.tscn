@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bky7hirsru46f"]
+[gd_scene load_steps=22 format=3 uid="uid://bky7hirsru46f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7cii0"]
 [ext_resource type="Texture2D" uid="uid://cprcas524dhbt" path="res://assets/Player/apple.png" id="1_w788x"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bq38uuoqahboy" path="res://assets/Icon/hp_bar.png" id="5_n86ik"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="6_b0kyk"]
 [ext_resource type="Texture2D" uid="uid://drj12skd22c7b" path="res://assets/Enemy/insuranceguy.png" id="6_s6ljq"]
-[ext_resource type="AudioStream" path="res://assets/Audio/MenuBGM.ogg" id="8_8xj0d"]
+[ext_resource type="AudioStream" uid="uid://crjtt21c0h0xd" path="res://assets/Audio/MenuBGM.ogg" id="8_8xj0d"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_16uom"]
+[ext_resource type="Texture2D" uid="uid://h4ohya1lapy3" path="res://assets/UI/gameover-bg.jpg" id="8_cflof"]
 [ext_resource type="PackedScene" uid="uid://otyaqrxusqei" path="res://scenes/Skill/Shoot/Projectile/bullet.tscn" id="9_h5qbh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1jvf"]
@@ -223,6 +224,12 @@ offset_left = 140.0
 offset_top = -700.0
 offset_right = 1015.0
 offset_bottom = -190.0
+
+[node name="TextureRect" type="TextureRect" parent="GUILayer/Control/Death"]
+layout_mode = 0
+offset_right = 875.0
+offset_bottom = 510.0
+texture = ExtResource("8_cflof")
 
 [node name="Result" type="Label" parent="GUILayer/Control/Death"]
 unique_name_in_owner = true
