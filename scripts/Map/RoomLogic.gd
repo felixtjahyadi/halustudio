@@ -74,5 +74,5 @@ func endRoom():
 		showPortal()
 
 func _on_room_area_body_entered(body):
-	if body.get_name() == "Player":
+	if body.is_in_group("player"):
 		startRoom()

@@ -45,8 +45,8 @@ func _spawn():
 	get_parent().add_child(minion)
 	
 	var spawn_pos = Vector2(0, 0)
-	spawn_pos.x = randf_range(-32 * 9, 32 * 9)
-	spawn_pos.y = randf_range(-32 * 9, 32 * 9)
+	spawn_pos.x = randf_range(-32 * (9-1), 32 * (9-1))
+	spawn_pos.y = randf_range(-32 * (9-1), 32 * (9-1))
 	
 	minion.position = spawn_pos
 	
