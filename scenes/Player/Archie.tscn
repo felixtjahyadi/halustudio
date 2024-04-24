@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://kxp25rllhgyv"]
+[gd_scene load_steps=42 format=3 uid="uid://clldvw3fgw8d8"]
 
 [ext_resource type="Texture2D" uid="uid://bt8d06wklsuca" path="res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png" id="1_0xl11"]
 [ext_resource type="Texture2D" uid="uid://dgkylrvhtrxqt" path="res://assets/Player/spritesheets/archie-idle-anim-sheet.png" id="1_4il6w"]
@@ -292,6 +292,12 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 radius = 3.0
 height = 6.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixska"]
+radius = 31.6947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pi4r"]
+radius = 7.6956
+
 [node name="Archie" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7p78a")
 
@@ -336,5 +342,25 @@ shape = SubResource("CapsuleShape2D_whd8m")
 projectile_scene = ExtResource("9_xplul")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Grab" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="GrabAreaCol" type="CollisionShape2D" parent="Grab"]
+unique_name_in_owner = true
+position = Vector2(0, 1.66667)
+shape = SubResource("CircleShape2D_ixska")
+
+[node name="Collect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollectAreaCol" type="CollisionShape2D" parent="Collect"]
+position = Vector2(0.666667, 3.66667)
+shape = SubResource("CircleShape2D_6pi4r")
+
+[connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
+[connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
 [editable path="Weapon"]

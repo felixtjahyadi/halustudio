@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://tosur4j40spc"]
+[gd_scene load_steps=8 format=3 uid="uid://tosur4j40spc"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_pfnru"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="2_qfooj"]
 [ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_y4aph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbqax"]
+bg_color = Color(0.380392, 0.458824, 0.584314, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q6jm"]
+bg_color = Color(0.533333, 0.611765, 0.737255, 1)
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_1bnuc"]
+Button/styles/hover = SubResource("StyleBoxFlat_xbqax")
+Button/styles/normal = SubResource("StyleBoxFlat_0q6jm")
+
+[sub_resource type="Theme" id="Theme_02x6o"]
+Button/styles/hover = SubResource("StyleBoxFlat_xbqax")
+Button/styles/normal = SubResource("StyleBoxFlat_0q6jm")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -36,6 +59,7 @@ offset_right = 62.5
 offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_1bnuc")
 text = "Play"
 
 [node name="Quit" parent="." instance=ExtResource("2_qfooj")]
@@ -51,6 +75,7 @@ offset_right = 62.5
 offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_02x6o")
 text = "Quit"
 
 [connection signal="click_end" from="Play" to="." method="_on_play_click_end"]

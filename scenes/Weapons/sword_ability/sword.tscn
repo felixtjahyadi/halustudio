@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnrw33143k5c2"]
+[gd_scene load_steps=8 format=3 uid="uid://dnrw33143k5c2"]
 
 [ext_resource type="Script" path="res://scripts/Weapons/sword.gd" id="1_2d7kx"]
 [ext_resource type="Texture2D" uid="uid://dsbkswvn32l7b" path="res://scenes/Weapons/sword_ability/sword.png" id="2_gc11q"]
-[ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="3_06152"]
 [ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="4_s5icj"]
 
 [sub_resource type="Animation" id="Animation_bbos3"]
@@ -18,18 +17,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/HitboxComponent/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3rc3p"]
@@ -48,18 +35,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, -0.174533, 3.14159, 0.0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/HitboxComponent/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gk0rc"]
 _data = {
@@ -67,11 +42,8 @@ _data = {
 "swing": SubResource("Animation_3rc3p")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_puxeo"]
-size = Vector2(8, 13.75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8cqad"]
-size = Vector2(27, 11.5)
+size = Vector2(12.5, 8.00002)
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_2d7kx")
@@ -87,22 +59,12 @@ texture = ExtResource("2_gc11q")
 offset = Vector2(0, -4)
 flip_h = true
 
-[node name="HitboxComponent" parent="Sprite2D" instance=ExtResource("3_06152")]
-collision_layer = 4
-collision_mask = 4
+[node name="Area2D" parent="Sprite2D" instance=ExtResource("4_s5icj")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitboxComponent"]
-position = Vector2(0, -7)
-rotation = -3.14159
-shape = SubResource("RectangleShape2D_puxeo")
-disabled = true
-
-[node name="Area2D" parent="." instance=ExtResource("4_s5icj")]
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(8.25, -1.99999)
+[node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+position = Vector2(-1.18017e-05, -6.75)
 shape = SubResource("RectangleShape2D_8cqad")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
-[editable path="Area2D"]
+[editable path="Sprite2D/Area2D"]

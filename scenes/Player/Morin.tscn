@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ddm87ipcchlfw"]
+[gd_scene load_steps=42 format=3 uid="uid://clmhwvftcd3hf"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
@@ -292,7 +292,13 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 radius = 3.0
 height = 16.0
 
-[node name="Morin" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrixo"]
+radius = 31.6947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aihvg"]
+radius = 7.6956
+
+[node name="Morin" type="CharacterBody2D"]
 script = ExtResource("1_jlina")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -336,5 +342,25 @@ shape = SubResource("CapsuleShape2D_a3ikf")
 projectile_scene = ExtResource("9_gq6ev")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Grab" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="GrabAreaCol" type="CollisionShape2D" parent="Grab"]
+unique_name_in_owner = true
+position = Vector2(0, 1.66667)
+shape = SubResource("CircleShape2D_jrixo")
+
+[node name="Collect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollectAreaCol" type="CollisionShape2D" parent="Collect"]
+position = Vector2(0.666667, 3.66667)
+shape = SubResource("CircleShape2D_aihvg")
+
+[connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
+[connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
 [editable path="Weapon"]
