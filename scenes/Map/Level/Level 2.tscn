@@ -29,7 +29,7 @@ position = Vector2(600, 768)
 position = Vector2(280, 1536)
 
 [node name="TransitionH4" parent="Rooms" instance=ExtResource("1_24tnm")]
-position = Vector2(552, 1528)
+position = Vector2(552, 1536)
 
 [node name="TransitionH6" parent="Rooms" instance=ExtResource("1_24tnm")]
 position = Vector2(1200, 768)
