@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Character
 
+signal dead(character: Character)
+
 @export var health = 500
 @export var speed = 300
 @export var armor = 100
@@ -19,6 +21,8 @@ func attack():
 	pass
 	
 func get_damage(value):
+	# When character is dead emit this signal
+	dead.emit(self)
 	pass
 
 # Movement
