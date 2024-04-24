@@ -1,6 +1,7 @@
 extends Node
 
 var LEVEL_PATH : String = "res://scenes/Map/Level/"
+var HITPOINTS: int = 5
 
 var DIRECTION : Dictionary = {
 	"NORTH": 0,

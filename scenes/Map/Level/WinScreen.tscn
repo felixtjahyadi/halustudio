@@ -1,6 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbgjp644m8sfj"]
+[gd_scene load_steps=15 format=3 uid="uid://cbgjp644m8sfj"]
 
-[ext_resource type="Texture2D" uid="uid://cgmpwoxjqo1sl" path="res://assets/Pics/Keanu.png" id="1_eoggk"]
+[ext_resource type="Script" path="res://scripts/WinScreen.gd" id="1_l02uj"]
+[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="2_s4dar"]
+[ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="3_5q3vx"]
+[ext_resource type="FontFile" uid="uid://dwnvyvhbkpxe3" path="res://assets/Font/Raw/continuum bold.ttf" id="4_5qoka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k0ir"]
+atlas = ExtResource("2_s4dar")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7514e"]
+atlas = ExtResource("2_s4dar")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nice6"]
+atlas = ExtResource("2_s4dar")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j14ms"]
+atlas = ExtResource("2_s4dar")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c27v3"]
+atlas = ExtResource("3_5q3vx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gnb"]
+atlas = ExtResource("3_5q3vx")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1e8yq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k0ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7514e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nice6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j14ms")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c27v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1gnb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_l7d21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gdja4"]
+resource_name = "lose"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7odp"]
+_data = {
+"RESET": SubResource("Animation_l7d21"),
+"lose": SubResource("Animation_gdja4")
+}
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -9,12 +104,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l02uj")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_eoggk")
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1265, 492)
+sprite_frames = SubResource("SpriteFrames_1e8yq")
+animation = &"walk"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.5
+offset_top = 250.0
+offset_right = 232.5
+offset_bottom = 301.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_5qoka")
+theme_override_font_sizes/font_size = 50
+text = "Thank You for Playing"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v7odp")
+}

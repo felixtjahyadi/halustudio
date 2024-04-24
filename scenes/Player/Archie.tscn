@@ -304,13 +304,13 @@ radius = 7.6956
 
 [node name="Archie" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7p78a")
+health = 3
 armor = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
