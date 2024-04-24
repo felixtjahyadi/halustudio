@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://wq0udb2cgi3d"]
+[gd_scene load_steps=42 format=3 uid="uid://wq0udb2cgi3d"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Reina.gd" id="1_usv2g"]
 [ext_resource type="Texture2D" uid="uid://1iu8w3ms703o" path="res://assets/Player/spritesheets/reina-idle-anim-sheet-flip.png" id="2_0yfsk"]
@@ -289,6 +289,13 @@ states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e52"]
+size = Vector2(15.625, 16.125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ynkk2"]
+radius = 31.6947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rpj2"]
+radius = 7.6956
 
 [node name="Reina" type="CharacterBody2D"]
 script = ExtResource("1_usv2g")
@@ -319,17 +326,37 @@ parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
 
 [node name="Weapon" parent="." instance=ExtResource("6_55blr")]
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="Weapon/Node2D" index="0"]
-position = Vector2(43, 1)
-scale = Vector2(2, 2)
+position = Vector2(27.5, 0.5)
 texture = ExtResource("7_hns04")
 
 [node name="CollisionShape2D" parent="Weapon/PlayerDetector" index="0"]
-position = Vector2(43, 1)
+position = Vector2(27.6875, -0.5625)
 shape = SubResource("RectangleShape2D_27e52")
 
 [node name="ShootSkill" parent="." instance=ExtResource("8_nuxm6")]
 projectile_scene = ExtResource("9_ys2g3")
+
+[node name="Grab" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="GrabAreaCol" type="CollisionShape2D" parent="Grab"]
+unique_name_in_owner = true
+position = Vector2(0, 1.66667)
+shape = SubResource("CircleShape2D_ynkk2")
+
+[node name="Collect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollectAreaCol" type="CollisionShape2D" parent="Collect"]
+position = Vector2(0.666667, 3.66667)
+shape = SubResource("CircleShape2D_5rpj2")
+
+[connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
+[connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
 [editable path="Weapon"]

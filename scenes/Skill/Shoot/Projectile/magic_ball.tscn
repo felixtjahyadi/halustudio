@@ -27,6 +27,7 @@ scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_lsj31")
 
 [node name="Area2D" parent="." instance=ExtResource("3_q57y7")]
+damage = 150
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("CircleShape2D_08gbd")
