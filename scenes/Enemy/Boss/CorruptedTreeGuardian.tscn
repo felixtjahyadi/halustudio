@@ -77,6 +77,3 @@ rotation = 1.5708
 
 [node name="CollisionShapeD2" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_8sr62")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false

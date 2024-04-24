@@ -11,5 +11,5 @@ extends Node2D
 	#pass
 
 func _on_area_2d_body_entered(body):
-	if body.get_name() == "Player":
+	if body.is_in_group("player"):
 		get_tree().change_scene_to_file(global.LEVEL_PATH + levelPath + ".tscn")
