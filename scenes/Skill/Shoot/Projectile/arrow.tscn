@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://chi6oe4mv0gbf"]
+[gd_scene load_steps=6 format=3 uid="uid://chi6oe4mv0gbf"]
 
 [ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/arrow.gd" id="1_pvqj1"]
 [ext_resource type="Texture2D" uid="uid://bdd2ahb6um4rw" path="res://assets/Projectile/arrow.png" id="2_kbega"]
+[ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_rlcr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhcy"]
 size = Vector2(256, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmbsm"]
+size = Vector2(25, 67)
+
 [node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
@@ -20,4 +26,12 @@ texture = ExtResource("2_kbega")
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_vjhcy")
 
+[node name="Area2D" parent="." instance=ExtResource("3_rlcr6")]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(1.5, -0.500124)
+shape = SubResource("RectangleShape2D_mmbsm")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="Area2D"]

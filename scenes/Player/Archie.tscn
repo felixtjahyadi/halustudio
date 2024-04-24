@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://clldvw3fgw8d8"]
+[gd_scene load_steps=40 format=3 uid="uid://clldvw3fgw8d8"]
 
 [ext_resource type="Texture2D" uid="uid://bt8d06wklsuca" path="res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png" id="1_0xl11"]
 [ext_resource type="Texture2D" uid="uid://b0bnpvr578rmt" path="res://assets/Player/spritesheets/archie-idle-anim-sheet.png" id="1_4il6w"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://jfi8vmglh206" path="res://assets/Player/spritesheets/archie-walk-anim-sheet.png" id="3_ddk5v"]
 [ext_resource type="Texture2D" uid="uid://b0s33x5dq38bo" path="res://assets/Player/spritesheets/archie-walk-anim-sheet-flip.png" id="3_jko0j"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_2w84m"]
-[ext_resource type="Texture2D" uid="uid://n8y0hk7tyohu" path="res://assets/Weapons/Gun.png" id="7_hifos"]
-[ext_resource type="PackedScene" uid="uid://otyaqrxusqei" path="res://scenes/Skill/Shoot/Projectile/bullet.tscn" id="8_qs02x"]
+[ext_resource type="Texture2D" uid="uid://b561hydikthvs" path="res://assets/Weapons/bow.png" id="7_b4w3a"]
+[ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_h0j7f"]
+[ext_resource type="PackedScene" uid="uid://chi6oe4mv0gbf" path="res://scenes/Skill/Shoot/Projectile/arrow.tscn" id="9_xplul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrwo6"]
 atlas = ExtResource("1_0xl11")
@@ -288,8 +289,8 @@ states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whd8m"]
-radius = 4.5
-height = 18.0
+radius = 3.0
+height = 6.0
 
 [node name="Archie" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7p78a")
@@ -324,15 +325,16 @@ parameters/Walk/blend_position = 0.0
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="Weapon/Node2D" index="0"]
-position = Vector2(22, 0)
-texture = ExtResource("7_hifos")
+position = Vector2(18.3137, 0.313708)
+rotation = 5.49779
+texture = ExtResource("7_b4w3a")
 
 [node name="CollisionShape2D" parent="Weapon/PlayerDetector" index="0"]
-position = Vector2(22, 0)
+position = Vector2(18.3137, 0.313708)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_whd8m")
 
-[node name="ShootSkill" parent="Weapon" index="3"]
-projectile_scene = ExtResource("8_qs02x")
+[node name="ShootSkill" parent="." instance=ExtResource("8_h0j7f")]
+projectile_scene = ExtResource("9_xplul")
 
 [editable path="Weapon"]

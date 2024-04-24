@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var projectileSpawnPosition: Marker2D = $ProjectileSpawnPosition
-@onready var parent_node = get_parent()
 
 @export var projectile_scene: PackedScene
 @export var projectile_speed: int = 1000
@@ -33,7 +32,7 @@ func spawn_bullet():
 	var projectile_instance = projectile_scene.instantiate()
 	projectile_instance.setup(projectile_spawn_position, projectile_range)
 	projectile_instance.position = projectile_spawn_position
-	projectile_instance.rotation_degrees = rotation_degrees + parent_node.rotation
+	projectile_instance.rotation_degrees = rotation_degrees
 	projectile_instance.apply_impulse(Vector2(projectile_speed, 0).rotated(rotation))
 	get_tree().get_root().add_child(projectile_instance)
 
