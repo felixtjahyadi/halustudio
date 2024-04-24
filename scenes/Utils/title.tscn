@@ -80,6 +80,7 @@ theme = SubResource("Theme_02x6o")
 text = "Quit"
 
 [node name="MenuTheme" parent="." instance=ExtResource("4_vpp7n")]
+position = Vector2(577, 242)
 
 [connection signal="click_end" from="Play" to="." method="_on_play_click_end"]
 [connection signal="click_end" from="Quit" to="." method="_on_quit_click_end"]
