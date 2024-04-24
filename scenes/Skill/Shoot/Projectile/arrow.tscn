@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/arrow.gd" id="1_pvqj1"]
 [ext_resource type="Texture2D" uid="uid://bdd2ahb6um4rw" path="res://assets/Projectile/arrow.png" id="2_kbega"]
-[ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_rlcr6"]
+[ext_resource type="PackedScene" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_rlcr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhcy"]
 size = Vector2(256, 96)
