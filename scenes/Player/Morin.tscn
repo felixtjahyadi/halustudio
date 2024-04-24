@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://cg2q4b3i7av65"]
 
-[ext_resource type="Script" path="res://scripts/Character/Archie.gd" id="1_7515a"]
+[ext_resource type="Script" path="res://scripts/Character/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
 [ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
 [ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
@@ -285,12 +285,13 @@ states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
 [node name="Morin" type="CharacterBody2D"]
-script = ExtResource("1_7515a")
+script = ExtResource("1_jlina")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
