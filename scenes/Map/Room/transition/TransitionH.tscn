@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/Room/RoomTileMap.tscn" id="2_44eeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6xw"]
-size = Vector2(352, 128)
+size = Vector2(288, 128)
 
 [node name="TransitionH" type="Node2D"]
 script = ExtResource("1_5rtes")
