@@ -7,6 +7,11 @@ var minionList : Array = []
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready():
+	#sprite.play("idle")
+	sprite.play("sleep")
+	pass
+
 func attack():
 	if (minionList.size() <= maxMinionCount):
 		var count = _get_minion_count_randomizer()
@@ -20,6 +25,6 @@ func _spawn_minion(count = 1):
 
 func start_animation():
 	await get_tree().create_timer(3.0).timeout
-	sprite.animation = "awake"
+	sprite.play("awake")
 	await get_tree().create_timer(2.0).timeout
-	sprite.animation = "idle"
+	sprite.play("idle")
