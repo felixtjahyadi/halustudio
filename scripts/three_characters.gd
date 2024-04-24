@@ -74,10 +74,8 @@ func character_dead_handler(character: Node):
 			character_swap[key].erase(character)
 	
 	total_character_alive -= 1
+	swap_character()
 	
 	if total_character_alive == 0:
 		# TODO: game over logic
-		print('GAME OVER')
-		pass
-
-	swap_character()
+		get_tree().change_scene_to_file("res://scenes/Utils/title.tscn")

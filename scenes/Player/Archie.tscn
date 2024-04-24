@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://clldvw3fgw8d8"]
+[gd_scene load_steps=40 format=3 uid="uid://dfttiawlfctn4"]
 
 [ext_resource type="Texture2D" uid="uid://bt8d06wklsuca" path="res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png" id="1_0xl11"]
 [ext_resource type="Texture2D" uid="uid://b0bnpvr578rmt" path="res://assets/Player/spritesheets/archie-idle-anim-sheet.png" id="1_4il6w"]

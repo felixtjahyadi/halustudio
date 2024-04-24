@@ -28,6 +28,8 @@ func get_damage(value):
 # Movement
 func _physics_process(delta):
 	move()
+	if Input.is_action_just_pressed("test"):
+		dead.emit(self)
 
 func move():
 	var direction = Input.get_vector("left", "right", "up", "down")
