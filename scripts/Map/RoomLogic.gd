@@ -48,7 +48,7 @@ func _ready():
 	num_enemies = enemy_positions_container.get_child_count()
 	#num_enemies = 0
 	
-	if skippable and lastRoom:
+	if lastRoom:
 		showPortal()
 
 func _updateRoomTexture():

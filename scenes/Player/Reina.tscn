@@ -304,7 +304,7 @@ script = ExtResource("1_usv2g")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 1
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")

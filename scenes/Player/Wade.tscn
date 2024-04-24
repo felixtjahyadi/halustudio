@@ -292,7 +292,7 @@ script = ExtResource("1_6pyor")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 3
+frame = 2
 
 [node name="Sword_Area2D#CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

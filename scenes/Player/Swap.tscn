@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://bckuskx4gcxgq"]
+
+[ext_resource type="Texture2D" uid="uid://dn868fyo740i7" path="res://assets/UI/spawn-sheet.png" id="1_j28jm"]
+[ext_resource type="Script" path="res://scripts/animatedsprite2d_autoplay.gd" id="2_cis8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t71a"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo05t"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdysq"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi1sw"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x03fy"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq848"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v70u2"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaltc"]
+atlas = ExtResource("1_j28jm")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64ouq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t71a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo05t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdysq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi1sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x03fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq848")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v70u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaltc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="Swap" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_64ouq")
+script = ExtResource("2_cis8r")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_frame_changed"]
+[connection signal="visibility_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_visibility_changed"]

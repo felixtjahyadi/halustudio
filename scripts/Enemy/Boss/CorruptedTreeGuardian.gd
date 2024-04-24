@@ -1,14 +1,18 @@
-extends Boss
+extends BaseEnemy
 
 class_name CorruptedTreeGuardian
 
-@export var maxMinionCount : int = 15
-@export var minionList : Array = [preload("res://scenes/Enemy/Boss/BranchMinion.tscn")]
+@export var maxMinionCount : int = 100
+@export var minionList : Array = [
+	preload("res://scenes/Enemy/Boss/BranchMinion.tscn"),
+]
 @export var intervalSpawn : float = 1.0
 
-@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+#@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-var onFieldMinions = []
+@export var attack_cooldown : float = 3.0
+
+var isAwake : bool = false
 
 func _ready():
 	#sprite.play("idle")
@@ -16,10 +20,13 @@ func _ready():
 	super()
 
 func _process(delta):
-	if isAwake and onFieldMinions.size() == 0:
-		var count = _get_minion_count_randomizer()
-		_spawn_minion(count)
-	super(delta)
+	if isAwake:
+		if get_child_count() == 0:
+			var count = _get_minion_count_randomizer()
+			_spawn_minion(count)
+
+func _physics_process(delta):
+	pass
 
 func _reset():
 	await get_tree().create_timer(attack_cooldown).timeout
@@ -27,7 +34,7 @@ func _reset():
 	_reset()
 
 func attack():
-	if (onFieldMinions.size() <= maxMinionCount):
+	if (get_child_count() <= maxMinionCount):
 		var count = _get_minion_count_randomizer()
 		_spawn_minion(count)
 
@@ -42,20 +49,22 @@ func _spawn_minion(count = 1):
 func _spawn():
 	var selectedMinion = minionList.pick_random()
 	var minion = selectedMinion.instantiate()
-	get_parent().add_child(minion)
+	add_child(minion)
 	
 	var spawn_pos = Vector2(0, 0)
 	spawn_pos.x = randf_range(-32 * (9-1), 32 * (9-1))
 	spawn_pos.y = randf_range(-32 * (9-1), 32 * (9-1))
 	
 	minion.position = spawn_pos
-	
-	onFieldMinions.append(minion)
 
 func start_animation():
-	await get_tree().create_timer(3.0).timeout
-	sprite.play("awake")
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
+	sprite.play("start")
+	await get_tree().create_timer(1.0).timeout
 	sprite.play("idle")
 	_reset()
-	super()
+
+func _on_hurt_box_hurt(damage, angle, knock_back_amount):
+	#print(get_child_count())
+	#if get_child_count() == 0:
+	super(damage, angle, knock_back_amount)

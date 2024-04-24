@@ -1,9 +1,10 @@
 extends RoomLogic
 
-@export var boss = preload("res://scenes/Enemy/Boss/CorruptedTreeGuardian.tscn").instantiate()
+@export var boss = preload("res://scenes/Enemy/Boss/CorruptedTreeGuardian.tscn")
 
 func _ready():
 	super()
+	boss = boss.instantiate()
 	add_child(boss)
 
 func startRoom():

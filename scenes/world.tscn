@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dadyistu52sqk"]
 
 [ext_resource type="Texture2D" uid="uid://cd2wqc6ipwolg" path="res://assets/Map/grass.png" id="1_x8ml8"]
+[ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="3_o51fy"]
 [ext_resource type="PackedScene" uid="uid://d1mm83cxhap7r" path="res://scenes/Player/three_characters.tscn" id="4_lxcc5"]
 [ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="5_masnx"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_g5j1p"]
@@ -25,7 +26,8 @@ region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-volume_db = -13.0
+stream = ExtResource("3_o51fy")
+volume_db = -10.028
 autoplay = true
 max_distance = 1e+07
 script = ExtResource("10_hpxte")
@@ -33,6 +35,7 @@ script = ExtResource("10_hpxte")
 [node name="ThreeCharacters" parent="." instance=ExtResource("4_lxcc5")]
 character1 = ExtResource("5_masnx")
 character2 = ExtResource("6_msreh")
+character_change_delay_second = 0.0
 
 [node name="NormalZombie" parent="." instance=ExtResource("7_u4nb2")]
 position = Vector2(436, 150)
