@@ -290,7 +290,8 @@ script = ExtResource("1_6pyor")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
-animation = &"walk_right"
+animation = &"idle_left"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -301,7 +302,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_cglmf")
 }

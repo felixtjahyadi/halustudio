@@ -33,16 +33,18 @@ func swap_character():
 	cooldown_change_character()
 
 func spawn_selected_character():
-	selected_character_node.position = get_global_position()
 	add_child(selected_character_node)
 
 func change_current_selected_charater():
 	match selected_character_node:
 		character1_node:
+			character2_node.position = character1_node.get_global_position()
 			selected_character_node = character2_node
 		character2_node:
+			character3_node.position = character2_node.get_global_position()
 			selected_character_node = character3_node
 		character3_node:
+			character1_node.position = character3_node.get_global_position()
 			selected_character_node = character1_node
 	
 func remove_current_selected_charater():
