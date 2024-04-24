@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3d1ov44reo7d"]
+[gd_scene load_steps=11 format=3 uid="uid://c3d1ov44reo7d"]
 
 [ext_resource type="PackedScene" uid="uid://c0nuxoqqoqbde" path="res://scenes/Map/Room/1/1-1.tscn" id="1_ckb1b"]
 [ext_resource type="PackedScene" uid="uid://c3h8kyqjwwqi1" path="res://scenes/Map/Room/transition/TransitionH.tscn" id="1_qbtoq"]
 [ext_resource type="PackedScene" uid="uid://cpolnt1n00ra" path="res://scenes/Map/Room/transition/TransitionV.tscn" id="2_7lcrq"]
-[ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="2_66q5u"]
 [ext_resource type="PackedScene" uid="uid://boh7xpne8v8n1" path="res://scenes/Map/Room/3/3-123.tscn" id="5_f6kvy"]
 [ext_resource type="PackedScene" uid="uid://bfvojt4y1ba3h" path="res://scenes/Map/Room/1/1-3.tscn" id="7_jioex"]
 [ext_resource type="PackedScene" uid="uid://bpksiove5g5iw" path="res://scenes/Map/Room/2/2-13.tscn" id="7_wn1tw"]
+[ext_resource type="PackedScene" uid="uid://drsoa466bigti" path="res://scenes/Player/three_characters.tscn" id="8_wp32q"]
 [ext_resource type="PackedScene" uid="uid://baed4td4m8wpf" path="res://scenes/Map/Room/1/3-0.tscn" id="8_y7tcb"]
+[ext_resource type="PackedScene" uid="uid://kxp25rllhgyv" path="res://scenes/Player/Archie.tscn" id="9_q15d3"]
+[ext_resource type="PackedScene" uid="uid://ddm87ipcchlfw" path="res://scenes/Player/Morin.tscn" id="10_bk0kd"]
 
 [node name="Level1" type="Node2D"]
 
@@ -43,4 +45,6 @@ position = Vector2(704, 0)
 [node name="Room1" parent="Rooms" instance=ExtResource("8_y7tcb")]
 position = Vector2(1472, 896)
 
-[node name="Player" parent="." instance=ExtResource("2_66q5u")]
+[node name="ThreeCharacters" parent="." instance=ExtResource("8_wp32q")]
+character1 = ExtResource("9_q15d3")
+character2 = ExtResource("10_bk0kd")
