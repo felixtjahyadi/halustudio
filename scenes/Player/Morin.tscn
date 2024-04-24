@@ -1,10 +1,14 @@
-[gd_scene load_steps=35 format=3 uid="uid://cg2q4b3i7av65"]
+[gd_scene load_steps=40 format=3 uid="uid://clmhwvftcd3hf"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
 [ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
 [ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
 [ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
 [ext_resource type="Texture2D" uid="uid://dd66et6q4ccr8" path="res://assets/Player/spritesheets/morin-walk-anim-sheet.png" id="5_ywmoq"]
+[ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_r8lj7"]
+[ext_resource type="Texture2D" uid="uid://n8y0hk7tyohu" path="res://assets/Weapons/Gun.png" id="7_3rxp8"]
+[ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_xpdsv"]
+[ext_resource type="PackedScene" uid="uid://otyaqrxusqei" path="res://scenes/Skill/Shoot/Projectile/bullet.tscn" id="9_gq6ev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myd13"]
 atlas = ExtResource("2_c5m86")
@@ -284,6 +288,10 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace1D_e0ys0")
 states/Walk/position = Vector2(545, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3ikf"]
+radius = 3.0
+height = 16.0
+
 [node name="Morin" type="CharacterBody2D"]
 script = ExtResource("1_jlina")
 
@@ -291,7 +299,6 @@ script = ExtResource("1_jlina")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -311,3 +318,20 @@ parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
+
+[node name="Weapon" parent="." instance=ExtResource("6_r8lj7")]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" parent="Weapon/Node2D" index="0"]
+position = Vector2(22.5, -0.5)
+texture = ExtResource("7_3rxp8")
+
+[node name="CollisionShape2D" parent="Weapon/PlayerDetector" index="0"]
+position = Vector2(22.5, -0.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_a3ikf")
+
+[node name="ShootSkill" parent="." instance=ExtResource("8_xpdsv")]
+projectile_scene = ExtResource("9_gq6ev")
+
+[editable path="Weapon"]

@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Player
 
 var mov_speed = 100.0
-var hp = 80
-var maxhp = 80
+var hp = 8000
+var maxhp = 8000
 var money = 0
 var total_money_collected = 0
 
@@ -10,7 +11,7 @@ var juicebox = preload("res://scenes/Player/player_projectile.tscn")
 var juice_ammo = 0
 var juice_base_ammo = 1
 var juice_attack_speed = 1.5
-var juice_attack_level = 1
+var juice_attack_level = 0
 
 var enemy_close = []
 
@@ -39,6 +40,8 @@ var time = 0
 @onready var store_sound = $store_sound
 @onready var win_sound = get_node("%win")
 @onready var lost_sound = get_node("%lost")
+@onready var gun: Node2D = get_node("Gun")
+@onready var gun_sprite = get_node("Gun/Node2D/Sprite2D")
 
 signal player_death
 
@@ -49,6 +52,14 @@ func _ready():
 
 func _physics_process(_delta):
 	movement()
+	
+func _process(delta):
+	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	gun.rotation = mouse_direction.angle()
+	if gun.scale.y == 1 and mouse_direction.x<0:
+		gun.scale.y = -1
+	elif gun.scale.y == -1 and mouse_direction.x>0:
+		gun.scale.y = 1
 		
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -57,7 +68,7 @@ func movement():
 	if mov.x > 0:
 		sprite.flip_h = false
 	elif mov.x < 0:
-		sprite.flip_h = true
+		sprite.flip_h = true 
 		
 	if mov != Vector2.ZERO:
 		sprite.play("walk")
@@ -133,10 +144,10 @@ func _on_collect_area_entered(area):
 		money += money_value
 		coin_amount.text = str(money)
 		total_money_collected += money_value
-		if total_money_collected >= 100:
-			store_sound.play()
-			store_open()
-			total_money_collected -= 100
+		#if total_money_collected >= 100:
+			#store_sound.play()
+			#store_open()
+			#total_money_collected -= 100
 		
 func store_open():
 	var tween = store_panel.create_tween()

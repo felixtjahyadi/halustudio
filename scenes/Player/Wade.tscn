@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://bnx5t715bgwxt"]
+[gd_scene load_steps=36 format=3 uid="uid://bnx5t715bgwxt"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Wade.gd" id="1_6pyor"]
 [ext_resource type="Texture2D" uid="uid://c54kpimagwkd1" path="res://assets/Player/spritesheets/wade-idle-anim-sheet-flip.png" id="2_r0l7o"]
 [ext_resource type="Texture2D" uid="uid://b7ru6vl7xmymu" path="res://assets/Player/spritesheets/wade-idle-anim-sheet.png" id="3_5qkn2"]
 [ext_resource type="Texture2D" uid="uid://dwy8lb005ckrb" path="res://assets/Player/spritesheets/wade-walk-anim-sheet-flip.png" id="4_vlp5w"]
 [ext_resource type="Texture2D" uid="uid://bbce3le8tm6kp" path="res://assets/Player/spritesheets/wade-walk-anim-sheet.png" id="5_p52iv"]
+[ext_resource type="PackedScene" uid="uid://dnrw33143k5c2" path="res://scenes/Weapons/sword_ability/sword.tscn" id="6_vufsm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1a3n"]
 atlas = ExtResource("2_r0l7o")
@@ -290,7 +291,8 @@ script = ExtResource("1_6pyor")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
-animation = &"walk_right"
+animation = &"idle_left"
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -301,7 +303,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_cglmf")
 }
@@ -311,3 +312,15 @@ parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
+
+[node name="Sword" parent="." instance=ExtResource("6_vufsm")]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" parent="Sword" index="1"]
+position = Vector2(17.5, 0)
+
+[node name="CollisionShape2D" parent="Sword/Area2D" index="0"]
+position = Vector2(25.5, -2)
+
+[editable path="Sword"]
+[editable path="Sword/Area2D"]
