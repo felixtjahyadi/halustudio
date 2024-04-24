@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cd2wqc6ipwolg" path="res://assets/Map/grass.png" id="1_x8ml8"]
 [ext_resource type="PackedScene" uid="uid://d1mm83cxhap7r" path="res://scenes/Player/three_characters.tscn" id="4_lxcc5"]
-[ext_resource type="PackedScene" uid="uid://dfttiawlfctn4" path="res://scenes/Player/Archie.tscn" id="5_masnx"]
+[ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="5_masnx"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_g5j1p"]
-[ext_resource type="PackedScene" uid="uid://cg2q4b3i7av65" path="res://scenes/Player/Morin.tscn" id="6_msreh"]
+[ext_resource type="PackedScene" uid="uid://clmhwvftcd3hf" path="res://scenes/Player/Morin.tscn" id="6_msreh"]
 [ext_resource type="PackedScene" uid="uid://bnx5t715bgwxt" path="res://scenes/Player/Wade.tscn" id="7_sj601"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="10_hpxte"]
 

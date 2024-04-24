@@ -1,17 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://otyaqrxusqei"]
+[gd_scene load_steps=5 format=3 uid="uid://otyaqrxusqei"]
 
 [ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/bullet.gd" id="1_5pcpg"]
 [ext_resource type="Texture2D" uid="uid://djcsm80dw7bfo" path="res://assets/Projectile/bullet.png" id="1_mkki0"]
-[ext_resource type="Script" path="res://scenes/Skill/Shoot/ProjectileArea.gd" id="3_te8nn"]
+[ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_cgyq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhcy"]
 size = Vector2(140, 64)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yg63x"]
-radius = 9.0
-height = 44.0
-
 [node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
@@ -26,13 +24,6 @@ position = Vector2(1.5, 0)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_vjhcy")
 
-[node name="Area2D" type="Area2D" parent="." groups=["attack"]]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("3_te8nn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_yg63x")
+[node name="Area2D" parent="." instance=ExtResource("3_cgyq3")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
