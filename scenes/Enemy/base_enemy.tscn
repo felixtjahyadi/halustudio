@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nrep1d6etjpn"]
+[gd_scene load_steps=11 format=3 uid="uid://nrep1d6etjpn"]
 
 [ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/zombie.png" id="1_tb4pv"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="2_03hjd"]
@@ -38,11 +38,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oaiih"]
+radius = 100.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvife"]
 size = Vector2(17, 22.6667)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k14a3"]
-size = Vector2(13.6667, 13.1667)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnmop"]
+size = Vector2(16, 24)
 
 [node name="EnemyBody" type="Node2D"]
 
@@ -50,7 +53,14 @@ size = Vector2(13.6667, 13.1667)
 sprite_frames = SubResource("SpriteFrames_rnuoa")
 animation = &"walk"
 
+[node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_oaiih")
+
 [node name="HurtBox" parent="." instance=ExtResource("2_03hjd")]
+visible = false
 collision_layer = 4
 collision_mask = 4
 HurtBoxType = 1
@@ -63,9 +73,8 @@ shape = SubResource("RectangleShape2D_xvife")
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 0.666667)
-shape = SubResource("RectangleShape2D_k14a3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_fnmop")
 
 [node name="HideTimer" type="Timer" parent="."]
 unique_name_in_owner = true
