@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbyu4ih203dca"]
+
+[ext_resource type="AudioStream" uid="uid://cs0i36in38kiy" path="res://assets/Audio/Metal Sword Slash.ogg" id="1_lsxbi"]
+
+[node name="MetalSwordAudio" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lsxbi")
