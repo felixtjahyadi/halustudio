@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://da60hwio82xe2"]
+
+[ext_resource type="Texture2D" uid="uid://cawcfr03w7rph" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-awake.png" id="1_3ar13"]
+[ext_resource type="Script" path="res://scripts/Enemy/Boss/CorruptedTreeGuardian.gd" id="1_73na8"]
+[ext_resource type="Texture2D" uid="uid://kqxcuwskb8ou" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-anim-sheet.png" id="2_sgs36"]
+[ext_resource type="Texture2D" uid="uid://b5mmrc7jonq7" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-asleep.png" id="3_nvnl7"]
+[ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="5_xwx6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3244"]
+atlas = ExtResource("2_sgs36")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w1hs"]
+atlas = ExtResource("2_sgs36")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7jk0"]
+atlas = ExtResource("2_sgs36")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0864"]
+atlas = ExtResource("2_sgs36")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5voo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3ar13")
+}],
+"loop": true,
+"name": &"awake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3244")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w1hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7jk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0864")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nvnl7")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sr62"]
+radius = 32.0
+height = 109.0
+
+[node name="CorruptedTreeGuardian" type="Node2D"]
+script = ExtResource("1_73na8")
+attack_cooldown = 10.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -43)
+sprite_frames = SubResource("SpriteFrames_a5voo")
+animation = &"idle"
+
+[node name="HurtBox" parent="." instance=ExtResource("5_xwx6h")]
+position = Vector2(0, -9)
+rotation = 1.5708
+
+[node name="CollisionShapeD2" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_8sr62")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
