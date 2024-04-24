@@ -14,6 +14,7 @@
 [node name="Level1" type="Node2D"]
 
 [node name="Rooms" type="Node2D" parent="."]
+scale = Vector2(2, 2)
 
 [node name="TransitionH" parent="Rooms" instance=ExtResource("1_qbtoq")]
 position = Vector2(320, 0)
