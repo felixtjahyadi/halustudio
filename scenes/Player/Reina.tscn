@@ -368,7 +368,7 @@ collision_mask = 8
 position = Vector2(0.666667, 3.66667)
 shape = SubResource("CircleShape2D_5rpj2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["player"]]
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]

@@ -302,7 +302,7 @@ radius = 31.6947
 [sub_resource type="CircleShape2D" id="CircleShape2D_aihvg"]
 radius = 7.6956
 
-[node name="Morin" type="CharacterBody2D"]
+[node name="Morin" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_jlina")
 armor = 0
 
@@ -310,6 +310,7 @@ armor = 0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
