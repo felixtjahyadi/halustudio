@@ -100,7 +100,7 @@ func _on_room_area_body_entered(body):
 	if body.is_in_group("player"):
 		startRoom()
 
-func _on_player_detector_body_entered(_body: CharacterBody2D):
+func _on_player_detector_body_entered(body: CharacterBody2D):
 	player_detector.queue_free()
 	if num_enemies > 0:
 		_spawn_enemies()
