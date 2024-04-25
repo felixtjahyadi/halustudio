@@ -14,6 +14,8 @@ var selected_character_node: Node
 var can_change = true
 var character_swap: Dictionary
 
+signal swap(character: Node)
+
 func _ready():
 	character1_node = character1.instantiate()
 	character2_node = character2.instantiate()
@@ -38,12 +40,14 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("swap") and can_change:
 		swap_character()
+		emit_signal("swap", selected_character_node)
 
 func swap_character():
 	remove_current_selected_charater()
 	change_current_selected_charater()
 	spawn_selected_character()
 	cooldown_change_character()
+	
 
 func spawn_selected_character():
 	add_child(selected_character_node)
@@ -85,3 +89,6 @@ func character_dead_handler(character: Node):
 	if total_character_alive == 0:
 		# TODO: game over logic
 		get_tree().change_scene_to_file("res://scenes/Map/Level/LoseScreen.tscn")
+		
+func current_char():
+	return selected_character_node

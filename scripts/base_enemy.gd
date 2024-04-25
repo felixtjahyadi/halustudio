@@ -15,6 +15,7 @@ var death = preload("res://scenes/Enemy/death.tscn")
 var coins = preload("res://scenes/Loot/Coin.tscn")
 var potions = preload("res://scenes/Loot/Potion.tscn")
 var chase = false
+var current_player:Node
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
@@ -26,6 +27,7 @@ var chase = false
 @onready var detectionArea = $EnemyBody/DetectionArea
 @onready var sound = $EnemyBody/hurt_sound
 
+
 signal remove_from_array(object)
 
 func _ready():
@@ -34,9 +36,9 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	hurtbox.connect("hurt", Callable(self, "_on_hurt_box_hurt"))
 	hideTimer.connect("timeout", Callable(self, "_on_hide_timer_timeout"))
+	player.connect("swap", _refresh)
 	detectionArea.body_entered.connect(_on_detection_area_body_entered)
 	detectionArea.body_exited.connect(_on_detection_area_body_exited)
-	
 
 func _physics_process(_delta):
 	if chase == true:
@@ -53,6 +55,9 @@ func _physics_process(_delta):
 		velocity += knock_back
 		move_and_slide()
 	
+func _refresh(selected_character_node):
+	current_player = selected_character_node
+	
 func _on_detection_area_body_entered(body):
 	if body == player:
 		chase = true
@@ -60,7 +65,6 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body == player:
 		chase = false
-	
 	
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	hp -= damage
@@ -99,3 +103,4 @@ func frame_save(amount = 20):
 	
 func increase_hp():
 	hp *= 2
+	

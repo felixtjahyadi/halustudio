@@ -54,7 +54,6 @@ sprite_frames = SubResource("SpriteFrames_rnuoa")
 animation = &"walk"
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_oaiih")

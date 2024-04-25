@@ -9,7 +9,7 @@ size = Vector2(352, 480)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsauk"]
 size = Vector2(40, 88)
 
-[node name="Room1" type="Node2D"]
+[node name="Room2" type="Node2D"]
 script = ExtResource("1_gml8v")
 
 [node name="RoomTileMap" parent="." instance=ExtResource("2_qfnht")]

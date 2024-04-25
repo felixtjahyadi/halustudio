@@ -10,6 +10,6 @@ extends Node2D
 #func _process(delta):
 	#pass
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: CharacterBody2D):
 	if body.is_in_group("player"):
 		get_tree().change_scene_to_file(global.LEVEL_PATH + levelPath + ".tscn")
