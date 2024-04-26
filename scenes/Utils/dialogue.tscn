@@ -1,0 +1,199 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2t5exj23us8u"]
+
+[ext_resource type="Texture2D" uid="uid://bx70osf1hxhmo" path="res://assets/Textures/Dialogue/menu_section_9patch.png" id="1_ksc46"]
+[ext_resource type="FontFile" uid="uid://dwnvyvhbkpxe3" path="res://assets/Font/Raw/continuum bold.ttf" id="2_6m4f5"]
+
+[sub_resource type="Animation" id="Animation_mpa11"]
+resource_name = "Generate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_p2qh8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlu4d"]
+_data = {
+"Generate": SubResource("Animation_mpa11"),
+"RESET": SubResource("Animation_p2qh8")
+}
+
+[sub_resource type="Animation" id="Animation_fw5po"]
+resource_name = "Rect"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j30ca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58rmp"]
+_data = {
+"RESET": SubResource("Animation_j30ca"),
+"Rect": SubResource("Animation_fw5po")
+}
+
+[node name="Dialogue" type="Node"]
+
+[node name="Dialogue_Box" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body_NinePatchRect" type="NinePatchRect" parent="Dialogue_Box"]
+custom_minimum_size = Vector2(720, 256)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -128.0
+offset_right = 360.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ksc46")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Body_MarginContainer" type="MarginContainer" parent="Dialogue_Box/Body_NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 48
+
+[node name="Body_Label" type="Label" parent="Dialogue_Box/Body_NinePatchRect/Body_MarginContainer"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_6m4f5")
+text = "What was that trip.... What kind of driver did they rent?!?"
+autowrap_mode = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="Dialogue_Box/Body_NinePatchRect/Body_MarginContainer/Body_Label"]
+libraries = {
+"": SubResource("AnimationLibrary_jlu4d")
+}
+
+[node name="Speaker_NinePatchRect" type="NinePatchRect" parent="Dialogue_Box/Body_NinePatchRect"]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -25.0
+offset_right = 165.0
+offset_bottom = 23.0
+texture = ExtResource("1_ksc46")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Speaker_Label" type="Label" parent="Dialogue_Box/Body_NinePatchRect/Speaker_NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6m4f5")
+theme_override_font_sizes/font_size = 20
+text = "Archie"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cont_NinePatchRect" type="NinePatchRect" parent="Dialogue_Box/Body_NinePatchRect"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -37.0
+offset_right = 36.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_ksc46")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Cont_Label" type="Label" parent="Dialogue_Box/Body_NinePatchRect/Cont_NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6m4f5")
+theme_override_font_sizes/font_size = 20
+text = "Press Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialogue_Box/Body_NinePatchRect/Cont_NinePatchRect"]
+libraries = {
+"": SubResource("AnimationLibrary_58rmp")
+}
+autoplay = "Rect"
