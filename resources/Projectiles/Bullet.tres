@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Projectile" load_steps=3 format=3 uid="uid://f7ab8iihdlp2"]
+
+[ext_resource type="Script" path="res://resources/Projectiles/Projectile.gd" id="1_ekol8"]
+[ext_resource type="Texture2D" uid="uid://djcsm80dw7bfo" path="res://assets/Projectile/bullet.png" id="2_4o1ao"]
+
+[resource]
+script = ExtResource("1_ekol8")
+name = "Bullet"
+texture = ExtResource("2_4o1ao")
+passEnemy = false
