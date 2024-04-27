@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkbvcv4mo1rxs"]
 
-[ext_resource type="Script" path="res://scripts/Weapons/Projectiles/ProjectileHitBox.gd" id="1_r3bw3"]
+[ext_resource type="Script" path="res://scripts/Weapon/Projectiles/ProjectileHitBox.gd" id="1_r3bw3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yg63x"]
 radius = 8.0

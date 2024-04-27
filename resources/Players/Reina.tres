@@ -16,7 +16,7 @@ textures = {
 "walk_left": ExtResource("4_xt8xc"),
 "walk_right": ExtResource("5_qkb0h")
 }
-defaultHealth = 5
+defaultHealth = 6
 defaultSpeed = 250.0
-defaultArmor = 0
+defaultArmor = null
 weapon = ExtResource("6_vdjhc")

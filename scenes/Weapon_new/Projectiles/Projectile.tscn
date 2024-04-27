@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://fsewta3vbbrg"]
 
-[ext_resource type="Script" path="res://scripts/Weapons/Projectiles/Projectile.gd" id="1_mkp3v"]
+[ext_resource type="Script" path="res://scripts/Weapon/Projectiles/Projectile.gd" id="1_mkp3v"]
 [ext_resource type="Texture2D" uid="uid://bdd2ahb6um4rw" path="res://assets/Projectile/arrow.png" id="1_yb7iv"]
-[ext_resource type="PackedScene" uid="uid://bkbvcv4mo1rxs" path="res://scenes/Weapons/Projectiles/ProjectileHitBox.tscn" id="3_wixkm"]
+[ext_resource type="PackedScene" uid="uid://bkbvcv4mo1rxs" path="res://scenes/Weapon_new/Projectiles/ProjectileHitBox.tscn" id="3_wixkm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnxlr"]
 radius = 8.0
