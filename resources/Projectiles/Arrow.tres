@@ -8,3 +8,4 @@ script = ExtResource("1_810ew")
 name = "Arrow"
 texture = ExtResource("2_nsra6")
 modulate = Color(1, 1, 1, 1)
+scale = Vector2(1, 1)

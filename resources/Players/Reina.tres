@@ -1,22 +1,14 @@
-[gd_resource type="Resource" script_class="Player" load_steps=7 format=3 uid="uid://dba5ygy4h3cf3"]
+[gd_resource type="Resource" script_class="Player" load_steps=4 format=3 uid="uid://dba5ygy4h3cf3"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_vtpia"]
-[ext_resource type="Texture2D" uid="uid://1iu8w3ms703o" path="res://assets/Player/spritesheets/reina-idle-anim-sheet-flip.png" id="2_ne7mq"]
-[ext_resource type="Texture2D" uid="uid://dqqhb6n6bqdgb" path="res://assets/Player/spritesheets/reina-idle-anim-sheet.png" id="3_wb23i"]
-[ext_resource type="Texture2D" uid="uid://b8wlu7qv4q7uk" path="res://assets/Player/spritesheets/reina-walk-anim-sheet-flip.png" id="4_xt8xc"]
-[ext_resource type="Texture2D" uid="uid://crq5am8iid83v" path="res://assets/Player/spritesheets/reina-walk-anim-sheet.png" id="5_qkb0h"]
+[ext_resource type="Texture2D" uid="uid://b7ijxeeethl8u" path="res://assets/Player/spritesheets/reina-anim-sheet.png" id="2_48ch5"]
 [ext_resource type="Resource" uid="uid://c6vfbyai3j7a2" path="res://resources/Weapons/Book.tres" id="6_vdjhc"]
 
 [resource]
 script = ExtResource("1_vtpia")
 name = "Reina"
-textures = {
-"idle_left": ExtResource("2_ne7mq"),
-"idle_right": ExtResource("3_wb23i"),
-"walk_left": ExtResource("4_xt8xc"),
-"walk_right": ExtResource("5_qkb0h")
-}
+texture = ExtResource("2_48ch5")
 defaultHealth = 6
 defaultSpeed = 250.0
-defaultArmor = null
+defaultArmor = 0
 weapon = ExtResource("6_vdjhc")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://c6vfbyai3j7a2"]
+[gd_resource type="Resource" script_class="WeaponClass" load_steps=4 format=3 uid="uid://c6vfbyai3j7a2"]
 
 [ext_resource type="Resource" uid="uid://dllx0k7p08kob" path="res://resources/Projectiles/MagicBall.tres" id="1_6c78d"]
 [ext_resource type="Script" path="res://resources/Weapons/Weapon.gd" id="1_rl5be"]

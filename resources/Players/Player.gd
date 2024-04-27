@@ -1,21 +1,16 @@
 extends Resource
 
-class_name Player
+class_name PlayerResource
 
 @export var name : String = "Player"
-@export var textures : Dictionary = {
-	"idle_left": preload("res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png"),
-	"idle_right": preload("res://assets/Player/spritesheets/archie-idle-anim-sheet.png"),
-	"walk_left": preload("res://assets/Player/spritesheets/archie-walk-anim-sheet-flip.png"),
-	"walk_right": preload("res://assets/Player/spritesheets/archie-walk-anim-sheet.png"),
-}
+@export var texture : Texture2D = preload("res://assets/Player/spritesheets/archie-anim-sheet.png")
 @export var defaultHealth : int = 8
 var health : int
 @export var defaultSpeed : float = 300
 var speed : float
 @export var defaultArmor : int = 0
 var armor : int
-@export var weapon : Weapon = preload("res://resources/Weapons/Bow.tres")
+@export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
 # TODO : @export var skill : Script
 
 func _ready():
@@ -26,7 +21,8 @@ func _ready():
 func is_alive():
 	return health > 0
 
-func set_weapon(new_weapon : Weapon):
+# TODO: separate this from PlayerResource
+func set_weapon(new_weapon : WeaponResource):
 	weapon = new_weapon
 
 func take_hit(value):

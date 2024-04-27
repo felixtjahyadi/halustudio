@@ -1,6 +1,8 @@
 extends Node2D
 
-@export var weapon : Weapon
+class_name WeaponClass
+
+@export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
 @export var rangeToPlayer : float = 30
 
 @export var onFloor: bool = false
@@ -13,14 +15,12 @@ extends Node2D
 ## melee ##
 
 ## range ##
-@onready var projectileScene : PackedScene = load("res://scenes/Weapons/Projectiles/Projectile.tscn")
+@onready var projectileScene : PackedScene = load("res://scenes/Weapon_new/Projectiles/Projectile.tscn")
 @onready var projectileSpawnPosition: Marker2D = $ProjectileSpawnPosition
 var canShoot = true
 
 func _ready():
-	weaponSprite.texture = weapon.texture
-	weaponSprite.rotation = weapon.rotation
-	weaponSprite.position.x = rangeToPlayer
+	update_weapon_sprite()
 	
 	scale = weapon.scale
 	
@@ -31,6 +31,11 @@ func _ready():
 	if not onFloor:
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
+
+func update_weapon_sprite():
+	weaponSprite.texture = weapon.texture
+	weaponSprite.rotation = weapon.rotation
+	weaponSprite.position.x = rangeToPlayer
 
 func get_input():
 	pass
