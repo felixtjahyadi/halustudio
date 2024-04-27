@@ -3,7 +3,7 @@ extends Resource
 class_name Weapon
 
 @export var name : String = "Weapon"
-@export var texture : Texture2D = load("res://assets/Weapons/bow.png")
+@export var texture : Texture2D = preload("res://assets/Weapons/bow.png")
 @export var baseDamage : float = 1.2
 @export var attackInterval : float = 1.2
 @export var attackCount : int = 1
@@ -18,7 +18,7 @@ class_name Weapon
 @export var scale : Vector2 = Vector2(2, 2)
 
 @export_group("Range Properties")
-@export var projectile : Projectile = load("res://resources/Projectiles/Arrow.tres")
+@export var projectile : Projectile = preload("res://resources/Projectiles/Arrow.tres")
 @export var projectileScale : Vector2 = Vector2(1, 1)
 @export var projectileSpeed : float = 1000.0
 @export var projectileRange : float = 600.0

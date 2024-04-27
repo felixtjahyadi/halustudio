@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Player" load_steps=7 format=3 uid="uid://dmpdkd62mrfy4"]
+
+[ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_bnpqm"]
+[ext_resource type="Resource" uid="uid://y8hujqw40pki" path="res://resources/Weapons/Bow.tres" id="2_0m26q"]
+[ext_resource type="Texture2D" uid="uid://b0bnpvr578rmt" path="res://assets/Player/spritesheets/archie-idle-anim-sheet.png" id="2_4vss6"]
+[ext_resource type="Texture2D" uid="uid://bt8d06wklsuca" path="res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png" id="2_li5ws"]
+[ext_resource type="Texture2D" uid="uid://d1xmw6hgn1brq" path="res://assets/Player/spritesheets/archie-walk-anim-sheet.png" id="4_f1dgw"]
+[ext_resource type="Texture2D" uid="uid://b0s33x5dq38bo" path="res://assets/Player/spritesheets/archie-walk-anim-sheet-flip.png" id="5_lxxgg"]
+
+[resource]
+script = ExtResource("1_bnpqm")
+name = "Archie"
+textures = {
+"idle_left": ExtResource("2_li5ws"),
+"idle_right": ExtResource("2_4vss6"),
+"walk_left": ExtResource("5_lxxgg"),
+"walk_right": ExtResource("4_f1dgw")
+}
+defaultHealth = 8
+defaultSpeed = 300.0
+defaultArmor = 0
+weapon = ExtResource("2_0m26q")
