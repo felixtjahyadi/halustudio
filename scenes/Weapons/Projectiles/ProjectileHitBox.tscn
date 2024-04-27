@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkbvcv4mo1rxs"]
+
+[ext_resource type="Script" path="res://scripts/Weapons/Projectiles/ProjectileHitBox.gd" id="1_r3bw3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yg63x"]
+radius = 8.0
+height = 16.0
+
+[node name="ProjectileHitBox" type="Area2D" groups=["attack"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_r3bw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yg63x")

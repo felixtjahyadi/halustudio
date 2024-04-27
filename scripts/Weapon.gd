@@ -1,5 +1,5 @@
 extends Node2D
-class_name Weapon
+#class_name Weapon
 
 @export var on_floor: bool = false
 
