@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Projectile" load_steps=3 format=3 uid="uid://dllx0k7p08kob"]
+
+[ext_resource type="Script" path="res://resources/Projectiles/Projectile.gd" id="1_w7obj"]
+[ext_resource type="Texture2D" uid="uid://c5oqhxjggovqr" path="res://assets/Projectile/magic_ball.png" id="2_4tskr"]
+
+[resource]
+script = ExtResource("1_w7obj")
+name = "Magic Ball"
+texture = ExtResource("2_4tskr")
+passEnemy = false
+modulate = Color(1, 1, 1, 1)
