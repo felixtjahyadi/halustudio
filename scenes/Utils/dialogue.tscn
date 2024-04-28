@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2t5exj23us8u"]
+[gd_scene load_steps=11 format=3 uid="uid://b2t5exj23us8u"]
 
 [ext_resource type="Texture2D" uid="uid://bx70osf1hxhmo" path="res://assets/Textures/Dialogue/menu_section_9patch.png" id="1_ksc46"]
+[ext_resource type="Script" path="res://scripts/Dialogue_Box.gd" id="1_nbqi6"]
+[ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_xrwpq"]
 [ext_resource type="FontFile" uid="uid://dwnvyvhbkpxe3" path="res://assets/Font/Raw/continuum bold.ttf" id="2_6m4f5"]
 
 [sub_resource type="Animation" id="Animation_mpa11"]
@@ -39,6 +41,21 @@ _data = {
 "RESET": SubResource("Animation_p2qh8")
 }
 
+[sub_resource type="Animation" id="Animation_j30ca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_fw5po"]
 resource_name = "Rect"
 loop_mode = 1
@@ -55,21 +72,6 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_j30ca"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58rmp"]
 _data = {
 "RESET": SubResource("Animation_j30ca"),
@@ -77,6 +79,7 @@ _data = {
 }
 
 [node name="Dialogue" type="Node"]
+script = ExtResource("1_nbqi6")
 
 [node name="Dialogue_Box" type="Control" parent="."]
 layout_mode = 3
@@ -86,6 +89,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Chara" type="Sprite2D" parent="Dialogue_Box"]
+position = Vector2(390, 337)
+scale = Vector2(0.582707, 0.627803)
+texture = ExtResource("1_xrwpq")
+
 [node name="Body_NinePatchRect" type="NinePatchRect" parent="Dialogue_Box"]
 custom_minimum_size = Vector2(720, 256)
 layout_mode = 1
@@ -94,10 +102,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -128.0
-offset_right = 360.0
-offset_bottom = 128.0
+offset_left = -344.0
+offset_top = 45.0
+offset_right = 376.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ksc46")
@@ -132,6 +140,7 @@ visible_ratio = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_jlu4d")
 }
+autoplay = "Generate"
 
 [node name="Speaker_NinePatchRect" type="NinePatchRect" parent="Dialogue_Box/Body_NinePatchRect"]
 custom_minimum_size = Vector2(180, 48)
@@ -197,3 +206,5 @@ libraries = {
 "": SubResource("AnimationLibrary_58rmp")
 }
 autoplay = "Rect"
+
+[connection signal="animation_finished" from="Dialogue_Box/Body_NinePatchRect/Body_MarginContainer/Body_Label/Body_AnimationPlayer" to="." method="_on_body_animation_player_animation_finished"]
