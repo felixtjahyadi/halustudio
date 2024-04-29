@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://byd2vpfvrm8yq"]
+
+[ext_resource type="PackedScene" uid="uid://dbtuphsgwlwvu" path="res://scenes/Player_new/Player.tscn" id="1_os574"]
+[ext_resource type="PackedScene" uid="uid://gmb3iiva6oe1" path="res://scenes/Enemy/normal_zombie.tscn" id="2_a2bxe"]
+
+[node name="PlayerTesting" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_os574")]
+
+[node name="NormalZombie" parent="." instance=ExtResource("2_a2bxe")]
+position = Vector2(352, 8)
