@@ -17,7 +17,8 @@ class_name WeaponClass
 ## range ##
 @onready var projectileScene : PackedScene = load("res://scenes/Weapon_new/Projectiles/Projectile.tscn")
 @onready var projectileSpawnPosition: Marker2D = $ProjectileSpawnPosition
-var canShoot = true
+
+var canAttack = true
 
 func _ready():
 	update_weapon_sprite()
@@ -29,13 +30,13 @@ func _ready():
 	projectileSpawnPosition.transform = new_transform
 
 	if not onFloor:
+		weaponSprite.position.x = rangeToPlayer
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
 
 func update_weapon_sprite():
 	weaponSprite.texture = weapon.texture
 	weaponSprite.rotation = weapon.rotation
-	weaponSprite.position.x = rangeToPlayer
 
 func get_input():
 	pass
@@ -43,12 +44,16 @@ func get_input():
 func get_texture():
 	return get_node("WeaponNode/WeaponSprite").texture
 
-func _process(_delta):
+# attack #
+func _process(delta):
 	_handle_mouse_direction()
 	_handle_attack_input()
 
 func _handle_mouse_direction():
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	handle_mouse_direction(mouse_direction)
+
+func handle_mouse_direction(mouse_direction: Vector2):
 	rotation = mouse_direction.angle()
 	if scale.y > 0 and mouse_direction.x < 0:
 		scale.y *= -1
@@ -56,13 +61,13 @@ func _handle_mouse_direction():
 		scale.y *= -1
 
 func _handle_attack_input():
-	if Input.is_action_pressed("click") and canShoot:
-		_attack()
-		_attack_cooldown()
+	if Input.is_action_pressed("click"):
+		attack()
 
-# attack #
-func _attack():
-	_melee_attack() if weapon.type == "melee" else _range_attack()
+func attack():
+	if canAttack:
+		_melee_attack() if weapon.type == "melee" else _range_attack()
+		_attack_cooldown()
 
 ## melee ##
 func _melee_attack():
@@ -89,13 +94,14 @@ func _spawn_projectile():
 	get_tree().get_root().add_child(projectile_instance)
 
 func _attack_cooldown():
-	canShoot = false
+	canAttack = false
 	await get_tree().create_timer(weapon.attackInterval).timeout
-	canShoot = true
+	canAttack = true
 
 ## range ##
 # attack #
 
+# for pick_up weapon
 func _on_player_detector_body_entered(body: CharacterBody2D):
 	if body != null:
 		playerDetector.set_collision_mask_value(1, false)

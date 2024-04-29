@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Projectile" load_steps=3 format=3 uid="uid://7bys8i06wijs"]
+[gd_resource type="Resource" script_class="ProjectileResource" load_steps=3 format=3 uid="uid://7bys8i06wijs"]
 
 [ext_resource type="Script" path="res://resources/Projectiles/Projectile.gd" id="1_810ew"]
 [ext_resource type="Texture2D" uid="uid://bdd2ahb6um4rw" path="res://assets/Projectile/arrow.png" id="2_nsra6"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponClass" load_steps=4 format=3 uid="uid://dfo5pbgjofu2f"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://dfo5pbgjofu2f"]
 
 [ext_resource type="Resource" uid="uid://f7ab8iihdlp2" path="res://resources/Projectiles/Bullet.tres" id="1_grnkx"]
 [ext_resource type="Script" path="res://resources/Weapons/Weapon.gd" id="1_w2sa6"]
