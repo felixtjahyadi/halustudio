@@ -5,5 +5,4 @@
 [node name="Dialogue" type="Node2D"]
 
 [node name="Dialogue" parent="." instance=ExtResource("1_kxvwg")]
-character_name = "Knight"
-dialogue = "Welcome Brave Champion... I am awaiting your instruction..."
+dialogue_name = "level2"
