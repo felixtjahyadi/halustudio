@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://t7um6uwx4hcj"]
+[gd_scene load_steps=2 format=3 uid="uid://c2fd4w685doat"]
 
-[ext_resource type="Script" path="res://scripts/Weapon.gd" id="1_vn8h6"]
+[ext_resource type="Script" path="res://scripts/Weapon.gd" id="1_cuq8r"]
 
 [node name="Weapon" type="Node2D"]
-script = ExtResource("1_vn8h6")
+script = ExtResource("1_cuq8r")
 
 [node name="Node2D" type="Node2D" parent="."]
 

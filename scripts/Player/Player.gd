@@ -16,8 +16,6 @@ var money = 0
 var total_money_collected = 0
 
 func _ready():
-	#$Weapon.weapon = player.weapon
-	#$Weapon.update_weapon_sprite(player.weapon)
 	_update_sprite()
 	pass
 
@@ -43,8 +41,6 @@ func move():
 
 func _process(delta):
 	set_animation()
-	_handle_mouse_direction()
-	_handle_attack_input()
 
 func set_animation():
 	set_walking()
@@ -61,22 +57,6 @@ func set_walking():
 func set_blend_position():
 	animations["parameters/Idle/blend_position"] = last_direction.x
 	animations["parameters/Walk/blend_position"] = last_direction.x
-
-# weapon
-func _handle_mouse_direction():
-	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	weapon.get_script().handle_mouse_direction(mouse_direction)
-
-func handle_mouse_direction(mouse_direction: Vector2):
-	weapon.rotation = mouse_direction.angle()
-	if weapon.scale.y > 0 and mouse_direction.x < 0:
-		weapon.scale.y *= -1
-	elif weapon.scale.y < 0 and mouse_direction.x > 0:
-		weapon.scale.y *= -1
-
-func _handle_attack_input():
-	if Input.is_action_pressed("click"):
-		weapon.attack()
 
 # hurt box handler
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):

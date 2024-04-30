@@ -2,8 +2,8 @@ extends Node2D
 
 class_name WeaponClass
 
-@export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
-@export var rangeToPlayer : float = 30
+@export var weapon : WeaponResource = load("res://resources/Weapons/Bow.tres")
+@export var rangeToPlayer : float = 20
 
 @export var onFloor: bool = false
 
@@ -21,6 +21,7 @@ class_name WeaponClass
 var canAttack = true
 
 func _ready():
+	print("in ready")
 	update_weapon_sprite()
 	
 	scale = weapon.scale
