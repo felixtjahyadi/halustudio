@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Reina.gd" id="1_usv2g"]
 [ext_resource type="Texture2D" uid="uid://1iu8w3ms703o" path="res://assets/Player/spritesheets/reina-idle-anim-sheet-flip.png" id="2_0yfsk"]
+[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="2_qmdcr"]
 [ext_resource type="Texture2D" uid="uid://dj641w2tdg7wv" path="res://assets/Player/spritesheets/reina-idle-anim-sheet.png" id="3_i5kk0"]
 [ext_resource type="Texture2D" uid="uid://b8wlu7qv4q7uk" path="res://assets/Player/spritesheets/reina-walk-anim-sheet-flip.png" id="4_ciwyb"]
 [ext_resource type="Texture2D" uid="uid://8gu0pawcj7bg" path="res://assets/Player/spritesheets/reina-walk-anim-sheet.png" id="5_qumjl"]
-[ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_55blr"]
-[ext_resource type="Texture2D" uid="uid://c8by2gqvdx4b7" path="res://assets/Weapons/book.png" id="7_hns04"]
+[ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapon_new/Weapon.tscn" id="6_55blr"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_nuxm6"]
 [ext_resource type="PackedScene" uid="uid://2snv2uc7iofs" path="res://scenes/Skill/Shoot/Projectile/magic_ball.tscn" id="9_ys2g3"]
 
@@ -300,11 +300,13 @@ radius = 7.6956
 [node name="Reina" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_usv2g")
 
+[node name="HealthBar" parent="." instance=ExtResource("2_qmdcr")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 1
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -315,9 +317,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["player"]]
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
@@ -327,10 +326,6 @@ parameters/Walk/blend_position = 0.0
 
 [node name="Weapon" parent="." instance=ExtResource("6_55blr")]
 scale = Vector2(2, 2)
-
-[node name="Sprite2D" parent="Weapon/Node2D" index="0"]
-position = Vector2(27.5, 0.5)
-texture = ExtResource("7_hns04")
 
 [node name="CollisionShape2D" parent="Weapon/PlayerDetector" index="0"]
 position = Vector2(27.6875, -0.5625)

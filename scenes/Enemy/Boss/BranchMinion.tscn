@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b4is5l764xsf7"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/BranchMinion.gd" id="1_7yqod"]
-[ext_resource type="Texture2D" uid="uid://2wiwtic0pe2n" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
+[ext_resource type="Texture2D" uid="uid://b0beroofxtxeg" path="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png" id="1_ebsuk"]
 [ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_hx0y6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xv3oq"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://da60hwio82xe2"]
 
-[ext_resource type="Texture2D" uid="uid://cawcfr03w7rph" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-awake.png" id="1_3ar13"]
+[ext_resource type="Texture2D" uid="uid://fepct7ipwo1j" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-awake.png" id="1_3ar13"]
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/CorruptedTreeGuardian.gd" id="1_73na8"]
-[ext_resource type="Texture2D" uid="uid://kqxcuwskb8ou" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-anim-sheet.png" id="2_sgs36"]
+[ext_resource type="Texture2D" uid="uid://c0w4q7l5v6nsa" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-anim-sheet.png" id="2_sgs36"]
 [ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_tgag2"]
-[ext_resource type="Texture2D" uid="uid://b5mmrc7jonq7" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-asleep.png" id="3_nvnl7"]
+[ext_resource type="Texture2D" uid="uid://b51fbr1thhun5" path="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-asleep.png" id="3_nvnl7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tryo"]
 radius = 50.0
