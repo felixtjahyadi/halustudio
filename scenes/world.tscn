@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dadyistu52sqk"]
+[gd_scene load_steps=10 format=3 uid="uid://dadyistu52sqk"]
 
 [ext_resource type="Texture2D" uid="uid://cd2wqc6ipwolg" path="res://assets/Map/grass.png" id="1_x8ml8"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="3_o51fy"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_g5j1p"]
 [ext_resource type="PackedScene" uid="uid://clmhwvftcd3hf" path="res://scenes/Player/Morin.tscn" id="6_msreh"]
 [ext_resource type="PackedScene" uid="uid://gmb3iiva6oe1" path="res://scenes/Enemy/normal_zombie.tscn" id="7_u4nb2"]
+[ext_resource type="PackedScene" uid="uid://bnx5t715bgwxt" path="res://scenes/Player/Wade.tscn" id="8_4ilri"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="10_hpxte"]
 
 [node name="World" type="Node2D"]
@@ -35,6 +36,7 @@ script = ExtResource("10_hpxte")
 [node name="ThreeCharacters" parent="." instance=ExtResource("4_lxcc5")]
 character1 = ExtResource("5_masnx")
 character2 = ExtResource("6_msreh")
+character3 = ExtResource("8_4ilri")
 character_change_delay_second = 0.0
 
 [node name="NormalZombie" parent="." instance=ExtResource("7_u4nb2")]

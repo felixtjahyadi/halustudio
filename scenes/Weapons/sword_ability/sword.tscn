@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dnrw33143k5c2"]
 
-[ext_resource type="Script" path="res://scripts/Weapons/sword.gd" id="1_2d7kx"]
+[ext_resource type="Script" path="res://scenes/Weapons/sword.gd" id="1_2d7kx"]
 [ext_resource type="Texture2D" uid="uid://dsbkswvn32l7b" path="res://scenes/Weapons/sword_ability/sword.png" id="2_gc11q"]
-[ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="4_s5icj"]
+[ext_resource type="PackedScene" uid="uid://c6y2fsbenup2f" path="res://scenes/Weapons/meleeArea.tscn" id="3_83453"]
 
 [sub_resource type="Animation" id="Animation_bbos3"]
 length = 0.001
@@ -42,8 +42,8 @@ _data = {
 "swing": SubResource("Animation_3rc3p")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cqad"]
-size = Vector2(12.5, 8.00002)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv1mo"]
+size = Vector2(8, 12)
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_2d7kx")
@@ -59,12 +59,13 @@ texture = ExtResource("2_gc11q")
 offset = Vector2(0, -4)
 flip_h = true
 
-[node name="Area2D" parent="Sprite2D" instance=ExtResource("4_s5icj")]
+[node name="MeleeArea" parent="Sprite2D" instance=ExtResource("3_83453")]
+damage = 50
 
-[node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
-position = Vector2(-1.18017e-05, -6.75)
-shape = SubResource("RectangleShape2D_8cqad")
+[node name="CollisionShape2D" parent="Sprite2D/MeleeArea" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_uv1mo")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
-[editable path="Sprite2D/Area2D"]
+[editable path="Sprite2D/MeleeArea"]
