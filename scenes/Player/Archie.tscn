@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bt8d06wklsuca" path="res://assets/Player/spritesheets/archie-idle-anim-sheet-flip.png" id="1_0xl11"]
 [ext_resource type="Texture2D" uid="uid://b0bnpvr578rmt" path="res://assets/Player/spritesheets/archie-idle-anim-sheet.png" id="1_4il6w"]
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Archie.gd" id="1_7p78a"]
+[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="2_4qdf8"]
 [ext_resource type="Texture2D" uid="uid://jfi8vmglh206" path="res://assets/Player/spritesheets/archie-walk-anim-sheet.png" id="3_ddk5v"]
 [ext_resource type="Texture2D" uid="uid://b0s33x5dq38bo" path="res://assets/Player/spritesheets/archie-walk-anim-sheet-flip.png" id="3_jko0j"]
-[ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapons/Weapon.tscn" id="6_2w84m"]
-[ext_resource type="Texture2D" uid="uid://b561hydikthvs" path="res://assets/Weapons/bow.png" id="7_b4w3a"]
+[ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapon_new/Weapon.tscn" id="6_2w84m"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_h0j7f"]
 [ext_resource type="PackedScene" uid="uid://chi6oe4mv0gbf" path="res://scenes/Skill/Shoot/Projectile/arrow.tscn" id="9_xplul"]
 
@@ -301,11 +301,13 @@ radius = 7.6956
 [node name="Archie" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7p78a")
 
+[node name="HealthBar" parent="." instance=ExtResource("2_4qdf8")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 3
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -316,9 +318,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
@@ -328,11 +327,6 @@ parameters/Walk/blend_position = 0.0
 
 [node name="Weapon" parent="." instance=ExtResource("6_2w84m")]
 scale = Vector2(2, 2)
-
-[node name="Sprite2D" parent="Weapon/Node2D" index="0"]
-position = Vector2(21.5, 0.5)
-rotation = 5.49779
-texture = ExtResource("7_b4w3a")
 
 [node name="CollisionShape2D" parent="Weapon/PlayerDetector" index="0"]
 position = Vector2(25, 0.5)

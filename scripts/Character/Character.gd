@@ -8,12 +8,17 @@ signal dead(character: Character)
 @export var speed = 300
 @export var armor = 2
 @export var weapon_scene: PackedScene
+@onready var health_bar = $HealthBar
+
 
 var current_weapon: Node
 var current_health = health
 var current_armor = armor
 var is_alive = true
 
+func _ready():
+	health_bar_update()
+	
 func set_weapon():
 	pass
 	
@@ -22,7 +27,9 @@ func attack():
 	
 func get_damage(value):
 	# When character is dead emit this signal
-	dead.emit(self)
+	current_health -= value
+	if current_health == 0:
+		dead.emit(self)
 	pass
 
 # Movement
@@ -63,5 +70,15 @@ func set_blend_position():
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	print(damage)
 	get_damage(damage)
-	if health <= 0:
+	if current_health <= 0:
 		queue_free()
+	health_bar_update()
+	
+func get_health_percent():
+	if health == 0:
+		return
+	return min(current_health/health,1)
+
+func health_bar_update():
+	health_bar.value = get_health_percent()
+

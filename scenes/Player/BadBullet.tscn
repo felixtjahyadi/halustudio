@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://dshd7es3sgy4h"]
+[gd_scene load_steps=36 format=3 uid="uid://dshd7es3sgy4h"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/BadBullet.gd" id="1_atb8h"]
 [ext_resource type="Texture2D" uid="uid://cmtmbdj1kk1lv" path="res://assets/Player/spritesheets/badbullet-idle-anim-sheet-flip.png" id="2_0kd4t"]
+[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="2_ojxkr"]
 [ext_resource type="Texture2D" uid="uid://efn1273uf72q" path="res://assets/Player/spritesheets/badbullet-idle-anim-sheet.png" id="3_jws51"]
 [ext_resource type="Texture2D" uid="uid://dkcny411uixin" path="res://assets/Player/spritesheets/badbullet-walk-anim-sheet-flip.png" id="4_stuxp"]
 [ext_resource type="Texture2D" uid="uid://bykyqhaa2q88m" path="res://assets/Player/spritesheets/badbullet-walk-anim-sheet.png" id="5_duxvj"]
@@ -287,10 +288,16 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="BadBullet" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_atb8h")
 
+[node name="HealthBar" parent="." instance=ExtResource("2_ojxkr")]
+offset_top = -40.0
+offset_bottom = -34.0
+scale = Vector2(1.5, 1.5)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -301,9 +308,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_cglmf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
