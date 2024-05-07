@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Wade.gd" id="1_6pyor"]
 [ext_resource type="Texture2D" uid="uid://c54kpimagwkd1" path="res://assets/Player/spritesheets/wade-idle-anim-sheet-flip.png" id="2_r0l7o"]
-[ext_resource type="Texture2D" uid="uid://b7ru6vl7xmymu" path="res://assets/Player/spritesheets/wade-idle-anim-sheet.png" id="3_5qkn2"]
+[ext_resource type="Texture2D" uid="uid://d0kiqqv3c7i7j" path="res://assets/Player/spritesheets/wade-idle-anim-sheet.png" id="3_5qkn2"]
 [ext_resource type="Texture2D" uid="uid://dwy8lb005ckrb" path="res://assets/Player/spritesheets/wade-walk-anim-sheet-flip.png" id="4_vlp5w"]
-[ext_resource type="Texture2D" uid="uid://bbce3le8tm6kp" path="res://assets/Player/spritesheets/wade-walk-anim-sheet.png" id="5_p52iv"]
+[ext_resource type="Texture2D" uid="uid://2yehd2d6148i" path="res://assets/Player/spritesheets/wade-walk-anim-sheet.png" id="5_p52iv"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="6_t08h3"]
 [ext_resource type="PackedScene" uid="uid://dnrw33143k5c2" path="res://scenes/Weapons/sword_ability/sword.tscn" id="6_vufsm"]
 
@@ -297,6 +297,7 @@ armor = 0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
+frame = 1
 
 [node name="Sword_Area2D#CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

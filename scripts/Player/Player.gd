@@ -3,13 +3,14 @@ extends CharacterBody2D
 class_name PlayerClass
 
 signal dead(player: PlayerClass)
+signal update_weapon_sprite(weapon : WeaponResource)
 
 @export var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 
-@onready var weapon : Node2D = $Weapon
-@onready var weaponSprite : Sprite2D = $Weapon/WeaponNode/WeaponSprite
 @onready var playerSprite : Sprite2D = $Sprite2D
 @onready var animations : AnimationTree = $AnimationTree
+
+@onready var test : Script = load("res://scripts/Player/new_script.gd")
 
 var last_direction = Vector2(0.1, 0.1)
 
@@ -18,15 +19,11 @@ var total_money_collected = 0
 
 func _ready():
 	_update_sprite()
-	_update_weapon_sprite()
+	update_weapon_sprite.emit(player.weapon)
 	pass
 
 func _update_sprite():
 	playerSprite.texture = player.texture
-
-func _update_weapon_sprite():
-	weaponSprite.texture = player.weapon.texture
-	weaponSprite.rotation = player.weapon.rotation
 
 func get_damage(value):
 	player.take_hit(value)
@@ -43,7 +40,6 @@ func _physics_process(delta):
 func move():
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * player.speed if direction else Vector2.ZERO
-	print(player.speed)
 	move_and_slide()
 
 func _process(delta):

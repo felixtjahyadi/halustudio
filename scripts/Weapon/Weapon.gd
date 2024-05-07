@@ -22,7 +22,7 @@ var canAttack = true
 
 func _ready():
 	print("in ready")
-	update_weapon_sprite()
+	update_weapon_sprite(weapon)
 	
 	scale = weapon.scale
 	
@@ -35,7 +35,11 @@ func _ready():
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
 
-func update_weapon_sprite():
+func _on_player_update_weapon_sprite(weapon):
+	self.weapon = weapon
+	update_weapon_sprite(weapon)
+
+func update_weapon_sprite(weapon : WeaponResource):
 	weaponSprite.texture = weapon.texture
 	weaponSprite.rotation = weapon.rotation
 
