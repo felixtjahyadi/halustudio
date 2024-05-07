@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxkqbc28opyt8"]
+
+[ext_resource type="PackedScene" uid="uid://b2t5exj23us8u" path="res://scenes/Utils/dialogue.tscn" id="1_kxvwg"]
+
+[node name="Dialogue" type="Node2D"]
+
+[node name="Dialogue" parent="." instance=ExtResource("1_kxvwg")]
+character_name = "Knight"
+dialogue = "Welcome Brave Champion... I am awaiting your instruction..."
