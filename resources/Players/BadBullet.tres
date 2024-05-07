@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Player" load_steps=4 format=3 uid="uid://rayiauay22qm"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=4 format=3 uid="uid://rayiauay22qm"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_1h05t"]
 [ext_resource type="Texture2D" uid="uid://dyrfm85ds3ya4" path="res://assets/Player/spritesheets/badbullet-anim-sheet.png" id="2_agl11"]
@@ -8,7 +8,7 @@
 script = ExtResource("1_1h05t")
 name = "Bad Bullet"
 texture = ExtResource("2_agl11")
-defaultHealth = 6
-defaultSpeed = 220.0
-defaultArmor = 2
+health = 6
+speed = 220.0
+armor = 2
 weapon = ExtResource("6_m35yx")

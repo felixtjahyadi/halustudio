@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Player" load_steps=4 format=3 uid="uid://dba5ygy4h3cf3"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=4 format=3 uid="uid://dba5ygy4h3cf3"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_vtpia"]
 [ext_resource type="Texture2D" uid="uid://b7ijxeeethl8u" path="res://assets/Player/spritesheets/reina-anim-sheet.png" id="2_48ch5"]
@@ -8,7 +8,7 @@
 script = ExtResource("1_vtpia")
 name = "Reina"
 texture = ExtResource("2_48ch5")
-defaultHealth = 6
-defaultSpeed = 250.0
-defaultArmor = 0
+health = 6
+speed = 250.0
+armor = 0
 weapon = ExtResource("6_vdjhc")
