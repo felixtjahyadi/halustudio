@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbtuphsgwlwvu"]
+[gd_scene load_steps=27 format=3 uid="uid://dbtuphsgwlwvu"]
 
 [ext_resource type="Script" path="res://scripts/Player/Player.gd" id="1_upio0"]
-[ext_resource type="Resource" uid="uid://cf6njtmpfs5kv" path="res://resources/Players/Morin.tres" id="2_va8d6"]
+[ext_resource type="Resource" uid="uid://dlnnkbmu8g1o0" path="res://resources/Players/Wade.tres" id="2_xpwyi"]
+[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="3_723bf"]
 [ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie-anim-sheet.png" id="3_p8ea7"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="6_q1qkn"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapon_new/Weapon.tscn" id="7_adrkm"]
@@ -70,7 +71,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [12, 13]
@@ -158,9 +159,15 @@ radius = 31.6947
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4c7w"]
 radius = 7.6956
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_upio0")
-player = ExtResource("2_va8d6")
+player = ExtResource("2_xpwyi")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_723bf")]
+offset_left = -24.0
+offset_top = -41.5
+offset_right = 8.0
+offset_bottom = -35.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_p8ea7")
@@ -168,6 +175,7 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_iatm0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -186,7 +194,10 @@ parameters/conditions/is_walking = false
 parameters/Idle/blend_position = 0.0
 parameters/Walk/blend_position = 0.0
 
+[node name="Weapon" parent="." instance=ExtResource("7_adrkm")]
+
 [node name="HurtBox" parent="." instance=ExtResource("6_q1qkn")]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -194,6 +205,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_ihpyb")
 
 [node name="Grab" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -203,6 +215,7 @@ position = Vector2(0, 1.66667)
 shape = SubResource("CircleShape2D_2u8rc")
 
 [node name="Collect" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -210,10 +223,7 @@ collision_mask = 8
 position = Vector2(0.666667, 3.66667)
 shape = SubResource("CircleShape2D_x4c7w")
 
-[node name="Weapon" parent="." instance=ExtResource("7_adrkm")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
+[connection signal="update_weapon_sprite" from="." to="Weapon" method="_on_player_update_weapon_sprite"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="Grab" to="." method="_on_grab_area_entered"]
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]

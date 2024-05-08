@@ -297,7 +297,7 @@ armor = 0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 3
+frame = 1
 
 [node name="Sword_Area2D#CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -338,4 +338,4 @@ position = Vector2(17.5, 0)
 
 [editable path="HurtBox"]
 [editable path="Sword"]
-[editable path="Sword/Sprite2D/Area2D"]
+[editable path="Sword/Sprite2D/MeleeArea"]

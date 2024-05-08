@@ -2,8 +2,8 @@ extends Node2D
 
 class_name WeaponClass
 
-@export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
-@export var rangeToPlayer : float = 30
+@export var weapon : WeaponResource = load("res://resources/Weapons/Bow.tres")
+@export var rangeToPlayer : float = 20
 
 @export var onFloor: bool = false
 
@@ -13,6 +13,9 @@ class_name WeaponClass
 @onready var playerDetector: Area2D = $PlayerDetector
 
 ## melee ##
+#@onready var hitbox_component = $WeaponNode/WeaponSprite/MeleeArea
+@onready var animation_component = $AnimationPlayer
+#@onready var slice_hitbox = $WeaponNode/WeaponSprite/MeleeArea/CollisionShape2D
 
 ## range ##
 @onready var projectileScene : PackedScene = load("res://scenes/Weapon_new/Projectiles/Projectile.tscn")
@@ -21,9 +24,8 @@ class_name WeaponClass
 var canAttack = true
 
 func _ready():
-	update_weapon_sprite()
-	
-	scale = weapon.scale
+	print("in ready")
+	update_weapon_sprite(weapon)
 	
 	var new_transform = Transform2D()
 	new_transform.origin = Vector2(rangeToPlayer, 0)
@@ -33,10 +35,17 @@ func _ready():
 		weaponSprite.position.x = rangeToPlayer
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
+	
+	animation_component.stop()
 
-func update_weapon_sprite():
+func _on_player_update_weapon_sprite(weapon):
+	self.weapon = weapon
+	update_weapon_sprite(weapon)
+
+func update_weapon_sprite(weapon : WeaponResource):
 	weaponSprite.texture = weapon.texture
 	weaponSprite.rotation = weapon.rotation
+	scale = weapon.scale
 
 func get_input():
 	pass
@@ -71,7 +80,7 @@ func attack():
 
 ## melee ##
 func _melee_attack():
-	pass
+	animation_component.play()
 
 ## melee ##
 

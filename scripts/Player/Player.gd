@@ -3,31 +3,44 @@ extends CharacterBody2D
 class_name PlayerClass
 
 signal dead(player: PlayerClass)
+signal update_weapon_sprite(weapon : WeaponResource)
+#signal update_health_bar(value : float)
 
 @export var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 
-@onready var weapon : Node2D = $Weapon
 @onready var playerSprite : Sprite2D = $Sprite2D
 @onready var animations : AnimationTree = $AnimationTree
+
+@onready var health_bar : ProgressBar = $HealthBar
+
+var current_health
+var current_armor
+var is_alive = true
 
 var last_direction = Vector2(0.1, 0.1)
 
 var money = 0
 var total_money_collected = 0
 
+
 func _ready():
-	#$Weapon.weapon = player.weapon
-	#$Weapon.update_weapon_sprite(player.weapon)
 	_update_sprite()
-	pass
+	update_weapon_sprite.emit(player.weapon)
+	_update_stats()
+	_health_bar_update()
 
 func _update_sprite():
 	playerSprite.texture = player.texture
 
+func _update_stats():
+	current_health = player.health
+	current_armor = player.armor
+
 func get_damage(value):
-	player.take_hit(value)
 	# When character is dead emit this signal
-	dead.emit(self)
+	current_health -= value
+	if current_health == 0:
+		dead.emit(self)
 	pass
 
 # Movement
@@ -43,8 +56,6 @@ func move():
 
 func _process(delta):
 	set_animation()
-	_handle_mouse_direction()
-	_handle_attack_input()
 
 func set_animation():
 	set_walking()
@@ -62,27 +73,13 @@ func set_blend_position():
 	animations["parameters/Idle/blend_position"] = last_direction.x
 	animations["parameters/Walk/blend_position"] = last_direction.x
 
-# weapon
-func _handle_mouse_direction():
-	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	weapon.get_script().handle_mouse_direction(mouse_direction)
-
-func handle_mouse_direction(mouse_direction: Vector2):
-	weapon.rotation = mouse_direction.angle()
-	if weapon.scale.y > 0 and mouse_direction.x < 0:
-		weapon.scale.y *= -1
-	elif weapon.scale.y < 0 and mouse_direction.x > 0:
-		weapon.scale.y *= -1
-
-func _handle_attack_input():
-	if Input.is_action_pressed("click"):
-		weapon.attack()
-
 # hurt box handler
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	get_damage(damage)
-	if player.health <= 0:
-		queue_free()
+	if current_health <= 0:
+		#queue_free()
+		pass
+	_health_bar_update()
 
 # loot grabber
 func _on_grab_area_entered(area):
@@ -94,4 +91,13 @@ func _on_collect_area_entered(area):
 		var money_value = area.collect()
 		money += money_value
 		total_money_collected += money_value
+
+# health bar
+func get_health_percent():
+	if current_health <= 0:
+		return 0
+	return min(current_health/player.health, 1)
+
+func _health_bar_update():
+	health_bar.value = get_health_percent()
 

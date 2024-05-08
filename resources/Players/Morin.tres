@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Player" load_steps=4 format=3 uid="uid://cf6njtmpfs5kv"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=4 format=3 uid="uid://cf6njtmpfs5kv"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_m8sjg"]
 [ext_resource type="Texture2D" uid="uid://bh7hyht0sm8ry" path="res://assets/Player/spritesheets/morin-anim-sheet.png" id="2_lb48h"]
@@ -8,7 +8,7 @@
 script = ExtResource("1_m8sjg")
 name = "Morin"
 texture = ExtResource("2_lb48h")
-defaultHealth = 12
-defaultSpeed = 200.0
-defaultArmor = 1
+health = 12
+speed = 200.0
+armor = 1
 weapon = ExtResource("6_kevcr")

@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Player" load_steps=4 format=3 uid="uid://dlnnkbmu8g1o0"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=4 format=3 uid="uid://dlnnkbmu8g1o0"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_8pt7n"]
 [ext_resource type="Texture2D" uid="uid://vnq1x4ddguxv" path="res://assets/Player/spritesheets/wade-anim-sheet.png" id="2_2w0bk"]
-[ext_resource type="Resource" uid="uid://y8hujqw40pki" path="res://resources/Weapons/Bow.tres" id="6_7yogb"]
+[ext_resource type="Resource" uid="uid://l4owv6sc1nqk" path="res://resources/Weapons/Sword.tres" id="3_qgre5"]
 
 [resource]
 script = ExtResource("1_8pt7n")
 name = "Wade"
 texture = ExtResource("2_2w0bk")
-defaultHealth = 5
-defaultSpeed = 330.0
-defaultArmor = 0
-weapon = ExtResource("6_7yogb")
+health = 5
+speed = 330.0
+armor = 0
+weapon = ExtResource("3_qgre5")

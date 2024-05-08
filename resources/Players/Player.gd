@@ -4,19 +4,14 @@ class_name PlayerResource
 
 @export var name : String = "Player"
 @export var texture : Texture2D = preload("res://assets/Player/spritesheets/archie-anim-sheet.png")
-@export var defaultHealth : int = 8
-var health : int
-@export var defaultSpeed : float = 300
-var speed : float
-@export var defaultArmor : int = 0
-var armor : int
+@export var health : int = 8
+@export var speed : float = 300
+@export var armor : int = 0
 @export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
 # TODO : @export var skill : Script
 
 func _ready():
-	health = defaultHealth
-	speed = defaultSpeed
-	armor = defaultArmor
+	pass
 
 func is_alive():
 	return health > 0

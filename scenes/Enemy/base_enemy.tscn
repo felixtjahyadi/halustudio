@@ -59,7 +59,6 @@ animation = &"walk"
 shape = SubResource("CircleShape2D_oaiih")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_03hjd")]
-visible = false
 collision_layer = 4
 collision_mask = 4
 HurtBoxType = 1
@@ -68,7 +67,16 @@ HurtBoxType = 1
 position = Vector2(0.166666, 0.666667)
 shape = SubResource("RectangleShape2D_xvife")
 
+[node name="HurtBox2" parent="." instance=ExtResource("2_03hjd")]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HurtBox2" index="0"]
+position = Vector2(0.166666, 0.666667)
+shape = SubResource("RectangleShape2D_xvife")
+
 [node name="HitBox" parent="." instance=ExtResource("3_sckq2")]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -84,4 +92,5 @@ volume_db = -15.0
 pitch_scale = 1.5
 
 [editable path="HurtBox"]
+[editable path="HurtBox2"]
 [editable path="HitBox"]

@@ -9,3 +9,6 @@
 
 [node name="NormalZombie" parent="." instance=ExtResource("2_a2bxe")]
 position = Vector2(352, 8)
+enemy_damage = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
