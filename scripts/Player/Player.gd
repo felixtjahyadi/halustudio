@@ -4,6 +4,7 @@ class_name PlayerClass
 
 signal dead(player: PlayerClass)
 signal update_weapon_sprite(weapon : WeaponResource)
+#signal update_health_bar(value : float)
 
 @export var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 
@@ -27,7 +28,6 @@ func _ready():
 	update_weapon_sprite.emit(player.weapon)
 	_update_stats()
 	_health_bar_update()
-	pass
 
 func _update_sprite():
 	playerSprite.texture = player.texture
