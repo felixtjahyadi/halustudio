@@ -10,25 +10,37 @@ signal update_weapon_sprite(weapon : WeaponResource)
 @onready var playerSprite : Sprite2D = $Sprite2D
 @onready var animations : AnimationTree = $AnimationTree
 
-@onready var test : Script = load("res://scripts/Player/new_script.gd")
+@onready var health_bar : ProgressBar = $HealthBar
+
+var current_health
+var current_armor
+var is_alive = true
 
 var last_direction = Vector2(0.1, 0.1)
 
 var money = 0
 var total_money_collected = 0
 
+
 func _ready():
 	_update_sprite()
 	update_weapon_sprite.emit(player.weapon)
+	_update_stats()
+	_health_bar_update()
 	pass
 
 func _update_sprite():
 	playerSprite.texture = player.texture
 
+func _update_stats():
+	current_health = player.health
+	current_armor = player.armor
+
 func get_damage(value):
-	player.take_hit(value)
 	# When character is dead emit this signal
-	dead.emit(self)
+	current_health -= value
+	if current_health == 0:
+		dead.emit(self)
 	pass
 
 # Movement
@@ -64,8 +76,10 @@ func set_blend_position():
 # hurt box handler
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	get_damage(damage)
-	if player.health <= 0:
-		queue_free()
+	if current_health <= 0:
+		#queue_free()
+		pass
+	_health_bar_update()
 
 # loot grabber
 func _on_grab_area_entered(area):
@@ -77,4 +91,13 @@ func _on_collect_area_entered(area):
 		var money_value = area.collect()
 		money += money_value
 		total_money_collected += money_value
+
+# health bar
+func get_health_percent():
+	if current_health <= 0:
+		return 0
+	return min(current_health/player.health, 1)
+
+func _health_bar_update():
+	health_bar.value = get_health_percent()
 
