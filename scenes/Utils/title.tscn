@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://tosur4j40spc"]
+[gd_scene load_steps=7 format=3 uid="uid://tosur4j40spc"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_pfnru"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="2_qfooj"]
 [ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_y4aph"]
 [ext_resource type="PackedScene" uid="uid://qir7vrt1qhuj" path="res://scenes/Utils/menu_theme.tscn" id="4_vpp7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_047iv"]
+
+[sub_resource type="Theme" id="Theme_2otej"]
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_047iv")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -24,38 +29,46 @@ grow_vertical = 2
 texture = ExtResource("2_y4aph")
 expand_mode = 2
 
-[node name="Play" parent="." instance=ExtResource("2_qfooj")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.5
-offset_top = 1.0
-offset_right = 62.5
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play"
-
-[node name="Quit" parent="." instance=ExtResource("2_qfooj")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.5
-offset_top = 176.0
-offset_right = 62.5
-offset_bottom = 232.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Quit"
-
 [node name="MenuTheme" parent="." instance=ExtResource("4_vpp7n")]
 position = Vector2(577, 242)
 
-[connection signal="click_end" from="Play" to="." method="_on_play_click_end"]
-[connection signal="click_end" from="Quit" to="." method="_on_quit_click_end"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -83.0
+offset_right = 137.0
+offset_bottom = 315.0
+theme = SubResource("Theme_2otej")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Play" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_qfooj")]
+layout_mode = 2
+text = "Play"
+
+[node name="SelectCharacter" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_qfooj")]
+layout_mode = 2
+text = "Select Character"
+
+[node name="Quit" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_qfooj")]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_click_end"]
+[connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/SelectCharacter" to="." method="_on_select_character_click_end"]
+[connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_click_end"]

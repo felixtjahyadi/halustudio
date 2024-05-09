@@ -1,0 +1,224 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctkfu7xn7swi4"]
+
+[ext_resource type="Script" path="res://scripts/UI/character_select.gd" id="1_qb5qw"]
+[ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_robnc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq4p7"]
+bg_color = Color(0.533333, 0.611765, 0.737255, 0.176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kefau"]
+bg_color = Color(0, 0.14902, 0.47451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qb5qw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Select Your 3Gun Character"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 64
+
+[node name="Character1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character 1"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Character1"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_robnc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character1/TextureButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -22.0
+offset_right = 100.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Change"
+horizontal_alignment = 1
+
+[node name="Character2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character 2
+"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Character2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_robnc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character2/TextureButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -22.0
+offset_right = 100.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Change"
+horizontal_alignment = 1
+
+[node name="Character3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character 3
+"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Character3"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_robnc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character3/TextureButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -22.0
+offset_right = 100.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Change"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "Done"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wq4p7")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_kefau")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Character Combination Invalid!"
+
+[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Duplicate characters are not allowed in this game. Please select another character."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Close"
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Character1/TextureButton" to="." method="_on_texture_button1_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Character1/TextureButton" to="." method="_on_texture_button1_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Character1/TextureButton" to="." method="_on_texture_button1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Character2/TextureButton" to="." method="_on_texture_button2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Character2/TextureButton" to="." method="_on_texture_button2_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Character2/TextureButton" to="." method="_on_texture_button2_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Character3/TextureButton" to="." method="_on_texture_button3_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Character3/TextureButton" to="." method="_on_texture_button3_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Character3/TextureButton" to="." method="_on_texture_button3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_close_pressed"]

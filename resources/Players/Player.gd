@@ -8,6 +8,7 @@ class_name PlayerResource
 @export var speed : float = 300
 @export var armor : int = 0
 @export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
+@export var art: Texture2D
 # TODO : @export var skill : Script
 
 func _ready():
