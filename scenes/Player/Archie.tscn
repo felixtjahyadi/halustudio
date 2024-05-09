@@ -307,7 +307,7 @@ script = ExtResource("1_7p78a")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 1
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -318,6 +318,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cglmf")
+}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
@@ -361,3 +364,4 @@ shape = SubResource("CircleShape2D_6pi4r")
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
 [editable path="Weapon"]
+[editable path="Weapon/WeaponNode/WeaponSprite/MeleeArea"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkg14bf7bw8g6"
-path="res://.godot/imported/specter-anim-sheet.png-f662ccb6642a9e52860b6fc1d9e4e3e2.ctex"
+uid="uid://bjclxb3wicv2u"
+path="res://.godot/imported/branch_dead.png-b97b36044f8700ea3390847172511f3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Specter/specter-anim-sheet.png"
-dest_files=["res://.godot/imported/specter-anim-sheet.png-f662ccb6642a9e52860b6fc1d9e4e3e2.ctex"]
+source_file="res://assets/Enemy/Corrupted Tree Guardian/branch_dead.png"
+dest_files=["res://.godot/imported/branch_dead.png-b97b36044f8700ea3390847172511f3d.ctex"]
 
 [params]
 
