@@ -67,7 +67,7 @@ func _on_detection_area_body_exited(body):
 	
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	hp -= damage
-	print(hp)
+	print('hurtbox: ', hp)
 	knock_back = angle*knock_back_amount
 	if hp <= 0:
 		var enemy_death = death.instantiate()
@@ -90,7 +90,7 @@ func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 
 func _on_melee_hurt_box_hurt(damage, angle, knock_back_amount):
 	hp -= damage
-	print(hp)
+	print('on_melee: ', hp)
 	knock_back = angle*knock_back_amount
 	if hp <= 0:
 		var enemy_death = death.instantiate()

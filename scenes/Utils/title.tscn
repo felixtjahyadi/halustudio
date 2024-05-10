@@ -69,6 +69,7 @@ text = "Select Character"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="play" from="." to="." method="_on_play"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_click_end"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/SelectCharacter" to="." method="_on_select_character_click_end"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_click_end"]

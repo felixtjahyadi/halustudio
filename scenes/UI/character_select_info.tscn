@@ -190,6 +190,17 @@ theme_override_font_sizes/font_size = 36
 text = "Back
 "
 
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.168627, 0.286275, 1)
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Select" to="." method="_on_select_pressed"]

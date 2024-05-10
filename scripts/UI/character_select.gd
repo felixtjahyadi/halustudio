@@ -82,5 +82,3 @@ func _on_texture_button3_pressed():
 	const scene = character_select_info_path
 	global.character_change_index = 2
 	get_tree().change_scene_to_packed(scene)
-
-

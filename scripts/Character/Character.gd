@@ -68,7 +68,6 @@ func set_blend_position():
 	animations["parameters/Walk/blend_position"] = last_direction.x
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
-	print(damage)
 	get_damage(damage)
 	if current_health <= 0:
 		queue_free()
