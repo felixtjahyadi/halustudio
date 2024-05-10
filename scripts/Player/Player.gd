@@ -99,15 +99,14 @@ func swap_listen():
 	
 	if Input.is_action_just_pressed("swap_next"):
 		swap_player(global.character_alive_next())
-		swap.emit(true)
 	elif Input.is_action_just_pressed("swap_prev"):
 		swap_player(global.character_alvie_prev())
-		swap.emit(true)
 
 func swap_player(character: PlayerResource):
 	if not can_swap: return
 	player = character
 	_update()
+	swap.emit(true)
 	
 	can_swap = false
 	await get_tree().create_timer(swap_delay).timeout	
