@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3d1ov44reo7d"]
+[gd_scene load_steps=12 format=3 uid="uid://c3d1ov44reo7d"]
 
 [ext_resource type="PackedScene" uid="uid://c0nuxoqqoqbde" path="res://scenes/Map/Room/1/1-1.tscn" id="1_ckb1b"]
 [ext_resource type="PackedScene" uid="uid://c3h8kyqjwwqi1" path="res://scenes/Map/Room/transition/TransitionH.tscn" id="1_qbtoq"]
@@ -6,15 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://boh7xpne8v8n1" path="res://scenes/Map/Room/3/3-123.tscn" id="5_f6kvy"]
 [ext_resource type="PackedScene" uid="uid://bfvojt4y1ba3h" path="res://scenes/Map/Room/1/1-3.tscn" id="7_jioex"]
 [ext_resource type="PackedScene" uid="uid://bpksiove5g5iw" path="res://scenes/Map/Room/2/2-13.tscn" id="7_wn1tw"]
-[ext_resource type="PackedScene" uid="uid://d1mm83cxhap7r" path="res://scenes/Player/three_characters.tscn" id="8_wp32q"]
 [ext_resource type="PackedScene" uid="uid://baed4td4m8wpf" path="res://scenes/Map/Room/1/3-0.tscn" id="8_y7tcb"]
-[ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="9_q15d3"]
-[ext_resource type="PackedScene" uid="uid://clmhwvftcd3hf" path="res://scenes/Player/Morin.tscn" id="10_bk0kd"]
+[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="11_6tims"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="11_arhbg"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="12_dppyl"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="13_b0gg8"]
 
-[node name="Level2" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="Rooms" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -82,11 +80,6 @@ position = Vector2(43.5, -162)
 [node name="Marker2D4" type="Marker2D" parent="Rooms/Room1/EnemyPosition" index="3"]
 position = Vector2(84, -207.5)
 
-[node name="ThreeCharacters" parent="." instance=ExtResource("8_wp32q")]
-position = Vector2(-152, 148)
-character1 = ExtResource("9_q15d3")
-character2 = ExtResource("10_bk0kd")
-
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
 [node name="FrameSaver" parent="." instance=ExtResource("11_arhbg")]
@@ -98,6 +91,9 @@ volume_db = -10.028
 autoplay = true
 max_distance = 1e+07
 script = ExtResource("13_b0gg8")
+
+[node name="Spawn" parent="." instance=ExtResource("11_6tims")]
+position = Vector2(-152, 149)
 
 [editable path="Rooms/Room3"]
 [editable path="Rooms/Room2"]

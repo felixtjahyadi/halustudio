@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=4 format=3 uid="uid://cf6njtmpfs5kv"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=5 format=3 uid="uid://cf6njtmpfs5kv"]
 
+[ext_resource type="Texture2D" uid="uid://c8bai3fj2m4b2" path="res://assets/Player/art/Knight.png" id="1_e6165"]
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_m8sjg"]
 [ext_resource type="Texture2D" uid="uid://bh7hyht0sm8ry" path="res://assets/Player/spritesheets/morin-anim-sheet.png" id="2_lb48h"]
 [ext_resource type="Resource" uid="uid://dfo5pbgjofu2f" path="res://resources/Weapons/Gun.tres" id="6_kevcr"]
@@ -12,3 +13,4 @@ health = 12
 speed = 200.0
 armor = 1
 weapon = ExtResource("6_kevcr")
+art = ExtResource("1_e6165")

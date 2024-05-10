@@ -1,22 +1,22 @@
 {
   "level1": [
-    {
-      "name": "Archie",
-      "dialogue": ["dialogue 1", "dialogue 2", "dialogue 3"]
-    },
-    {
-      "name": "Knight",
-      "dialogue": ["yadad aydyadyaydyaydya"]
-    }
+	{
+	  "name": "Archie",
+	  "dialogue": ["dialogue 1", "dialogue 2", "dialogue 3"]
+	},
+	{
+	  "name": "Knight",
+	  "dialogue": ["yadad aydyadyaydyaydya"]
+	}
   ],
   "level2": [
-    {
-      "name": "Archie",
-      "dialogue": ["blablkabafksng aydyadyaydyaydya"]
-    },
-    {
-      "name": "Knight",
-      "dialogue": ["yadad aydyadyaydyaydya"]
-    }
+	{
+	  "name": "Archie",
+	  "dialogue": ["blablkabafksng aydyadyaydyaydya"]
+	},
+	{
+	  "name": "Knight",
+	  "dialogue": ["yadad aydyadyaydyaydya"]
+	}
   ]
 }

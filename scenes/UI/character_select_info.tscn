@@ -1,0 +1,207 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckuegc1yj5kb0"]
+
+[ext_resource type="Script" path="res://scripts/UI/character_select_info2.gd" id="1_rslve"]
+[ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="2_80s33"]
+[ext_resource type="Texture2D" uid="uid://bkt233xy3ldyj" path="res://assets/Icon/health.png" id="3_h2ies"]
+[ext_resource type="Texture2D" uid="uid://c7b2ou8g70iv8" path="res://assets/Icon/speed.png" id="4_fn6c5"]
+[ext_resource type="Texture2D" uid="uid://bxem1la2l0rbk" path="res://assets/Icon/shield.png" id="5_hwmbt"]
+
+[node name="CharacterSelectInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rslve")
+metadata/_edit_vertical_guides_ = [-250.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Select Your 3Gun Character"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="Prev" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+text = "<"
+
+[node name="Character" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Character"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Role"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Character"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_80s33")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Next" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+text = ">"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="CharacterInfo" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Charater Name" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character Name"
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterInfo"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+autowrap_mode = 2
+
+[node name="CharacterStat" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character Status
+"
+
+[node name="Status" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Health" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Health"]
+layout_mode = 2
+texture = ExtResource("3_h2ies")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Health"]
+layout_mode = 2
+text = "100"
+
+[node name="Speed" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Speed"]
+layout_mode = 2
+texture = ExtResource("4_fn6c5")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Speed"]
+layout_mode = 2
+text = "100"
+
+[node name="Armor" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Armor"]
+layout_mode = 2
+texture = ExtResource("5_hwmbt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Armor"]
+layout_mode = 2
+text = "100"
+
+[node name="CharacterSkill" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character Skill
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Select" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "Select"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "Back
+"
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.168627, 0.286275, 1)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
