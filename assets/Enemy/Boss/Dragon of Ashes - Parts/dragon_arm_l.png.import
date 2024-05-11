@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr6d7qs58pgyi"
-path="res://.godot/imported/dragon_arm_r.png-49c5446f97379817a623e44f605c6047.ctex"
+uid="uid://bc11swt51h8pn"
+path="res://.godot/imported/dragon_arm_l.png-931cc82ab8f822554b46f855d35fa070.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Dragon of Ashes - Parts/dragon_arm_r.png"
-dest_files=["res://.godot/imported/dragon_arm_r.png-49c5446f97379817a623e44f605c6047.ctex"]
+source_file="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_arm_l.png"
+dest_files=["res://.godot/imported/dragon_arm_l.png-931cc82ab8f822554b46f855d35fa070.ctex"]
 
 [params]
 

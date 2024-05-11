@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4l4tl7tg3pxl"
-path="res://.godot/imported/dragon_head_rage_anim.png-c005cdd15094702d4c23f8d05d1c048f.ctex"
+uid="uid://btghqpu7xgfnu"
+path="res://.godot/imported/dragon_wing_r_anim_sheet.png-a13d07e7cec67b9716e138cc0d23907c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Dragon of Ashes - Parts/dragon_head_rage_anim.png"
-dest_files=["res://.godot/imported/dragon_head_rage_anim.png-c005cdd15094702d4c23f8d05d1c048f.ctex"]
+source_file="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_r_anim_sheet.png"
+dest_files=["res://.godot/imported/dragon_wing_r_anim_sheet.png-a13d07e7cec67b9716e138cc0d23907c.ctex"]
 
 [params]
 

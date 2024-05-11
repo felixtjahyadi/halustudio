@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6sfm8idwwui4"
-path="res://.godot/imported/dragon_wing_l_anim_sheet.png-5df55899549d3131c43eeacc1c9de32d.ctex"
+uid="uid://b51fbr1thhun5"
+path="res://.godot/imported/tree-boss-asleep.png-d3d1f0f0ba93b67946130637379d8b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Dragon of Ashes - Parts/dragon_wing_l_anim_sheet.png"
-dest_files=["res://.godot/imported/dragon_wing_l_anim_sheet.png-5df55899549d3131c43eeacc1c9de32d.ctex"]
+source_file="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-asleep.png"
+dest_files=["res://.godot/imported/tree-boss-asleep.png-d3d1f0f0ba93b67946130637379d8b64.ctex"]
 
 [params]
 

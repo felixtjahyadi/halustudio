@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0beroofxtxeg"
-path="res://.godot/imported/branch-minion-anim-sheet.png-4503235dc84bb82604698a52e3a0b0ae.ctex"
+uid="uid://crstkvlfvg7rv"
+path="res://.godot/imported/zombie_idle.png-236b668204edb1003f30a2e01e924e4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Corrupted Tree Guardian/branch-minion-anim-sheet.png"
-dest_files=["res://.godot/imported/branch-minion-anim-sheet.png-4503235dc84bb82604698a52e3a0b0ae.ctex"]
+source_file="res://assets/Enemy/Zombie (On Going)/zombie_idle.png"
+dest_files=["res://.godot/imported/zombie_idle.png-236b668204edb1003f30a2e01e924e4b.ctex"]
 
 [params]
 

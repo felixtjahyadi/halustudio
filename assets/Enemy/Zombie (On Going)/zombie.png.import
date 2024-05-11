@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dopwfletf64n8"
-path="res://.godot/imported/branch_dead.png-b97b36044f8700ea3390847172511f3d.ctex"
+uid="uid://600y1fpg00mp"
+path="res://.godot/imported/zombie.png-6dc6f258c6b9e7223ae6ada396f37f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Corrupted Tree Guardian/branch_dead.png"
-dest_files=["res://.godot/imported/branch_dead.png-b97b36044f8700ea3390847172511f3d.ctex"]
+source_file="res://assets/Enemy/Zombie (On Going)/zombie.png"
+dest_files=["res://.godot/imported/zombie.png-6dc6f258c6b9e7223ae6ada396f37f7b.ctex"]
 
 [params]
 

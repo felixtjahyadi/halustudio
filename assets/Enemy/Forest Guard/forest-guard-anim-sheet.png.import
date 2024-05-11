@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnllrmbue2fup"
-path="res://.godot/imported/forrest-guard-anim-sheet.png-4c04da0fd2523d115f0254184cec938f.ctex"
+uid="uid://d3jx062h1j1yf"
+path="res://.godot/imported/forest-guard-anim-sheet.png-6514cc5f90dfba063d780bf80666d674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Forrest Guard/forrest-guard-anim-sheet.png"
-dest_files=["res://.godot/imported/forrest-guard-anim-sheet.png-4c04da0fd2523d115f0254184cec938f.ctex"]
+source_file="res://assets/Enemy/Forest Guard/forest-guard-anim-sheet.png"
+dest_files=["res://.godot/imported/forest-guard-anim-sheet.png-6514cc5f90dfba063d780bf80666d674.ctex"]
 
 [params]
 

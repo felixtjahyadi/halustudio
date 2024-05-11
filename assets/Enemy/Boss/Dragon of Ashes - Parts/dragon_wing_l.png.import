@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvj5b11e2fq1q"
-path="res://.godot/imported/dragon_feet_l.png-f81eaabc49f9c568cee71685341064f5.ctex"
+uid="uid://uio2fcyutx3g"
+path="res://.godot/imported/dragon_wing_l.png-abcf4a4f7b6d5621af283ff99f767ce1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Dragon of Ashes - Parts/dragon_feet_l.png"
-dest_files=["res://.godot/imported/dragon_feet_l.png-f81eaabc49f9c568cee71685341064f5.ctex"]
+source_file="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_l.png"
+dest_files=["res://.godot/imported/dragon_wing_l.png-abcf4a4f7b6d5621af283ff99f767ce1.ctex"]
 
 [params]
 

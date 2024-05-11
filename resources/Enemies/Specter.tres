@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://dl5v5ecn8lko3"]
+
+[ext_resource type="Texture2D" uid="uid://dl4lvemo7rwql" path="res://assets/Enemy/Specter/specter-dead.png" id="1_0yb4u"]
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_ta3av"]
+[ext_resource type="Texture2D" uid="uid://bkg14bf7bw8g6" path="res://assets/Enemy/Specter/specter-anim-sheet.png" id="3_sxamm"]
+
+[resource]
+script = ExtResource("1_ta3av")
+name = "Specter"
+texture = ExtResource("3_sxamm")
+dead_texture = ExtResource("1_0yb4u")
+health = 20
+speed = 300.0
+armor = 1

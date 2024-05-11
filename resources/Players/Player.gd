@@ -9,7 +9,7 @@ class_name PlayerResource
 @export var armor : int = 0
 @export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
 @export var art: Texture2D
-# TODO : @export var skill : Script
+# TODO?? : @export var skill : Script
 
 var initial_health : int
 var initial_speed : float
@@ -32,7 +32,6 @@ func reset():
 func is_alive():
 	return health > 0
 
-# TODO: separate this from PlayerResource
 func set_weapon(new_weapon : WeaponResource):
 	weapon = new_weapon
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jboqvem6sk53"
-path="res://.godot/imported/dragon_arm_l_with_spear.png-e5c503e54ff74837a8ecfc656de306c8.ctex"
+uid="uid://dopwfletf64n8"
+path="res://.godot/imported/branch_dead.png-ca8bbb11fe0e9bd3a285e2e11db35c51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Dragon of Ashes - Parts/dragon_arm_l_with_spear.png"
-dest_files=["res://.godot/imported/dragon_arm_l_with_spear.png-e5c503e54ff74837a8ecfc656de306c8.ctex"]
+source_file="res://assets/Enemy/Boss/Corrupted Tree Guardian/branch_dead.png"
+dest_files=["res://.godot/imported/branch_dead.png-ca8bbb11fe0e9bd3a285e2e11db35c51.ctex"]
 
 [params]
 

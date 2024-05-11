@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b51fbr1thhun5"
-path="res://.godot/imported/tree-boss-asleep.png-d02b047e2b8a22ef90680641d4d4ccf5.ctex"
+uid="uid://bvj5b11e2fq1q"
+path="res://.godot/imported/dragon_feet_l.png-c9fe07b1328edd2d0a5007e3c7b503e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-asleep.png"
-dest_files=["res://.godot/imported/tree-boss-asleep.png-d02b047e2b8a22ef90680641d4d4ccf5.ctex"]
+source_file="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_feet_l.png"
+dest_files=["res://.godot/imported/dragon_feet_l.png-c9fe07b1328edd2d0a5007e3c7b503e7.ctex"]
 
 [params]
 

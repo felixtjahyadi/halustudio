@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fepct7ipwo1j"
-path="res://.godot/imported/tree-boss-awake.png-85e225638d91ccf7277c65c9504d0df8.ctex"
+uid="uid://ck671e77oyecm"
+path="res://.godot/imported/dragon_head.png-80cd541521ea0b6b4e4b844dbcd18ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Corrupted Tree Guardian/tree-boss-awake.png"
-dest_files=["res://.godot/imported/tree-boss-awake.png-85e225638d91ccf7277c65c9504d0df8.ctex"]
+source_file="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_head.png"
+dest_files=["res://.godot/imported/dragon_head.png-80cd541521ea0b6b4e4b844dbcd18ab2.ctex"]
 
 [params]
 

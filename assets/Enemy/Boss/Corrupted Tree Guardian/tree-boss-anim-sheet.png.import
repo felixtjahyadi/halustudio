@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g34mai6o6h41"
-path="res://.godot/imported/forest_guard_dead.png-746030655eabd243d6c6805bc2af249d.ctex"
+uid="uid://c0w4q7l5v6nsa"
+path="res://.godot/imported/tree-boss-anim-sheet.png-007ab5e5d8063da0ddf8d31d718d4668.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Forrest Guard/forest_guard_dead.png"
-dest_files=["res://.godot/imported/forest_guard_dead.png-746030655eabd243d6c6805bc2af249d.ctex"]
+source_file="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-anim-sheet.png"
+dest_files=["res://.godot/imported/tree-boss-anim-sheet.png-007ab5e5d8063da0ddf8d31d718d4668.ctex"]
 
 [params]
 
