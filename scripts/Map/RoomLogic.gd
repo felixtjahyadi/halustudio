@@ -25,8 +25,6 @@ const ENEMY_SCENES: Dictionary = {
 	"ZOMBIE": preload("res://scenes/Enemy/normal_zombie.tscn"),
 }
 
-@export_enum("Forest", "Dungeon") var mapTexture : String = "Forest"
-
 @export var skippable : bool = false
 
 @export var lastRoom : bool = false
@@ -35,6 +33,8 @@ const ENEMY_SCENES: Dictionary = {
 @onready var roomTileMap : TileMap = get_node("RoomTileMap")
 @onready var enemy_positions_container: Node2D = get_node("EnemyPosition")
 @onready var player_detector: Area2D = get_node("PlayerDetector")
+
+var mapTexture : String = global.current_map_texture
 
 var portalScenePath : String = "res://scenes/Map/Objects/Portal.tscn"
 
