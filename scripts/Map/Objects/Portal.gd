@@ -2,9 +2,11 @@ extends Node2D
 
 @export var levelPath : String = "Level 1"
 
+@onready var animatedSprite : AnimatedSprite2D = get_node("AnimatedSprite2D")
+
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-	#pass # Replace with function body.
+func _ready():
+	animatedSprite.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

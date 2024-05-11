@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf5pxyiauu4ph"]
+[gd_scene load_steps=5 format=3 uid="uid://d3xtmpjqtio08"]
 
 [ext_resource type="Script" path="res://scripts/Map/RoomLogic.gd" id="1_gjv2i"]
-[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/Room/RoomTileMap.tscn" id="2_ahov4"]
+[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/RoomTileMap.tscn" id="2_ahov4"]
 [ext_resource type="PackedScene" uid="uid://bky7hirsru46f" path="res://scenes/Player/player.tscn" id="2_infgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6xw"]

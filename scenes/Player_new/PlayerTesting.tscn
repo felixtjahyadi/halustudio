@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://byd2vpfvrm8yq"]
 
-[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="1_osfuf"]
+[ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="1_osfuf"]
 [ext_resource type="PackedScene" uid="uid://gmb3iiva6oe1" path="res://scenes/Enemy/normal_zombie.tscn" id="2_a2bxe"]
 
 [node name="PlayerTesting" type="Node2D"]

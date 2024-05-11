@@ -46,7 +46,6 @@ func _ready():
 	toggleDoor()
 	
 	num_enemies = enemy_positions_container.get_child_count()
-	#num_enemies = 0
 	
 	if lastRoom:
 		showPortal()
@@ -58,21 +57,6 @@ func _updateRoomTexture():
 	
 	remove_child(roomTileMap)
 	add_child(roomTileMap)
-
-# func _process(delta):
-# 	pass
-
-func _on_enemy_killed():
-	num_enemies -= 1
-	if num_enemies == 0:
-		endRoom()
-
-func _spawn_enemies() -> void:
-	for enemy_position in enemy_positions_container.get_children():
-		var enemy: BaseEnemy
-		enemy = ENEMY_SCENES.ZOMBIE.instantiate()
-		enemy.position = enemy_position.position
-		call_deferred("add_child", enemy)
 
 func toggleDoor():
 	# layer door = 1
@@ -88,18 +72,27 @@ func startRoom():
 	if _isRoomNotExplored:
 		_isRoomNotExplored = false
 		toggleDoor()
-		 # for test
 
 func endRoom():
 	toggleDoor()
 	if lastRoom:
 		showPortal()
 
-func _on_room_area_body_entered(body):
-	if body.is_in_group("player"):
-		startRoom()
+func _spawn_enemies() -> void:
+	for enemy_position in enemy_positions_container.get_children():
+		var enemy: BaseEnemy
+		enemy = ENEMY_SCENES.ZOMBIE.instantiate()
+		enemy.position = enemy_position.position
+		call_deferred("add_child", enemy)
+
+func _on_enemy_killed():
+	num_enemies -= 1
+	if num_enemies == 0:
+		endRoom()
 
 func _on_player_detector_body_entered(body: CharacterBody2D):
-	player_detector.queue_free()
-	if num_enemies > 0:
-		_spawn_enemies()
+	if body.is_in_group("player"):
+		startRoom()
+		player_detector.queue_free()
+		if num_enemies > 0:
+			_spawn_enemies()
