@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm42pmj41dorq"]
+
+[ext_resource type="Script" path="res://scripts/Player/Spawn.gd" id="1_unddo"]
+
+[node name="Spawn" type="Marker2D"]
+script = ExtResource("1_unddo")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

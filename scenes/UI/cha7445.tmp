@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckuegc1yj5kb0"]
+
+[ext_resource type="Script" path="res://scripts/UI/character_select.gd" id="1_qb5qw"]
+[ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_robnc"]
+[ext_resource type="Texture2D" uid="uid://cljjnfn8p3m2g" path="res://assets/Player/art/Ninja.png" id="2_rk2kv"]
+[ext_resource type="Texture2D" uid="uid://c8bai3fj2m4b2" path="res://assets/Player/art/Knight.png" id="3_eat6o"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qb5qw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Select Your 3Gun Character"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 64
+
+[node name="Character1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character 1"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Character1"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_robnc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Character2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character 2
+"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Character2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_rk2kv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Character3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Character3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Character 3
+"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Character3"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_eat6o")
+expand_mode = 1
+stretch_mode = 5

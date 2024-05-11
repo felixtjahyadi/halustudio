@@ -289,9 +289,6 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 script = ExtResource("1_atb8h")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_ojxkr")]
-offset_top = -40.0
-offset_bottom = -34.0
-scale = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -308,6 +305,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cglmf")
+}
 tree_root = SubResource("AnimationNodeStateMachine_mp726")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false

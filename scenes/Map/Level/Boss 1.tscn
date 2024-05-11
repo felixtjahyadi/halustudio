@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://3oqncvwdr61l"]
+[gd_scene load_steps=8 format=3 uid="uid://3oqncvwdr61l"]
 
 [ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/RoomTileMap.tscn" id="1_vpk46"]
 [ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="2_pi06b"]
-[ext_resource type="PackedScene" uid="uid://d1mm83cxhap7r" path="res://scenes/Player/three_characters.tscn" id="3_sn3pv"]
-[ext_resource type="PackedScene" uid="uid://clldvw3fgw8d8" path="res://scenes/Player/Archie.tscn" id="4_vaj13"]
-[ext_resource type="PackedScene" uid="uid://clmhwvftcd3hf" path="res://scenes/Player/Morin.tscn" id="5_swukn"]
+[ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="6_0u3w5"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_ebf6a"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="7_4po5x"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="8_r64wk"]
@@ -53,10 +51,6 @@ levelPath = "WinScreen"
 layer_0/tile_data = PackedInt32Array(262148, 458752, 3, 196612, 196608, 1, 131076, 196608, 1, 262147, 65536, 3, 262146, 65536, 3, 262145, 65536, 3, 262144, 65536, 3, 327679, 65536, 3, 327678, 65536, 3, 327677, 65536, 3, 327676, 65536, 3, 327675, 262144, 3, 262139, 196608, 1, 196603, 196608, 1, 131067, 1, 0, 65531, 1, 0, -5, 1, 0, -65541, 1, 0, -131077, 196608, 1, -196613, 196608, 1, -262149, 262144, 0, -327676, 458752, 0, -327677, 65536, 3, -327678, 65536, 3, -327679, 65536, 3, -327680, 65536, 3, -262145, 65536, 3, -262146, 65536, 3, -262147, 65536, 3, -262148, 65536, 3, -196604, 196608, 1, -262140, 196608, 1, -196612, 1, 0, -196611, 1, 0, -131075, 1, 0, -131074, 1, 0, -65537, 1, 0, -131072, 1, 0, -65536, 1, 0, -65535, 1, 0, 1, 1, 0, 65537, 1, 0, 65538, 1, 0, 131074, 1, 0, 196610, 1, 0, 196611, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 1, 0, 65532, 1, 0, 131068, 1, 0, 196604, 1, 0, 262140, 1, 0, -65539, 1, 0, -3, 1, 0, 65533, 1, 0, 131069, 1, 0, 196605, 1, 0, 262141, 1, 0, -196610, 1, 0, -65538, 1, 0, -2, 1, 0, 65534, 1, 0, 131070, 1, 0, 196606, 1, 0, 262142, 1, 0, -196609, 1, 0, -131073, 1, 0, -1, 1, 0, 65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, -262144, 1, 0, -196608, 1, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608, 1, 0, -262143, 1, 0, -196607, 1, 0, -131071, 1, 0, 131073, 1, 0, 196609, 1, 0, -262142, 1, 0, -196606, 1, 0, -131070, 1, 0, -65534, 1, 0, 2, 1, 0, -262141, 1, 0, -196605, 1, 0, -131069, 1, 0, -65533, 1, 0, 3, 1, 0, 65539, 1, 0, 131075, 1, 0, 65540, 196608, 1, 4, 196608, 1, -65532, 196608, 1, -131068, 196608, 1)
 layer_1/tile_data = PackedInt32Array(131067, 65538, 0, 65531, 65538, 0, -5, 65538, 0, -65541, 65538, 0)
 
-[node name="ThreeCharacters" parent="." instance=ExtResource("3_sn3pv")]
-character1 = ExtResource("4_vaj13")
-character2 = ExtResource("5_swukn")
-
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
 [node name="FrameSaver" parent="." instance=ExtResource("6_ebf6a")]
@@ -68,6 +62,8 @@ volume_db = -10.028
 autoplay = true
 max_distance = 1e+07
 script = ExtResource("8_r64wk")
+
+[node name="Spawn" parent="." instance=ExtResource("6_0u3w5")]
 
 [editable path="Rooms/Transitions"]
 [editable path="Rooms/Start"]
