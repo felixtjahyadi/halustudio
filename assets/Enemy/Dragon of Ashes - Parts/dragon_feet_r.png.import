@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkg14bf7bw8g6"
-path="res://.godot/imported/specter-anim-sheet.png-f662ccb6642a9e52860b6fc1d9e4e3e2.ctex"
+uid="uid://c8r3evpbp05sn"
+path="res://.godot/imported/dragon_feet_r.png-c49d9bfb93cc5feed4ba4438068305b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Specter/specter-anim-sheet.png"
-dest_files=["res://.godot/imported/specter-anim-sheet.png-f662ccb6642a9e52860b6fc1d9e4e3e2.ctex"]
+source_file="res://assets/Enemy/Dragon of Ashes - Parts/dragon_feet_r.png"
+dest_files=["res://.godot/imported/dragon_feet_r.png-c49d9bfb93cc5feed4ba4438068305b4.ctex"]
 
 [params]
 

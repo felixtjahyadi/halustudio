@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnllrmbue2fup"
-path="res://.godot/imported/forrest-guard-anim-sheet.png-f2ec2e4298e4eabe1f1d5e87547c2d03.ctex"
+path="res://.godot/imported/forrest-guard-anim-sheet.png-4c04da0fd2523d115f0254184cec938f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/forrest-guard-anim-sheet.png"
-dest_files=["res://.godot/imported/forrest-guard-anim-sheet.png-f2ec2e4298e4eabe1f1d5e87547c2d03.ctex"]
+source_file="res://assets/Enemy/Forrest Guard/forrest-guard-anim-sheet.png"
+dest_files=["res://.godot/imported/forrest-guard-anim-sheet.png-4c04da0fd2523d115f0254184cec938f.ctex"]
 
 [params]
 
