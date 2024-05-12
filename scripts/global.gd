@@ -3,12 +3,11 @@ extends Node
 var LEVEL_PATH : String = "res://scenes/Map/Level/"
 var HITPOINTS: int = 5
 
-var DIRECTION : Dictionary = {
-	"NORTH": 0,
-	"EAST" : 1,
-	"SOUTH": 2,
-	"WEST" : 3,
+var MAP_TEXTURE : Dictionary = {
+	"FOREST": "Forest",
+	"DUNGEON": "Dungeon",
 }
+var current_map_texture = MAP_TEXTURE.FOREST
 
 # Character select logic
 var all_characters: Dictionary = {
