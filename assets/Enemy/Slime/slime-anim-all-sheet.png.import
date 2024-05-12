@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce6qhgthpsrs6"
-path="res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"
+uid="uid://owygiq7dojig"
+path="res://.godot/imported/slime-anim-all-sheet.png-9c088989c8be933202f094f66f82bf46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/zombie_idle.png"
-dest_files=["res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"]
+source_file="res://assets/Enemy/Slime/slime-anim-all-sheet.png"
+dest_files=["res://.godot/imported/slime-anim-all-sheet.png-9c088989c8be933202f094f66f82bf46.ctex"]
 
 [params]
 

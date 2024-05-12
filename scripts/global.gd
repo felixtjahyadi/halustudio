@@ -9,6 +9,16 @@ var MAP_TEXTURE : Dictionary = {
 }
 var current_map_texture = MAP_TEXTURE.FOREST
 
+# Enemy resource
+var all_enemies: Dictionary = {
+	"ForestGuard": load("res://resources/Enemies/ForestGuard.tres").setup(),
+	"Slime": load("res://resources/Enemies/Slime.tres").setup(),
+	"Specter": load("res://resources/Enemies/Specter.tres").setup(),
+	"ZombieBoy": load("res://resources/Enemies/ZombieBoy.tres").setup(),
+	"ZombieDoctor": load("res://resources/Enemies/ZombieDoctor.tres").setup(),
+	"ZombieGirl": load("res://resources/Enemies/ZombieGirl.tres").setup(),
+}
+
 # Character select logic
 var all_characters: Dictionary = {
 	"Archie": load("res://resources/Players/Archie.tres").setup(),

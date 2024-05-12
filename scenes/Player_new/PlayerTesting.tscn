@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://byd2vpfvrm8yq"]
+[gd_scene load_steps=4 format=3 uid="uid://byd2vpfvrm8yq"]
 
 [ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="1_osfuf"]
-[ext_resource type="PackedScene" uid="uid://gmb3iiva6oe1" path="res://scenes/Enemy/normal_zombie.tscn" id="2_a2bxe"]
+[ext_resource type="PackedScene" uid="uid://bmokpgfnnft5j" path="res://scenes/Enemy_new/Enemy.tscn" id="2_qgm4a"]
+[ext_resource type="Resource" uid="uid://bdfhnxlg7ofno" path="res://resources/Enemies/ZombieGirl.tres" id="3_lmifr"]
 
 [node name="PlayerTesting" type="Node2D"]
 
 [node name="Spawn" parent="." instance=ExtResource("1_osfuf")]
 
-[node name="NormalZombie" parent="." instance=ExtResource("2_a2bxe")]
-position = Vector2(352, 8)
-enemy_damage = 1
+[node name="Enemy" parent="." instance=ExtResource("2_qgm4a")]
+position = Vector2(312, 1)
+enemy = ExtResource("3_lmifr")
 
 [node name="Camera2D" type="Camera2D" parent="."]

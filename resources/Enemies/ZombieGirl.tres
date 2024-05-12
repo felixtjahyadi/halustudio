@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bdfhnxlg7ofno"]
+
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_0057n"]
+[ext_resource type="Texture2D" uid="uid://53wx6ahvym4c" path="res://assets/Enemy/Zombie (On Going)/zombie-girl-anim-sheet.png" id="2_52ysg"]
+
+[resource]
+script = ExtResource("1_0057n")
+name = "Zombie Girl"
+texture = ExtResource("2_52ysg")
+health = 10
+speed = 301.0
+armor = 0
+baseDamage = 1
+detectionRadius = 500.0
+knock_back_recovery = 3.5
+max_coins = 6
+money = 2

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://c8ueu5twlksdc"]
+
+[ext_resource type="Texture2D" uid="uid://cw6n1t0otxjuf" path="res://assets/Enemy/Forest Guard/forest-guard-anim-all-sheet.png" id="2_mwgra"]
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="3_ln0st"]
+
+[resource]
+script = ExtResource("3_ln0st")
+name = "Forest Guard"
+texture = ExtResource("2_mwgra")
+health = 30
+speed = 250.0
+armor = 2
+baseDamage = 2
+detectionRadius = 150.0
+knock_back_recovery = 5.0
+max_coins = 10
+money = 4

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce6qhgthpsrs6"
-path="res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"
+uid="uid://d3jx062h1j1yf"
+path="res://.godot/imported/forest-guard-anim-sheet.png-6514cc5f90dfba063d780bf80666d674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/zombie_idle.png"
-dest_files=["res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"]
+source_file="res://assets/Enemy/Forest Guard/forest-guard-anim-sheet.png"
+dest_files=["res://.godot/imported/forest-guard-anim-sheet.png-6514cc5f90dfba063d780bf80666d674.ctex"]
 
 [params]
 

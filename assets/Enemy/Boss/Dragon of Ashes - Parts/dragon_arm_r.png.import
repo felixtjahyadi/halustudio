@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce6qhgthpsrs6"
-path="res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"
+uid="uid://dr6d7qs58pgyi"
+path="res://.godot/imported/dragon_arm_r.png-a53854572156a6236f67656e04170118.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/zombie_idle.png"
-dest_files=["res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"]
+source_file="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_arm_r.png"
+dest_files=["res://.godot/imported/dragon_arm_r.png-a53854572156a6236f67656e04170118.ctex"]
 
 [params]
 

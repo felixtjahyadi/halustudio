@@ -67,11 +67,17 @@ func set_swap_animation(value = false):
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	player.take_hit(damage)
 	_health_bar_update()
+	damaged_animation()
 	if player.health <= 0:
 		if global.character_alive_total() == 0: 
 			dead.emit(self)
 		else:
 			swap_player(global.character_alive_next())
+
+func damaged_animation():
+	modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color.WHITE
 
 # loot grabber
 func _on_grab_area_entered(area):

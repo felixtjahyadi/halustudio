@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce6qhgthpsrs6"
-path="res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"
+uid="uid://b51fbr1thhun5"
+path="res://.godot/imported/tree-boss-asleep.png-d3d1f0f0ba93b67946130637379d8b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/zombie_idle.png"
-dest_files=["res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"]
+source_file="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-asleep.png"
+dest_files=["res://.godot/imported/tree-boss-asleep.png-d3d1f0f0ba93b67946130637379d8b64.ctex"]
 
 [params]
 

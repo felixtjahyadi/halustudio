@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce6qhgthpsrs6"
-path="res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"
+uid="uid://53wx6ahvym4c"
+path="res://.godot/imported/zombie-girl-anim-sheet.png-1a6b479172d7e64fb8b36b5b4fbe34df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/zombie_idle.png"
-dest_files=["res://.godot/imported/zombie_idle.png-b76bb33ab75836e1920a6cb334b1e712.ctex"]
+source_file="res://assets/Enemy/Zombie (On Going)/zombie-girl-anim-sheet.png"
+dest_files=["res://.godot/imported/zombie-girl-anim-sheet.png-1a6b479172d7e64fb8b36b5b4fbe34df.ctex"]
 
 [params]
 
