@@ -8,9 +8,9 @@
 script = ExtResource("1_fom7r")
 name = "Bow"
 texture = ExtResource("3_xr3my")
-baseDamage = null
+baseDamage = 1.2
 attackInterval = 0.2
-attackCount = null
+attackCount = 1
 type = null
 rarity = null
 damageBonus = null

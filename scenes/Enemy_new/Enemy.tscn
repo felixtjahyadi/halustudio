@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmokpgfnnft5j"]
+[gd_scene load_steps=22 format=3 uid="uid://bmokpgfnnft5j"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Enemy.gd" id="1_7o0x7"]
 [ext_resource type="Texture2D" uid="uid://owygiq7dojig" path="res://assets/Enemy/Slime/slime-anim-all-sheet.png" id="1_oqsnt"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="4_oqprx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1v6hf"]
-radius = 5.70575
+radius = 12.0
 
 [sub_resource type="Animation" id="Animation_c42da"]
 length = 0.001
@@ -175,6 +175,39 @@ _data = {
 "walk": SubResource("Animation_gdnet")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ifqqm"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1i5xj"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_03s6g"]
+input_0/name = "idle"
+input_0/auto_advance = true
+input_0/reset = true
+input_1/name = "walk"
+input_1/auto_advance = true
+input_1/reset = true
+input_2/name = "dead"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1hwr"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ofrwp"]
+graph_offset = Vector2(-509.208, 4.30919)
+nodes/Dead/node = SubResource("AnimationNodeAnimation_ifqqm")
+nodes/Dead/position = Vector2(-340, 180)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_1i5xj")
+nodes/Idle/position = Vector2(-340, 0)
+nodes/Transition/node = SubResource("AnimationNodeTransition_03s6g")
+nodes/Transition/position = Vector2(-160, 40)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_i1hwr")
+nodes/Walk/position = Vector2(-480, 100)
+nodes/output/position = Vector2(40, 80)
+node_connections = [&"Transition", 0, &"Idle", &"Transition", 1, &"Walk", &"Transition", 2, &"Dead", &"output", 0, &"Transition"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
 radius = 200.0
 
@@ -188,6 +221,8 @@ size = Vector2(32, 32)
 size = Vector2(16, 24)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_7o0x7")
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
@@ -212,6 +247,16 @@ libraries = {
 "": SubResource("AnimationLibrary_q2cqq")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
+tree_root = SubResource("AnimationNodeBlendTree_ofrwp")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Transition/current_state = "idle"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
+
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/DetectionArea"]
@@ -227,8 +272,8 @@ position = Vector2(0.166666, 0.666667)
 shape = SubResource("RectangleShape2D_x12d3")
 
 [node name="HurtBox2" parent="EnemyBody" instance=ExtResource("3_1fsrq")]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 16
+collision_mask = 16
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="EnemyBody/HurtBox2" index="0"]
