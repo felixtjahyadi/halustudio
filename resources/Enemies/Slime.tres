@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=5 format=3 uid="uid://cqupf1rlw1jyt"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://cqupf1rlw1jyt"]
 
 [ext_resource type="Texture2D" uid="uid://qymkdiaisfwj" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="1_u5i6k"]
-[ext_resource type="Texture2D" uid="uid://b83c6yksvffww" path="res://assets/Enemy/Slime/slime_dead.png" id="2_3puw7"]
 [ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="3_cicmx"]
-[ext_resource type="Texture2D" uid="uid://bqexj7581j0k0" path="res://assets/Enemy/Slime/slime-anim-sheet.png" id="4_l8vpl"]
+[ext_resource type="Texture2D" uid="uid://owygiq7dojig" path="res://assets/Enemy/Slime/slime-anim-all-sheet.png" id="3_qvrcx"]
 
 [resource]
 script = ExtResource("3_cicmx")
 name = "Slime"
-texture = ExtResource("4_l8vpl")
-dead_texture = ExtResource("2_3puw7")
-attack_texture = ExtResource("1_u5i6k")
+texture = ExtResource("3_qvrcx")
+attackTexture = ExtResource("1_u5i6k")
 health = 10
 speed = 250.0
 armor = 0
+baseDamage = 1
+knock_back_recovery = 3.5
+max_coins = 6
+money = 2

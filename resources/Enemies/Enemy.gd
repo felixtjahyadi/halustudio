@@ -4,20 +4,26 @@ class_name EnemyResource
 
 @export var name : String = "Enemy"
 @export var texture : Texture2D
-@export var dead_texture : Texture2D
-@export var attack_texture : Texture2D
+@export var attackTexture : Texture2D
 @export var health : int = 10
 @export var speed : float = 250
 @export var armor : int = 1
+@export var baseDamage : int = 1
+@export var detectionRadius : float = 200.0
+@export var knock_back_recovery : float = 3.5
+@export var max_coins : int = 6
+@export var money : int = 2
 
 var initial_health : int
 var initial_speed : float
 var initial_armor : int
+var initial_damage : int
 
 func setup():
 	initial_health = health
 	initial_speed = speed
 	initial_armor = armor
+	initial_damage = baseDamage
 	return self
 
 func reset():
