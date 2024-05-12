@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://dp8elqjiffmpj"]
+
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_8afjk"]
+[ext_resource type="Texture2D" uid="uid://c03lvqora2kcn" path="res://assets/Enemy/Zombie (On Going)/zombie-boy-anim-sheet.png" id="2_je0fm"]
+
+[resource]
+script = ExtResource("1_8afjk")
+name = "Zombie Boy"
+texture = ExtResource("2_je0fm")
+health = 10
+speed = 100.0
+armor = 1
+baseDamage = 1
+detectionRadius = 300.0
+knock_back_recovery = 3.5
+max_coins = 6
+money = 2

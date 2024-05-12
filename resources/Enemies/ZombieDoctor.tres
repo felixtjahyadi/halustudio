@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://c32urycwy47hg"]
+
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_hdknp"]
+[ext_resource type="Texture2D" uid="uid://b8bq42bfikdj8" path="res://assets/Enemy/Zombie (On Going)/zombie-doctor-anim-sheet.png" id="2_t3cky"]
+
+[resource]
+script = ExtResource("1_hdknp")
+name = "Zombie Doctor"
+texture = ExtResource("2_t3cky")
+health = 30
+speed = 100.0
+armor = 2
+baseDamage = 2
+detectionRadius = 300.0
+knock_back_recovery = 3.5
+max_coins = 6
+money = 2
