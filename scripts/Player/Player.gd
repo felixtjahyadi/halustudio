@@ -116,6 +116,7 @@ func get_health_percent():
 
 func _health_bar_update():
 	health_bar.value = get_health_percent()
+	update_health_bar.emit()
 
 # Swap player
 func swap_listen():
@@ -137,3 +138,4 @@ func swap_player(character: PlayerResource):
 
 func _on_all_dead(player):
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Map/Level/LoseScreen.tscn")
+

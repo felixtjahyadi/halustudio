@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxemau4d064mf"]
+[gd_scene load_steps=5 format=3 uid="uid://bxemau4d064mf"]
 
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_vgyfp"]
 [ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="1_wcjy6"]
+[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="3_akjfw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1umu"]
 bg_color = Color(0.533333, 0.611765, 0.737255, 1)
@@ -130,3 +131,33 @@ anchor_right = 1.0
 offset_bottom = 41.0
 grow_horizontal = 2
 size_flags_horizontal = 0
+
+[node name="CharacterInfo" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = -50.0
+offset_right = 519.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Archie"
+
+[node name="HealthBar" parent="CharacterInfo/MarginContainer/VBoxContainer" instance=ExtResource("3_akjfw")]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+show_percentage = true

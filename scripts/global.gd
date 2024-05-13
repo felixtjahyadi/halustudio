@@ -50,8 +50,18 @@ var character_change_index: int = 0
 func character_combination_is_valid():
 	return owned_characters.all(func (character): return used_characters.count(character) <= 1 )
 
+func update_used_character(character: PlayerResource):
+	used_characters[character_change_index] = character
+
 # Character in Game
 var played_characters: Array[PlayerResource] = []
+
+# Reset character
+func reset_characters():
+	for character in all_characters.values():
+		character.reset()
+	
+	played_characters = used_characters.duplicate()
 
 ## Get character
 func get_current_character():
@@ -105,21 +115,15 @@ func character_alive_prev():
 
 	return get_current_character()
 
-# Reset character
-func reset_characters():
-	for character in all_characters.values():
-		character.reset()
-	
-	played_characters = used_characters.duplicate()
-
 # Spawn Character
 var player_scene = preload("res://scenes/Player_new/Player.tscn")
+var player_node: Node
 	
 func spawn_character(spawner: PlayerSpawner):
-	var player = player_scene.instantiate()
-	player.setup(get_current_character())
-	player.global_position = spawner.global_position
-	spawner.get_parent().add_child.call_deferred(player)
+	player_node = player_scene.instantiate()
+	player_node.setup(get_current_character())
+	player_node.global_position = spawner.global_position
+	spawner.get_parent().add_child.call_deferred(player_node)
 
 # Money
 var money = 0
