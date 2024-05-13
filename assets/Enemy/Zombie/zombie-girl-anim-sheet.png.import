@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8bq42bfikdj8"
-path="res://.godot/imported/zombie-doctor-anim-sheet.png-eb6a5b8a021e250f2310b1b062198785.ctex"
+uid="uid://53wx6ahvym4c"
+path="res://.godot/imported/zombie-girl-anim-sheet.png-42ef4d0da0063eacc046d57f3c9906af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Zombie (On Going)/zombie-doctor-anim-sheet.png"
-dest_files=["res://.godot/imported/zombie-doctor-anim-sheet.png-eb6a5b8a021e250f2310b1b062198785.ctex"]
+source_file="res://assets/Enemy/Zombie/zombie-girl-anim-sheet.png"
+dest_files=["res://.godot/imported/zombie-girl-anim-sheet.png-42ef4d0da0063eacc046d57f3c9906af.ctex"]
 
 [params]
 

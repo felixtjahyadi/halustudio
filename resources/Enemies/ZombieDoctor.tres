@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://c32urycwy47hg"]
 
 [ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_hdknp"]
-[ext_resource type="Texture2D" uid="uid://b8bq42bfikdj8" path="res://assets/Enemy/Zombie (On Going)/zombie-doctor-anim-sheet.png" id="2_t3cky"]
+[ext_resource type="Texture2D" uid="uid://b8bq42bfikdj8" path="res://assets/Enemy/Zombie/zombie-doctor-anim-sheet.png" id="2_t3cky"]
 
 [resource]
 script = ExtResource("1_hdknp")

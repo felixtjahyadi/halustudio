@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_sj8lo"]
 [ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_xkxfd"]
-[ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/zombie.png" id="3_hp627"]
+[ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/Zombie/zombie.png" id="3_hp627"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ckssn"]
 radius = 5.70575
