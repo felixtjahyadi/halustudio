@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6pcy0hcpf7b1" path="res://assets/Player/art/reina.png" id="1_auj4e"]
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_vtpia"]
-[ext_resource type="Texture2D" uid="uid://b7ijxeeethl8u" path="res://assets/Player/spritesheets/reina-anim-sheet.png" id="2_48ch5"]
+[ext_resource type="Texture2D" uid="uid://b7ijxeeethl8u" path="res://assets/Player/spritesheets/reina/reina-anim-sheet.png" id="2_48ch5"]
 [ext_resource type="Resource" uid="uid://c6vfbyai3j7a2" path="res://resources/Weapons/Book.tres" id="6_vdjhc"]
 
 [resource]

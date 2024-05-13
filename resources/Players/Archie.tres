@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_bnpqm"]
 [ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_e5rln"]
 [ext_resource type="Resource" uid="uid://y8hujqw40pki" path="res://resources/Weapons/Bow.tres" id="2_0m26q"]
-[ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie-anim-sheet.png" id="2_o4rb4"]
+[ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie/archie-anim-sheet.png" id="2_o4rb4"]
 
 [resource]
 script = ExtResource("1_bnpqm")

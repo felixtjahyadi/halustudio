@@ -3,7 +3,7 @@ extends Resource
 class_name PlayerResource
 
 @export var name : String = "Player"
-@export var texture : Texture2D = preload("res://assets/Player/spritesheets/archie-anim-sheet.png")
+@export var texture : Texture2D = preload("res://assets/Player/spritesheets/archie/archie-anim-sheet.png")
 @export var health : int = 8 
 @export var speed : float = 300
 @export var armor : int = 0

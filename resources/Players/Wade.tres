@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="PlayerResource" load_steps=5 format=3 uid="uid://dlnnkbmu8g1o0"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_8pt7n"]
-[ext_resource type="Texture2D" uid="uid://blyxxi2gpv75n" path="res://assets/Player/art/wade.png" id="1_waxy4"]
-[ext_resource type="Texture2D" uid="uid://vnq1x4ddguxv" path="res://assets/Player/spritesheets/wade-anim-sheet.png" id="2_2w0bk"]
+[ext_resource type="Texture2D" uid="uid://caphintex0d76" path="res://assets/Player/art/wade.png" id="1_waxy4"]
+[ext_resource type="Texture2D" uid="uid://vnq1x4ddguxv" path="res://assets/Player/spritesheets/wade/wade-anim-sheet.png" id="2_2w0bk"]
 [ext_resource type="Resource" uid="uid://l4owv6sc1nqk" path="res://resources/Weapons/Sword.tres" id="3_qgre5"]
 
 [resource]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c8bai3fj2m4b2" path="res://assets/Player/art/Knight.png" id="1_e6165"]
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_m8sjg"]
-[ext_resource type="Texture2D" uid="uid://bh7hyht0sm8ry" path="res://assets/Player/spritesheets/morin-anim-sheet.png" id="2_lb48h"]
+[ext_resource type="Texture2D" uid="uid://bh7hyht0sm8ry" path="res://assets/Player/spritesheets/morin/morin-anim-sheet.png" id="2_lb48h"]
 [ext_resource type="Resource" uid="uid://dfo5pbgjofu2f" path="res://resources/Weapons/Gun.tres" id="6_kevcr"]
 
 [resource]
