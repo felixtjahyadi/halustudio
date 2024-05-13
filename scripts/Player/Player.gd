@@ -77,7 +77,7 @@ func _on_dead():
 
 func swap_next_when_dead():
 	set_dead_animation(false)
-	await get_tree().create_timer(swap_delay).timeout	
+	await get_tree().create_timer(swap_delay).timeout
 	swap_player(global.character_alive_next())
 	is_dead = false
 
@@ -121,10 +121,10 @@ func _health_bar_update():
 func swap_listen():
 	if global.character_alive_total() <= 1 or not can_swap: return
 	
-	if Input.is_action_just_pressed("swap_next"):
+	if Input.is_action_just_pressed("swap_next") and global.next_character_is_alive():
 		swap_player(global.character_alive_next())
-	elif Input.is_action_just_pressed("swap_prev"):
-		swap_player(global.character_alvie_prev())
+	elif Input.is_action_just_pressed("swap_prev") and global.prev_character_is_alive():
+		swap_player(global.character_alive_prev())
 
 func swap_player(character: PlayerResource):
 	player = character

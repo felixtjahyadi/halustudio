@@ -1,5 +1,8 @@
 extends Node
 
+# HUD Signal
+signal swap
+
 var LEVEL_PATH : String = "res://scenes/Map/Level/"
 var HITPOINTS: int = 5
 
@@ -36,61 +39,85 @@ var owned_characters: Array[PlayerResource] = [
 	all_characters["Wade"],
 ]
 
+# Character Selection
 var used_characters: Array[PlayerResource] = [
 	all_characters["Archie"],
 	all_characters["BadBullet"],
 	all_characters["Morin"]
 ]
-
 var character_change_index: int = 0
-var character_used_index: int = 0
 
-func get_used_character():
-	return used_characters[character_used_index]
-
-func update_used_character(character: PlayerResource):
-	used_characters[character_change_index] = character
-	
 func character_combination_is_valid():
-	for character in owned_characters:
-		if used_characters.count(character) > 1: return false
-	
-	return true
+	return owned_characters.all(func (character): return used_characters.count(character) <= 1 )
 
+# Character in Game
+var played_characters: Array[PlayerResource] = []
+
+## Get character
+func get_current_character():
+	return played_characters[0]
+
+func get_next_character():
+	return played_characters[1]
+	
+func get_prev_character():
+	return played_characters[2]
+
+## Swap character
+func swap_character_position(idx1: int, idx2: int):
+	var tmp_character = played_characters[idx1]
+	played_characters[idx1] = played_characters[idx2]
+	played_characters[idx2] = tmp_character
+	
+func swap_character_position_next():
+	swap_character_position(0, 1)
+
+func swap_character_position_prev():
+	swap_character_position(0, 2)
+
+# Character alive
 func character_alive_total():
-	return used_characters.reduce(func(accum, character): return accum + int(character.is_alive()), 0)
+	return played_characters.reduce(func(accum, character): return accum + int(character.is_alive()), 0)
+
+func next_character_is_alive():
+	return get_next_character().is_alive()
+
+func prev_character_is_alive():
+	return get_prev_character().is_alive()
 
 func character_alive_next():
-	for i in range(3):
-		character_used_index = character_used_index+1 if character_used_index != len(used_characters)-1 else 0
-		var character = get_used_character()
-		
-		if character.is_alive():
-			return character
-	
-	push_error('All characters dead')
-	
-func character_alvie_prev():
-	for i in range(3):
-		character_used_index = character_used_index-1 if character_used_index != 0 else len(used_characters)-1
-		var character = get_used_character()
-		
-		if character.is_alive():
-			return character
-			
-	push_error('All characters dead')
+	if get_next_character().is_alive():
+		swap_character_position_next()
+		swap.emit()
+	elif get_prev_character().is_alive():
+		swap_character_position_prev()
+		swap.emit()
 
+	return get_current_character()
+	
+func character_alive_prev():
+	if get_prev_character().is_alive():
+		swap_character_position_prev()
+		swap.emit()
+	elif get_next_character().is_alive():
+		swap_character_position_next()
+		swap.emit()
+
+	return get_current_character()
+
+# Reset character
 func reset_characters():
 	for character in all_characters.values():
 		character.reset()
 	
-	character_used_index = 0
+	played_characters = used_characters.duplicate()
 
+# Spawn Character
 var player_scene = preload("res://scenes/Player_new/Player.tscn")
 	
 func spawn_character(spawner: PlayerSpawner):
 	var player = player_scene.instantiate()
-	player.setup(get_used_character())
+	player.setup(get_current_character())
 	player.global_position = spawner.global_position
 	spawner.get_parent().add_child.call_deferred(player)
 
