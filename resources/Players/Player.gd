@@ -9,6 +9,7 @@ class_name PlayerResource
 @export var armor : int = 0
 @export var weapon : WeaponResource = preload("res://resources/Weapons/Bow.tres")
 @export var art: Texture2D
+@export var avatar: Texture2D
 # TODO?? : @export var skill : Script
 
 var initial_health : int

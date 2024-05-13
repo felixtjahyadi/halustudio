@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://coim5a0lfwc7d"]
+[gd_scene load_steps=10 format=3 uid="uid://coim5a0lfwc7d"]
 
 [ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="2_evo6q"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="3_ana2c"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="4_vxpdh"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="5_cowto"]
-[ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="6_yhlml"]
+[ext_resource type="PackedScene" uid="uid://bxemau4d064mf" path="res://scenes/UI/HUD.tscn" id="6_bw4mq"]
+[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="6_yhlml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr5pe"]
 size = Vector2(352, 482)
@@ -148,6 +149,8 @@ max_distance = 1e+07
 script = ExtResource("5_cowto")
 
 [node name="Spawn" parent="." instance=ExtResource("6_yhlml")]
+
+[node name="Hud" parent="." instance=ExtResource("6_bw4mq")]
 
 [editable path="Rooms/Transitions"]
 [editable path="Rooms/Start"]

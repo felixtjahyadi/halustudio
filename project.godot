@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 UpgradeDb="*res://scenes/Loot/upgrade_db.tscn"
 global="*res://scripts/global.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
