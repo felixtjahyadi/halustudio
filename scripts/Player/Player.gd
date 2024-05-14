@@ -13,9 +13,13 @@ var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 @onready var playerSprite : Sprite2D = $Sprite2D
 @onready var animations : AnimationTree = $AnimationTree
 @onready var health_bar : ProgressBar = $HealthBar
+@onready var next_cooldown_timer: Timer = $NextCooldownTimer
+@onready var prev_cooldown_timer: Timer = $PrevCooldownTimer
 
 var last_direction = Vector2(0.1, 0.1)
 var can_swap = true
+var can_swap_next = true
+var can_swap_prev = true
 var swap_delay = 0.4
 var is_dead = false
 
@@ -29,9 +33,30 @@ func _update():
 	_update_sprite()
 	update_weapon_sprite.emit(player.weapon)
 	_health_bar_update()
+	_update_timer()
 
 func _update_sprite():
 	playerSprite.texture = player.texture
+
+func _update_timer():
+	next_cooldown_timer.wait_time = global.get_next_character().cooldown
+	prev_cooldown_timer.wait_time = global.get_prev_character().cooldown
+
+func start_next_cooldown_timer():
+	can_swap_next = false
+	next_cooldown_timer.start()
+	
+func stop_next_cooldown_timer():
+	next_cooldown_timer.stop()
+	can_swap_next = true
+	
+func start_prev_cooldown_timer():
+	can_swap_prev = false
+	prev_cooldown_timer.start()
+	
+func stop_prev_cooldown_timer():
+	prev_cooldown_timer.stop()
+	can_swap_prev = true
 
 # Movement
 func _physics_process(delta):
@@ -122,10 +147,14 @@ func _health_bar_update():
 func swap_listen():
 	if global.character_alive_total() <= 1 or not can_swap: return
 	
-	if Input.is_action_just_pressed("swap_next") and global.next_character_is_alive():
+	if Input.is_action_just_pressed("swap_next") and global.next_character_is_alive() and can_swap_next:
 		swap_player(global.character_alive_next())
-	elif Input.is_action_just_pressed("swap_prev") and global.prev_character_is_alive():
+		_update_timer()
+		start_next_cooldown_timer()
+	elif Input.is_action_just_pressed("swap_prev") and global.prev_character_is_alive() and can_swap_prev:
 		swap_player(global.character_alive_prev())
+		_update_timer()
+		start_prev_cooldown_timer()
 
 func swap_player(character: PlayerResource):
 	player = character

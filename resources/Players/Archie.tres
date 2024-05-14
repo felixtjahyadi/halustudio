@@ -16,3 +16,4 @@ armor = 0
 weapon = ExtResource("2_0m26q")
 art = ExtResource("1_e5rln")
 avatar = ExtResource("2_ialm4")
+cooldown = 5
