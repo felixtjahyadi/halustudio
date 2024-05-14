@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxemau4d064mf"]
+[gd_scene load_steps=6 format=3 uid="uid://bxemau4d064mf"]
 
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_vgyfp"]
 [ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="1_wcjy6"]
+[ext_resource type="Texture2D" uid="uid://cycjtxkxnsxp5" path="res://assets/UI/progress.jpg" id="3_4ldqm"]
 [ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="3_akjfw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1umu"]
@@ -47,6 +48,22 @@ texture = ExtResource("1_wcjy6")
 expand_mode = 1
 stretch_mode = 4
 
+[node name="Cooldown" type="TextureProgressBar" parent="Avatar/MarginContainer/VBoxContainer/PrevCharacter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+fill_mode = 3
+texture_progress = ExtResource("3_4ldqm")
+tint_progress = Color(1, 1, 1, 0.580392)
+
 [node name="Label" type="Label" parent="Avatar/MarginContainer/VBoxContainer/PrevCharacter"]
 layout_mode = 1
 anchors_preset = 3
@@ -78,13 +95,29 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="NextCharacter" type="TextureRect" parent="Avatar/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(45, 45)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = ExtResource("1_wcjy6")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Cooldown" type="TextureProgressBar" parent="Avatar/MarginContainer/VBoxContainer/HBoxContainer/NextCharacter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+fill_mode = 3
+texture_progress = ExtResource("3_4ldqm")
+tint_progress = Color(1, 1, 1, 0.392157)
 
 [node name="Label" type="Label" parent="Avatar/MarginContainer/VBoxContainer/HBoxContainer/NextCharacter"]
 layout_mode = 1
