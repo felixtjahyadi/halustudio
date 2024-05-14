@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="4_oqprx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1v6hf"]
-radius = 12.0
 
 [sub_resource type="Animation" id="Animation_c42da"]
 length = 0.001
@@ -144,46 +143,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HurtBox:visible")
+tracks/2/path = NodePath("../CollisionEnemy:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HurtBox2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HitBox:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../CollisionEnemy:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -271,14 +234,14 @@ node_connections = [&"Transition", 0, &"Idle", &"Transition", 1, &"Walk", &"Tran
 [sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
 radius = 200.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x12d3"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4g4rd"]
+radius = 16.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aalx4"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3pw8"]
+radius = 16.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j78d7"]
-size = Vector2(16, 24)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pea4"]
+radius = 15.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 5
@@ -318,6 +281,7 @@ parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
 
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/DetectionArea"]
 shape = SubResource("CircleShape2D_rydek")
@@ -325,12 +289,11 @@ shape = SubResource("CircleShape2D_rydek")
 [node name="HurtBox" parent="EnemyBody" instance=ExtResource("3_1fsrq")]
 collision_layer = 4
 collision_mask = 4
-monitoring = false
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="EnemyBody/HurtBox" index="0"]
 position = Vector2(0.166666, 0.666667)
-shape = SubResource("RectangleShape2D_x12d3")
+shape = SubResource("CircleShape2D_4g4rd")
 
 [node name="HurtBox2" parent="EnemyBody" instance=ExtResource("3_1fsrq")]
 collision_layer = 16
@@ -339,14 +302,14 @@ HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="EnemyBody/HurtBox2" index="0"]
 position = Vector2(0.166666, 0.666667)
-shape = SubResource("RectangleShape2D_aalx4")
+shape = SubResource("CircleShape2D_x3pw8")
 
 [node name="HitBox" parent="EnemyBody" instance=ExtResource("4_oqprx")]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
-shape = SubResource("RectangleShape2D_j78d7")
+shape = SubResource("CircleShape2D_0pea4")
 
 [node name="HideTimer" type="Timer" parent="EnemyBody"]
 unique_name_in_owner = true
