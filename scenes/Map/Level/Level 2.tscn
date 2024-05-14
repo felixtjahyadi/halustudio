@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2yejcyogg2jr"]
+[gd_scene load_steps=10 format=3 uid="uid://b2yejcyogg2jr"]
 
 [ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="2_5t04l"]
+[ext_resource type="PackedScene" path="res://scenes/UI/HUD.tscn" id="6_y0ye2"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="13_o3yxj"]
-[ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="13_t1dcc"]
+[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="13_t1dcc"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="14_a4y8u"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="15_sao4w"]
 
@@ -205,6 +206,8 @@ max_distance = 1e+07
 script = ExtResource("15_sao4w")
 
 [node name="Spawn" parent="." instance=ExtResource("13_t1dcc")]
+
+[node name="Hud" parent="." instance=ExtResource("6_y0ye2")]
 
 [editable path="Rooms/Transitions"]
 [editable path="Rooms/Start"]

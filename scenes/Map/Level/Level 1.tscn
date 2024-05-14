@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="3_ana2c"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="4_vxpdh"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="5_cowto"]
-[ext_resource type="PackedScene" uid="uid://bxemau4d064mf" path="res://scenes/UI/HUD.tscn" id="6_bw4mq"]
+[ext_resource type="PackedScene" path="res://scenes/UI/HUD.tscn" id="6_bw4mq"]
 [ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="6_yhlml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr5pe"]
