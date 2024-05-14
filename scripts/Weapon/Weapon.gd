@@ -15,7 +15,7 @@ class_name WeaponClass
 ## melee ##
 #@onready var hitbox_component = $WeaponNode/WeaponSprite/MeleeArea
 @onready var animation_component = $AnimationPlayer
-#@onready var slice_hitbox = $WeaponNode/WeaponSprite/MeleeArea/CollisionShape2D
+@onready var slice_hitbox = $WeaponNode/WeaponSprite/MeleeArea/CollisionShape2D
 
 ## range ##
 @onready var projectileScene : PackedScene = load("res://scenes/Weapon_new/Projectiles/Projectile.tscn")
@@ -29,6 +29,11 @@ var canAttack = true
 func _ready():
 	print("in ready")
 	update_weapon_sprite(weapon)
+	
+	if weapon.type == 'melee':
+		slice_hitbox.disabled = false
+	else:
+		slice_hitbox.disabled = true
 	
 	var new_transform = Transform2D()
 	new_transform.origin = Vector2(rangeToPlayer, 0)

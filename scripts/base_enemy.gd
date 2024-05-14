@@ -75,15 +75,15 @@ func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 		get_parent().call_deferred("add_child", enemy_death)
 		emit_signal("remove_from_array", self)
 		var num_coins = randi() % int(max_coins) + 1
-		#for i in range(num_coins):
-			#var new_coin = coins.instantiate()
-			#var new_potion = potions.instantiate()
-			#new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-			#new_coin.money = money
-			#new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-			#new_potion.money = money
-			#loot_base.call_deferred("add_child", new_coin)
-			#loot_base.call_deferred("add_child", new_potion)
+		for i in range(num_coins):
+			var new_coin = coins.instantiate()
+			var new_potion = potions.instantiate()
+			new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			new_coin.money = money
+			new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			new_potion.money = money
+			loot_base.call_deferred("add_child", new_coin)
+			loot_base.call_deferred("add_child", new_potion)
 		queue_free()
 	else:
 		sound.play()
@@ -96,6 +96,17 @@ func _on_melee_hurt_box_hurt(damage, angle, knock_back_amount):
 		var enemy_death = death.instantiate()
 		enemy_death.global_position = global_position
 		get_parent().call_deferred("add_child", enemy_death)
+		emit_signal("remove_from_array", self)
+		var num_coins = randi() % int(max_coins) + 1
+		for i in range(num_coins):
+			var new_coin = coins.instantiate()
+			var new_potion = potions.instantiate()
+			new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			new_coin.money = money
+			new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+			new_potion.money = money
+			loot_base.call_deferred("add_child", new_coin)
+			loot_base.call_deferred("add_child", new_potion)
 		queue_free()
 	else:
 		sound.play()
