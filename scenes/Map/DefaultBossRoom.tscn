@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkyv0njmk6fqc"]
+
+[ext_resource type="Script" path="res://scripts/Map/BossRoomLogic.gd" id="1_wtkyy"]
+[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/RoomTileMap.tscn" id="2_qooy8"]
+
+[node name="DefaultBossRoom" type="Node2D"]
+script = ExtResource("1_wtkyy")
+
+[node name="RoomTileMap" parent="." instance=ExtResource("2_qooy8")]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+
+[node name="EnemyPosition" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

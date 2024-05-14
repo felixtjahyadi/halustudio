@@ -22,6 +22,15 @@ var all_enemies: Dictionary = {
 	"ZombieGirl": load("res://resources/Enemies/ZombieGirl.tres").setup(),
 }
 
+var current_enemies: Array[EnemyResource] = [
+	all_enemies["ForestGuard"],
+	all_enemies["Slime"],
+	all_enemies["Specter"],
+	all_enemies["ZombieBoy"],
+	all_enemies["ZombieDoctor"],
+	all_enemies["ZombieGirl"],
+]
+
 # Character select logic
 var all_characters: Dictionary = {
 	"Archie": load("res://resources/Players/Archie.tres").setup(),
@@ -54,7 +63,7 @@ func update_used_character(character: PlayerResource):
 	used_characters[character_change_index] = character
 
 # Character in Game
-var played_characters: Array[PlayerResource] = []
+var played_characters: Array[PlayerResource] = used_characters
 
 # Reset character
 func reset_characters():

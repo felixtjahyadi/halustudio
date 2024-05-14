@@ -50,7 +50,9 @@ func _ready():
 	
 	sprite.texture = enemy.texture
 	attackSprite.texture = enemy.attackTexture
-	
+	default_animation()
+
+func default_animation():
 	animationTree.set("parameters/Transition/transition_request", "idle")
 
 func _physics_process(_delta):
@@ -79,7 +81,7 @@ func dead_process():
 	enemy_death.global_position = global_position
 	get_parent().call_deferred("add_child", enemy_death)
 	emit_signal("remove_from_array", self)
-	var num_coins = randi() % int(enemy.max_coins) + 1
+	var num_coins = randi() % int(enemy.max_coins) + 1 if int(enemy.max_coins) > 0 else 0
 	#for i in range(num_coins):
 		#var new_coin = coins.instantiate()
 		#var new_potion = potions.instantiate()
@@ -131,7 +133,7 @@ func frame_save(amount = 20):
 	var rand_disable = randi() % 100
 	if rand_disable < amount:
 		collision.call_deferred("set", "disabled", true)
-		sprite.stop()
+		#sprite.stop()
 	
 func increase_hp():
 	hp *= 2

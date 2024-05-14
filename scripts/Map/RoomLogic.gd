@@ -21,9 +21,7 @@ const MAP_TEXTURES : Dictionary = {
 	}
 }
 
-const ENEMY_SCENES: Dictionary = {
-	"ZOMBIE": preload("res://scenes/Enemy/normal_zombie.tscn"),
-}
+const enemy_scene: PackedScene = preload("res://scenes/Enemy_new/Enemy.tscn")
 
 @export var skippable : bool = false
 
@@ -80,8 +78,9 @@ func endRoom():
 
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
-		var enemy: BaseEnemy
-		enemy = ENEMY_SCENES.ZOMBIE.instantiate()
+		var enemy: EnemyClass
+		enemy = enemy_scene.instantiate()
+		enemy.enemy = global.current_enemies.pick_random()
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
 
