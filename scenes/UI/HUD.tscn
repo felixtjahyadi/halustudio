@@ -1,0 +1,163 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxemau4d064mf"]
+
+[ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_vgyfp"]
+[ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="1_wcjy6"]
+[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="3_akjfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1umu"]
+bg_color = Color(0.533333, 0.611765, 0.737255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.635294, 0.823529, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_vgyfp")
+
+[node name="Avatar" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -112.0
+offset_right = 112.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Avatar"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Avatar/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PrevCharacter" type="TextureRect" parent="Avatar/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_wcjy6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Avatar/MarginContainer/VBoxContainer/PrevCharacter"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_w1umu")
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Avatar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CurrentCharacter" type="TextureRect" parent="Avatar/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_wcjy6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="NextCharacter" type="TextureRect" parent="Avatar/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("1_wcjy6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Avatar/MarginContainer/VBoxContainer/HBoxContainer/NextCharacter"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -18.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_w1umu")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resource" type="PanelContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -257.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Utility" type="PanelContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -209.0
+offset_right = 84.0
+offset_bottom = 59.0
+grow_vertical = 2
+
+[node name="Boss" type="PanelContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+
+[node name="CharacterInfo" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = -50.0
+offset_right = 519.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Archie"
+
+[node name="HealthBar" parent="CharacterInfo/MarginContainer/VBoxContainer" instance=ExtResource("3_akjfw")]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+show_percentage = true

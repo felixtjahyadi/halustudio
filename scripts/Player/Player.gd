@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 class_name PlayerClass
 
-signal dead(player: PlayerClass)
+signal all_dead(player: PlayerClass)
 signal update_weapon_sprite(weapon : WeaponResource)
 signal update_health_bar(value : float)
 signal swap(value: bool)
+signal dead
 
 var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 
@@ -16,6 +17,7 @@ var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 var last_direction = Vector2(0.1, 0.1)
 var can_swap = true
 var swap_delay = 0.4
+var is_dead = false
 
 func setup(p_player: PlayerResource):
 	player = p_player
@@ -33,14 +35,16 @@ func _update_sprite():
 
 # Movement
 func _physics_process(delta):
+	if is_dead: return
 	move()
 
-func move():
+func move():	
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * player.speed if direction else Vector2.ZERO
 	move_and_slide()
 
 func _process(delta):
+	if is_dead: return
 	set_animation()
 	swap_listen()
 
@@ -59,9 +63,23 @@ func set_walking():
 func set_blend_position():
 	animations["parameters/Idle/blend_position"] = last_direction.x
 	animations["parameters/Walk/blend_position"] = last_direction.x
+	animations["parameters/Dead/blend_position"] = last_direction.x
 
 func set_swap_animation(value = false):
 	animations["parameters/conditions/is_swap"] = value
+
+func set_dead_animation(value = false):
+	animations["parameters/conditions/is_dead"] = value
+	
+func _on_dead():
+	set_dead_animation(true)
+	is_dead = true
+
+func swap_next_when_dead():
+	set_dead_animation(false)
+	await get_tree().create_timer(swap_delay).timeout
+	swap_player(global.character_alive_next())
+	is_dead = false
 
 # hurt box handler
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
@@ -70,9 +88,9 @@ func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	damaged_animation()
 	if player.health <= 0:
 		if global.character_alive_total() == 0: 
-			dead.emit(self)
+			all_dead.emit(self)
 		else:
-			swap_player(global.character_alive_next())
+			dead.emit()
 
 func damaged_animation():
 	modulate = Color.RED
@@ -98,18 +116,18 @@ func get_health_percent():
 
 func _health_bar_update():
 	health_bar.value = get_health_percent()
+	update_health_bar.emit()
 
 # Swap player
 func swap_listen():
 	if global.character_alive_total() <= 1 or not can_swap: return
 	
-	if Input.is_action_just_pressed("swap_next"):
+	if Input.is_action_just_pressed("swap_next") and global.next_character_is_alive():
 		swap_player(global.character_alive_next())
-	elif Input.is_action_just_pressed("swap_prev"):
-		swap_player(global.character_alvie_prev())
+	elif Input.is_action_just_pressed("swap_prev") and global.prev_character_is_alive():
+		swap_player(global.character_alive_prev())
 
 func swap_player(character: PlayerResource):
-	if not can_swap: return
 	player = character
 	_update()
 	swap.emit(true)
@@ -118,5 +136,6 @@ func swap_player(character: PlayerResource):
 	await get_tree().create_timer(swap_delay).timeout	
 	can_swap = true
 
-func _on_dead(player):
-	get_tree().change_scene_to_file("res://scenes/Map/Level/LoseScreen.tscn")
+func _on_all_dead(player):
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Map/Level/LoseScreen.tscn")
+

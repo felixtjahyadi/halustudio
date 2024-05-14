@@ -21,6 +21,9 @@ class_name WeaponClass
 @onready var projectileScene : PackedScene = load("res://scenes/Weapon_new/Projectiles/Projectile.tscn")
 @onready var projectileSpawnPosition: Marker2D = $ProjectileSpawnPosition
 
+## Player ##
+@onready var player: PlayerClass = find_parent('Player')
+
 var canAttack = true
 
 func _ready():
@@ -55,6 +58,8 @@ func get_texture():
 
 # attack #
 func _process(delta):
+	if player.is_dead: return
+	
 	_handle_mouse_direction()
 	_handle_attack_input()
 

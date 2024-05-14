@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3oqncvwdr61l"]
 
 [ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="2_pi06b"]
-[ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="6_0u3w5"]
+[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="6_0u3w5"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="6_ebf6a"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="7_4po5x"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="8_r64wk"]
