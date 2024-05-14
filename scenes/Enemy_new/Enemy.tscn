@@ -59,6 +59,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CollisionEnemy:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tmemx"]
 resource_name = "attack"
@@ -129,6 +141,54 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CollisionEnemy:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_rw4yh"]
 resource_name = "idle"
@@ -196,7 +256,7 @@ input_2/reset = true
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ofrwp"]
-graph_offset = Vector2(-509.208, 4.30919)
+graph_offset = Vector2(-604.518, 40.4091)
 nodes/Dead/node = SubResource("AnimationNodeAnimation_ifqqm")
 nodes/Dead/position = Vector2(-340, 180)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_1i5xj")
@@ -265,6 +325,7 @@ shape = SubResource("CircleShape2D_rydek")
 [node name="HurtBox" parent="EnemyBody" instance=ExtResource("3_1fsrq")]
 collision_layer = 4
 collision_mask = 4
+monitoring = false
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="EnemyBody/HurtBox" index="0"]
@@ -281,7 +342,6 @@ position = Vector2(0.166666, 0.666667)
 shape = SubResource("RectangleShape2D_aalx4")
 
 [node name="HitBox" parent="EnemyBody" instance=ExtResource("4_oqprx")]
-visible = false
 collision_layer = 2
 collision_mask = 2
 

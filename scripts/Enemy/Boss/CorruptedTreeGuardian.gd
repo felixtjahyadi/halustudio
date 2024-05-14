@@ -2,7 +2,7 @@ extends EnemyClass
 
 class_name CorruptedTreeGuardian
 
-@export var maxMinionCount : int = 100
+@export var maxMinionCount : int = 15
 @export var minionList : Array = [
 	preload("res://scenes/Enemy_new/Boss/BranchMinion.tscn"),
 ]
@@ -10,7 +10,9 @@ class_name CorruptedTreeGuardian
 
 @onready var animatedPlayer : AnimationPlayer = $EnemyBody/AnimationPlayer
 
-@export var attack_cooldown : float = 3.0
+@export var attack_cooldown_inc : float = 1.0
+
+var current_attack_cooldown = 0.0
 
 var isAwake : bool = false
 
@@ -30,24 +32,25 @@ func _ready():
 	
 	hp = 1000
 
-func _process(delta):
-	if isAwake:
-		if get_child_count() == 0:
-			var count = _get_minion_count_randomizer()
-			_spawn_minion(count)
-
 func _physics_process(_delta):
 	if isAwake:
+		if minionNum > 0:
+			sprite.modulate = Color.BLACK
+		else:
+			sprite.modulate = Color.WHITE
+			
 		if hp <= 0:
 			animationTree.set("parameters/Transition/transition_request", "dead")
 			dead_process()
 		else:
 			animationTree.set("parameters/Transition/transition_request", "idle")
+			
 	else:
 		animationTree.set("parameters/Transition/transition_request", "sleep")
 
 func _reset():
-	await get_tree().create_timer(attack_cooldown).timeout
+	await get_tree().create_timer(current_attack_cooldown).timeout
+	current_attack_cooldown += attack_cooldown_inc
 	attack()
 	_reset()
 
@@ -63,8 +66,6 @@ func _spawn_minion(count = 1):
 	for i in count:
 		_spawn()
 		await get_tree().create_timer(intervalSpawn).timeout
-	
-	minionNum += count
 
 func _spawn():
 	var selectedMinion = minionList.pick_random()
@@ -78,7 +79,8 @@ func _spawn():
 	minion.position = spawn_pos
 
 func start_animation():
-	animationTree.set("parameters/Transition/transition_request", "awake")
+	animationTree.set("parameters/Awake/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	animationTree.set("parameters/Transition/transition_request", "idle")
 	isAwake = true
 	_reset()
 

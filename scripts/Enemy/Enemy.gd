@@ -50,7 +50,9 @@ func _ready():
 	
 	sprite.texture = enemy.texture
 	attackSprite.texture = enemy.attackTexture
-	
+	default_animation()
+
+func default_animation():
 	animationTree.set("parameters/Transition/transition_request", "idle")
 
 func _physics_process(_delta):
