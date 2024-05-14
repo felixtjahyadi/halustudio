@@ -8,6 +8,7 @@ func _ready():
 	super()
 	boss = boss.instantiate()
 	enemy_positions_container.add_child(boss)
+	boss.connect("on_boss_dead", Callable(self, "endRoom"))
 
 func startRoom():
 	super()
@@ -15,7 +16,7 @@ func startRoom():
 
 func endRoom():
 	super()
-	boss.end_animation()
+	#boss.end_animation()
 
 func _on_room_area_body_entered(body):
 	if body.is_in_group("player"):

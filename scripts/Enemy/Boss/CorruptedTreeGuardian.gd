@@ -18,6 +18,8 @@ var isAwake : bool = false
 
 var minionNum : int = 0
 
+signal on_boss_dead()
+
 func _ready():
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 	hitbox.damage = enemy.initial_damage
@@ -41,6 +43,7 @@ func _physics_process(_delta):
 			
 		if hp <= 0:
 			animationTree.set("parameters/Transition/transition_request", "dead")
+			emit_signal("on_boss_dead")
 			dead_process()
 		else:
 			animationTree.set("parameters/Transition/transition_request", "idle")
