@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://btva6odntxjof"]
+
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_epat6"]
+[ext_resource type="Texture2D" uid="uid://dpg4ir8k17w2v" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/branch-minion-all-anim-sheet.png" id="2_cia86"]
+
+[resource]
+script = ExtResource("1_epat6")
+name = "Branch Minion"
+texture = ExtResource("2_cia86")
+health = 25
+speed = 0.0
+armor = 0
+baseDamage = 2
+detectionRadius = 150.0
+knock_back_recovery = 10.0
+max_coins = 0
+money = 0

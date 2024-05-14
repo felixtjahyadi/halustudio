@@ -63,7 +63,7 @@ func set_walking():
 func set_blend_position():
 	animations["parameters/Idle/blend_position"] = last_direction.x
 	animations["parameters/Walk/blend_position"] = last_direction.x
-	animations["parameters/Dead/blend_position"] = last_direction.x
+	#animations["parameters/Dead/blend_position"] = last_direction.x
 
 func set_swap_animation(value = false):
 	animations["parameters/conditions/is_swap"] = value

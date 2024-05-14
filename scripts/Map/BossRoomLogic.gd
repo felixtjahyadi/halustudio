@@ -1,19 +1,24 @@
 extends RoomLogic
 
-@export var boss = preload("res://scenes/Enemy/Boss/CorruptedTreeGuardian.tscn")
+@export var boss = preload("res://scenes/Enemy_new/Boss/CorruptedTreeGuardian.tscn")
+
+var player : PlayerClass
 
 func _ready():
 	super()
 	boss = boss.instantiate()
-	add_child(boss)
+	enemy_positions_container.add_child(boss)
 
 func startRoom():
-	if _isRoomNotExplored:
-		_isRoomNotExplored = false
-		toggleDoor()
-		# TODO : remove this after endRoom in super() was deleted
+	super()
+	boss.start_animation()
+
+func endRoom():
+	super()
+	boss.end_animation()
 
 func _on_room_area_body_entered(body):
-	if _isRoomNotExplored and body.is_in_group("player"):
-		super(body)
-		boss.start_animation()
+	if body.is_in_group("player"):
+		player = body
+		startRoom()
+		player_detector.queue_free()
