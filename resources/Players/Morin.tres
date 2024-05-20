@@ -17,3 +17,4 @@ weapon = ExtResource("6_kevcr")
 art = ExtResource("1_e6165")
 avatar = ExtResource("2_bpq60")
 cooldown = 5
+skills = Array[Resource("res://resources/Skill/Skill.gd")]([])

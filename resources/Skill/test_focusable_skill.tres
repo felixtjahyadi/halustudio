@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FocusableSkillResource" load_steps=3 format=3 uid="uid://cp2xqnmo8bg5u"]
+
+[ext_resource type="Script" path="res://resources/Skill/FocusableSkill.gd" id="1_eofnp"]
+[ext_resource type="Texture2D" uid="uid://vvppnb0knbrj" path="res://assets/Skill/skill_image.png" id="2_dwsla"]
+
+[resource]
+script = ExtResource("1_eofnp")
+cooldown = 5
+texture = ExtResource("2_dwsla")
+description = "Test Focusable Skill"

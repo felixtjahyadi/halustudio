@@ -11,12 +11,12 @@ class_name PlayerResource
 @export var art: Texture2D
 @export var avatar: Texture2D
 @export var cooldown: int
-# TODO?? : @export var skill : Script
+@export var skills: Array[SkillResource]
 
 var initial_health : int
 var initial_speed : float
 var initial_armor : int
-var initial_weapon : WeaponResource 
+var initial_weapon : WeaponResource
 
 func setup():
 	initial_health = health
