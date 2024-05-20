@@ -25,10 +25,12 @@ func _process(delta):
 	super._process(delta)
 	
 	if Input.is_action_just_pressed("click") and is_focus:
-		handle_unfocus()
 		handle_click()
 
 func handle_click():
+	animation_player.stop()
+	is_focus = false
+	
 	skill.activate()
 	can_activate = false
 	cooldown_timer.start()

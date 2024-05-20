@@ -4,6 +4,7 @@ class_name ArrowRain
 
 var area_of_effect = load("res://scenes/Skill/area_of_effect.tscn")
 var area_scene
+var area_duration = 2
 
 func _init():
 	cooldown = 5 
@@ -15,7 +16,8 @@ func activate():
 	
 func focus():
 	area_scene = area_of_effect.instantiate()
+	area_scene.setup(area_duration)
 	global.player_node.get_parent().add_child(area_scene)
 	
 func unfocus():
-	pass
+	area_scene.is_place = false

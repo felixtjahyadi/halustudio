@@ -9,10 +9,12 @@ var is_place = false:
 	set(value):
 		is_place = value
 		
-		collision_area.disabled = false
-		timer.start()
-		sprite.self_modulate = Color(1, 1, 1, 1)
-		set_process_input(false)
+		if is_place:
+			collision_area.disabled = false
+			timer.start()
+			sprite.self_modulate = Color(1, 1, 1, 1)
+		else:
+			queue_free()
 
 func setup(effect_duration_p: int):
 	effect_duration = effect_duration_p
@@ -26,3 +28,12 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	queue_free()
+
+func _on_body_entered(body):
+	if body.is_in_group('enemy'):
+		print('enemy entered')
+		print('enemy damaged logic')
+
+func _on_body_exited(body):
+	if body.is_in_group('enemy'):
+		print('enemy exited')
