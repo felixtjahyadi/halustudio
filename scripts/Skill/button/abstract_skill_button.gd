@@ -1,7 +1,7 @@
 extends TextureButton
 class_name AbstractSkillButton
 
-var skill_resource: SkillResource = load("res://resources/Skill/test_skill.tres")
+var skill: Skill
 var key: int = 1
 var can_activate = true
 
@@ -9,10 +9,10 @@ var can_activate = true
 @onready var cooldown_timer = $Cooldown
 @onready var cooldown_bar = $CooldownBar
 
-func setup(skill_resource_p: SkillResource, key_p: int):
-	skill_resource = skill_resource_p
+func setup(skill_p: Skill, key_p: int):
+	skill = skill_p
 	key = key_p
-	tooltip_text = skill_resource.description
+	tooltip_text = skill.description
 
 func _ready():
 	update_shortcut_key()
@@ -35,7 +35,7 @@ func update_shortcut_key():
 	shortcut.events.append(event_key)
 	
 func update_cooldown_timer():
-	cooldown_timer.wait_time = skill_resource.cooldown
+	cooldown_timer.wait_time = skill.cooldown
 	
 func _on_pressed():
 	if !can_activate: return

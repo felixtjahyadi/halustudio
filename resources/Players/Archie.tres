@@ -5,8 +5,8 @@
 [ext_resource type="Resource" uid="uid://y8hujqw40pki" path="res://resources/Weapons/Bow.tres" id="2_0m26q"]
 [ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="2_ialm4"]
 [ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie/archie-anim-sheet.png" id="2_o4rb4"]
-[ext_resource type="Resource" uid="uid://cp2xqnmo8bg5u" path="res://resources/Skill/test_focusable_skill.tres" id="4_f87u1"]
-[ext_resource type="Resource" uid="uid://dwti18lj0w0ym" path="res://resources/Skill/test_skill.tres" id="5_6p3gs"]
+[ext_resource type="Script" path="res://scripts/Skill/concrete/test.gd" id="4_0jq3u"]
+[ext_resource type="Script" path="res://scripts/Skill/concrete/arrow_rain.gd" id="5_gdvnk"]
 
 [resource]
 script = ExtResource("1_bnpqm")
@@ -19,4 +19,4 @@ weapon = ExtResource("2_0m26q")
 art = ExtResource("1_e5rln")
 avatar = ExtResource("2_ialm4")
 cooldown = 5
-skills = Array[Resource("res://resources/Skill/Skill.gd")]([ExtResource("5_6p3gs"), ExtResource("4_f87u1")])
+skills_script = Array[Script]([ExtResource("4_0jq3u"), ExtResource("5_gdvnk")])

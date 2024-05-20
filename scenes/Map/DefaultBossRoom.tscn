@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkyv0njmk6fqc"]
+[gd_scene load_steps=3 format=3 uid="uid://dsdqeq11gyhei"]
 
 [ext_resource type="Script" path="res://scripts/Map/BossRoomLogic.gd" id="1_wtkyy"]
 [ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/RoomTileMap.tscn" id="2_qooy8"]

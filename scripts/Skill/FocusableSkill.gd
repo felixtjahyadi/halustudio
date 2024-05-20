@@ -1,6 +1,6 @@
-extends SkillResource
+extends Skill
 
-class_name FocusableSkillResource
+class_name FocusableSkill
 
 func focus():
 	'''

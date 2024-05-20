@@ -1,6 +1,6 @@
-extends Resource
+extends Node
 
-class_name SkillResource
+class_name Skill
 
 @export var cooldown: int
 @export var texture: Texture2D

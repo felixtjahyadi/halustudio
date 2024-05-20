@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxg8cwxuqs87f"]
+[gd_scene load_steps=7 format=3 uid="uid://bhi46nxjlij1j"]
 
 [ext_resource type="Texture2D" uid="uid://vvppnb0knbrj" path="res://assets/Skill/skill_image.png" id="1_cnvgu"]
 [ext_resource type="Texture2D" uid="uid://cycjtxkxnsxp5" path="res://assets/UI/progress.jpg" id="2_34p1w"]
@@ -15,6 +15,21 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="Animation" id="Animation_jn3a6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kqy0y"]
 resource_name = "active"
 loop_mode = 2
@@ -29,21 +44,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.423529, 0.423529, 0.423529, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_jn3a6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8akxe"]

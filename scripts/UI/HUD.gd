@@ -70,10 +70,10 @@ func update_skill():
 	for skill in current_character.skills:
 		var skill_button = skill_button_scene.instantiate()
 		
-		if skill is FocusableSkillResource:
-			skill_button.set_script(load("res://scripts/Skill/focusable_skill_button.gd"))
+		if skill is FocusableSkill:
+			skill_button.set_script(load("res://scripts/Skill/button/focusable_skill_button.gd"))
 		else:
-			skill_button.set_script(load("res://scripts/Skill/skill_button.gd"))
+			skill_button.set_script(load("res://scripts/Skill/button/skill_button.gd"))
 			
 		skill_button.setup(skill, key)
 		button_skills.add_child(skill_button)
