@@ -10,8 +10,6 @@ var current_attack_cooldown = 0.0
 
 var isAwake : bool = false
 
-var minionNum : int = 0
-
 signal on_boss_dead()
 
 func _ready():
@@ -27,6 +25,12 @@ func _ready():
 	detectionAreaShape.shape.radius = enemy.detectionRadius
 	
 	hp = 1000
+	
+	ready_animation()
+
+func ready_animation():
+	$EnemyBody/Sprite/Wing/WingL/WingLAnim.play("default")
+	$EnemyBody/Sprite/Wing/WingR/WingRAnim.play("default")
 
 func _physics_process(_delta):
 	if isAwake:
@@ -61,11 +65,10 @@ func start_animation():
 	_reset()
 
 func _take_damage(damage):
-	if minionNum <= 0:
-		hp -= damage
-		print('boss take damage, %d' %hp)
-		damaged_animation()
-		sound.play()
+	hp -= damage
+	print('boss take damage, %d' %hp)
+	damaged_animation()
+	sound.play()
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)

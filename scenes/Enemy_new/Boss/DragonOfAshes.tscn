@@ -1,40 +1,198 @@
-[gd_scene load_steps=27 format=3 uid="uid://bw3bqxgfagaga"]
+[gd_scene load_steps=62 format=3 uid="uid://bw3bqxgfagaga"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/DragonOfAshes.gd" id="1_jmk6q"]
-[ext_resource type="Texture2D" uid="uid://cy0lqerjactwn" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-all-anim-sheet.png" id="2_1fyba"]
+[ext_resource type="Texture2D" uid="uid://uio2fcyutx3g" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_l.png" id="2_6oueq"]
+[ext_resource type="Texture2D" uid="uid://ck671e77oyecm" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_head.png" id="2_unpg3"]
+[ext_resource type="Texture2D" uid="uid://b4l4tl7tg3pxl" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_head_rage_anim.png" id="3_3xvag"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="3_dxxj3"]
+[ext_resource type="Texture2D" uid="uid://c6sfm8idwwui4" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_l_anim_sheet.png" id="3_ljmkt"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="4_4igo6"]
+[ext_resource type="Texture2D" uid="uid://b014f2j5mh7cg" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_r.png" id="4_v730m"]
+[ext_resource type="Texture2D" uid="uid://qkwtfuymfs4t" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_body.png" id="5_by7y6"]
+[ext_resource type="Texture2D" uid="uid://btghqpu7xgfnu" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_r_anim_sheet.png" id="5_wehff"]
+[ext_resource type="Texture2D" uid="uid://bvj5b11e2fq1q" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_feet_l.png" id="6_o4wdb"]
+[ext_resource type="Texture2D" uid="uid://c8r3evpbp05sn" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_feet_r.png" id="7_33ark"]
+[ext_resource type="Texture2D" uid="uid://bc11swt51h8pn" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_arm_l.png" id="8_4usur"]
+[ext_resource type="Texture2D" uid="uid://dr6d7qs58pgyi" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_arm_r.png" id="9_td4ud"]
+[ext_resource type="Texture2D" uid="uid://jboqvem6sk53" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_arm_l_with_spear.png" id="11_mpvkk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl1kh"]
 radius = 35.0
 height = 90.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly5wv"]
+atlas = ExtResource("3_ljmkt")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q82p4"]
+atlas = ExtResource("3_ljmkt")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf5ob"]
+atlas = ExtResource("3_ljmkt")
+region = Rect2(0, 256, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3ioq"]
+atlas = ExtResource("3_ljmkt")
+region = Rect2(0, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5cy8"]
+atlas = ExtResource("3_ljmkt")
+region = Rect2(0, 512, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8o1l"]
+atlas = ExtResource("3_ljmkt")
+region = Rect2(0, 640, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68vi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly5wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q82p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf5ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3ioq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5cy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8o1l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eriim"]
+atlas = ExtResource("5_wehff")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36dsi"]
+atlas = ExtResource("5_wehff")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2a4l"]
+atlas = ExtResource("5_wehff")
+region = Rect2(0, 256, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgogy"]
+atlas = ExtResource("5_wehff")
+region = Rect2(0, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gknhf"]
+atlas = ExtResource("5_wehff")
+region = Rect2(0, 512, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ho0"]
+atlas = ExtResource("5_wehff")
+region = Rect2(0, 640, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tytj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eriim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36dsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2a4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgogy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gknhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ho0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kion"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrr8j"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d5n8"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 256, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlvtb"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk386"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 512, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21wdh"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 640, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr2yr"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 768, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygy81"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 896, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8hnb"]
+atlas = ExtResource("3_3xvag")
+region = Rect2(0, 1024, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dx0ll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kion")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrr8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d5n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlvtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk386")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21wdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr2yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygy81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8hnb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Animation" id="Animation_c42da"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_tmemx"]
 resource_name = "attack"
@@ -43,18 +201,6 @@ length = 0.7
 [sub_resource type="Animation" id="Animation_sqbqy"]
 resource_name = "awake"
 length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
-}
 
 [sub_resource type="Animation" id="Animation_1tkuu"]
 resource_name = "dead"
@@ -77,64 +223,16 @@ tracks/0/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [5, 4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.552941, 0.6, 0.521569, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_rw4yh"]
 resource_name = "idle"
 length = 0.8
 loop_mode = 1
 step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
 
 [sub_resource type="Animation" id="Animation_0i5v2"]
 resource_name = "sleep"
 length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
 
 [sub_resource type="Animation" id="Animation_gdnet"]
 resource_name = "walk"
@@ -231,16 +329,89 @@ collision_mask = 5
 script = ExtResource("1_jmk6q")
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_kl1kh")
 
 [node name="EnemyBody" type="Node2D" parent="."]
 position = Vector2(0, -16)
 
-[node name="Sprite2D" type="Sprite2D" parent="EnemyBody"]
-texture = ExtResource("2_1fyba")
-hframes = 4
-vframes = 2
-frame = 4
+[node name="Sprite" type="Node2D" parent="EnemyBody"]
+
+[node name="Wing" type="Node2D" parent="EnemyBody/Sprite"]
+position = Vector2(0, -201)
+
+[node name="WingL" type="Node2D" parent="EnemyBody/Sprite/Wing"]
+position = Vector2(-150, 0)
+
+[node name="WingL" type="Sprite2D" parent="EnemyBody/Sprite/Wing/WingL"]
+texture = ExtResource("2_6oueq")
+
+[node name="WingLAnim" type="AnimatedSprite2D" parent="EnemyBody/Sprite/Wing/WingL"]
+sprite_frames = SubResource("SpriteFrames_68vi0")
+
+[node name="WingR" type="Node2D" parent="EnemyBody/Sprite/Wing"]
+position = Vector2(150, 0)
+
+[node name="WingR" type="Sprite2D" parent="EnemyBody/Sprite/Wing/WingR"]
+texture = ExtResource("4_v730m")
+
+[node name="WingRAnim" type="AnimatedSprite2D" parent="EnemyBody/Sprite/Wing/WingR"]
+sprite_frames = SubResource("SpriteFrames_tytj8")
+
+[node name="Feet" type="Node2D" parent="EnemyBody/Sprite"]
+position = Vector2(0, -4)
+
+[node name="FeetL" type="Node2D" parent="EnemyBody/Sprite/Feet"]
+position = Vector2(-58, 0)
+
+[node name="FeetL" type="Sprite2D" parent="EnemyBody/Sprite/Feet/FeetL"]
+texture = ExtResource("6_o4wdb")
+
+[node name="FeetR" type="Node2D" parent="EnemyBody/Sprite/Feet"]
+position = Vector2(58, 0)
+
+[node name="FeetR" type="Sprite2D" parent="EnemyBody/Sprite/Feet/FeetR"]
+texture = ExtResource("7_33ark")
+
+[node name="Arm" type="Node2D" parent="EnemyBody/Sprite"]
+position = Vector2(0, -84)
+
+[node name="ArmL" type="Node2D" parent="EnemyBody/Sprite/Arm"]
+position = Vector2(-60, 0)
+
+[node name="ArmL" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmL"]
+texture = ExtResource("8_4usur")
+
+[node name="ArmR" type="Node2D" parent="EnemyBody/Sprite/Arm"]
+position = Vector2(60, 0)
+
+[node name="ArmR" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmR"]
+texture = ExtResource("9_td4ud")
+
+[node name="Body" type="Node2D" parent="EnemyBody/Sprite"]
+position = Vector2(0, -73)
+
+[node name="Body2" type="Sprite2D" parent="EnemyBody/Sprite/Body"]
+texture = ExtResource("5_by7y6")
+
+[node name="Body" type="Sprite2D" parent="EnemyBody/Sprite/Body"]
+position = Vector2(0, -82)
+texture = ExtResource("5_by7y6")
+
+[node name="ArmLSpear" type="Sprite2D" parent="EnemyBody/Sprite"]
+position = Vector2(-88, -73)
+texture = ExtResource("11_mpvkk")
+
+[node name="Head" type="Node2D" parent="EnemyBody/Sprite"]
+position = Vector2(0, -222)
+
+[node name="Head" type="Sprite2D" parent="EnemyBody/Sprite/Head"]
+position = Vector2(0, -7)
+texture = ExtResource("2_unpg3")
+
+[node name="HeadAnim" type="AnimatedSprite2D" parent="EnemyBody/Sprite/Head"]
+sprite_frames = SubResource("SpriteFrames_dx0ll")
+frame_progress = 0.0545011
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyBody"]
 libraries = {
@@ -264,12 +435,14 @@ parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
 
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
+visible = false
 position = Vector2(0, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/DetectionArea"]
 shape = SubResource("CircleShape2D_rydek")
 
 [node name="HurtBox" parent="EnemyBody" instance=ExtResource("3_dxxj3")]
+visible = false
 position = Vector2(0, 16)
 collision_layer = 4
 collision_mask = 4
@@ -280,6 +453,7 @@ position = Vector2(0.166666, 0.666667)
 shape = SubResource("CapsuleShape2D_edf8e")
 
 [node name="HurtBox2" parent="EnemyBody" instance=ExtResource("3_dxxj3")]
+visible = false
 position = Vector2(0, 16)
 collision_layer = 16
 collision_mask = 16
@@ -290,6 +464,7 @@ position = Vector2(0.166666, 0.666667)
 shape = SubResource("CapsuleShape2D_knj61")
 
 [node name="HitBox" parent="EnemyBody" instance=ExtResource("4_4igo6")]
+visible = false
 position = Vector2(0, 16)
 collision_layer = 2
 collision_mask = 2
@@ -304,6 +479,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]
