@@ -42,8 +42,8 @@ func _physics_process(_delta):
 			sprite.modulate = Color.WHITE
 			
 		if hp <= 0:
-			animationTree.set("parameters/Transition/transition_request", "dead")
 			dead_process()
+			animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		else:
 			animationTree.set("parameters/Transition/transition_request", "idle")
 			

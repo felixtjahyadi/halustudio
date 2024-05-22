@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bw3bqxgfagaga"]
+[gd_scene load_steps=27 format=3 uid="uid://bw3bqxgfagaga"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/DragonOfAshes.gd" id="1_jmk6q"]
 [ext_resource type="Texture2D" uid="uid://cy0lqerjactwn" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-all-anim-sheet.png" id="2_1fyba"]
@@ -155,6 +155,14 @@ _data = {
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rtqep"]
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_np24d"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "dead"
+input_1/auto_advance = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_17rp1"]
 input_0/name = "sleep"
 input_0/auto_advance = false
@@ -165,9 +173,6 @@ input_1/reset = true
 input_2/name = "attack"
 input_2/auto_advance = false
 input_2/reset = true
-input_3/name = "dead"
-input_3/auto_advance = false
-input_3/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dxn6d"]
 animation = &"attack"
@@ -185,9 +190,11 @@ animation = &"idle"
 animation = &"sleep"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vy543"]
-graph_offset = Vector2(-575.399, 27.2368)
+graph_offset = Vector2(-443.66, 63.827)
 nodes/Awake/node = SubResource("AnimationNodeOneShot_rtqep")
 nodes/Awake/position = Vector2(320, 200)
+nodes/DeadTransition/node = SubResource("AnimationNodeTransition_np24d")
+nodes/DeadTransition/position = Vector2(560, 260)
 nodes/Transition/node = SubResource("AnimationNodeTransition_17rp1")
 nodes/Transition/position = Vector2(140, 160)
 nodes/attack/node = SubResource("AnimationNodeAnimation_dxn6d")
@@ -195,13 +202,13 @@ nodes/attack/position = Vector2(-120, 320)
 nodes/awake/node = SubResource("AnimationNodeAnimation_r4d0k")
 nodes/awake/position = Vector2(140, 440)
 nodes/dead/node = SubResource("AnimationNodeAnimation_htmy1")
-nodes/dead/position = Vector2(-260, 360)
+nodes/dead/position = Vector2(320, 480)
 nodes/idle/node = SubResource("AnimationNodeAnimation_0dvuv")
 nodes/idle/position = Vector2(-260, 220)
-nodes/output/position = Vector2(500, 200)
+nodes/output/position = Vector2(760, 280)
 nodes/sleep/node = SubResource("AnimationNodeAnimation_02bdh")
 nodes/sleep/position = Vector2(-120, 180)
-node_connections = [&"Awake", 0, &"Transition", &"Awake", 1, &"awake", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"attack", &"Transition", 3, &"dead", &"output", 0, &"Awake"]
+node_connections = [&"Awake", 0, &"Transition", &"Awake", 1, &"awake", &"DeadTransition", 0, &"Awake", &"DeadTransition", 1, &"dead", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"attack", &"output", 0, &"DeadTransition"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
 radius = 200.0
@@ -249,6 +256,9 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Awake/active = false
 parameters/Awake/internal_active = false
 parameters/Awake/request = 0
+parameters/DeadTransition/current_state = "in"
+parameters/DeadTransition/transition_request = ""
+parameters/DeadTransition/current_index = 0
 parameters/Transition/current_state = "sleep"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
