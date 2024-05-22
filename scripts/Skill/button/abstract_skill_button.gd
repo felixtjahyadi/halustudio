@@ -9,6 +9,8 @@ var can_activate = true
 @onready var cooldown_timer = $Cooldown
 @onready var cooldown_bar = $CooldownBar
 
+signal skill_active(value: bool)
+
 func setup(skill_p: Skill, key_p: int):
 	skill = skill_p
 	key = key_p

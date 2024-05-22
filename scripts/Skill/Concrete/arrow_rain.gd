@@ -13,11 +13,17 @@ func _init():
 
 func activate():
 	area_scene.is_place = true
+	global.player_node.enable_weapon()
 	
 func focus():
+	global.player_node.disable_weapon()
 	area_scene = area_of_effect.instantiate()
 	area_scene.setup(area_duration)
 	global.player_node.get_parent().add_child(area_scene)
 	
 func unfocus():
-	area_scene.is_place = false
+	if area_scene and is_instance_valid(area_scene) and not area_scene.is_place:
+		area_scene.is_place = false
+		area_scene = null
+	
+	global.player_node.enable_weapon()

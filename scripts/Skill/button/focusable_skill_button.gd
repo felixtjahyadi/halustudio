@@ -34,14 +34,20 @@ func handle_click():
 	can_activate = false
 	cooldown_timer.start()
 	set_process(true)
+	skill_active.emit(false)
 
 func handle_focus():
 	animation_player.play("active")
 	is_focus = true
 	skill.focus()
 	set_process(true)
+	skill_active.emit(true)
 
 func handle_unfocus():
 	animation_player.stop()
 	is_focus = false
 	skill.unfocus()
+	skill_active.emit(false)
+
+func _exit_tree():
+	handle_unfocus()

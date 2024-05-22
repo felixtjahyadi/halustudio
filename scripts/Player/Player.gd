@@ -16,6 +16,7 @@ var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var next_cooldown_timer: Timer = $NextCooldownTimer
 @onready var prev_cooldown_timer: Timer = $PrevCooldownTimer
+@onready var weapon = $Weapon
 
 var last_direction = Vector2(0.1, 0.1)
 var can_swap = true
@@ -185,8 +186,6 @@ func swap_listen():
 		start_prev_cooldown_timer()
 
 func swap_player(character: PlayerResource):
-	is_immune = false
-
 	player = character
 	_update()
 	swap.emit(true)
@@ -194,6 +193,24 @@ func swap_player(character: PlayerResource):
 	can_swap = false
 	await get_tree().create_timer(swap_delay).timeout	
 	can_swap = true
+	
+func _on_swap():
+	is_immune = false
 
 func _on_all_dead(player):
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Map/Level/LoseScreen.tscn")
+
+func get_weapon():
+	return player.weapon
+
+func set_weapon_state(skill_active: bool):
+	if skill_active:
+		disable_weapon()
+	else:
+		enable_weapon()
+
+func disable_weapon():
+	get_weapon().weapon_enabled = false
+
+func enable_weapon():
+	get_weapon().weapon_enabled = true

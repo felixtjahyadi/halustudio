@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+class_name HUD
+
 @onready var prev_character_texture_rect = $Avatar/MarginContainer/VBoxContainer/PrevCharacter
 @onready var current_character_texture_rect = $Avatar/MarginContainer/VBoxContainer/HBoxContainer/CurrentCharacter
 @onready var next_character_texture_rect = $Avatar/MarginContainer/VBoxContainer/HBoxContainer/NextCharacter
