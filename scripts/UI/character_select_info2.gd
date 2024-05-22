@@ -6,6 +6,7 @@ extends Control
 @onready var character_health_label = $MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Health/Label
 @onready var character_speed_label = $MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Speed/Label
 @onready var character_armor_label = $MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterStat/Status/Armor/Label
+@onready var character_skills = $MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill/Skills
 
 var selected_character_index = 0;
 
@@ -28,7 +29,19 @@ func update_character_information():
 	character_health_label.text = str(current_character.health)
 	character_speed_label.text = str(current_character.speed)
 	character_armor_label.text = str(current_character.armor)
-
+	update_character_skills_info()
+	
+func update_character_skills_info():
+	var current_character = global.owned_characters[selected_character_index]
+	
+	for child in character_skills.get_children():
+		child.queue_free()
+	
+	for skill in current_character.skills:
+		var texture_rect = TextureRect.new()
+		texture_rect.texture = skill.texture
+		texture_rect.tooltip_text = skill.description
+		character_skills.add_child(texture_rect)
 
 func _on_select_pressed():
 	global.update_used_character(global.owned_characters[selected_character_index])

@@ -1,9 +1,9 @@
 extends RigidBody2D
 
-var projectile_range: int
+var projectile_range: float
 var start_position: Vector2
 
-func setup(start: Vector2, max_range: int):
+func setup(start: Vector2, max_range: float):
 	projectile_range = max_range
 	start_position = start
 

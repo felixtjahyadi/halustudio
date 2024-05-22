@@ -26,5 +26,6 @@ shape = SubResource("CapsuleShape2D_rnxlr")
 [node name="ProjectileHitBox" parent="." instance=ExtResource("3_wixkm")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 
 [editable path="ProjectileHitBox"]

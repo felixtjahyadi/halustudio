@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="3_urly3"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="4_7nk3o"]
 [ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="5_i56mo"]
-[ext_resource type="PackedScene" path="res://scenes/UI/HUD.tscn" id="6_h4cs7"]
+[ext_resource type="PackedScene" uid="uid://bxemau4d064mf" path="res://scenes/UI/HUD.tscn" id="6_h4cs7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr5pe"]
 size = Vector2(352, 482)

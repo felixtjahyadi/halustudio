@@ -28,6 +28,13 @@ class_name WeaponResource
 @export_enum("slash", "wide slash") var attackType : String = "slash"
 @export var attackScale : float = 1
 
+var damage_multiplier: float = 1
+var projectile_speed_multiplier: float = 1
+var weapon_enabled: float = true
 
 func get_damage():
-	return baseDamage + (damageBonus * rarity)
+	return (baseDamage + (damageBonus * rarity)) * damage_multiplier
+	
+func multiplier_reset():
+	damage_multiplier = 1
+	projectile_speed_multiplier = 1

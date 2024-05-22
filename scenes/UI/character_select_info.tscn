@@ -163,12 +163,17 @@ text = "100"
 
 [node name="CharacterSkill" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "Character Skill
 "
+
+[node name="Skills" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill"]
+layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

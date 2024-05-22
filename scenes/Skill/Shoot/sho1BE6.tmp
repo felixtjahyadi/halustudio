@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0r0h3qbro2im"]
-
-[ext_resource type="Script" path="res://scenes/Skill/Shoot/shoot_skill.gd" id="1_dc3nc"]
-
-[node name="ShootSkill" type="Node2D"]
-script = ExtResource("1_dc3nc")
-
-[node name="BulletPosition" type="Marker2D" parent="."]
-position = Vector2(50, 0)

@@ -109,15 +109,16 @@ func _on_detection_area_body_exited(body):
 		chase = false
 	
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
-	hp -= damage
 	print('hurtbox: ', hp)
-	damaged_animation()
-	knock_back = angle * knock_back_amount
-	sound.play()
+	get_damage(damage, angle, knock_back_amount)
 
 func _on_melee_hurt_box_hurt(damage, angle, knock_back_amount):
-	hp -= damage
 	print('on_melee: ', hp)
+	get_damage(damage, angle, knock_back_amount)
+
+func get_damage(damage, angle = 0, knock_back_amount = Vector2.ZERO):
+	print('damage ', damage)
+	hp -= damage
 	damaged_animation()
 	knock_back = angle * knock_back_amount
 	sound.play()
