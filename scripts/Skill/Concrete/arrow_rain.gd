@@ -3,8 +3,8 @@ extends FocusableSkill
 class_name ArrowRain
 
 var area_of_effect = load("res://scenes/Skill/area_of_effect.tscn")
-var area_scene
-var area_duration = 2
+var area_scene: Node
+var area_duration = 4
 
 func _init():
 	cooldown = 5 

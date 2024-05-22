@@ -1,6 +1,5 @@
 extends AbstractSkillButton
 
-@onready var focus_border = $FocusBorder
 @onready var animation_player = $AnimationPlayer
 
 var is_focus = false
