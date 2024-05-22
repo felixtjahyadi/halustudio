@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://y8hujqw40pki" path="res://resources/Weapons/Bow.tres" id="2_0m26q"]
 [ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="2_ialm4"]
 [ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie/archie-anim-sheet.png" id="2_o4rb4"]
-[ext_resource type="Script" path="res://scripts/Skill/concrete/test.gd" id="4_0jq3u"]
+[ext_resource type="Script" path="res://scripts/Skill/concrete/immune.gd" id="4_qeffs"]
 [ext_resource type="Script" path="res://scripts/Skill/concrete/arrow_rain.gd" id="5_gdvnk"]
 
 [resource]
@@ -19,4 +19,4 @@ weapon = ExtResource("2_0m26q")
 art = ExtResource("1_e5rln")
 avatar = ExtResource("2_ialm4")
 cooldown = 5
-skills_script = Array[Script]([ExtResource("4_0jq3u"), ExtResource("5_gdvnk")])
+skills_script = Array[Script]([ExtResource("4_qeffs"), ExtResource("5_gdvnk")])

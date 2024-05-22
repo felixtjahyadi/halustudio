@@ -7,6 +7,7 @@ signal update_weapon_sprite(weapon : WeaponResource)
 signal update_health_bar(value : float)
 signal swap(value: bool)
 signal dead
+signal immune(value: bool)
 
 var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 
@@ -22,6 +23,31 @@ var can_swap_next = true
 var can_swap_prev = true
 var swap_delay = 0.4
 var is_dead = false
+
+var is_immune = false:
+	set(value):
+		is_immune = value
+		
+		if is_immune:
+			playerSprite.modulate = Color.YELLOW
+		else:
+			var tween = get_tree().create_tween()
+			tween.tween_property(playerSprite, "modulate", Color.WHITE, 0.5)
+		
+		immune.emit(value)
+
+func _on_immune(value: bool):
+	var style_box_flat_fill = StyleBoxFlat.new()
+	
+	if is_immune:
+		style_box_flat_fill.bg_color = Color.YELLOW
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property(style_box_flat_fill, "bg_color", Color.AQUAMARINE, 0.5)
+	
+	style_box_flat_fill.set_border_width_all(1)
+	style_box_flat_fill.border_color = Color(.24,.10,.19)
+	health_bar.add_theme_stylebox_override("fill", style_box_flat_fill)
 
 func setup(p_player: PlayerResource):
 	player = p_player
@@ -108,6 +134,8 @@ func swap_next_when_dead():
 
 # hurt box handler
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
+	if is_immune: return
+	
 	player.take_hit(damage)
 	_health_bar_update()
 	damaged_animation()
@@ -157,6 +185,8 @@ func swap_listen():
 		start_prev_cooldown_timer()
 
 func swap_player(character: PlayerResource):
+	is_immune = false
+
 	player = character
 	_update()
 	swap.emit(true)
@@ -167,4 +197,3 @@ func swap_player(character: PlayerResource):
 
 func _on_all_dead(player):
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Map/Level/LoseScreen.tscn")
-

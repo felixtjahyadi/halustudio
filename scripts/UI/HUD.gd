@@ -18,6 +18,7 @@ func _ready():
 	global.swap.connect(_update)
 	global.player_node.update_health_bar.connect(update_health_bar)
 	global.player_node.ready.connect(_update)
+	global.player_node.immune.connect(update_immune_health_bar)
 	set_process(true)
 	
 func _process(delta):
@@ -50,6 +51,19 @@ func update_player_name():
 
 func update_health_bar():
 	health_bar.value = global.player_node.get_health_percent()
+
+func update_immune_health_bar(value: bool):
+	var style_box_flat_fill = StyleBoxFlat.new()
+	
+	if value:
+		style_box_flat_fill.bg_color = Color.YELLOW
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property(style_box_flat_fill, "bg_color", Color.AQUAMARINE, 0.5)
+	
+	style_box_flat_fill.set_border_width_all(1)
+	style_box_flat_fill.border_color = Color(.24,.10,.19)
+	health_bar.add_theme_stylebox_override("fill", style_box_flat_fill)
 
 func update_cooldown():
 	if not global.player_node.can_swap_next:

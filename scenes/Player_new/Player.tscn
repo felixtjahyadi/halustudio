@@ -347,7 +347,7 @@ states/Walk/position = Vector2(706, 100)
 states/swap/node = SubResource("AnimationNodeAnimation_wqjbk")
 states/swap/position = Vector2(536, -26)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tn82u"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2gf2b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0m662"), "Idle", "swap", SubResource("AnimationNodeStateMachineTransition_rg48y"), "swap", "Idle", SubResource("AnimationNodeStateMachineTransition_m11v6"), "Walk", "swap", SubResource("AnimationNodeStateMachineTransition_cnrj2"), "swap", "Walk", SubResource("AnimationNodeStateMachineTransition_vvtpc"), "Idle", "Dead", SubResource("AnimationNodeStateMachineTransition_duleo"), "Walk", "Dead", SubResource("AnimationNodeStateMachineTransition_u0h7a"), "Dead", "swap", SubResource("AnimationNodeStateMachineTransition_acdyo")]
-graph_offset = Vector2(-12, -241.119)
+graph_offset = Vector2(-11, -154.119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihpyb"]
 size = Vector2(48, 64)
@@ -506,6 +506,7 @@ one_shot = true
 
 [connection signal="all_dead" from="." to="." method="_on_all_dead"]
 [connection signal="dead" from="." to="." method="_on_dead"]
+[connection signal="immune" from="." to="." method="_on_immune"]
 [connection signal="swap" from="." to="." method="set_swap_animation"]
 [connection signal="swap" from="." to="." method="_on_swap"]
 [connection signal="update_health_bar" from="." to="." method="_on_update_health_bar"]
