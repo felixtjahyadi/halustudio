@@ -43,13 +43,15 @@ func _physics_process(_delta):
 			
 		if hp <= 0:
 			animationTree.set("parameters/Transition/transition_request", "dead")
-			emit_signal("on_boss_dead")
 			dead_process()
 		else:
 			animationTree.set("parameters/Transition/transition_request", "idle")
 			
 	else:
 		animationTree.set("parameters/Transition/transition_request", "sleep")
+
+func emit_boss_dead():
+	on_boss_dead.emit()
 
 func _reset():
 	await get_tree().create_timer(current_attack_cooldown).timeout

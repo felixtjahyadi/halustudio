@@ -67,9 +67,12 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"emit_boss_dead"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -182,7 +185,6 @@ animation = &"idle"
 animation = &"sleep"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vy543"]
-graph_offset = Vector2(-575.399, 27.2368)
 nodes/Awake/node = SubResource("AnimationNodeOneShot_rtqep")
 nodes/Awake/position = Vector2(320, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_17rp1")
