@@ -2,12 +2,13 @@ extends Control
 
 signal play
 
-var level = "res://scenes/Map/Level/Level 1.tscn"
+var level1 = global.MAIN_LEVEL_PATH + "Level 1.tscn"
 var character_select_ui = "res://scenes/UI/character_select.tscn"
 
 func _on_play_click_end():
 	play.emit()
-	var _level = get_tree().change_scene_to_file(level)
+	global.level = 1
+	var _level = get_tree().change_scene_to_file(level1)
 
 func _on_quit_click_end():
 	get_tree().quit()

@@ -26,7 +26,7 @@ const enemy_scene: PackedScene = preload("res://scenes/Enemy_new/Enemy.tscn")
 @export var skippable : bool = false
 
 @export var lastRoom : bool = false
-@export var levelPath : String = "Level 1"
+@export var mainLevel : bool = false
 
 @onready var roomTileMap : TileMap = get_node("RoomTileMap")
 @onready var enemy_positions_container: Node2D = get_node("EnemyPosition")
@@ -63,7 +63,7 @@ func toggleDoor():
 
 func showPortal():
 	var portal = load(portalScenePath).instantiate()
-	portal.levelPath = levelPath
+	portal.mainLevel = mainLevel
 	add_child(portal)
 
 func startRoom():

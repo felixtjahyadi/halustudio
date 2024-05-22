@@ -4,6 +4,13 @@ extends Node
 signal swap
 
 var LEVEL_PATH : String = "res://scenes/Map/Level/"
+var MAIN_LEVEL_PATH : String = LEVEL_PATH + "MainLevel/"
+var VARIATIONS_LEVEL_PATH : String = LEVEL_PATH + "Variations/"
+
+var level = 1
+
+var variationsLevelCount = 2
+
 var HITPOINTS: int = 5
 
 var MAP_TEXTURE : Dictionary = {

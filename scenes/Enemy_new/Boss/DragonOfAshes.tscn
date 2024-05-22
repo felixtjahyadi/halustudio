@@ -1,0 +1,297 @@
+[gd_scene load_steps=26 format=3 uid="uid://bw3bqxgfagaga"]
+
+[ext_resource type="Script" path="res://scripts/Enemy/Boss/DragonOfAshes.gd" id="1_jmk6q"]
+[ext_resource type="Texture2D" uid="uid://cy0lqerjactwn" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-all-anim-sheet.png" id="2_1fyba"]
+[ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="3_dxxj3"]
+[ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="4_4igo6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl1kh"]
+radius = 35.0
+height = 90.0
+
+[sub_resource type="Animation" id="Animation_c42da"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tmemx"]
+resource_name = "attack"
+length = 0.7
+
+[sub_resource type="Animation" id="Animation_sqbqy"]
+resource_name = "awake"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_1tkuu"]
+resource_name = "dead"
+length = 1.4
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.552941, 0.6, 0.521569, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rw4yh"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_0i5v2"]
+resource_name = "sleep"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_gdnet"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2cqq"]
+_data = {
+"RESET": SubResource("Animation_c42da"),
+"attack": SubResource("Animation_tmemx"),
+"awake": SubResource("Animation_sqbqy"),
+"dead": SubResource("Animation_1tkuu"),
+"idle": SubResource("Animation_rw4yh"),
+"sleep": SubResource("Animation_0i5v2"),
+"walk": SubResource("Animation_gdnet")
+}
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rtqep"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_17rp1"]
+input_0/name = "sleep"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "idle"
+input_1/auto_advance = true
+input_1/reset = true
+input_2/name = "attack"
+input_2/auto_advance = false
+input_2/reset = true
+input_3/name = "dead"
+input_3/auto_advance = false
+input_3/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dxn6d"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4d0k"]
+animation = &"awake"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_htmy1"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0dvuv"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_02bdh"]
+animation = &"sleep"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vy543"]
+graph_offset = Vector2(-575.399, 27.2368)
+nodes/Awake/node = SubResource("AnimationNodeOneShot_rtqep")
+nodes/Awake/position = Vector2(320, 200)
+nodes/Transition/node = SubResource("AnimationNodeTransition_17rp1")
+nodes/Transition/position = Vector2(140, 160)
+nodes/attack/node = SubResource("AnimationNodeAnimation_dxn6d")
+nodes/attack/position = Vector2(-120, 320)
+nodes/awake/node = SubResource("AnimationNodeAnimation_r4d0k")
+nodes/awake/position = Vector2(140, 440)
+nodes/dead/node = SubResource("AnimationNodeAnimation_htmy1")
+nodes/dead/position = Vector2(-260, 360)
+nodes/idle/node = SubResource("AnimationNodeAnimation_0dvuv")
+nodes/idle/position = Vector2(-260, 220)
+nodes/output/position = Vector2(500, 200)
+nodes/sleep/node = SubResource("AnimationNodeAnimation_02bdh")
+nodes/sleep/position = Vector2(-120, 180)
+node_connections = [&"Awake", 0, &"Transition", &"Awake", 1, &"awake", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"attack", &"Transition", 3, &"dead", &"output", 0, &"Awake"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
+radius = 200.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edf8e"]
+radius = 40.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knj61"]
+radius = 40.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_af8sb"]
+radius = 50.0
+height = 120.0
+
+[node name="BossDragon" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_jmk6q")
+
+[node name="CollisionEnemy" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kl1kh")
+
+[node name="EnemyBody" type="Node2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBody"]
+texture = ExtResource("2_1fyba")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyBody"]
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
+tree_root = SubResource("AnimationNodeBlendTree_vy543")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Awake/active = false
+parameters/Awake/internal_active = false
+parameters/Awake/request = 0
+parameters/Transition/current_state = "sleep"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
+
+[node name="DetectionArea" type="Area2D" parent="EnemyBody"]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/DetectionArea"]
+shape = SubResource("CircleShape2D_rydek")
+
+[node name="HurtBox" parent="EnemyBody" instance=ExtResource("3_dxxj3")]
+position = Vector2(0, 16)
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="EnemyBody/HurtBox" index="0"]
+position = Vector2(0.166666, 0.666667)
+shape = SubResource("CapsuleShape2D_edf8e")
+
+[node name="HurtBox2" parent="EnemyBody" instance=ExtResource("3_dxxj3")]
+position = Vector2(0, 16)
+collision_layer = 16
+collision_mask = 16
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="EnemyBody/HurtBox2" index="0"]
+position = Vector2(0.166666, 0.666667)
+shape = SubResource("CapsuleShape2D_knj61")
+
+[node name="HitBox" parent="EnemyBody" instance=ExtResource("4_4igo6")]
+position = Vector2(0, 16)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
+shape = SubResource("CapsuleShape2D_af8sb")
+
+[node name="HideTimer" type="Timer" parent="EnemyBody"]
+unique_name_in_owner = true
+
+[node name="hurt_sound" type="AudioStreamPlayer2D" parent="EnemyBody"]
+unique_name_in_owner = true
+volume_db = -15.0
+pitch_scale = 1.5
+
+[editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HurtBox2"]
+[editable path="EnemyBody/HitBox"]
