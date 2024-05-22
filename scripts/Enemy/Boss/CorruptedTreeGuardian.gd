@@ -2,7 +2,7 @@ extends EnemyClass
 
 class_name CorruptedTreeGuardian
 
-@export var maxMinionCount : int = 15
+@export var maxMinionCount : int = 200
 @export var minionList : Array = [
 	preload("res://scenes/Enemy_new/Boss/BranchMinion.tscn"),
 ]
@@ -78,8 +78,8 @@ func _spawn():
 	add_child(minion)
 	
 	var spawn_pos = Vector2(0, 0)
-	spawn_pos.x = randf_range(-32 * (9-1), 32 * (9-1))
-	spawn_pos.y = randf_range(-32 * (9-1), 32 * (9-1))
+	spawn_pos.x = randf_range(-64 * (10), 64 * (10))
+	spawn_pos.y = randf_range(-64 * (10), 64 * (10))
 	
 	minion.position = spawn_pos
 
