@@ -29,10 +29,12 @@ func set_labels_and_sprite():
 		match character_names[current_index]:
 			"Archie":
 				$Dialogue_Box/Chara.texture = load("res://assets/Player/art/Archie.png")
-			"Knight":
+			"Morin":
 				$Dialogue_Box/Chara.texture = load("res://assets/Player/art/Knight.png")
-			"Ninja":
+			"Black Bullet":
 				$Dialogue_Box/Chara.texture = load("res://assets/Player/art/Ninja.png")
+			_:
+				$Dialogue_Box/Chara.texture = load("res://assets/Player/art/NPC.png")
 		
 		if dialogue_index < dialogues[current_index].size():
 			$Dialogue_Box/Body_NinePatchRect/Body_MarginContainer/Body_Label.text = dialogues[current_index][dialogue_index]

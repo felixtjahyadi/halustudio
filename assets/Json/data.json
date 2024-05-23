@@ -1,22 +1,172 @@
 {
-  "level1": [
+  "level1_start": [
     {
-      "name": "Archie",
-      "dialogue": ["dialogue 1", "dialogue 2", "dialogue 3"]
+      "name": "Village Chief",
+      "dialogue": [
+        "Ah, a new face! Welcome, brave adventurer. I'm the Village Chief.",
+        "The underground chambers have opened again, unleashing monsters upon us. We need heroes to defend our village.",
+        "Archie, Morin, and Black Bullet, step forward and introduce yourselves to our new recruit."
+      ]
     },
     {
-      "name": "Knight",
-      "dialogue": ["yadad aydyadyaydyaydya"]
+      "name": "Archie",
+      "dialogue": [
+        "Hey there! I'm Archie, your go-to guy for all things adventuring. Stick with me, and we'll get through this.",
+        "Welcome to the team! Together, we can conquer anything."
+      ]
+    },
+    {
+      "name": "Morin",
+      "dialogue": [
+        "Greetings, I'm Morin. I'll be providing you with the maps and guidance you need.",
+        "Let's stay sharp and focused. The path ahead is dangerous."
+      ]
+    },
+    {
+      "name": "Black Bullet",
+      "dialogue": [
+        "I'm Black Bullet. You can count on me for firepower and supplies.",
+        "Stay sharp and be cautious. Danger lurks around every corner."
+      ]
     }
   ],
   "level2": [
     {
       "name": "Archie",
-      "dialogue": ["blablkabafksng aydyadyaydyaydya"]
+      "dialogue": [
+        "Welcome to the upper chambers. Things get trickier from here.",
+        "These chambers hold many secrets. Keep your eyes peeled.",
+        "Keep an eye out for hidden treasures. They can be very useful.",
+        "The monsters here are tougher. Don't let your guard down."
+      ]
     },
     {
-      "name": "Knight",
-      "dialogue": ["yadad aydyadyaydyaydya"]
+      "name": "Morin",
+      "dialogue": [
+        "Watch your step in these chambers. They're full of traps.",
+        "I've heard rumors of hidden rooms filled with treasure.",
+        "Remember, teamwork is key. You're not alone in this fight."
+      ]
+    }
+  ],
+  "level3_boss": [
+    {
+      "name": "Archie",
+      "dialogue": [
+        "You've made it to the first boss level. This corrupted tree is a tough one.",
+        "Remember to use your special attacks to deal more damage.",
+        "Stay on your toes and watch out for its roots!"
+      ]
+    },
+    {
+      "name": "Black Bullet",
+      "dialogue": [
+        "This tree was once a guardian of the forest. Now it's corrupted.",
+        "Use fire-based attacks to exploit its weakness.",
+        "Defeating this boss will clear the path to deeper chambers. Stay strong."
+      ]
+    }
+  ],
+  "level4": [
+    {
+      "name": "Archie",
+      "dialogue": [
+        "The middle chambers... you're halfway there.",
+        "The enemies here are tougher, but so are you.",
+        "Keep pushing forward, adventurer. The village is counting on you."
+      ]
+    },
+    {
+      "name": "Morin",
+      "dialogue": [
+        "These chambers are known for their labyrinth-like structure. Don't get lost.",
+        "I've heard tales of a hidden artifact in these chambers.",
+        "Stay vigilant. The deeper you go, the more dangerous it becomes."
+      ]
+    }
+  ],
+  "level5": [
+    {
+      "name": "Archie",
+      "dialogue": [
+        "You're so close to the final challenge. Just one more level to go.",
+        "The lower chambers are filled with intense threats. Be prepared.",
+        "Find the hidden keys to unlock the final chamber."
+      ]
+    },
+    {
+      "name": "Black Bullet",
+      "dialogue": [
+        "The air is thick with danger here. Stay alert.",
+        "Enemies here are more cunning and powerful. Don't underestimate them.",
+        "Remember, your ultimate goal is just ahead. Keep your eyes on the prize."
+      ]
+    }
+  ],
+  "level6_boss": [
+    {
+      "name": "Archie",
+      "dialogue": [
+        "This is it. The dragon boss. The final challenge.",
+        "Use everything you've learned to defeat it.",
+        "Victory here means safety for the village. You can do this!"
+      ]
+    },
+    {
+      "name": "Black Bullet",
+      "dialogue": [
+        "This dragon has been terrorizing the village for centuries. End its reign.",
+        "Watch out for its furios attacks. Stay on the move.",
+        "Remember, the fate of the village rests on your shoulders. No pressure."
+      ]
+    }
+  ],
+  "tutorials": [
+    {
+      "name": "Archie",
+      "dialogue": [
+        "Use WASD to move around.",
+        "Great! Now use left click and hold to attack.",
+        "Excellent! Remember, you can switch characters using Q or E."
+      ]
+    },
+    {
+      "name": "Village Chief",
+      "dialogue": [
+        "Before you head out, make sure you're familiar with the controls.",
+        "Practice makes perfect. Hone your skills before facing the real threats.",
+        "Good luck, adventurer. We're counting on you."
+      ]
+    }
+  ],
+  "celebrations": [
+    {
+      "name": "Village Chief",
+      "dialogue": [
+        "Congratulations on your victory! You've saved the village!",
+        "The village is safe once more, thanks to your bravery and skill."
+      ]
+    },
+    {
+      "name": "Archie",
+      "dialogue": [
+        "We did it! The village is finally safe.",
+        "Your skills and courage have brought peace to the land."
+      ]
+    },
+    {
+      "name": "Morin",
+      "dialogue": [
+        "Well done, adventurer! Your name will be remembered in our history.",
+        "Celebrate this victory, for you have earned it."
+      ]
+    },
+    {
+      "name": "Black Bullet",
+      "dialogue": [
+        "Great job! You really showed those monsters who's boss.",
+        "The village owes you a great debt."
+      ]
     }
   ]
 }
