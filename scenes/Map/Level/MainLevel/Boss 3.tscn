@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://3oqncvwdr61l"]
 
-[ext_resource type="PackedScene" uid="uid://dsdqeq11gyhei" path="res://scenes/Map/DefaultBossRoom.tscn" id="2_s1mio"]
 [ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="1_h1ifc"]
-[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="6_1j1i2"]
+[ext_resource type="PackedScene" uid="uid://dsdqeq11gyhei" path="res://scenes/Map/DefaultBossRoom.tscn" id="2_s1mio"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="3_vwhrd"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="4_qtqun"]
-[ext_resource type="PackedScene" uid="uid://bxemau4d064mf" path="res://scenes/UI/HUD.tscn" id="7_yamxv"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="5_1xnp7"]
+[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="6_1j1i2"]
+[ext_resource type="PackedScene" uid="uid://bxemau4d064mf" path="res://scenes/UI/HUD.tscn" id="7_yamxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ark3"]
 size = Vector2(1464, 1328)

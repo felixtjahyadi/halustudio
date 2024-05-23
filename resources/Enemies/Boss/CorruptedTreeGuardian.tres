@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=2 format=3 uid="uid://d2s6j345sgeda"]
+
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_0x3x6"]
+
+[resource]
+script = ExtResource("1_0x3x6")
+name = "Corrupted Tree Guardian"
+health = 3000
+speed = 0.0
+armor = 2
+baseDamage = 1
+detectionRadius = 200.0
+knock_back_recovery = 10.0
+max_coins = 20
+money = 5

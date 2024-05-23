@@ -24,9 +24,9 @@ func _on_play():
 func _on_debug_pressed():
 	global.debug_count += 1
 	if global.debug_count == 5:
-		$DEBUG.modulate = "ffffff"
-		global.used_characters = [
-			load("res://resources/Players/Archie_DEBUG.tres").setup(),
-			load("res://resources/Players/Archie_DEBUG.tres").setup(),
-			load("res://resources/Players/Archie_DEBUG.tres").setup()
-		]
+		$PanelContainerDebug/MarginContainer/DEBUG.modulate = "ffffff"
+		global.prev_characters = global.used_characters
+		global.used_characters = global.debug_characters
+	elif global.debug_count == 6:
+		$PanelContainerDebug/MarginContainer/DEBUG.modulate = "ffffff00"
+		global.used_characters = global.prev_characters
