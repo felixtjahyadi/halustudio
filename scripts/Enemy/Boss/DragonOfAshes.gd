@@ -2,7 +2,7 @@ extends EnemyClass
 
 class_name DragonOfAshes
 
-@export var current_attack_cooldown = 3.0
+var attack_cooldown : float = 3
 
 var isAwake : bool = false
 var isFlying : bool = false
@@ -37,8 +37,7 @@ func emit_boss_dead():
 	on_boss_dead.emit()
 
 func _reset():
-	await get_tree().create_timer(current_attack_cooldown).timeout
-	#current_attack_cooldown += attack_cooldown_inc
+	await get_tree().create_timer(attack_cooldown).timeout
 	attack_phase()
 	_reset()
 
@@ -48,6 +47,7 @@ func attack_phase():
 	if isAttack > 0:
 		attack()
 	else:
+		attack_cooldown = 1
 		transition()
 
 func attack():
@@ -61,6 +61,14 @@ func fly_attack():
 
 func ground_attack():
 	print("ground attack")
+
+func find_player():
+	var player_direction = (get_tree().get_first_node_in_group("player").global_position - global_position).normalized()
+	$FrontHitBox.rotation = player_direction.angle()
+
+func go_to_player():
+	var player_direction = (get_tree().get_first_node_in_group("player").global_position - global_position).normalized()
+	position = player_direction.positino
 
 func transition():
 	if isFlying:

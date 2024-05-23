@@ -7,7 +7,7 @@ class_name CorruptedTreeGuardian
 ]
 @export var intervalSpawn : float = 1.0
 
-var current_attack_cooldown = 3
+var attack_cooldown : float = 3
 
 var isAwake : bool = false
 
@@ -27,6 +27,7 @@ func default_animation():
 	pass
 
 func _physics_process(_delta):
+	print(minionNum)
 	if isAwake:
 		if hp <= 0:
 			dead_process()
@@ -40,31 +41,35 @@ func emit_boss_dead():
 	on_boss_dead.emit()
 
 func _reset():
-	await get_tree().create_timer(current_attack_cooldown).timeout
+	await get_tree().create_timer(attack_cooldown).timeout
 	attack()
 	_reset()
 
 func attack():
-	var attackIdx = randi_range(0,2)
+	var attackIdx = randi_range(0,10)
+	
+	if minionNum == 0:
+		await get_tree().create_timer(5).timeout
+		_spawn_minion(5)
 	
 	if attackIdx == 0:
 		attack_summon()
-	elif attackIdx == 1:
+	elif attackIdx % 2 == 1:
 		attack_area()
-	elif attackIdx == 2:
+	elif attackIdx % 2 == 0:
 		attack_front()
 
 func attack_summon():
 	var count = _get_minion_count_randomizer()
-	current_attack_cooldown = 1
+	attack_cooldown = count * 1.5
 	_spawn_minion(count)
 
 func attack_area():
-	current_attack_cooldown = 2.2
+	attack_cooldown = 2.2
 	animationTree.set("parameters/AttackTransition/transition_request", "area")
 
 func attack_front():
-	current_attack_cooldown = 3
+	attack_cooldown = 3
 	animationTree.set("parameters/AttackTransition/transition_request", "front")
 
 func find_player():
@@ -72,18 +77,18 @@ func find_player():
 	$FrontHitBox.rotation = player_direction.angle()
 
 func _get_minion_count_randomizer():
-	return randi_range(5, 8)
+	return randi_range(5, 10)
 
 func _spawn_minion(count = 1):
 	for i in count:
+		minionNum += 1
 		_spawn()
 		await get_tree().create_timer(intervalSpawn).timeout
-	#minionNum += count
 
 func _spawn():
 	var selectedMinion = minionList.pick_random()
 	var minion = selectedMinion.instantiate()
-	minion.connect("on_minion_dead", Callable(self, "on_minion_dead"))
+	minion.connect("on_minion_dead", Callable(self, "_on_minion_dead"))
 	add_child(minion)
 	
 	var spawn_pos = Vector2(0, 0)
@@ -114,8 +119,10 @@ func damaged_animation():
 	await get_tree().create_timer(0.2).timeout
 	sprite.modulate = Color.WHITE
 
-#func _on_minion_dead():
-	#minionNum -= 1
+func _on_minion_dead():
+	minionNum -= 1
+	hp -= 10
+	damaged_animation()
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)

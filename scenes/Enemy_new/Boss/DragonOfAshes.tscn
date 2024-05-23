@@ -671,7 +671,7 @@ tracks/53/keys = {
 tracks/54/type = "value"
 tracks/54/imported = false
 tracks/54/enabled = true
-tracks/54/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
+tracks/54/path = NodePath("../AreaHitBox/MeshInstance2D:modulate")
 tracks/54/interp = 1
 tracks/54/loop_wrap = true
 tracks/54/keys = {
@@ -683,7 +683,7 @@ tracks/54/keys = {
 tracks/55/type = "value"
 tracks/55/imported = false
 tracks/55/enabled = true
-tracks/55/path = NodePath("../BigAreaHitBox:monitoring")
+tracks/55/path = NodePath("../AreaHitBox:monitoring")
 tracks/55/interp = 1
 tracks/55/loop_wrap = true
 tracks/55/keys = {
@@ -695,7 +695,7 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("../BigAreaHitBox:monitorable")
+tracks/56/path = NodePath("../AreaHitBox:monitorable")
 tracks/56/interp = 1
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -3604,7 +3604,7 @@ nodes/sleep/position = Vector2(-120, 120)
 node_connections = [&"Awake", 0, &"IdleFlyOneShot", &"Awake", 1, &"awake", &"DeadTransition", 0, &"Awake", &"DeadTransition", 1, &"dead", &"IdleFlyOneShot", 0, &"Transition", &"IdleFlyOneShot", 1, &"IdleFlyTransition", &"IdleFlyTransition", 0, &"fly_to_idle", &"IdleFlyTransition", 1, &"idle_to_fly", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"fly", &"output", 0, &"DeadTransition"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6jl4"]
-radius = 700.0
+radius = 550.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oaxdi"]
 radius = 700.0
@@ -3665,18 +3665,18 @@ parameters/Transition/current_state = "fly"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 2
 
-[node name="BigAreaHitBox" parent="." instance=ExtResource("4_4igo6")]
+[node name="AreaHitBox" parent="." instance=ExtResource("4_4igo6")]
 position = Vector2(0, 16)
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAreaHitBox"]
+[node name="AreaHitCollisionShape" type="CollisionShape2D" parent="AreaHitBox"]
 position = Vector2(0, -79)
 shape = SubResource("CircleShape2D_a6jl4")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="BigAreaHitBox"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="AreaHitBox"]
 modulate = Color(1, 0, 0, 0)
 position = Vector2(0, -80)
 mesh = SubResource("CapsuleMesh_oaxdi")
@@ -3811,7 +3811,7 @@ pitch_scale = 1.5
 enabled = false
 zoom = Vector2(0.5, 0.5)
 
-[editable path="BigAreaHitBox"]
+[editable path="AreaHitBox"]
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]
 [editable path="EnemyBody/HitBox"]

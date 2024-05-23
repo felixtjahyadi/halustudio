@@ -11,6 +11,13 @@
 radius = 20.0
 height = 60.0
 
+[sub_resource type="SphereMesh" id="SphereMesh_iex5q"]
+radius = 0.0
+height = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwry1"]
+radius = 190.0
+
 [sub_resource type="Animation" id="Animation_c42da"]
 length = 0.001
 tracks/0/type = "value"
@@ -28,7 +35,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BigAreaHitBox/MeshInstance2D:modulate")
+tracks/1/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,7 +95,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BigAreaHitBox/CollisionBigAreaHitBox:disabled")
+tracks/6/path = NodePath("../BigAreaHitBox/CollisionBigAreaHitBox:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -100,7 +107,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BigAreaHitBox/MeshInstance2D:mesh:height")
+tracks/7/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:height")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -112,7 +119,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("BigAreaHitBox/MeshInstance2D:mesh:radius")
+tracks/8/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:radius")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -124,27 +131,26 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_s2bbs"]
 resource_name = "attack"
-length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BigAreaHitBox/MeshInstance2D:modulate")
+tracks/0/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(1, 1e-05, 1e-05),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.784314), Color(1, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BigAreaHitBox/CollisionBigAreaHitBox:disabled")
+tracks/1/path = NodePath("../BigAreaHitBox/CollisionBigAreaHitBox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.1),
+"times": PackedFloat32Array(0, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -152,31 +158,42 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BigAreaHitBox/MeshInstance2D:mesh:height")
+tracks/2/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:height")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.001, 100.0, 0.001]
+"values": [0.001, 400.0, 0.001]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BigAreaHitBox/MeshInstance2D:mesh:radius")
+tracks/3/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:radius")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 50.0, 0.0]
+"values": [0.0, 200.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_1tkuu"]
 resource_name = "dead"
-step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -196,9 +213,12 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"emit_on_minion_dead"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -276,12 +296,12 @@ length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BigAreaHitBox/MeshInstance2D:modulate")
+tracks/0/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(1, 1e-05, 1e-05),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.784314), Color(1, 0, 0, 0)]
 }
@@ -336,7 +356,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BigAreaHitBox/CollisionBigAreaHitBox:disabled")
+tracks/5/path = NodePath("../BigAreaHitBox/CollisionBigAreaHitBox:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -348,26 +368,26 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BigAreaHitBox/MeshInstance2D:mesh:height")
+tracks/6/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:height")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.001, 100.0, 0.001]
+"values": [0.001, 400.0, 0.001]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BigAreaHitBox/MeshInstance2D:mesh:radius")
+tracks/7/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:radius")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 50.0, 0.0]
+"values": [0.0, 200.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_gdnet"]
@@ -434,15 +454,15 @@ input_1/reset = true
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bivn4"]
-graph_offset = Vector2(-438.528, -4.15959)
+graph_offset = Vector2(-464.037, 19.7116)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tauiu")
 nodes/Animation/position = Vector2(40, 300)
 nodes/Attack/node = SubResource("AnimationNodeOneShot_gkksg")
 nodes/Attack/position = Vector2(0, 40)
-"nodes/Attack 2/node" = SubResource("AnimationNodeAnimation_x0dvw")
-"nodes/Attack 2/position" = Vector2(-182.377, 291.02)
+"nodes/Attack /node" = SubResource("AnimationNodeAnimation_x0dvw")
+"nodes/Attack /position" = Vector2(-182.377, 291.02)
 nodes/Dead/node = SubResource("AnimationNodeAnimation_ifqqm")
-nodes/Dead/position = Vector2(-340, 180)
+nodes/Dead/position = Vector2(240, 320)
 nodes/DeadTransition/node = SubResource("AnimationNodeTransition_o1qhu")
 nodes/DeadTransition/position = Vector2(400, 160)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_1i5xj")
@@ -454,7 +474,7 @@ nodes/Transition/position = Vector2(-160, 40)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_i1hwr")
 nodes/Walk/position = Vector2(-480, 100)
 nodes/output/position = Vector2(400, 40)
-node_connections = [&"Attack", 0, &"Transition", &"Attack", 1, &"Attack 2", &"DeadTransition", 0, &"Spawn", &"DeadTransition", 1, &"Dead", &"Spawn", 0, &"Attack", &"Spawn", 1, &"Animation", &"Transition", 0, &"Idle", &"Transition", 1, &"Walk", &"output", 0, &"DeadTransition"]
+node_connections = [&"Attack", 0, &"Transition", &"Attack", 1, &"Attack ", &"DeadTransition", 0, &"Spawn", &"DeadTransition", 1, &"Dead", &"Spawn", 0, &"Attack", &"Spawn", 1, &"Animation", &"Transition", 0, &"Idle", &"Transition", 1, &"Walk", &"output", 0, &"DeadTransition"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
 radius = 200.0
@@ -471,13 +491,6 @@ height = 70.0
 radius = 25.0
 height = 70.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_iex5q"]
-radius = 0.0
-height = 100.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vwry1"]
-radius = 50.0
-
 [node name="BossMinion" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 5
 collision_mask = 5
@@ -487,6 +500,20 @@ enemy = ExtResource("2_1p6tl")
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_0guby")
+disabled = true
+
+[node name="BigAreaHitBox" parent="." instance=ExtResource("5_34wq7")]
+position = Vector2(0, 8)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="BigAreaHitBox"]
+modulate = Color(1, 0, 0, 0)
+mesh = SubResource("SphereMesh_iex5q")
+
+[node name="CollisionBigAreaHitBox" type="CollisionShape2D" parent="BigAreaHitBox"]
+shape = SubResource("CircleShape2D_vwry1")
 disabled = true
 
 [node name="EnemyBody" type="Node2D" parent="."]
@@ -562,19 +589,6 @@ position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_uhdxe")
 disabled = true
 
-[node name="BigAreaHitBox" parent="EnemyBody" instance=ExtResource("5_34wq7")]
-collision_layer = 2
-collision_mask = 2
-monitoring = false
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemyBody/BigAreaHitBox"]
-modulate = Color(1, 0, 0, 0)
-mesh = SubResource("SphereMesh_iex5q")
-
-[node name="CollisionBigAreaHitBox" type="CollisionShape2D" parent="EnemyBody/BigAreaHitBox"]
-shape = SubResource("CircleShape2D_vwry1")
-disabled = true
-
 [node name="HideTimer" type="Timer" parent="EnemyBody"]
 unique_name_in_owner = true
 
@@ -583,7 +597,7 @@ unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
 
+[editable path="BigAreaHitBox"]
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]
 [editable path="EnemyBody/HitBox"]
-[editable path="EnemyBody/BigAreaHitBox"]

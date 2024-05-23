@@ -63,7 +63,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AreaHitBox/MeshInstance2D:modulate")
+tracks/4/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -75,7 +75,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../AreaHitBox/MeshInstance2D:mesh:radius")
+tracks/5/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:radius")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -87,7 +87,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../AreaHitBox/MeshInstance2D:mesh:height")
+tracks/6/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:height")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -135,7 +135,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../AreaHitBox/AreaHitCollisionShape:disabled")
+tracks/10/path = NodePath("../BigAreaHitBox/BigAreaHitCollisionShape:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -349,7 +349,7 @@ length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../AreaHitBox/MeshInstance2D:modulate")
+tracks/0/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -361,7 +361,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../AreaHitBox/MeshInstance2D:mesh:radius")
+tracks/1/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:radius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -373,7 +373,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AreaHitBox/MeshInstance2D:mesh:height")
+tracks/2/path = NodePath("../BigAreaHitBox/MeshInstance2D:mesh:height")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -385,7 +385,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../AreaHitBox/AreaHitCollisionShape:disabled")
+tracks/3/path = NodePath("../BigAreaHitBox/BigAreaHitCollisionShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -550,7 +550,7 @@ nodes/sleep/position = Vector2(-120, 180)
 node_connections = [&"AttackTransition", 0, &"attack_area", &"AttackTransition", 1, &"attack_front", &"AttackTransition", 2, &"attack_none", &"Awake", 0, &"Blend2", &"Awake", 1, &"awake", &"Blend2", 0, &"Transition", &"Blend2", 1, &"AttackTransition", &"DeadTransition", 0, &"Awake", &"DeadTransition", 1, &"dead", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"output", 0, &"DeadTransition"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbxa2"]
-radius = 550.0
+radius = 600.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3qbwv"]
 radius = 700.0
@@ -613,16 +613,16 @@ parameters/Transition/current_state = "sleep"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
 
-[node name="AreaHitBox" parent="." instance=ExtResource("5_nwwvg")]
+[node name="BigAreaHitBox" parent="." instance=ExtResource("5_nwwvg")]
 position = Vector2(0, 16)
 collision_layer = 2
 collision_mask = 2
 
-[node name="AreaHitCollisionShape" type="CollisionShape2D" parent="AreaHitBox"]
+[node name="BigAreaHitCollisionShape" type="CollisionShape2D" parent="BigAreaHitBox"]
 shape = SubResource("CircleShape2D_gbxa2")
 disabled = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="AreaHitBox"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="BigAreaHitBox"]
 modulate = Color(1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_3qbwv")
 
@@ -703,7 +703,7 @@ unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
 
-[editable path="AreaHitBox"]
+[editable path="BigAreaHitBox"]
 [editable path="FrontHitBox"]
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]
