@@ -2,15 +2,12 @@ extends EnemyClass
 
 class_name CorruptedTreeGuardian
 
-@export var maxMinionCount : int = 200
 @export var minionList : Array = [
 	preload("res://scenes/Enemy_new/Boss/BranchMinion.tscn"),
 ]
 @export var intervalSpawn : float = 1.0
 
-@export var attack_cooldown_inc : float = 1.0
-
-var current_attack_cooldown = 0.0
+var current_attack_cooldown = 3
 
 var isAwake : bool = false
 
@@ -36,7 +33,6 @@ func _physics_process(_delta):
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		else:
 			animationTree.set("parameters/Transition/transition_request", "idle")
-			
 	else:
 		animationTree.set("parameters/Transition/transition_request", "sleep")
 
@@ -45,17 +41,38 @@ func emit_boss_dead():
 
 func _reset():
 	await get_tree().create_timer(current_attack_cooldown).timeout
-	current_attack_cooldown += attack_cooldown_inc
 	attack()
 	_reset()
 
 func attack():
-	if (get_child_count() <= maxMinionCount):
-		var count = _get_minion_count_randomizer()
-		_spawn_minion(count)
+	var attackIdx = randi_range(0,2)
+	
+	if attackIdx == 0:
+		attack_summon()
+	elif attackIdx == 1:
+		attack_area()
+	elif attackIdx == 2:
+		attack_front()
+
+func attack_summon():
+	var count = _get_minion_count_randomizer()
+	current_attack_cooldown = 1
+	_spawn_minion(count)
+
+func attack_area():
+	current_attack_cooldown = 2.2
+	animationTree.set("parameters/AttackTransition/transition_request", "area")
+
+func attack_front():
+	current_attack_cooldown = 3
+	animationTree.set("parameters/AttackTransition/transition_request", "front")
+
+func find_player():
+	var player_direction = (get_tree().get_first_node_in_group("player").global_position - global_position).normalized()
+	$FrontHitBox.rotation = player_direction.angle()
 
 func _get_minion_count_randomizer():
-	return randi_range(2, 5)
+	return randi_range(5, 8)
 
 func _spawn_minion(count = 1):
 	for i in count:
