@@ -104,6 +104,10 @@ func _spawn_projectile():
 	projectile_instance.setup(projectile_spawn_position, min(distance, weapon.projectileRange))
 	projectile_instance.setup_texture(weapon.projectile.texture, weapon.projectile.scale)
 	
+	if weapon.trail_enable:
+		var trail = weapon.trail.instantiate()
+		projectile_instance.add_child(trail)
+	
 	projectile_instance.position = projectile_spawn_position
 	projectile_instance.rotation_degrees = rotation_degrees
 	projectile_instance.apply_impulse(Vector2(weapon.projectileSpeed * weapon.projectile_speed_multiplier, 0).rotated(rotation))

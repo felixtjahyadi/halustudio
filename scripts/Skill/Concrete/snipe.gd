@@ -15,12 +15,12 @@ func _init():
 
 func activate():
 	global.player_node.enable_weapon()
-	
 	marker_scene.is_place = true
+	
 	await global.player_node.get_tree().create_timer(0.1).timeout
 	
 	var weapon = global.player_node.get_weapon()
-	weapon.multiplier_reset()
+	weapon.reset()
 	
 func focus():
 	global.player_node.disable_weapon()
@@ -28,6 +28,7 @@ func focus():
 	var weapon = global.player_node.get_weapon()
 	weapon.damage_multiplier = damage_multiplier
 	weapon.projectile_speed_multiplier = projectile_speed_multiplier
+	weapon.trail_enable = true
 	
 	marker_scene = marker.instantiate()
 	global.player_node.get_parent().add_child(marker_scene)
@@ -38,5 +39,5 @@ func unfocus():
 		marker_scene = null
 	
 	var weapon = global.player_node.get_weapon()
-	weapon.multiplier_reset()
+	weapon.reset()
 	global.player_node.enable_weapon()
