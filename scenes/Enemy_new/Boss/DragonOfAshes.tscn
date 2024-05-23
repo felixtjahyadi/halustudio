@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bw3bqxgfagaga"]
+[gd_scene load_steps=62 format=3 uid="uid://bec0emnqv7r36"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/DragonOfAshes.gd" id="1_jmk6q"]
 [ext_resource type="Texture2D" uid="uid://uio2fcyutx3g" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_l.png" id="2_6oueq"]
@@ -323,7 +323,7 @@ height = 190.0
 radius = 87.0
 height = 205.0
 
-[node name="BossDragon" type="CharacterBody2D" groups=["enemy"]]
+[node name="BossDragon" type="CharacterBody2D" groups=["boss", "enemy"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_jmk6q")
@@ -493,6 +493,10 @@ pitch_scale = 1.5
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
 zoom = Vector2(0.5, 0.5)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-3.05176e-05, -131)
+scale = Vector2(53.6, 21.7)
 
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]
