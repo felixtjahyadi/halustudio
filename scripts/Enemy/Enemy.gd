@@ -30,6 +30,8 @@ var current_player = null
 @onready var detectionAreaShape = $EnemyBody/DetectionArea/CollisionShape2D
 @onready var sound = $EnemyBody/hurt_sound
 
+@onready var damage_particle = load("res://scenes/Particle/damage_particle.tscn")
+
 signal remove_from_array(object)
 
 func _ready():
@@ -94,6 +96,12 @@ func dead_process():
 	#queue_free() # already implemented in AnimationPlayer
 
 func damaged_animation():
+	
+	var particle = damage_particle.instantiate()
+	particle.global_position = global_position
+	particle.emitting = true
+	get_tree().current_scene.add_child(particle)
+	
 	modulate = Color.RED
 	await get_tree().create_timer(0.2).timeout
 	modulate = Color.WHITE
