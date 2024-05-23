@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://wktqdytsa5m4"]
 
 [ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="1_behvg"]
-[ext_resource type="PackedScene" uid="uid://bkyv0njmk6fqc" path="res://scenes/Map/DefaultBossRoom.tscn" id="2_wg50j"]
+[ext_resource type="PackedScene" uid="uid://dsdqeq11gyhei" path="res://scenes/Map/DefaultBossRoom.tscn" id="2_wg50j"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="3_3sisr"]
 [ext_resource type="PackedScene" uid="uid://bw3bqxgfagaga" path="res://scenes/Enemy_new/Boss/DragonOfAshes.tscn" id="3_6yby5"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="4_3ros0"]
