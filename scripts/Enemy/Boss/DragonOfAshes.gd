@@ -88,7 +88,7 @@ func reset_CommonAttackTransition():
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "none")
 
 func find_player():
-	var player_direction = (get_tree().get_first_node_in_group("player").global_position - global_position).normalized()
+	var player_direction = (get_tree().get_first_node_in_group("player").global_position - (global_position + Vector2(0, -110))).normalized()
 	$EnemyBody/AttackNode/FrontHitBox.rotation = player_direction.angle()
 
 func go_to_player():

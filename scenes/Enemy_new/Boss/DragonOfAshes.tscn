@@ -4030,10 +4030,10 @@ tracks/35/path = NodePath("AttackNode/AreaHitBox/MeshInstance2D:mesh:radius")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9),
+"times": PackedFloat32Array(0, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0005, 450.0, 0.0005]
+"values": [0.0005, 500.0, 0.0005]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
@@ -4042,10 +4042,10 @@ tracks/36/path = NodePath("AttackNode/AreaHitBox/MeshInstance2D:mesh:height")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9),
+"times": PackedFloat32Array(0, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.001, 900.0, 0.001]
+"values": [0.001, 1000.0, 0.001]
 }
 tracks/37/type = "value"
 tracks/37/imported = false
@@ -4054,7 +4054,7 @@ tracks/37/path = NodePath("AttackNode/AreaHitBox/MeshInstance2D:modulate")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9),
+"times": PackedFloat32Array(0, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1e-05, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
@@ -4514,10 +4514,10 @@ tracks/35/path = NodePath("AttackNode/AreaHitBox/MeshInstance2D:mesh:radius")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9),
+"times": PackedFloat32Array(0, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0005, 450.0, 0.0005]
+"values": [0.0005, 500.0, 0.0005]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
@@ -4526,10 +4526,10 @@ tracks/36/path = NodePath("AttackNode/AreaHitBox/MeshInstance2D:mesh:height")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9),
+"times": PackedFloat32Array(0, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.001, 900.0, 0.001]
+"values": [0.001, 1000.0, 0.001]
 }
 tracks/37/type = "value"
 tracks/37/imported = false
@@ -4538,7 +4538,7 @@ tracks/37/path = NodePath("AttackNode/AreaHitBox/MeshInstance2D:modulate")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9),
+"times": PackedFloat32Array(0, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1e-05, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
@@ -4574,7 +4574,7 @@ tracks/40/path = NodePath("AttackNode/BigAreaHitBox/MeshInstance2D:modulate")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
-"times": PackedFloat32Array(0, 2.3, 2.4),
+"times": PackedFloat32Array(0, 2.2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
@@ -4586,10 +4586,10 @@ tracks/41/path = NodePath("AttackNode/BigAreaHitBox/MeshInstance2D:mesh:radius")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
-"times": PackedFloat32Array(0, 2.3, 2.4),
+"times": PackedFloat32Array(0, 2.2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.001, 650.0, 0.001]
+"values": [0.001, 1000.0, 0.001]
 }
 tracks/42/type = "value"
 tracks/42/imported = false
@@ -4598,10 +4598,10 @@ tracks/42/path = NodePath("AttackNode/BigAreaHitBox/MeshInstance2D:mesh:height")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/keys = {
-"times": PackedFloat32Array(0, 2.3, 2.4),
+"times": PackedFloat32Array(0, 2.2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.001, 1300.0, 0.001]
+"values": [0.001, 2000.0, 0.001]
 }
 tracks/43/type = "value"
 tracks/43/imported = false
@@ -4876,7 +4876,7 @@ radius = 0.001
 height = 0.001
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhg4n"]
-size = Vector2(200, 2400)
+size = Vector2(100, 2400)
 
 [sub_resource type="QuadMesh" id="QuadMesh_xhkum"]
 size = Vector2(0, 2400)
@@ -4981,19 +4981,19 @@ position = Vector2(0, -80)
 mesh = SubResource("SphereMesh_a7ujs")
 
 [node name="FrontHitBox" parent="EnemyBody/AttackNode" instance=ExtResource("4_4igo6")]
-position = Vector2(0, -96)
+position = Vector2(0, -110)
 collision_layer = 2
 collision_mask = 2
 
 [node name="FrontHitCollisionShape" type="CollisionShape2D" parent="EnemyBody/AttackNode/FrontHitBox"]
-position = Vector2(1200, -57)
+position = Vector2(1200, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_hhg4n")
 disabled = true
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemyBody/AttackNode/FrontHitBox"]
 modulate = Color(1, 0, 0, 0)
-position = Vector2(1200, -57)
+position = Vector2(1200, 0)
 rotation = 1.5708
 mesh = SubResource("QuadMesh_xhkum")
 
