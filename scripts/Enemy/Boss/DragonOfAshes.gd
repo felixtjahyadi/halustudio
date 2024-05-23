@@ -25,12 +25,6 @@ func _ready():
 	detectionAreaShape.shape.radius = enemy.detectionRadius
 	
 	hp = 10000
-	
-	ready_animation()
-
-func ready_animation():
-	$EnemyBody/Sprite/Wing/WingL/WingLAnim.play("default")
-	$EnemyBody/Sprite/Wing/WingR/WingRAnim.play("default")
 
 func _physics_process(_delta):
 	if isAwake:
