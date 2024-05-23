@@ -11,18 +11,24 @@ class_name PlayerResource
 @export var art: Texture2D
 @export var avatar: Texture2D
 @export var cooldown: int
-# TODO?? : @export var skill : Script
+@export var skills_script: Array[Script]
 
 var initial_health : int
 var initial_speed : float
 var initial_armor : int
-var initial_weapon : WeaponResource 
+var initial_weapon : WeaponResource
+var skills: Array[Node]
 
 func setup():
 	initial_health = health
 	initial_speed = speed
 	initial_armor = armor
 	initial_weapon = weapon
+	
+	for skill_script in skills_script:
+		var skill = skill_script.new()
+		skills.append(skill)
+	
 	return self
 
 func reset():

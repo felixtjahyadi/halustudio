@@ -94,17 +94,19 @@ func _range_attack():
 	_spawn_projectile()
 
 func _spawn_projectile():
+	if not weapon.weapon_enabled: return
+	
 	look_at(get_global_mouse_position())
 	var projectile_spawn_position = projectileSpawnPosition.get_global_position()
-	
 	var projectile_instance = projectileScene.instantiate()
+	var distance = projectile_spawn_position.distance_to(get_global_mouse_position())
 	
-	projectile_instance.setup(projectile_spawn_position, weapon.projectileRange)
+	projectile_instance.setup(projectile_spawn_position, min(distance, weapon.projectileRange))
 	projectile_instance.setup_texture(weapon.projectile.texture, weapon.projectile.scale)
 	
 	projectile_instance.position = projectile_spawn_position
 	projectile_instance.rotation_degrees = rotation_degrees
-	projectile_instance.apply_impulse(Vector2(weapon.projectileSpeed, 0).rotated(rotation))
+	projectile_instance.apply_impulse(Vector2(weapon.projectileSpeed * weapon.projectile_speed_multiplier, 0).rotated(rotation))
 	get_tree().get_root().add_child(projectile_instance)
 
 func _attack_cooldown():

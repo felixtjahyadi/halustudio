@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhi46nxjlij1j"]
+
+[ext_resource type="Texture2D" uid="uid://vvppnb0knbrj" path="res://assets/Skill/skill_image.png" id="1_cnvgu"]
+[ext_resource type="Texture2D" uid="uid://cycjtxkxnsxp5" path="res://assets/UI/progress.jpg" id="2_34p1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1umu"]
+bg_color = Color(0.533333, 0.611765, 0.737255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.635294, 0.823529, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Animation" id="Animation_jn3a6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kqy0y"]
+resource_name = "active"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.423529, 0.423529, 0.423529, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8akxe"]
+_data = {
+"RESET": SubResource("Animation_jn3a6"),
+"active": SubResource("Animation_kqy0y")
+}
+
+[node name="SkillButton" type="TextureButton"]
+offset_right = 64.0
+offset_bottom = 64.0
+texture_normal = ExtResource("1_cnvgu")
+stretch_mode = 3
+
+[node name="CooldownBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.1
+fill_mode = 5
+texture_progress = ExtResource("2_34p1w")
+tint_progress = Color(1, 1, 1, 0.392157)
+
+[node name="Key" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -19.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_w1umu")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8akxe")
+}
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

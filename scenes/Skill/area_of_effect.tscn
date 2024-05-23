@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfc2x3phidyox"]
+
+[ext_resource type="Script" path="res://scripts/Skill/utility/area_of_effect.gd" id="1_0k70f"]
+[ext_resource type="Texture2D" uid="uid://cei4r21r6t218" path="res://assets/Skill/circle.png" id="2_j7xor"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hn6y"]
+radius = 99.0051
+
+[node name="AreaOfEffect" type="Area2D"]
+script = ExtResource("1_0k70f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+texture = ExtResource("2_j7xor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0hn6y")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

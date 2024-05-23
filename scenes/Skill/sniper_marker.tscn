@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdjxtsqbnicek"]
+
+[ext_resource type="Texture2D" uid="uid://bvtl8elmwlwin" path="res://assets/Skill/crosshair.png" id="1_dw578"]
+[ext_resource type="Script" path="res://scripts/Skill/utility/sniper_marker.gd" id="1_m1acm"]
+
+[node name="SniperMarker" type="Marker2D"]
+script = ExtResource("1_m1acm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.0901961, 0.0588235, 1)
+texture = ExtResource("1_dw578")

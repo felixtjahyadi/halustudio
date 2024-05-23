@@ -7,6 +7,7 @@ signal update_weapon_sprite(weapon : WeaponResource)
 signal update_health_bar(value : float)
 signal swap(value: bool)
 signal dead
+signal immune(value: bool)
 
 var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 
@@ -15,6 +16,7 @@ var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var next_cooldown_timer: Timer = $NextCooldownTimer
 @onready var prev_cooldown_timer: Timer = $PrevCooldownTimer
+@onready var weapon = $Weapon
 
 var last_direction = Vector2(0.1, 0.1)
 var can_swap = true
@@ -22,6 +24,31 @@ var can_swap_next = true
 var can_swap_prev = true
 var swap_delay = 0.4
 var is_dead = false
+
+var is_immune = false:
+	set(value):
+		is_immune = value
+		
+		if is_immune:
+			playerSprite.modulate = Color.YELLOW
+		else:
+			var tween = get_tree().create_tween()
+			tween.tween_property(playerSprite, "modulate", Color.WHITE, 0.5)
+		
+		immune.emit(value)
+
+func _on_immune(value: bool):
+	var style_box_flat_fill = StyleBoxFlat.new()
+	
+	if is_immune:
+		style_box_flat_fill.bg_color = Color.YELLOW
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property(style_box_flat_fill, "bg_color", Color.AQUAMARINE, 0.5)
+	
+	style_box_flat_fill.set_border_width_all(1)
+	style_box_flat_fill.border_color = Color(.24,.10,.19)
+	health_bar.add_theme_stylebox_override("fill", style_box_flat_fill)
 
 func setup(p_player: PlayerResource):
 	player = p_player
@@ -108,6 +135,8 @@ func swap_next_when_dead():
 
 # hurt box handler
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
+	if is_immune: return
+	
 	player.take_hit(damage)
 	_health_bar_update()
 	damaged_animation()
@@ -164,7 +193,24 @@ func swap_player(character: PlayerResource):
 	can_swap = false
 	await get_tree().create_timer(swap_delay).timeout	
 	can_swap = true
+	
+func _on_swap():
+	is_immune = false
 
 func _on_all_dead(player):
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Map/Level/LoseScreen.tscn")
 
+func get_weapon():
+	return player.weapon
+
+func set_weapon_state(skill_active: bool):
+	if skill_active:
+		disable_weapon()
+	else:
+		enable_weapon()
+
+func disable_weapon():
+	get_weapon().weapon_enabled = false
+
+func enable_weapon():
+	get_weapon().weapon_enabled = true
