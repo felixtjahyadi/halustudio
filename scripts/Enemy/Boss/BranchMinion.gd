@@ -10,7 +10,7 @@ func default_animation():
 
 func _physics_process(delta):
 	if hp <= 0:
-		animationTree.set("parameters/Transition/transition_request", "dead")
+		animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		dead_process()
 	elif chase and player:
 		_attack_process()

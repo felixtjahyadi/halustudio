@@ -1,12 +1,6 @@
 extends EnemyClass
 
-class_name CorruptedTreeGuardian
-
-@export var maxMinionCount : int = 200
-@export var minionList : Array = [
-	preload("res://scenes/Enemy_new/Boss/BranchMinion.tscn"),
-]
-@export var intervalSpawn : float = 1.0
+class_name DragonOfAshes
 
 @onready var animatedPlayer : AnimationPlayer = $EnemyBody/AnimationPlayer
 
@@ -15,8 +9,6 @@ class_name CorruptedTreeGuardian
 var current_attack_cooldown = 0.0
 
 var isAwake : bool = false
-
-var minionNum : int = 0
 
 signal on_boss_dead()
 
@@ -32,15 +24,16 @@ func _ready():
 	#detectionAreaShape.shape = CircleShape2D.new()
 	detectionAreaShape.shape.radius = enemy.detectionRadius
 	
-	hp = 3000
+	hp = 10000
+	
+	ready_animation()
+
+func ready_animation():
+	$EnemyBody/Sprite/Wing/WingL/WingLAnim.play("default")
+	$EnemyBody/Sprite/Wing/WingR/WingRAnim.play("default")
 
 func _physics_process(_delta):
 	if isAwake:
-		if minionNum > 0:
-			sprite.modulate = Color.BLACK
-		else:
-			sprite.modulate = Color.WHITE
-			
 		if hp <= 0:
 			dead_process()
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
@@ -60,28 +53,10 @@ func _reset():
 	_reset()
 
 func attack():
-	if (get_child_count() <= maxMinionCount):
-		var count = _get_minion_count_randomizer()
-		_spawn_minion(count)
+	pass
 
 func _get_minion_count_randomizer():
 	return randi_range(2, 5)
-
-func _spawn_minion(count = 1):
-	for i in count:
-		_spawn()
-		await get_tree().create_timer(intervalSpawn).timeout
-
-func _spawn():
-	var selectedMinion = minionList.pick_random()
-	var minion = selectedMinion.instantiate()
-	add_child(minion)
-	
-	var spawn_pos = Vector2(0, 0)
-	spawn_pos.x = randf_range(-64 * (10), 64 * (10))
-	spawn_pos.y = randf_range(-64 * (10), 64 * (10))
-	
-	minion.position = spawn_pos
 
 func start_animation():
 	animationTree.set("parameters/Awake/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
@@ -90,14 +65,10 @@ func start_animation():
 	_reset()
 
 func _take_damage(damage):
-	if minionNum <= 0:
-		hp -= damage
-		print('boss take damage, %d' %hp)
-		damaged_animation()
-		sound.play()
-
-func _on_enemy_killed():
-	minionNum -= 1
+	hp -= damage
+	print('boss take damage, %d' %hp)
+	damaged_animation()
+	sound.play()
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)

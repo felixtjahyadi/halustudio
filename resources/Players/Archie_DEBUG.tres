@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=6 format=3 uid="uid://b0cx5mw6lmdx5"]
+
+[ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_fa5mj"]
+[ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="2_s2btg"]
+[ext_resource type="Script" path="res://resources/Players/Player.gd" id="3_w47t7"]
+[ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie/archie-anim-sheet.png" id="4_burag"]
+[ext_resource type="Resource" uid="uid://k8xlld24b6in" path="res://resources/Weapons/Bow_DEBUG.tres" id="5_1ep7q"]
+
+[resource]
+script = ExtResource("3_w47t7")
+name = "Archie DEBUG"
+texture = ExtResource("4_burag")
+health = 200
+speed = 500.0
+armor = 0
+weapon = ExtResource("5_1ep7q")
+art = ExtResource("1_fa5mj")
+avatar = ExtResource("2_s2btg")
+cooldown = 0
