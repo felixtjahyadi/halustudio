@@ -2,7 +2,7 @@ extends EnemyClass
 
 class_name DragonOfAshes
 
-var current_attack_cooldown = 3.0
+@export var current_attack_cooldown = 3.0
 
 var isAwake : bool = false
 var isFlying : bool = false
@@ -11,19 +11,13 @@ signal on_boss_dead()
 
 func _ready():
 	animationTree = $AnimationTree
-	
-	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
-	hitbox.damage = enemy.initial_damage
-	screen_size = get_viewport_rect().size
-	hurtbox.connect("hurt", Callable(self, "_on_hurt_box_hurt"))
-	meleehurtbox.connect("hurt", Callable(self, "_on_melee_hurt_box_hurt"))
-	hideTimer.connect("timeout", Callable(self, "_on_hide_timer_timeout"))
-	detectionArea.body_entered.connect(_on_detection_area_body_entered)
-	detectionArea.body_exited.connect(_on_detection_area_body_exited)
-	#detectionAreaShape.shape = CircleShape2D.new()
-	detectionAreaShape.shape.radius = enemy.detectionRadius
-	
-	hp = 10000
+	super()
+
+func default_texture():
+	pass
+
+func default_animation():
+	pass
 
 func _physics_process(_delta):
 	if isAwake:

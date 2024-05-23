@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://cpe6ha7ty8m4"]
+[gd_scene load_steps=30 format=3 uid="uid://cpe6ha7ty8m4"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/CorruptedTreeGuardian.gd" id="1_qfswb"]
 [ext_resource type="Texture2D" uid="uid://cy0lqerjactwn" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-all-anim-sheet.png" id="2_0h037"]
+[ext_resource type="Resource" uid="uid://d2s6j345sgeda" path="res://resources/Enemies/Boss/CorruptedTreeGuardian.tres" id="2_q8ndo"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="4_5mtw1"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="5_nwwvg"]
 
@@ -239,6 +240,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_0i5v2"]
 resource_name = "sleep"
@@ -404,6 +417,7 @@ height = 240.0
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_qfswb")
+enemy = ExtResource("2_q8ndo")
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kl1kh")
