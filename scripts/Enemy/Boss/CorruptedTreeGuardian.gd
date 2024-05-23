@@ -8,8 +8,6 @@ class_name CorruptedTreeGuardian
 ]
 @export var intervalSpawn : float = 1.0
 
-@onready var animatedPlayer : AnimationPlayer = $EnemyBody/AnimationPlayer
-
 @export var attack_cooldown_inc : float = 1.0
 
 var current_attack_cooldown = 0.0
@@ -21,6 +19,8 @@ var minionNum : int = 0
 signal on_boss_dead()
 
 func _ready():
+	animationTree = $AnimationTree
+	
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 	hitbox.damage = enemy.initial_damage
 	screen_size = get_viewport_rect().size

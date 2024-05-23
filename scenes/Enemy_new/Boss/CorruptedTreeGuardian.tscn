@@ -190,7 +190,7 @@ animation = &"idle"
 animation = &"sleep"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vy543"]
-graph_offset = Vector2(-332.395, 40.8302)
+graph_offset = Vector2(-137.274, -42.2765)
 nodes/Awake/node = SubResource("AnimationNodeOneShot_rtqep")
 nodes/Awake/position = Vector2(320, 200)
 nodes/DeadTransition/node = SubResource("AnimationNodeTransition_ynot2")
@@ -233,21 +233,14 @@ script = ExtResource("1_qfswb")
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kl1kh")
 
-[node name="EnemyBody" type="Node2D" parent="."]
-position = Vector2(0, -16)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemyBody"]
-texture = ExtResource("2_0h037")
-hframes = 4
-vframes = 2
-frame = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyBody"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../EnemyBody")
 libraries = {
 "": SubResource("AnimationLibrary_q2cqq")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../EnemyBody")
 libraries = {
 "": SubResource("AnimationLibrary_q2cqq")
 }
@@ -262,6 +255,15 @@ parameters/DeadTransition/current_index = 0
 parameters/Transition/current_state = "sleep"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
+
+[node name="EnemyBody" type="Node2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBody"]
+texture = ExtResource("2_0h037")
+hframes = 4
+vframes = 2
+frame = 4
 
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
 position = Vector2(0, 16)

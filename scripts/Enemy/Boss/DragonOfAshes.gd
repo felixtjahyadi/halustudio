@@ -2,17 +2,16 @@ extends EnemyClass
 
 class_name DragonOfAshes
 
-@onready var animatedPlayer : AnimationPlayer = $EnemyBody/AnimationPlayer
-
-@export var attack_cooldown_inc : float = 1.0
-
-var current_attack_cooldown = 0.0
+var current_attack_cooldown = 3.0
 
 var isAwake : bool = false
+var isFlying : bool = false
 
 signal on_boss_dead()
 
 func _ready():
+	animationTree = $AnimationTree
+	
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 	hitbox.damage = enemy.initial_damage
 	screen_size = get_viewport_rect().size
@@ -32,7 +31,10 @@ func _physics_process(_delta):
 			dead_process()
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		else:
-			animationTree.set("parameters/Transition/transition_request", "idle")
+			if isFlying:
+				animationTree.set("parameters/Transition/transition_request", "fly")
+			else:
+				animationTree.set("parameters/Transition/transition_request", "idle")
 			
 	else:
 		animationTree.set("parameters/Transition/transition_request", "sleep")
@@ -42,12 +44,38 @@ func emit_boss_dead():
 
 func _reset():
 	await get_tree().create_timer(current_attack_cooldown).timeout
-	current_attack_cooldown += attack_cooldown_inc
-	attack()
+	#current_attack_cooldown += attack_cooldown_inc
+	attack_phase()
 	_reset()
 
+func attack_phase():
+	var isAttack = randi_range(0,2)
+	
+	if isAttack > 0:
+		attack()
+	else:
+		transition()
+
 func attack():
-	pass
+	if isFlying:
+		fly_attack()
+	else:
+		ground_attack()
+
+func fly_attack():
+	print("fly attack")
+
+func ground_attack():
+	print("ground attack")
+
+func transition():
+	if isFlying:
+		animationTree.set("parameters/IdleFlyTransition/transition_request", "idle")
+		animationTree.set("parameters/IdleFlyOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	else:
+		animationTree.set("parameters/IdleFlyTransition/transition_request", "fly")
+		animationTree.set("parameters/IdleFlyOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	isFlying = not isFlying
 
 func _get_minion_count_randomizer():
 	return randi_range(2, 5)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bw3bqxgfagaga"]
+[gd_scene load_steps=44 format=3 uid="uid://bw3bqxgfagaga"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/DragonOfAshes.gd" id="1_jmk6q"]
 [ext_resource type="Texture2D" uid="uid://b4l4tl7tg3pxl" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_head_rage_anim.png" id="3_3xvag"]
@@ -666,6 +666,42 @@ tracks/53/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("../BigAreaHitBox/MeshInstance2D:modulate")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("../BigAreaHitBox:monitoring")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("../BigAreaHitBox:monitorable")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_tmemx"]
@@ -1964,7 +2000,6 @@ tracks/33/keys = {
 
 [sub_resource type="Animation" id="Animation_wmytw"]
 resource_name = "idle_to_fly"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -3039,7 +3074,6 @@ tracks/35/keys = {
 
 [sub_resource type="Animation" id="Animation_8hote"]
 resource_name = "fly_to_idle"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -3497,19 +3531,26 @@ input_1/name = "dead"
 input_1/auto_advance = false
 input_1/reset = true
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_t3yr8"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_roe0t"]
+input_0/name = "idle"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "fly"
+input_1/auto_advance = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_17rp1"]
 input_0/name = "sleep"
 input_0/auto_advance = false
 input_0/reset = true
 input_1/name = "idle"
-input_1/auto_advance = true
+input_1/auto_advance = false
 input_1/reset = true
-input_2/name = "attack"
+input_2/name = "fly"
 input_2/auto_advance = false
 input_2/reset = true
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dxn6d"]
-animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4d0k"]
 animation = &"awake"
@@ -3517,32 +3558,56 @@ animation = &"awake"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_htmy1"]
 animation = &"dead"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_761by"]
+animation = &"fly"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c6ghr"]
+animation = &"fly_to_idle"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0dvuv"]
 animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_citmp"]
+animation = &"idle_to_fly"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_02bdh"]
 animation = &"sleep"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vy543"]
-graph_offset = Vector2(-307.638, -14.4521)
+graph_offset = Vector2(-467.363, 95.1481)
 nodes/Awake/node = SubResource("AnimationNodeOneShot_rtqep")
-nodes/Awake/position = Vector2(320, 200)
+nodes/Awake/position = Vector2(560, 200)
 nodes/DeadTransition/node = SubResource("AnimationNodeTransition_np24d")
-nodes/DeadTransition/position = Vector2(560, 260)
+nodes/DeadTransition/position = Vector2(800, 260)
+nodes/IdleFlyOneShot/node = SubResource("AnimationNodeOneShot_t3yr8")
+nodes/IdleFlyOneShot/position = Vector2(380, 200)
+nodes/IdleFlyTransition/node = SubResource("AnimationNodeTransition_roe0t")
+nodes/IdleFlyTransition/position = Vector2(140, 380)
 nodes/Transition/node = SubResource("AnimationNodeTransition_17rp1")
 nodes/Transition/position = Vector2(140, 160)
-nodes/attack/node = SubResource("AnimationNodeAnimation_dxn6d")
-nodes/attack/position = Vector2(-120, 320)
 nodes/awake/node = SubResource("AnimationNodeAnimation_r4d0k")
-nodes/awake/position = Vector2(140, 440)
+nodes/awake/position = Vector2(400, 480)
 nodes/dead/node = SubResource("AnimationNodeAnimation_htmy1")
-nodes/dead/position = Vector2(320, 480)
+nodes/dead/position = Vector2(560, 480)
+nodes/fly/node = SubResource("AnimationNodeAnimation_761by")
+nodes/fly/position = Vector2(-120, 300)
+nodes/fly_to_idle/node = SubResource("AnimationNodeAnimation_c6ghr")
+nodes/fly_to_idle/position = Vector2(-120, 440)
 nodes/idle/node = SubResource("AnimationNodeAnimation_0dvuv")
 nodes/idle/position = Vector2(-260, 220)
-nodes/output/position = Vector2(760, 280)
+nodes/idle_to_fly/node = SubResource("AnimationNodeAnimation_citmp")
+nodes/idle_to_fly/position = Vector2(-120, 560)
+nodes/output/position = Vector2(1000, 280)
 nodes/sleep/node = SubResource("AnimationNodeAnimation_02bdh")
-nodes/sleep/position = Vector2(-120, 180)
-node_connections = [&"Awake", 0, &"Transition", &"Awake", 1, &"awake", &"DeadTransition", 0, &"Awake", &"DeadTransition", 1, &"dead", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"attack", &"output", 0, &"DeadTransition"]
+nodes/sleep/position = Vector2(-120, 120)
+node_connections = [&"Awake", 0, &"IdleFlyOneShot", &"Awake", 1, &"awake", &"DeadTransition", 0, &"Awake", &"DeadTransition", 1, &"dead", &"IdleFlyOneShot", 0, &"Transition", &"IdleFlyOneShot", 1, &"IdleFlyTransition", &"IdleFlyTransition", 0, &"fly_to_idle", &"IdleFlyTransition", 1, &"idle_to_fly", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"fly", &"output", 0, &"DeadTransition"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6jl4"]
+radius = 700.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oaxdi"]
+radius = 700.0
+height = 1400.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
 radius = 1000.0
@@ -3568,6 +3633,51 @@ script = ExtResource("1_jmk6q")
 visible = false
 position = Vector2(0, -80)
 shape = SubResource("CapsuleShape2D_kl1kh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../EnemyBody")
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../EnemyBody")
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
+tree_root = SubResource("AnimationNodeBlendTree_vy543")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Awake/active = false
+parameters/Awake/internal_active = false
+parameters/Awake/request = 0
+parameters/DeadTransition/current_state = "in"
+parameters/DeadTransition/transition_request = ""
+parameters/DeadTransition/current_index = 0
+parameters/IdleFlyOneShot/active = false
+parameters/IdleFlyOneShot/internal_active = false
+parameters/IdleFlyOneShot/request = 0
+parameters/IdleFlyTransition/current_state = ""
+parameters/IdleFlyTransition/transition_request = "idle"
+parameters/IdleFlyTransition/current_index = -1
+parameters/Transition/current_state = "fly"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 2
+
+[node name="BigAreaHitBox" parent="." instance=ExtResource("4_4igo6")]
+position = Vector2(0, 16)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAreaHitBox"]
+position = Vector2(0, -79)
+shape = SubResource("CircleShape2D_a6jl4")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="BigAreaHitBox"]
+modulate = Color(1, 0, 0, 0)
+position = Vector2(0, -80)
+mesh = SubResource("CapsuleMesh_oaxdi")
 
 [node name="EnemyBody" type="Node2D" parent="."]
 
@@ -3648,28 +3758,6 @@ position = Vector2(0, -7)
 texture = ExtResource("3_3xvag")
 vframes = 9
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyBody"]
-libraries = {
-"": SubResource("AnimationLibrary_q2cqq")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
-active = false
-libraries = {
-"": SubResource("AnimationLibrary_q2cqq")
-}
-tree_root = SubResource("AnimationNodeBlendTree_vy543")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Awake/active = false
-parameters/Awake/internal_active = false
-parameters/Awake/request = 0
-parameters/DeadTransition/current_state = "in"
-parameters/DeadTransition/transition_request = ""
-parameters/DeadTransition/current_index = 0
-parameters/Transition/current_state = "idle"
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = 1
-
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
 visible = false
 position = Vector2(0, 16)
@@ -3721,6 +3809,7 @@ pitch_scale = 1.5
 enabled = false
 zoom = Vector2(0.5, 0.5)
 
+[editable path="BigAreaHitBox"]
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]
 [editable path="EnemyBody/HitBox"]
