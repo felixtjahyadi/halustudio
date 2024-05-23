@@ -13,6 +13,7 @@ func _init():
 
 func activate():
 	area_scene.is_place = true
+	await global.player_node.get_tree().create_timer(0.1).timeout
 	global.player_node.enable_weapon()
 	
 func focus():

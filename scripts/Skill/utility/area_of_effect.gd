@@ -8,6 +8,8 @@ extends Area2D
 @export var effect_duration: int = 4
 @export var damage_per_second: int = 20
 
+@onready var animation = $AnimatedSprite2D
+
 var can_damage = true
 var is_place = false:
 	set(value):
@@ -16,7 +18,8 @@ var is_place = false:
 		if is_place:
 			collision_area.disabled = false
 			timer.start()
-			sprite.self_modulate = Color(1, 1, 1, 1)
+			sprite.self_modulate = Color(1, 1, 1, 0.5)
+			animation.play("default")
 			damage_timer.start()
 		else:
 			queue_free()
