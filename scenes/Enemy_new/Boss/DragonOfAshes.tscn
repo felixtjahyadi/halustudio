@@ -339,10 +339,10 @@ position = Vector2(0, -16)
 [node name="Sprite" type="Node2D" parent="EnemyBody"]
 
 [node name="Wing" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -144)
+position = Vector2(0, -114)
 
 [node name="WingL" type="Node2D" parent="EnemyBody/Sprite/Wing"]
-position = Vector2(-80, 68)
+position = Vector2(-80, 0)
 
 [node name="WingL" type="Sprite2D" parent="EnemyBody/Sprite/Wing/WingL"]
 position = Vector2(-195, -94)
@@ -353,7 +353,7 @@ position = Vector2(-195, -94)
 sprite_frames = SubResource("SpriteFrames_68vi0")
 
 [node name="WingR" type="Node2D" parent="EnemyBody/Sprite/Wing"]
-position = Vector2(80, 64)
+position = Vector2(80, 0)
 
 [node name="WingR" type="Sprite2D" parent="EnemyBody/Sprite/Wing/WingR"]
 position = Vector2(195, -94)
@@ -381,10 +381,10 @@ position = Vector2(50, 70)
 texture = ExtResource("7_33ark")
 
 [node name="Arm" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -16)
+position = Vector2(0, -53)
 
 [node name="ArmR" type="Node2D" parent="EnemyBody/Sprite/Arm"]
-position = Vector2(82, -39)
+position = Vector2(82, 0)
 rotation = -0.139626
 
 [node name="ArmR" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmR"]
@@ -392,7 +392,7 @@ position = Vector2(-8, 50)
 texture = ExtResource("9_td4ud")
 
 [node name="ArmL" type="Node2D" parent="EnemyBody/Sprite/Arm"]
-position = Vector2(-79, -39)
+position = Vector2(-82, 0)
 rotation = 0.0872665
 
 [node name="ArmL" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmL"]
@@ -407,7 +407,7 @@ position = Vector2(0, -82)
 texture = ExtResource("5_by7y6")
 
 [node name="ArmLSpear" type="Sprite2D" parent="EnemyBody/Sprite"]
-position = Vector2(-122, -18)
+position = Vector2(-122, -15)
 rotation = -1.18682
 texture = ExtResource("11_mpvkk")
 

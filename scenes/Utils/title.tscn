@@ -69,7 +69,18 @@ text = "Select Character"
 layout_mode = 2
 text = "Quit"
 
+[node name="DEBUG" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 0
+text = "DEBUG"
+
 [connection signal="play" from="." to="." method="_on_play"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_click_end"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/SelectCharacter" to="." method="_on_select_character_click_end"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_click_end"]
+[connection signal="pressed" from="DEBUG" to="." method="_on_debug_pressed"]

@@ -20,3 +20,13 @@ func _on_select_character_click_end():
 
 func _on_play():
 	global.reset_characters()
+
+func _on_debug_pressed():
+	global.debug_count += 1
+	if global.debug_count == 5:
+		$DEBUG.modulate = "ffffff"
+		global.used_characters = [
+			load("res://resources/Players/Archie_DEBUG.tres").setup(),
+			load("res://resources/Players/Archie_DEBUG.tres").setup(),
+			load("res://resources/Players/Archie_DEBUG.tres").setup()
+		]

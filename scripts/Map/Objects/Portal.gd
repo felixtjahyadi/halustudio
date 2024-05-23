@@ -16,6 +16,7 @@ func _on_area_2d_body_entered(body: CharacterBody2D):
 	if body.is_in_group("player"):
 		global.level += 1
 		if mainLevel:
+			
 			print(global.level)
 			if floor((global.level-1) / 3) % 2 == 1:
 				print("dungeon")
@@ -24,7 +25,9 @@ func _on_area_2d_body_entered(body: CharacterBody2D):
 				print("forest")
 				global.current_map_texture = global.MAP_TEXTURE.FOREST
 			
-			if global.level % 3 == 0:
+			if global.level == 7:
+				get_tree().change_scene_to_file(global.LEVEL_PATH + "WinScreen" + ".tscn")
+			elif global.level % 3 == 0:
 				print("boss")
 				get_tree().change_scene_to_file(global.MAIN_LEVEL_PATH + "Boss " + str(global.level) + ".tscn")
 			else:
