@@ -17,103 +17,103 @@
 [ext_resource type="Texture2D" uid="uid://jboqvem6sk53" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_arm_l_with_spear.png" id="11_mpvkk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl1kh"]
-radius = 35.0
-height = 90.0
+radius = 60.0
+height = 160.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly5wv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uec6"]
 atlas = ExtResource("3_ljmkt")
-region = Rect2(0, 0, 256, 128)
+region = Rect2(0, 0, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q82p4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh15k"]
 atlas = ExtResource("3_ljmkt")
-region = Rect2(0, 128, 256, 128)
+region = Rect2(0, 256, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qf5ob"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmuv"]
 atlas = ExtResource("3_ljmkt")
-region = Rect2(0, 256, 256, 128)
+region = Rect2(0, 512, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3ioq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkoml"]
 atlas = ExtResource("3_ljmkt")
-region = Rect2(0, 384, 256, 128)
+region = Rect2(0, 768, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5cy8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5il8"]
 atlas = ExtResource("3_ljmkt")
-region = Rect2(0, 512, 256, 128)
+region = Rect2(0, 1024, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t8o1l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a1r5"]
 atlas = ExtResource("3_ljmkt")
-region = Rect2(0, 640, 256, 128)
+region = Rect2(0, 1280, 512, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68vi0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ly5wv")
+"texture": SubResource("AtlasTexture_1uec6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q82p4")
+"texture": SubResource("AtlasTexture_rh15k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qf5ob")
+"texture": SubResource("AtlasTexture_gqmuv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y3ioq")
+"texture": SubResource("AtlasTexture_fkoml")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o5cy8")
+"texture": SubResource("AtlasTexture_u5il8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t8o1l")
+"texture": SubResource("AtlasTexture_0a1r5")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eriim"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo0vw"]
 atlas = ExtResource("5_wehff")
-region = Rect2(0, 0, 256, 128)
+region = Rect2(0, 0, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_36dsi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26xm"]
 atlas = ExtResource("5_wehff")
-region = Rect2(0, 128, 256, 128)
+region = Rect2(0, 256, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2a4l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hsq8"]
 atlas = ExtResource("5_wehff")
-region = Rect2(0, 256, 256, 128)
+region = Rect2(0, 512, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xgogy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_egqvc"]
 atlas = ExtResource("5_wehff")
-region = Rect2(0, 384, 256, 128)
+region = Rect2(0, 768, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gknhf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0o2s"]
 atlas = ExtResource("5_wehff")
-region = Rect2(0, 512, 256, 128)
+region = Rect2(0, 1024, 512, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1ho0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lwea"]
 atlas = ExtResource("5_wehff")
-region = Rect2(0, 640, 256, 128)
+region = Rect2(0, 1280, 512, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tytj8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eriim")
+"texture": SubResource("AtlasTexture_qo0vw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_36dsi")
+"texture": SubResource("AtlasTexture_m26xm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j2a4l")
+"texture": SubResource("AtlasTexture_7hsq8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xgogy")
+"texture": SubResource("AtlasTexture_egqvc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gknhf")
+"texture": SubResource("AtlasTexture_d0o2s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n1ho0")
+"texture": SubResource("AtlasTexture_8lwea")
 }],
 "loop": true,
 "name": &"default",
@@ -309,19 +309,19 @@ nodes/sleep/position = Vector2(-120, 180)
 node_connections = [&"Awake", 0, &"Transition", &"Awake", 1, &"awake", &"DeadTransition", 0, &"Awake", &"DeadTransition", 1, &"dead", &"Transition", 0, &"sleep", &"Transition", 1, &"idle", &"Transition", 2, &"attack", &"output", 0, &"DeadTransition"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rydek"]
-radius = 200.0
+radius = 1000.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edf8e"]
-radius = 40.0
-height = 100.0
+radius = 80.0
+height = 190.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knj61"]
-radius = 40.0
-height = 100.0
+radius = 80.0
+height = 190.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_af8sb"]
-radius = 50.0
-height = 120.0
+radius = 87.0
+height = 205.0
 
 [node name="BossDragon" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 5
@@ -330,6 +330,7 @@ script = ExtResource("1_jmk6q")
 
 [node name="CollisionEnemy" type="CollisionShape2D" parent="."]
 visible = false
+position = Vector2(0, -80)
 shape = SubResource("CapsuleShape2D_kl1kh")
 
 [node name="EnemyBody" type="Node2D" parent="."]
@@ -338,72 +339,80 @@ position = Vector2(0, -16)
 [node name="Sprite" type="Node2D" parent="EnemyBody"]
 
 [node name="Wing" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -201)
+position = Vector2(0, -144)
 
 [node name="WingL" type="Node2D" parent="EnemyBody/Sprite/Wing"]
-position = Vector2(-150, 0)
+position = Vector2(-80, 68)
 
 [node name="WingL" type="Sprite2D" parent="EnemyBody/Sprite/Wing/WingL"]
+position = Vector2(-195, -94)
 texture = ExtResource("2_6oueq")
 
 [node name="WingLAnim" type="AnimatedSprite2D" parent="EnemyBody/Sprite/Wing/WingL"]
+position = Vector2(-195, -94)
 sprite_frames = SubResource("SpriteFrames_68vi0")
 
 [node name="WingR" type="Node2D" parent="EnemyBody/Sprite/Wing"]
-position = Vector2(150, 0)
+position = Vector2(80, 64)
 
 [node name="WingR" type="Sprite2D" parent="EnemyBody/Sprite/Wing/WingR"]
+position = Vector2(195, -94)
 texture = ExtResource("4_v730m")
 
 [node name="WingRAnim" type="AnimatedSprite2D" parent="EnemyBody/Sprite/Wing/WingR"]
+position = Vector2(195, -94)
 sprite_frames = SubResource("SpriteFrames_tytj8")
 
 [node name="Feet" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -4)
+position = Vector2(0, -63)
 
 [node name="FeetL" type="Node2D" parent="EnemyBody/Sprite/Feet"]
-position = Vector2(-58, 0)
+position = Vector2(-23, 0)
 
 [node name="FeetL" type="Sprite2D" parent="EnemyBody/Sprite/Feet/FeetL"]
+position = Vector2(-50, 70)
 texture = ExtResource("6_o4wdb")
 
 [node name="FeetR" type="Node2D" parent="EnemyBody/Sprite/Feet"]
-position = Vector2(58, 0)
+position = Vector2(23, 0)
 
 [node name="FeetR" type="Sprite2D" parent="EnemyBody/Sprite/Feet/FeetR"]
+position = Vector2(50, 70)
 texture = ExtResource("7_33ark")
 
 [node name="Arm" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -84)
-
-[node name="ArmL" type="Node2D" parent="EnemyBody/Sprite/Arm"]
-position = Vector2(-60, 0)
-
-[node name="ArmL" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmL"]
-texture = ExtResource("8_4usur")
+position = Vector2(0, -16)
 
 [node name="ArmR" type="Node2D" parent="EnemyBody/Sprite/Arm"]
-position = Vector2(60, 0)
+position = Vector2(82, -39)
+rotation = -0.139626
 
 [node name="ArmR" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmR"]
+position = Vector2(-8, 50)
 texture = ExtResource("9_td4ud")
 
-[node name="Body" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -73)
+[node name="ArmL" type="Node2D" parent="EnemyBody/Sprite/Arm"]
+position = Vector2(-79, -39)
+rotation = 0.0872665
 
-[node name="Body2" type="Sprite2D" parent="EnemyBody/Sprite/Body"]
-texture = ExtResource("5_by7y6")
+[node name="ArmL" type="Sprite2D" parent="EnemyBody/Sprite/Arm/ArmL"]
+position = Vector2(6, 50)
+texture = ExtResource("8_4usur")
+
+[node name="Body" type="Node2D" parent="EnemyBody/Sprite"]
+position = Vector2(0, -16)
 
 [node name="Body" type="Sprite2D" parent="EnemyBody/Sprite/Body"]
 position = Vector2(0, -82)
 texture = ExtResource("5_by7y6")
 
 [node name="ArmLSpear" type="Sprite2D" parent="EnemyBody/Sprite"]
-position = Vector2(-88, -73)
+position = Vector2(-122, -18)
+rotation = -1.18682
 texture = ExtResource("11_mpvkk")
 
 [node name="Head" type="Node2D" parent="EnemyBody/Sprite"]
-position = Vector2(0, -222)
+position = Vector2(0, -133)
 
 [node name="Head" type="Sprite2D" parent="EnemyBody/Sprite/Head"]
 position = Vector2(0, -7)
@@ -449,7 +458,7 @@ collision_mask = 4
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="EnemyBody/HurtBox" index="0"]
-position = Vector2(0.166666, 0.666667)
+position = Vector2(0.167, -79.333)
 shape = SubResource("CapsuleShape2D_edf8e")
 
 [node name="HurtBox2" parent="EnemyBody" instance=ExtResource("3_dxxj3")]
@@ -460,7 +469,7 @@ collision_mask = 16
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="EnemyBody/HurtBox2" index="0"]
-position = Vector2(0.166666, 0.666667)
+position = Vector2(0.167, -79.333)
 shape = SubResource("CapsuleShape2D_knj61")
 
 [node name="HitBox" parent="EnemyBody" instance=ExtResource("4_4igo6")]
@@ -470,6 +479,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
+position = Vector2(0, -79)
 shape = SubResource("CapsuleShape2D_af8sb")
 
 [node name="HideTimer" type="Timer" parent="EnemyBody"]
@@ -481,6 +491,7 @@ volume_db = -15.0
 pitch_scale = 1.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 zoom = Vector2(0.5, 0.5)
 
 [editable path="EnemyBody/HurtBox"]

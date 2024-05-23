@@ -32,7 +32,7 @@ func _ready():
 	#detectionAreaShape.shape = CircleShape2D.new()
 	detectionAreaShape.shape.radius = enemy.detectionRadius
 	
-	hp = 1000
+	hp = 3000
 
 func _physics_process(_delta):
 	if isAwake:

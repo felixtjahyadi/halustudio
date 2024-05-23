@@ -24,7 +24,7 @@ func _ready():
 	#detectionAreaShape.shape = CircleShape2D.new()
 	detectionAreaShape.shape.radius = enemy.detectionRadius
 	
-	hp = 1000
+	hp = 10000
 	
 	ready_animation()
 
