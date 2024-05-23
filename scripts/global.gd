@@ -4,7 +4,12 @@ extends Node
 signal swap
 
 var debug_count = 0
-#var GAME_MODE = "debug" # "normal" / "debug"
+var prev_characters : Array[PlayerResource] = []
+var debug_characters : Array[PlayerResource] = [
+	load("res://resources/Players/Archie_DEBUG.tres").setup(),
+	load("res://resources/Players/Archie_DEBUG.tres").setup(),
+	load("res://resources/Players/Archie_DEBUG.tres").setup()
+]
 
 var LEVEL_PATH : String = "res://scenes/Map/Level/"
 var MAIN_LEVEL_PATH : String = LEVEL_PATH + "MainLevel/"
