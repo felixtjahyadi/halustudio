@@ -20,6 +20,7 @@ signal on_boss_dead()
 
 func _ready():
 	animationTree = $AnimationTree
+	sprite.modulate = Color.WHITE
 	
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 	hitbox.damage = enemy.initial_damage
@@ -36,11 +37,6 @@ func _ready():
 
 func _physics_process(_delta):
 	if isAwake:
-		if minionNum > 0:
-			sprite.modulate = Color.BLACK
-		else:
-			sprite.modulate = Color.WHITE
-			
 		if hp <= 0:
 			dead_process()
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
@@ -71,10 +67,12 @@ func _spawn_minion(count = 1):
 	for i in count:
 		_spawn()
 		await get_tree().create_timer(intervalSpawn).timeout
+	#minionNum += count
 
 func _spawn():
 	var selectedMinion = minionList.pick_random()
 	var minion = selectedMinion.instantiate()
+	minion.connect("on_minion_dead", Callable(self, "on_minion_dead"))
 	add_child(minion)
 	
 	var spawn_pos = Vector2(0, 0)
@@ -95,9 +93,18 @@ func _take_damage(damage):
 		print('boss take damage, %d' %hp)
 		damaged_animation()
 		sound.play()
+	else:
+		sprite.modulate = Color.YELLOW
+		await get_tree().create_timer(0.2).timeout
+		sprite.modulate = Color.WHITE
 
-func _on_enemy_killed():
-	minionNum -= 1
+func damaged_animation():
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+	sprite.modulate = Color.WHITE
+
+#func _on_minion_dead():
+	#minionNum -= 1
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)

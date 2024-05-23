@@ -4,6 +4,8 @@ class_name BranchMinion
 
 @export var attack_cooldown : float = 3.0
 
+signal on_minion_dead()
+
 func default_animation():
 	animationTree.set("parameters/Spawn/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	super()
@@ -12,6 +14,7 @@ func _physics_process(delta):
 	if hp <= 0:
 		animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		dead_process()
+		on_minion_dead.emit()
 	elif chase and player:
 		_attack_process()
 	else:
