@@ -6,7 +6,7 @@
 script = ExtResource("1_bgj3s")
 name = "Dragon Of Ashes"
 health = 5000
-speed = 500.0
+speed = 200.0
 armor = 2
 baseDamage = 1
 detectionRadius = 200.0

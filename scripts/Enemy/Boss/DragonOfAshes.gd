@@ -27,6 +27,10 @@ func _physics_process(_delta):
 		else:
 			if isFlying:
 				animationTree.set("parameters/Transition/transition_request", "fly")
+				
+				var direction = global_position.direction_to(get_tree().get_first_node_in_group("player").global_position)
+				velocity = direction * enemy.initial_speed
+				move_and_slide()
 			else:
 				animationTree.set("parameters/Transition/transition_request", "idle")
 			
@@ -42,33 +46,53 @@ func _reset():
 	_reset()
 
 func attack_phase():
-	var isAttack = randi_range(0,2)
-	
-	if isAttack > 0:
-		attack()
-	else:
-		attack_cooldown = 1
-		transition()
-
-func attack():
+	reset_CommonAttackTransition()
 	if isFlying:
 		fly_attack()
 	else:
 		ground_attack()
 
 func fly_attack():
-	print("fly attack")
+	var attackIdx = randi_range(0, 1)
+	if attackIdx == 0:
+		attack_cooldown = 1
+		transition()
+	elif attackIdx == 1:
+		attack_cooldown = 3
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
 
 func ground_attack():
-	print("ground attack")
+	var attackIdx = randi_range(0, 4)
+	if attackIdx == 0:
+		attack_cooldown = 1
+		transition()
+	elif attackIdx == 1:
+		attack_cooldown = 3
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
+	elif attackIdx == 2:
+		attack_cooldown = 2
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	elif attackIdx == 3:
+		attack_cooldown = 3
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_big_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	elif attackIdx == 4:
+		attack_cooldown = 3
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		transition()
+
+func reset_CommonAttackTransition():
+	if animationTree.get("parameters/CommonAttackTransition/current_state") != "none":
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "none")
 
 func find_player():
 	var player_direction = (get_tree().get_first_node_in_group("player").global_position - global_position).normalized()
-	$FrontHitBox.rotation = player_direction.angle()
+	$EnemyBody/AttackNode/FrontHitBox.rotation = player_direction.angle()
 
 func go_to_player():
-	var player_direction = (get_tree().get_first_node_in_group("player").global_position - global_position).normalized()
-	position = player_direction.positino
+	position = get_tree().get_first_node_in_group("player").global_position
 
 func transition():
 	if isFlying:
@@ -77,10 +101,8 @@ func transition():
 	else:
 		animationTree.set("parameters/IdleFlyTransition/transition_request", "fly")
 		animationTree.set("parameters/IdleFlyOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		await get_tree().create_timer(attack_cooldown).timeout
 	isFlying = not isFlying
-
-func _get_minion_count_randomizer():
-	return randi_range(2, 5)
 
 func start_animation():
 	animationTree.set("parameters/Awake/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
