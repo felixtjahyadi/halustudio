@@ -13,7 +13,7 @@ class_name WeaponClass
 @onready var playerDetector: Area2D = $PlayerDetector
 
 ## melee ##
-#@onready var hitbox_component = $WeaponNode/WeaponSprite/MeleeArea
+@onready var hitbox_component = $WeaponNode/WeaponSprite/MeleeArea
 @onready var animation_component = $AnimationPlayer
 @onready var slice_hitbox = $WeaponNode/WeaponSprite/MeleeArea/CollisionShape2D
 
@@ -38,12 +38,13 @@ func _ready():
 		weaponSprite.position.x = rangeToPlayer
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
-	
-	print(slice_hitbox.disabled)
 
 func _on_player_update_weapon_sprite(weapon):
 	self.weapon = weapon
 	update_weapon_sprite(weapon)
+	
+	if weapon.type == "melee":
+		hitbox_component.damage = weapon.baseDamage
 
 func update_weapon_sprite(weapon : WeaponResource):
 	weaponSprite.texture = weapon.texture
