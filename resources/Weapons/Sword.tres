@@ -22,5 +22,6 @@ projectileSpeed = 1000.0
 projectileRange = 600.0
 passEnemy = false
 maxAmmo = 10
+ammo = 10
 attackType = "slash"
 attackScale = 1.0
