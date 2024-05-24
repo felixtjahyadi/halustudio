@@ -11,9 +11,9 @@
 script = ExtResource("1_bnpqm")
 name = "Archie"
 texture = ExtResource("2_o4rb4")
-health = null
-speed = null
-armor = null
+health = 8
+speed = 300.0
+armor = 0
 weapon = ExtResource("2_0m26q")
 art = ExtResource("1_e5rln")
 avatar = ExtResource("2_ialm4")
