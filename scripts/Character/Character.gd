@@ -27,6 +27,7 @@ func attack():
 	
 func get_damage(value):
 	# When character is dead emit this signal
+	GameEvents.player_damaged.emit()
 	current_health -= value
 	if current_health == 0:
 		dead.emit(self)

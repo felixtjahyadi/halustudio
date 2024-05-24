@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://di2gaoisad8rp"]
+[gd_scene load_steps=11 format=3 uid="uid://c3yrqu8n6bn6j"]
 
 [ext_resource type="Texture2D" uid="uid://h4ohya1lapy3" path="res://assets/UI/gameover-bg.jpg" id="1_6u6d2"]
 [ext_resource type="Script" path="res://scripts/LoseScreen.gd" id="1_7ulw3"]

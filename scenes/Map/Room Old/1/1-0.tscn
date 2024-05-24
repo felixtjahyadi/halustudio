@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cne82nv68bcwd"]
 
 [ext_resource type="Script" path="res://scripts/Map/RoomLogic.gd" id="1_kuhat"]
-[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/RoomTileMap.tscn" id="2_lewg8"]
+[ext_resource type="PackedScene" uid="uid://lkxuctlcuuxj" path="res://scenes/Map/RoomTileMap.tscn" id="2_lewg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6xw"]
 size = Vector2(224, 224)

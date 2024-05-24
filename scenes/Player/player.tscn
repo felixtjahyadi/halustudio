@@ -281,6 +281,7 @@ text = "00:00"
 unique_name_in_owner = true
 process_mode = 3
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="ShootSkill" parent="." instance=ExtResource("8_16uom")]
 projectile_scene = ExtResource("9_h5qbh")

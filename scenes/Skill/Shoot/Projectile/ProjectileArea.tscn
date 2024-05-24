@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://emkxyu0tsty1"]
+[gd_scene load_steps=3 format=3 uid="uid://bri2rnuqpq5v1"]
 
 [ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.gd" id="1_apdii"]
 

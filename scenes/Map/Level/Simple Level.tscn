@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://srhyf8y0pdmo"]
+[gd_scene load_steps=7 format=3 uid="uid://brjgn6p58x8gf"]
 
-[ext_resource type="PackedScene" uid="uid://dlfq7bwnrguxb" path="res://scenes/Map/DefaultRoom.tscn" id="2_c6qqd"]
-[ext_resource type="PackedScene" path="res://scenes/Player_new/Spawn.tscn" id="6_vhwaq"]
+[ext_resource type="PackedScene" uid="uid://ca818liin8lwn" path="res://scenes/Map/DefaultRoom.tscn" id="2_c6qqd"]
+[ext_resource type="PackedScene" uid="uid://cm42pmj41dorq" path="res://scenes/Player_new/Spawn.tscn" id="6_vhwaq"]
 [ext_resource type="PackedScene" uid="uid://ct403etrx1mbs" path="res://scenes/Utils/FrameSaver.tscn" id="10_vot1l"]
 [ext_resource type="AudioStream" uid="uid://oq6jsquklbyt" path="res://assets/Audio/GeneralBGM.ogg" id="11_hx45q"]
 [ext_resource type="Script" path="res://scripts/BGM.gd" id="12_rxjl3"]
@@ -78,6 +78,7 @@ stream = ExtResource("11_hx45q")
 volume_db = -10.028
 autoplay = true
 max_distance = 1e+07
+bus = &"music"
 script = ExtResource("12_rxjl3")
 
 [node name="Spawn" parent="." instance=ExtResource("6_vhwaq")]

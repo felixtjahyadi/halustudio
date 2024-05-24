@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Weapons/sword.gd" id="1_2d7kx"]
 [ext_resource type="Texture2D" uid="uid://dsbkswvn32l7b" path="res://scenes/Weapons/sword_ability/sword.png" id="2_gc11q"]
-[ext_resource type="PackedScene" uid="uid://c6y2fsbenup2f" path="res://scenes/Weapons/meleeArea.tscn" id="3_83453"]
+[ext_resource type="PackedScene" path="res://scenes/Weapons/meleeArea.tscn" id="3_83453"]
 
 [sub_resource type="Animation" id="Animation_bbos3"]
 length = 0.001

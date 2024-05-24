@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_h6ar5"]
 [ext_resource type="PackedScene" uid="uid://nrep1d6etjpn" path="res://scenes/Enemy/base_enemy.tscn" id="2_d3rc5"]
-[ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/Zombie/zombie.png" id="3_qveto"]
+[ext_resource type="Texture2D" uid="uid://600y1fpg00mp" path="res://assets/Enemy/zombie.png" id="3_qveto"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ckssn"]
 radius = 5.70575
@@ -63,6 +63,10 @@ shape = SubResource("CircleShape2D_ckssn")
 sprite_frames = SubResource("SpriteFrames_cmfy3")
 animation = &"idle"
 
+[node name="hurt_sound" parent="EnemyBody" index="6"]
+bus = &"sfx"
+
 [editable path="EnemyBody"]
 [editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HurtBox2"]
 [editable path="EnemyBody/HitBox"]

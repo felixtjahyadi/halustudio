@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Skill/Shoot/Projectile/magic_ball.gd" id="1_13gku"]
 [ext_resource type="Texture2D" uid="uid://c5oqhxjggovqr" path="res://assets/Projectile/magic_ball.png" id="2_4adcv"]
-[ext_resource type="PackedScene" uid="uid://emkxyu0tsty1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_q57y7"]
+[ext_resource type="PackedScene" uid="uid://bri2rnuqpq5v1" path="res://scenes/Skill/Shoot/Projectile/ProjectileArea.tscn" id="3_q57y7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsj31"]
 radius = 68.0

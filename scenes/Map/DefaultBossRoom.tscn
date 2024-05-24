@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkyv0njmk6fqc"]
+[gd_scene load_steps=3 format=3 uid="uid://b2i3qt27i4il6"]
 
 [ext_resource type="Script" path="res://scripts/Map/BossRoomLogic.gd" id="1_wtkyy"]
-[ext_resource type="PackedScene" uid="uid://drssvftnrptff" path="res://scenes/Map/RoomTileMap.tscn" id="2_qooy8"]
+[ext_resource type="PackedScene" uid="uid://lkxuctlcuuxj" path="res://scenes/Map/RoomTileMap.tscn" id="2_qooy8"]
 
 [node name="DefaultBossRoom" type="Node2D"]
 script = ExtResource("1_wtkyy")

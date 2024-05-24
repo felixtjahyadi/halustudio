@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_vgyfp"]
 [ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="1_wcjy6"]
 [ext_resource type="Texture2D" uid="uid://cycjtxkxnsxp5" path="res://assets/UI/progress.jpg" id="3_4ldqm"]
-[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="3_akjfw"]
+[ext_resource type="PackedScene" uid="uid://cb4l7ldjgt67" path="res://scenes/Utils/health_bar.tscn" id="3_akjfw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1umu"]
 bg_color = Color(0.533333, 0.611765, 0.737255, 1)

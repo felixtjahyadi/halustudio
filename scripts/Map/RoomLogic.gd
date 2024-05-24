@@ -7,7 +7,7 @@ func _toggleIsDoorClosed():
 	_isDoorClosed = !_isDoorClosed
 
 var _isRoomNotExplored = true
-
+var pause_menu_scene = preload("res://scenes/UI/pause_menu.tscn")
 const MAP_TEXTURES : Dictionary = {
 	"Forest": {
 		"wall": "res://assets/Map/wall_bush.png",
@@ -47,7 +47,12 @@ func _ready():
 	
 	if lastRoom:
 		showPortal()
-
+		
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		add_child(pause_menu_scene.instantiate())
+		get_tree().root.set_input_as_handled()
+		
 func _updateRoomTexture():
 	roomTileMap.tile_set.get_source(0).texture = load(MAP_TEXTURES[mapTexture].wall)
 	roomTileMap.tile_set.get_source(1).texture = load(MAP_TEXTURES[mapTexture].floor)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=42 format=3 uid="uid://clmhwvftcd3hf"]
 
 [ext_resource type="Script" path="res://scripts/Character/Concrete/Morin.gd" id="1_jlina"]
-[ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
-[ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="2_ui6er"]
-[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="3_f5df1"]
-[ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
-[ext_resource type="Texture2D" uid="uid://dd66et6q4ccr8" path="res://assets/Player/spritesheets/morin-walk-anim-sheet.png" id="5_ywmoq"]
+[ext_resource type="Texture2D" uid="uid://pvt6q1hvb34x" path="res://assets/Player/spritesheets/morin/morin-idle-anim-sheet-flip.png" id="2_c5m86"]
+[ext_resource type="PackedScene" uid="uid://cb4l7ldjgt67" path="res://scenes/Utils/health_bar.tscn" id="2_ui6er"]
+[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin/morin-idle-anim-sheet.png" id="3_f5df1"]
+[ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin/morin-walk-anim-sheet-flip.png" id="4_ryn66"]
+[ext_resource type="Texture2D" uid="uid://dd66et6q4ccr8" path="res://assets/Player/spritesheets/morin/morin-walk-anim-sheet.png" id="5_ywmoq"]
 [ext_resource type="PackedScene" uid="uid://t7um6uwx4hcj" path="res://scenes/Weapon_new/Weapon.tscn" id="6_r8lj7"]
 [ext_resource type="PackedScene" uid="uid://b0r0h3qbro2im" path="res://scenes/Skill/Shoot/shoot_skill.tscn" id="8_xpdsv"]
 [ext_resource type="PackedScene" uid="uid://otyaqrxusqei" path="res://scenes/Skill/Shoot/Projectile/bullet.tscn" id="9_gq6ev"]
@@ -307,7 +307,7 @@ script = ExtResource("1_jlina")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vi1dm")
 animation = &"idle_left"
-frame = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xfye0")
@@ -359,3 +359,4 @@ shape = SubResource("CircleShape2D_aihvg")
 [connection signal="area_entered" from="Collect" to="." method="_on_collect_area_entered"]
 
 [editable path="Weapon"]
+[editable path="Weapon/WeaponNode/WeaponSprite/MeleeArea"]

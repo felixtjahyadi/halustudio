@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bckuskx4gcxgq"]
+[gd_scene load_steps=12 format=3 uid="uid://dyyb051ia60"]
 
 [ext_resource type="Texture2D" uid="uid://dn868fyo740i7" path="res://assets/UI/spawn-sheet.png" id="1_j28jm"]
 [ext_resource type="Script" path="res://scripts/animatedsprite2d_autoplay.gd" id="2_cis8r"]
