@@ -2,7 +2,7 @@ extends Control
 
 signal play
 
-var level1 = global.MAIN_LEVEL_PATH + "Level 1.tscn"
+var dialogue = "res://scenes/Test/dialogue.tscn"
 var character_select_ui = "res://scenes/UI/character_select.tscn"
 var options_menu_scene = preload("res://scenes/ui/options_menu.tscn")
 
@@ -13,8 +13,7 @@ func _ready():
 	
 func _on_play_click_end():
 	play.emit()
-	global.level = 1
-	var _level = get_tree().change_scene_to_file(level1)
+	var _level = get_tree().change_scene_to_file(dialogue)
 
 func _on_quit_click_end():
 	get_tree().quit()

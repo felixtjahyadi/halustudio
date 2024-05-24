@@ -1,7 +1,5 @@
 extends FocusableSkill
 
-class_name ArrowRainS
-
 var area_of_effect = load("res://scenes/Skill/arrow_rain_aoe.tscn")
 var area_scene: Node
 var area_duration = 4

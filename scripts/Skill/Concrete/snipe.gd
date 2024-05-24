@@ -1,6 +1,5 @@
 extends FocusableSkill
 
-class_name SnipeS
 
 var marker = load("res://scenes/Skill/sniper_marker.tscn")
 var marker_scene: Node
