@@ -8,8 +8,8 @@
 script = ExtResource("1_rl5be")
 name = "Book"
 texture = ExtResource("3_sebxx")
-baseDamage = 2.2
-attackInterval = 0.6
+baseDamage = 15.0
+attackInterval = 0.5
 attackCount = 1
 type = "range"
 rarity = 1
@@ -21,5 +21,6 @@ projectileScale = Vector2(1, 1)
 projectileSpeed = 600.0
 projectileRange = 600.0
 passEnemy = false
+maxAmmo = 30
 attackType = "slash"
 attackScale = 1.0

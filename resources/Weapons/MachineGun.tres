@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://cfr2mkhxwg8n"]
+
+[ext_resource type="Resource" uid="uid://f7ab8iihdlp2" path="res://resources/Projectiles/Bullet.tres" id="1_lvmkd"]
+[ext_resource type="Script" path="res://resources/Weapons/Weapon.gd" id="2_ubevb"]
+[ext_resource type="Texture2D" uid="uid://n8y0hk7tyohu" path="res://assets/Weapons/Gun.png" id="3_84jx1"]
+
+[resource]
+script = ExtResource("2_ubevb")
+name = "Weapon"
+texture = ExtResource("3_84jx1")
+baseDamage = 1.0
+attackInterval = 0.1
+attackCount = 5
+type = "range"
+rarity = 1
+damageBonus = 1.2
+rotation = 0.0
+scale = Vector2(2, 2)
+projectile = ExtResource("1_lvmkd")
+projectileScale = Vector2(1, 1)
+projectileSpeed = 3000.0
+projectileRange = 600.0
+passEnemy = false
+maxAmmo = 200
+attackType = "slash"
+attackScale = 1.0
