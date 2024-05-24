@@ -6,7 +6,7 @@ extends Area2D
 @onready var sprite = $Sprite2D
 
 @export var effect_duration: int = 1
-@export var damage: int = 300
+@export var damage: int = 50
 
 @onready var animation = $AnimatedSprite2D
 

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var health = 5
+@export var health = 1
 
 var target = null
 var speed = -1

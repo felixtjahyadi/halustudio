@@ -95,12 +95,12 @@ func dead_process():
 	get_parent().call_deferred("add_child", enemy_death)
 
 func loot_spawn():
-	var ammo_chance = randi() % 50
+	var ammo_chance = randi() % 15
 	if ammo_chance == 1:
 		var new_ammo = ammos.instantiate()
 		new_ammo.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
 		loot_base.call_deferred("add_child", new_ammo)
-	var potion_chance = randi() % 100
+	var potion_chance = randi() % 20
 	if potion_chance == 1:
 		var new_potion = potions.instantiate()
 		new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
