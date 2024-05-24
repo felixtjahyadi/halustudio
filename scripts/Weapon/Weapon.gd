@@ -30,11 +30,6 @@ func _ready():
 	print("in ready")
 	update_weapon_sprite(weapon)
 	
-	if weapon.type == 'melee':
-		slice_hitbox.disabled = false
-	else:
-		slice_hitbox.disabled = true
-	
 	var new_transform = Transform2D()
 	new_transform.origin = Vector2(rangeToPlayer, 0)
 	projectileSpawnPosition.transform = new_transform
@@ -44,7 +39,7 @@ func _ready():
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
 	
-	animation_component.stop()
+	print(slice_hitbox.disabled)
 
 func _on_player_update_weapon_sprite(weapon):
 	self.weapon = weapon
@@ -90,9 +85,13 @@ func attack():
 
 ## melee ##
 func _melee_attack():
-	animation_component.play()
+	animation_component.play("swing")
 
-## melee ##
+func enable_slice_hitbox():
+	slice_hitbox.disabled = false
+
+func disable_slice_hitbox():
+	slice_hitbox.disabled = true
 
 ## range ##
 func _range_attack():

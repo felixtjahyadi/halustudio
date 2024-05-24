@@ -35,6 +35,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, -0.174533, 3.14159, 0.0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_slice_hitbox"
+}, {
+"args": [],
+"method": &"disable_slice_hitbox"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gmjo"]
 _data = {
@@ -58,7 +75,6 @@ script = ExtResource("1_88djt")
 libraries = {
 "": SubResource("AnimationLibrary_7gmjo")
 }
-autoplay = "swing"
 
 [node name="WeaponNode" type="Node2D" parent="."]
 
@@ -71,6 +87,7 @@ damage = 50
 [node name="CollisionShape2D" parent="WeaponNode/WeaponSprite/MeleeArea" index="0"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_qqocq")
+disabled = true
 
 [node name="ProjectileSpawnPosition" type="Marker2D" parent="."]
 
