@@ -1,118 +1,121 @@
-[gd_scene load_steps=5 format=3 uid="uid://w8gw4cg7eo6o"]
+[gd_scene load_steps=6 format=3 uid="uid://w8gw4cg7eo6o"]
 
 [ext_resource type="Script" path="res://scripts/UI/options_menu.gd" id="1_36c6s"]
-[ext_resource type="Texture2D" uid="uid://brq175p832ci7" path="res://assets/UI/mainmenu-bg.jpg" id="2_g11qn"]
+[ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_g11qn"]
 [ext_resource type="PackedScene" path="res://scenes/UI/vignette.tscn" id="2_hhaia"]
 [ext_resource type="PackedScene" path="res://scenes/UI/sound_button.tscn" id="3_otvbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4efwc"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_36c6s")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 1342.0
-offset_bottom = 769.0
-scale = Vector2(0.86, 0.86)
-texture = ExtResource("2_g11qn")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 190.0
-offset_bottom = 121.0
+offset_right = 192.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.865, 0.865)
-theme_override_constants/margin_top = 250
+scale = Vector2(0.86, 0.86)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_g11qn")
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -77.0
+offset_right = 140.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4efwc")
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer"]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-color = Color(1.35368e-08, 0.0736132, 0.0900016, 1)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 24
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Options"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="SfxOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="SfxOptionContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 text = "SFX Volume"
 
-[node name="SfxSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
+[node name="SfxSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 
-[node name="MusicOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MusicOptionContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 text = "Music Volume"
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="WindowOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="WindowOptionContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer"]
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 text = "Window Mode"
 
-[node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer" instance=ExtResource("3_otvbw")]
+[node name="WindowButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer" instance=ExtResource("3_otvbw")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_otvbw")]
+[node name="BackButton" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_otvbw")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 text = "Back"
 
 [node name="Vignette" parent="." instance=ExtResource("2_hhaia")]
