@@ -28,6 +28,22 @@
         "I'm Black Bullet. You can count on me for firepower and supplies.",
         "Stay sharp and be cautious. Danger lurks around every corner."
       ]
+    },
+    {
+      "name": "Archie",
+      "dialogue": [
+        "Use WASD to move around.",
+        "Great! Now use left click and hold to attack.",
+        "Excellent! Remember, you can switch characters using Q or E."
+      ]
+    },
+    {
+      "name": "Village Chief",
+      "dialogue": [
+        "Before you head out, make sure you're familiar with the controls.",
+        "Practice makes perfect. Hone your skills before facing the real threats.",
+        "Good luck, adventurer. We're counting on you."
+      ]
     }
   ],
   "level2": [
