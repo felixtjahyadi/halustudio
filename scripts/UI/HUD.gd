@@ -13,7 +13,7 @@ class_name HUD
 @onready var prev_cooldown_bar = $Avatar/MarginContainer/VBoxContainer/PrevCharacter/Cooldown
 
 @onready var button_skills = $Utility/MarginContainer/VBoxContainer/ButtonSkills
-@onready var coin_count = $Resource/VBoxContainer/Coins
+@onready var coin_count = $Resource/MarginContainer/VBoxContainer/HBoxContainer/Coins
 @onready var skill_button_scene: PackedScene = load("res://scenes/Skill/skill_button.tscn")
 
 @onready var boss_enemies = get_tree().get_nodes_in_group("boss")
@@ -129,4 +129,4 @@ func remove_boss_info():
 	current_boss = null
 
 func update_resource():
-	coin_count.text = "Coins: %d" % [global.money]
+	coin_count.text = "x%d" % [global.money]
