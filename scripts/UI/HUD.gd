@@ -131,7 +131,7 @@ func remove_boss_info():
 	current_boss = null
 
 func update_resource():
-	coin_count.text = "x%d" % [global.money]
+	coin_count.text = "%d" % [global.money]
 
 func update_ammo():
 	ammo.text = str(global.player_node.get_weapon().ammo)
