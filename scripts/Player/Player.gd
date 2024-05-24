@@ -167,8 +167,8 @@ func _on_collect_area_entered(area):
 			global.total_money_collected += money_value
 		elif area.is_in_group("potion"):
 			var heal_value = area.heal()
-			player.health += heal_value
-			
+			player.health += player.initial_health if player.health + heal_value >= player.initial_health else heal_value
+
 # health bar
 func get_health_percent():
 	if player.health <= 0:
