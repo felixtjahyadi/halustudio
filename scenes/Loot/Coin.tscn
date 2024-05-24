@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7saml"]
 size = Vector2(10, 11)
 
-[node name="Coin" type="Area2D" groups=["loot"]]
+[node name="Coin" type="Area2D" groups=["loot", "money"]]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_0r7is")

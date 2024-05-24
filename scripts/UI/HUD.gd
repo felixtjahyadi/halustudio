@@ -13,6 +13,7 @@ class_name HUD
 @onready var prev_cooldown_bar = $Avatar/MarginContainer/VBoxContainer/PrevCharacter/Cooldown
 
 @onready var button_skills = $Utility/MarginContainer/VBoxContainer/ButtonSkills
+@onready var coin_count = $Resource/VBoxContainer/Coins
 @onready var skill_button_scene: PackedScene = load("res://scenes/Skill/skill_button.tscn")
 
 func _ready():
@@ -25,6 +26,7 @@ func _ready():
 	
 func _process(delta):
 	update_cooldown()
+	update_resource()
 
 func _update():
 	update_avatar()
@@ -94,3 +96,6 @@ func update_skill():
 		skill_button.setup(skill, key)
 		button_skills.add_child(skill_button)
 		key += 1
+
+func update_resource():
+	coin_count.text = "Coins: %d" % [global.money]
