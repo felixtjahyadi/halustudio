@@ -5,9 +5,10 @@ var start_position: Vector2
 
 @onready var particle = $GPUParticles2D
 
-func setup(start: Vector2, max_range: float):
+func setup(start: Vector2, max_range: float, damage: int):
 	projectile_range = max_range
 	start_position = start
+	$ProjectileHitBox.damage = damage
 
 func setup_texture(new_texture: Texture2D, new_scale: Vector2):
 	$ProjectileSprite.texture = new_texture

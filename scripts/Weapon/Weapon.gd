@@ -106,7 +106,7 @@ func _spawn_projectile():
 	var projectile_instance = projectileScene.instantiate()
 	var distance = projectile_spawn_position.distance_to(get_global_mouse_position())
 	
-	projectile_instance.setup(projectile_spawn_position, min(distance, weapon.projectileRange))
+	projectile_instance.setup(projectile_spawn_position, min(distance, weapon.projectileRange), weapon.get_damage())
 	projectile_instance.setup_texture(weapon.projectile.texture, weapon.projectile.scale)
 	
 	if weapon.trail_enable:
@@ -131,7 +131,7 @@ func _on_player_detector_body_entered(body: CharacterBody2D):
 	if body != null:
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
-		body.pick_up_weapon(self)
+		body.pick_up_weapon(weapon)
 		position = Vector2.ZERO
 	else:
 		playerDetector.set_collision_mask_value(2, true)
