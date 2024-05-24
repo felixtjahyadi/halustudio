@@ -138,4 +138,5 @@ frame_progress = 0.32917
 
 [editable path="EnemyBody"]
 [editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HurtBox2"]
 [editable path="EnemyBody/HitBox"]

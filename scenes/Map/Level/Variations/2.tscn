@@ -203,6 +203,7 @@ stream = ExtResource("3_c6arb")
 volume_db = -10.028
 autoplay = true
 max_distance = 1e+07
+bus = &"music"
 script = ExtResource("4_fixis")
 
 [node name="Spawn" parent="." instance=ExtResource("5_2uqss")]

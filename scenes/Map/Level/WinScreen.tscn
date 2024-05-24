@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://cbgjp644m8sfj"]
 
 [ext_resource type="Script" path="res://scripts/WinScreen.gd" id="1_l02uj"]
-[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin-idle-anim-sheet.png" id="2_s4dar"]
-[ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin-walk-anim-sheet-flip.png" id="3_5q3vx"]
+[ext_resource type="Texture2D" uid="uid://bboo05exekaek" path="res://assets/Player/spritesheets/morin/morin-idle-anim-sheet.png" id="2_s4dar"]
+[ext_resource type="Texture2D" uid="uid://cvhwulqudjlnf" path="res://assets/Player/spritesheets/morin/morin-walk-anim-sheet-flip.png" id="3_5q3vx"]
 [ext_resource type="FontFile" uid="uid://dwnvyvhbkpxe3" path="res://assets/Font/Raw/continuum bold.ttf" id="4_5qoka"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2k0ir"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/BranchMinion.gd" id="1_j4hl2"]
 [ext_resource type="Resource" uid="uid://btva6odntxjof" path="res://resources/Enemies/Boss/BranchMinion.tres" id="2_1p6tl"]
 [ext_resource type="Texture2D" uid="uid://dpg4ir8k17w2v" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/branch-minion-all-anim-sheet.png" id="2_whi1h"]
-[ext_resource type="Texture2D" uid="uid://qymkdiaisfwj" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="3_5x5ad"]
+[ext_resource type="Texture2D" uid="uid://djvfnbti0xbhm" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="3_5x5ad"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="4_x1205"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="5_34wq7"]
 
@@ -535,9 +535,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
-libraries = {
-"": SubResource("AnimationLibrary_q2cqq")
-}
 tree_root = SubResource("AnimationNodeBlendTree_bivn4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/active = false
@@ -596,6 +593,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
+bus = &"sfx"
 
 [editable path="BigAreaHitBox"]
 [editable path="EnemyBody/HurtBox"]
