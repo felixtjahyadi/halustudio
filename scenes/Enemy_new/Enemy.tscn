@@ -271,6 +271,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
 tree_root = SubResource("AnimationNodeBlendTree_ofrwp")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Transition/current_state = "idle"
