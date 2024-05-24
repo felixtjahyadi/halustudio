@@ -170,6 +170,9 @@ func _on_collect_area_entered(area):
 			player.health += heal_value
 			if player.health >= player.initial_health:
 				player.health == player.initial_health
+		elif area.is_in_group("ammo"):
+			var ammo_value = area.collect()
+			player.weapon.maxAmmo += ammo_value
 
 # health bar
 func get_health_percent():

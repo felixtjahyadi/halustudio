@@ -23,6 +23,7 @@ class_name WeaponResource
 @export var projectileSpeed : float = 1000.0
 @export var projectileRange : float = 600.0
 @export var passEnemy : bool = false
+@export var maxAmmo : int = 10
 
 @export_group("Melee Properties")
 @export_enum("slash", "wide slash") var attackType : String = "slash"

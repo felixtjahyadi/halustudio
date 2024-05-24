@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var health = 5
+@export var ammo = 5
 
 var target = null
 var speed = -1
@@ -14,9 +14,9 @@ func _physics_process(delta):
 		global_position = global_position.move_toward(target.global_position, speed)
 		speed += 3*delta
 		
-func heal():
+func collect():
 	sound.play()
 	collision.call_deferred("set", "disabled", true)
 	sprite.visible = false
 	
-	return health
+	return ammo
