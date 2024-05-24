@@ -15,7 +15,7 @@ class_name WeaponClass
 ## melee ##
 #@onready var hitbox_component = $WeaponNode/WeaponSprite/MeleeArea
 @onready var animation_component = $AnimationPlayer
-#@onready var slice_hitbox = $WeaponNode/WeaponSprite/MeleeArea/CollisionShape2D
+@onready var slice_hitbox = $WeaponNode/WeaponSprite/MeleeArea/CollisionShape2D
 
 ## range ##
 @onready var projectileScene : PackedScene = load("res://scenes/Weapon_new/Projectiles/Projectile.tscn")
@@ -29,6 +29,11 @@ var canAttack = true
 func _ready():
 	print("in ready")
 	update_weapon_sprite(weapon)
+	
+	if weapon.type == 'melee':
+		slice_hitbox.disabled = false
+	else:
+		slice_hitbox.disabled = true
 	
 	var new_transform = Transform2D()
 	new_transform.origin = Vector2(rangeToPlayer, 0)
@@ -58,10 +63,10 @@ func get_texture():
 
 # attack #
 func _process(delta):
-	if player.is_dead: return
-	
-	_handle_mouse_direction()
-	_handle_attack_input()
+	if player:
+		if player.is_dead: return
+		_handle_mouse_direction()
+		_handle_attack_input()
 
 func _handle_mouse_direction():
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -101,7 +106,7 @@ func _spawn_projectile():
 	var projectile_instance = projectileScene.instantiate()
 	var distance = projectile_spawn_position.distance_to(get_global_mouse_position())
 	
-	projectile_instance.setup(projectile_spawn_position, min(distance, weapon.projectileRange))
+	projectile_instance.setup(projectile_spawn_position, min(distance, weapon.projectileRange), weapon.get_damage())
 	projectile_instance.setup_texture(weapon.projectile.texture, weapon.projectile.scale)
 	
 	if weapon.trail_enable:
@@ -126,7 +131,7 @@ func _on_player_detector_body_entered(body: CharacterBody2D):
 	if body != null:
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
-		body.pick_up_weapon(self)
+		body.pick_up_weapon(weapon)
 		position = Vector2.ZERO
 	else:
 		playerDetector.set_collision_mask_value(2, true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6cn4doel2vsi"]
+[gd_scene load_steps=16 format=3 uid="uid://ci3oyib4uixwk"]
 
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_yqoym"]
 [ext_resource type="Texture2D" uid="uid://cx1aiw7if0shr" path="res://assets/UI/HUD Frame/Box.jpg" id="2_y5rfh"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cycjtxkxnsxp5" path="res://assets/UI/progress.jpg" id="4_wtk8t"]
 [ext_resource type="Texture2D" uid="uid://fk87d3hq2j1q" path="res://assets/UI/HUD Frame/rectangle_3.jpg" id="5_7hl8x"]
 [ext_resource type="Texture2D" uid="uid://cv2ge4odgh6o4" path="res://assets/UI/HUD Frame/rectangle_2.png" id="6_p1vvr"]
-[ext_resource type="PackedScene" uid="uid://bhi46nxjlij1j" path="res://scenes/Skill/skill_button.tscn" id="7_o4q3t"]
+[ext_resource type="PackedScene" path="res://scenes/Skill/skill_button.tscn" id="7_o4q3t"]
 [ext_resource type="Texture2D" uid="uid://wwsuxbaejukd" path="res://assets/UI/HUD Frame/rectangle_1.jpg" id="8_nx211"]
 [ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="9_acok5"]
 
@@ -186,6 +186,18 @@ offset_top = -257.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_uyul8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Resource"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Resource/VBoxContainer"]
+layout_mode = 2
+
+[node name="Coins" type="Label" parent="Resource/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "Coins"
 
 [node name="Utility" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(100, 150)
