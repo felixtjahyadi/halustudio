@@ -4,6 +4,8 @@ class_name DragonOfAshes
 
 var attack_cooldown : float = 3
 
+@export var hp_regen : int = 100
+
 var isAwake : bool = false
 var isFlying : bool = false
 
@@ -26,12 +28,14 @@ func _physics_process(_delta):
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		else:
 			if isFlying:
+				$CollisionEnemy.disabled = true
 				animationTree.set("parameters/Transition/transition_request", "fly")
 				
 				var direction = global_position.direction_to(get_tree().get_first_node_in_group("player").global_position)
-				velocity = direction * enemy.initial_speed
+				velocity = direction * enemy.speed
 				move_and_slide()
 			else:
+				$CollisionEnemy.disabled = false
 				animationTree.set("parameters/Transition/transition_request", "idle")
 			
 	else:
@@ -53,35 +57,70 @@ func attack_phase():
 		ground_attack()
 
 func fly_attack():
-	var attackIdx = randi_range(0, 1)
+	var attackIdx = randi_range(0, 5)
 	if attackIdx == 0:
+		# transition
 		attack_cooldown = 1
 		transition()
 	elif attackIdx == 1:
-		attack_cooldown = 3
-		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
-
-func ground_attack():
-	var attackIdx = randi_range(0, 4)
-	if attackIdx == 0:
-		attack_cooldown = 1
-		transition()
-	elif attackIdx == 1:
+		# shoot front
 		attack_cooldown = 3
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
 	elif attackIdx == 2:
+		# fly dash
+		attack_cooldown = 7
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "fly_dash")
+	elif attackIdx == 3:
+		# speed buff
+		attack_cooldown = 2 
+		enemy.speed = 250
+		await get_tree().create_timer(2).timeout
+		enemy.speed = enemy.initial_speed
+	elif attackIdx == 4:
+		# slam + transition
+		attack_cooldown = 3
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		transition()
+	elif attackIdx == 5:
+		# heal
+		hp += hp_regen
+		modulate = Color.GREEN
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color.WHITE
+
+func ground_attack():
+	var attackIdx = randi_range(0, 5)
+	if attackIdx == 0:
+		# transition
+		attack_cooldown = 1
+		transition()
+	elif attackIdx == 1:
+		# shoot front
+		attack_cooldown = 3
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
+	elif attackIdx == 2:
+		# slam
 		attack_cooldown = 2
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	elif attackIdx == 3:
+		# heavy slam
 		attack_cooldown = 3
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_big_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	elif attackIdx == 4:
+		# slam + transition
 		attack_cooldown = 3
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		transition()
+	elif attackIdx == 5:
+		# heal
+		hp += hp_regen
+		modulate = Color.GREEN
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color.WHITE
 
 func reset_CommonAttackTransition():
 	if animationTree.get("parameters/CommonAttackTransition/current_state") != "none":
@@ -92,7 +131,7 @@ func find_player():
 	$EnemyBody/AttackNode/FrontHitBox.rotation = player_direction.angle()
 
 func go_to_player():
-	position = get_tree().get_first_node_in_group("player").global_position
+	global_position = get_tree().get_first_node_in_group("player").global_position
 
 func transition():
 	if isFlying:
@@ -115,6 +154,14 @@ func _take_damage(damage):
 	print('boss take damage, %d' %hp)
 	damaged_animation()
 	sound.play()
+
+
+func zero_speed():
+	enemy.speed = 0
+
+func reset_speed():
+	enemy.speed = enemy.initial_speed
+
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)
