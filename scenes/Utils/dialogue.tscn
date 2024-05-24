@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2t5exj23us8u"]
+[gd_scene load_steps=12 format=3 uid="uid://b2t5exj23us8u"]
 
 [ext_resource type="Texture2D" uid="uid://bx70osf1hxhmo" path="res://assets/Textures/Dialogue/menu_section_9patch.png" id="1_ksc46"]
 [ext_resource type="Script" path="res://scripts/Dialogue_Box.gd" id="1_nbqi6"]
 [ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_xrwpq"]
 [ext_resource type="FontFile" uid="uid://dwnvyvhbkpxe3" path="res://assets/Font/Raw/continuum bold.ttf" id="2_6m4f5"]
+[ext_resource type="AudioStream" uid="uid://cvfqkpbj5hlav" path="res://assets/Audio/typing_sfx.wav" id="5_s4pq2"]
 
 [sub_resource type="Animation" id="Animation_mpa11"]
 resource_name = "Generate"
@@ -131,6 +132,7 @@ custom_minimum_size = Vector2(256, 48)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_6m4f5")
+theme_override_font_sizes/font_size = 24
 text = "What was that trip.... What kind of driver did they rent?!?"
 autowrap_mode = 1
 visible_characters = 0
@@ -206,5 +208,9 @@ libraries = {
 "": SubResource("AnimationLibrary_58rmp")
 }
 autoplay = "Rect"
+
+[node name="text_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s4pq2")
+autoplay = true
 
 [connection signal="animation_finished" from="Dialogue_Box/Body_NinePatchRect/Body_MarginContainer/Body_Label/Body_AnimationPlayer" to="." method="_on_body_animation_player_animation_finished"]

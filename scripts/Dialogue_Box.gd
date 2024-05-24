@@ -42,6 +42,7 @@ func set_labels_and_sprite():
 				$Dialogue_Box/Chara.texture = load("res://assets/Player/art/Ninja.png")
 			_:
 				$Dialogue_Box/Chara.texture = load("res://assets/Player/art/NPC.png")
+		$text_sfx.play()
 		
 		if dialogue_index < dialogues[current_index].size():
 			$Dialogue_Box/Body_NinePatchRect/Body_MarginContainer/Body_Label.text = dialogues[current_index][dialogue_index]
@@ -63,6 +64,7 @@ func set_labels_and_sprite():
 
 func _on_body_animation_player_animation_finished(anim_name):
 	$Dialogue_Box/Body_NinePatchRect/Cont_NinePatchRect.show()
+	$text_sfx.stop()
 	dialogue_finished = true
 
 func _input(event):
