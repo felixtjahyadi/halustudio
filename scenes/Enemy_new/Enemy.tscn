@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Enemy/Enemy.gd" id="1_7o0x7"]
 [ext_resource type="Texture2D" uid="uid://owygiq7dojig" path="res://assets/Enemy/Slime/slime-anim-all-sheet.png" id="1_oqsnt"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="3_1fsrq"]
-[ext_resource type="Texture2D" uid="uid://djvfnbti0xbhm" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="3_vqv6b"]
+[ext_resource type="Texture2D" uid="uid://qymkdiaisfwj" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="3_vqv6b"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="4_oqprx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1v6hf"]
@@ -271,6 +271,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
 tree_root = SubResource("AnimationNodeBlendTree_ofrwp")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Transition/current_state = "idle"

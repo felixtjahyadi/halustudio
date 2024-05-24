@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dfc2x3phidyox"]
+[gd_scene load_steps=24 format=3 uid="uid://bsatwxoi8w4ra"]
 
 [ext_resource type="Script" path="res://scripts/Skill/utility/arrow_rain_aoe.gd" id="1_0k70f"]
 [ext_resource type="Texture2D" uid="uid://cei4r21r6t218" path="res://assets/Skill/circle.png" id="2_j7xor"]

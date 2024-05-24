@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_0x3x6")
 name = "Corrupted Tree Guardian"
-health = 3000
+health = 1000
 speed = 0.0
 armor = 2
 baseDamage = 1

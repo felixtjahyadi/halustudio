@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://y8hujqw40pki"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://y8hujqw40pki"]
 
 [ext_resource type="Script" path="res://resources/Weapons/Weapon.gd" id="1_fom7r"]
+[ext_resource type="Resource" uid="uid://7bys8i06wijs" path="res://resources/Projectiles/Arrow.tres" id="1_vr2qt"]
+[ext_resource type="Texture2D" uid="uid://b561hydikthvs" path="res://assets/Weapons/bow.png" id="3_8x285"]
 
 [resource]
 script = ExtResource("1_fom7r")
 name = "Bow"
+texture = ExtResource("3_8x285")
 baseDamage = 5.0
 attackInterval = 0.2
 attackCount = null
@@ -13,6 +16,7 @@ rarity = null
 damageBonus = null
 rotation = -45.0
 scale = null
+projectile = ExtResource("1_vr2qt")
 projectileScale = null
 projectileSpeed = null
 projectileRange = null
