@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgnaixbu242y8"]
 
-[ext_resource type="AudioStream" path="res://assets/Audio/Laser Gun Sound Effect.ogg" id="1_tssmf"]
+[ext_resource type="AudioStream" uid="uid://dai0mvpher03a" path="res://assets/Audio/Laser Gun Sound Effect.ogg" id="1_tssmf"]
 
 [node name="LaserAudio" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_tssmf")
+bus = &"sfx"

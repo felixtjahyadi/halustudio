@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=2 format=3 uid="uid://hap4su5kgyab"]
+
+[ext_resource type="Script" path="res://resources/Enemies/Enemy.gd" id="1_bgj3s"]
+
+[resource]
+script = ExtResource("1_bgj3s")
+name = "Dragon Of Ashes"
+health = 5000
+speed = 100.0
+armor = 2
+baseDamage = 1
+detectionRadius = 200.0
+knock_back_recovery = 100.0
+max_coins = 20
+money = 5

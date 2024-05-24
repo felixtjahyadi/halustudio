@@ -65,4 +65,5 @@ sprite_frames = SubResource("SpriteFrames_vrtym")
 
 [editable path="EnemyBody"]
 [editable path="EnemyBody/HurtBox"]
+[editable path="EnemyBody/HurtBox2"]
 [editable path="EnemyBody/HitBox"]

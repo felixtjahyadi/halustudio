@@ -271,9 +271,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
-libraries = {
-"": SubResource("AnimationLibrary_q2cqq")
-}
 tree_root = SubResource("AnimationNodeBlendTree_ofrwp")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Transition/current_state = "idle"
@@ -318,6 +315,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
+bus = &"sfx"
 
 [editable path="EnemyBody/HurtBox"]
 [editable path="EnemyBody/HurtBox2"]

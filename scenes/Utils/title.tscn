@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_pfnru"]
 [ext_resource type="PackedScene" uid="uid://by60aag4ff5ly" path="res://scenes/Utils/button.tscn" id="2_qfooj"]
-[ext_resource type="Texture2D" uid="uid://brq175p832ci7" path="res://assets/UI/mainmenu-bg.jpg" id="2_y4aph"]
+[ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_y4aph"]
 [ext_resource type="PackedScene" uid="uid://qir7vrt1qhuj" path="res://scenes/Utils/menu_theme.tscn" id="4_vpp7n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_047iv"]
@@ -31,6 +31,7 @@ expand_mode = 2
 
 [node name="MenuTheme" parent="." instance=ExtResource("4_vpp7n")]
 position = Vector2(577, 242)
+bus = &"music"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -65,22 +66,35 @@ text = "Play"
 layout_mode = 2
 text = "Select Character"
 
+[node name="OptionsButton" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_qfooj")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
 [node name="Quit" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_qfooj")]
 layout_mode = 2
 text = "Quit"
 
-[node name="DEBUG" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="PanelContainerDebug" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_bottom = 4.0
+offset_left = -102.0
+offset_bottom = 49.0
 grow_horizontal = 0
+theme = SubResource("Theme_2otej")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainerDebug"]
+layout_mode = 2
+
+[node name="DEBUG" type="Button" parent="PanelContainerDebug/MarginContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 text = "DEBUG"
 
 [connection signal="play" from="." to="." method="_on_play"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_click_end"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/SelectCharacter" to="." method="_on_select_character_click_end"]
 [connection signal="click_end" from="PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_click_end"]
-[connection signal="pressed" from="DEBUG" to="." method="_on_debug_pressed"]
+[connection signal="pressed" from="PanelContainerDebug/MarginContainer/DEBUG" to="." method="_on_debug_pressed"]

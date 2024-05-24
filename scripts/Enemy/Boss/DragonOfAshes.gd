@@ -2,35 +2,24 @@ extends EnemyClass
 
 class_name DragonOfAshes
 
-@onready var animatedPlayer : AnimationPlayer = $EnemyBody/AnimationPlayer
+var attack_cooldown : float = 3
 
-@export var attack_cooldown_inc : float = 1.0
-
-var current_attack_cooldown = 0.0
+@export var hp_regen : int = 100
 
 var isAwake : bool = false
+var isFlying : bool = false
 
 signal on_boss_dead()
 
 func _ready():
-	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
-	hitbox.damage = enemy.initial_damage
-	screen_size = get_viewport_rect().size
-	hurtbox.connect("hurt", Callable(self, "_on_hurt_box_hurt"))
-	meleehurtbox.connect("hurt", Callable(self, "_on_melee_hurt_box_hurt"))
-	hideTimer.connect("timeout", Callable(self, "_on_hide_timer_timeout"))
-	detectionArea.body_entered.connect(_on_detection_area_body_entered)
-	detectionArea.body_exited.connect(_on_detection_area_body_exited)
-	#detectionAreaShape.shape = CircleShape2D.new()
-	detectionAreaShape.shape.radius = enemy.detectionRadius
-	
-	hp = 10000
-	
-	ready_animation()
+	animationTree = $AnimationTree
+	super()
 
-func ready_animation():
-	$EnemyBody/Sprite/Wing/WingL/WingLAnim.play("default")
-	$EnemyBody/Sprite/Wing/WingR/WingRAnim.play("default")
+func default_texture():
+	pass
+
+func default_animation():
+	pass
 
 func _physics_process(_delta):
 	if isAwake:
@@ -38,7 +27,16 @@ func _physics_process(_delta):
 			dead_process()
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		else:
-			animationTree.set("parameters/Transition/transition_request", "idle")
+			if isFlying:
+				$CollisionEnemy.disabled = true
+				animationTree.set("parameters/Transition/transition_request", "fly")
+				
+				var direction = global_position.direction_to(get_tree().get_first_node_in_group("player").global_position)
+				velocity = direction * enemy.speed
+				move_and_slide()
+			else:
+				$CollisionEnemy.disabled = false
+				animationTree.set("parameters/Transition/transition_request", "idle")
 			
 	else:
 		animationTree.set("parameters/Transition/transition_request", "sleep")
@@ -47,16 +45,103 @@ func emit_boss_dead():
 	on_boss_dead.emit()
 
 func _reset():
-	await get_tree().create_timer(current_attack_cooldown).timeout
-	current_attack_cooldown += attack_cooldown_inc
-	attack()
+	await get_tree().create_timer(attack_cooldown).timeout
+	attack_phase()
 	_reset()
 
-func attack():
-	pass
+func attack_phase():
+	reset_CommonAttackTransition()
+	if isFlying:
+		fly_attack()
+	else:
+		ground_attack()
 
-func _get_minion_count_randomizer():
-	return randi_range(2, 5)
+func fly_attack():
+	var attackIdx = randi_range(0, 5)
+	if attackIdx == 0:
+		# transition
+		attack_cooldown = 1
+		transition()
+	elif attackIdx == 1:
+		# shoot front
+		attack_cooldown = 3
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
+	elif attackIdx == 2:
+		# fly dash
+		attack_cooldown = 7
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "fly_dash")
+	elif attackIdx == 3:
+		# speed buff
+		attack_cooldown = 2 
+		enemy.speed = 250
+		await get_tree().create_timer(2).timeout
+		enemy.speed = enemy.initial_speed
+	elif attackIdx == 4:
+		# slam + transition
+		attack_cooldown = 3
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		transition()
+	elif attackIdx == 5:
+		# heal
+		hp += hp_regen
+		modulate = Color.GREEN
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color.WHITE
+
+func ground_attack():
+	var attackIdx = randi_range(0, 5)
+	if attackIdx == 0:
+		# transition
+		attack_cooldown = 1
+		transition()
+	elif attackIdx == 1:
+		# shoot front
+		attack_cooldown = 3
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
+	elif attackIdx == 2:
+		# slam
+		attack_cooldown = 2
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	elif attackIdx == 3:
+		# heavy slam
+		attack_cooldown = 3
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_big_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	elif attackIdx == 4:
+		# slam + transition
+		attack_cooldown = 3
+		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
+		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		transition()
+	elif attackIdx == 5:
+		# heal
+		hp += hp_regen
+		modulate = Color.GREEN
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color.WHITE
+
+func reset_CommonAttackTransition():
+	if animationTree.get("parameters/CommonAttackTransition/current_state") != "none":
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "none")
+
+func find_player():
+	var player_direction = (get_tree().get_first_node_in_group("player").global_position - (global_position + Vector2(0, -110))).normalized()
+	$EnemyBody/AttackNode/FrontHitBox.rotation = player_direction.angle()
+
+func go_to_player():
+	global_position = get_tree().get_first_node_in_group("player").global_position
+
+func transition():
+	if isFlying:
+		animationTree.set("parameters/IdleFlyTransition/transition_request", "idle")
+		animationTree.set("parameters/IdleFlyOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	else:
+		animationTree.set("parameters/IdleFlyTransition/transition_request", "fly")
+		animationTree.set("parameters/IdleFlyOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		await get_tree().create_timer(attack_cooldown).timeout
+	isFlying = not isFlying
 
 func start_animation():
 	animationTree.set("parameters/Awake/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
@@ -69,6 +154,14 @@ func _take_damage(damage):
 	print('boss take damage, %d' %hp)
 	damaged_animation()
 	sound.play()
+
+
+func zero_speed():
+	enemy.speed = 0
+
+func reset_speed():
+	enemy.speed = enemy.initial_speed
+
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)

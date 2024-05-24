@@ -50,9 +50,12 @@ func _ready():
 	
 	hp = enemy.initial_health
 	
+	default_texture()
+	default_animation()
+
+func default_texture():
 	sprite.texture = enemy.texture
 	attackSprite.texture = enemy.attackTexture
-	default_animation()
 
 func default_animation():
 	animationTree.set("parameters/Transition/transition_request", "idle")
