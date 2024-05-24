@@ -2,12 +2,12 @@
 
 [ext_resource type="Resource" uid="uid://7bys8i06wijs" path="res://resources/Projectiles/Arrow.tres" id="1_y7awy"]
 [ext_resource type="Script" path="res://resources/Weapons/Weapon.gd" id="2_edvhl"]
-[ext_resource type="Texture2D" uid="uid://dsbkswvn32l7b" path="res://scenes/Weapons/sword_ability/sword.png" id="3_cxfa7"]
+[ext_resource type="Texture2D" uid="uid://8lgxxqwhrlbc" path="res://assets/Weapons/sword.png" id="3_ukrp2"]
 
 [resource]
 script = ExtResource("2_edvhl")
 name = "Sword"
-texture = ExtResource("3_cxfa7")
+texture = ExtResource("3_ukrp2")
 baseDamage = 30.0
 attackInterval = 2.0
 attackCount = null

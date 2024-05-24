@@ -11,7 +11,7 @@
 script = ExtResource("1_8pt7n")
 name = "Wade"
 texture = ExtResource("2_2w0bk")
-health = 5
+health = 10
 speed = 330.0
 armor = null
 weapon = ExtResource("3_qgre5")
