@@ -6,7 +6,7 @@ class_name Immunes
 
 func _init():
 	cooldown = 10
-	texture = load("res://assets/Skill/skill_image.png")
+	texture = load("res://assets/Player/skill-icon/morin-immunity.png")
 	description = "Immune Skill"
 
 func activate():

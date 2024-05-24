@@ -8,7 +8,7 @@ var area_duration = 4
 
 func _init():
 	cooldown = 5 
-	texture = load("res://assets/Skill/skill_image.png")
+	texture = load("res://assets/Player/skill-icon/archie-arrowrain.png")
 	description = "Arrow rain"
 
 func activate():

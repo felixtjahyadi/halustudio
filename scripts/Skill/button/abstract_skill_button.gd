@@ -14,6 +14,7 @@ signal skill_active(value: bool)
 func setup(skill_p: Skill, key_p: int):
 	skill = skill_p
 	key = key_p
+	texture_normal = skill_p.texture
 	tooltip_text = skill.description
 
 func _ready():

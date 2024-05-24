@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=6 format=3 uid="uid://dlnnkbmu8g1o0"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=7 format=3 uid="uid://dlnnkbmu8g1o0"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_8pt7n"]
 [ext_resource type="Texture2D" uid="uid://caphintex0d76" path="res://assets/Player/art/wade.png" id="1_waxy4"]
 [ext_resource type="Texture2D" uid="uid://vnq1x4ddguxv" path="res://assets/Player/spritesheets/wade/wade-anim-sheet.png" id="2_2w0bk"]
 [ext_resource type="Texture2D" uid="uid://cnxgr1trvk5pb" path="res://assets/Player/spritesheets/wade/wade-avatar.png" id="2_10u80"]
 [ext_resource type="Resource" uid="uid://l4owv6sc1nqk" path="res://resources/Weapons/Sword.tres" id="3_qgre5"]
+[ext_resource type="Script" path="res://scripts/Skill/concrete/dash.gd" id="4_xf0dr"]
 
 [resource]
 script = ExtResource("1_8pt7n")
@@ -17,3 +18,4 @@ weapon = ExtResource("3_qgre5")
 art = ExtResource("1_waxy4")
 avatar = ExtResource("2_10u80")
 cooldown = 5
+skills_script = Array[Script]([ExtResource("4_xf0dr")])

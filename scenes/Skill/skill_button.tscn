@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhi46nxjlij1j"]
 
 [ext_resource type="Texture2D" uid="uid://vvppnb0knbrj" path="res://assets/Skill/skill_image.png" id="1_cnvgu"]
-[ext_resource type="Texture2D" uid="uid://cycjtxkxnsxp5" path="res://assets/UI/progress.jpg" id="2_34p1w"]
+[ext_resource type="Texture2D" uid="uid://ddop7u3cp6xg" path="res://assets/Skill/progress_circle.png" id="2_wlaho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1umu"]
 bg_color = Color(0.533333, 0.611765, 0.737255, 1)
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 step = 0.1
 fill_mode = 5
-texture_progress = ExtResource("2_34p1w")
+texture_progress = ExtResource("2_wlaho")
 tint_progress = Color(1, 1, 1, 0.392157)
 
 [node name="Key" type="Label" parent="."]
