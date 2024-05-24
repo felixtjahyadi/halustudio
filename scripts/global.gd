@@ -157,13 +157,15 @@ var all_weapons: Dictionary = {
 	"Book": load("res://resources/Weapons/Book.tres"),
 	"Bow": load("res://resources/Weapons/Bow.tres"),
 	"Gun": load("res://resources/Weapons/Gun.tres"),
-	"Sword": load("res://resources/Weapons/Sword.tres")
+	"MachineGun": load("res://resources/Weapons/MachineGun.tres"),
+	"Sword": load("res://resources/Weapons/Sword.tres"),
 }
 
 var weapons: Array[WeaponResource] = [
 	all_weapons["Book"],
 	all_weapons["Bow"],
 	all_weapons["Gun"],
+	all_weapons["MachineGun"],
 	all_weapons["Sword"],
 ]
 

@@ -17,3 +17,4 @@ weapon = ExtResource("5_1ep7q")
 art = ExtResource("1_fa5mj")
 avatar = ExtResource("2_s2btg")
 cooldown = 0
+skills_script = Array[Script]([])
