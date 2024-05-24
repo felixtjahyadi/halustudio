@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0eliiyi02sym"]
+
+[ext_resource type="Script" path="res://scripts/Particle/projectile_trail.gd" id="1_n0uvr"]
+
+[sub_resource type="Gradient" id="Gradient_jp3u0"]
+offsets = PackedFloat32Array(0, 0.532787, 1)
+colors = PackedColorArray(1, 0.563577, 0, 1, 1, 0, 0.109699, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kg4f7"]
+gradient = SubResource("Gradient_jp3u0")
+
+[sub_resource type="Curve" id="Curve_pa2hf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wbjxh"]
+curve = SubResource("Curve_pa2hf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i4fd0"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_wbjxh")
+color_ramp = SubResource("GradientTexture1D_kg4f7")
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+
+[node name="ProjectileTrail" type="GPUParticles2D"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_i4fd0")
+lifetime = 5.0
+trail_lifetime = 10.0
+script = ExtResource("1_n0uvr")

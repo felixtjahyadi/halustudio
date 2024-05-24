@@ -3,6 +3,8 @@ extends RigidBody2D
 var projectile_range: float
 var start_position: Vector2
 
+@onready var particle = $GPUParticles2D
+
 func setup(start: Vector2, max_range: float):
 	projectile_range = max_range
 	start_position = start
