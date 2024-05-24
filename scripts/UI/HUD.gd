@@ -20,6 +20,7 @@ class_name HUD
 @onready var boss_info = $Boss
 @onready var boss_name_label = $Boss/MarginContainer/VBoxContainer/Name
 @onready var boss_hp_bar = $Boss/MarginContainer/VBoxContainer/ProgressBar
+@onready var ammo = $Resource/MarginContainer/VBoxContainer/HBoxContainer2/Ammo
 
 var current_boss
 
@@ -44,6 +45,7 @@ func _process(delta):
 	if current_boss:
 		update_boss_info(current_boss)
 	update_resource()
+	update_ammo()
 
 func _update():
 	update_avatar()
@@ -130,3 +132,6 @@ func remove_boss_info():
 
 func update_resource():
 	coin_count.text = "x%d" % [global.money]
+
+func update_ammo():
+	ammo.text = str(global.player_node.get_weapon().ammo)

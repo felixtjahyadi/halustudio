@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6cn4doel2vsi"]
+[gd_scene load_steps=18 format=3 uid="uid://c6cn4doel2vsi"]
 
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_yqoym"]
 [ext_resource type="Texture2D" uid="uid://cx1aiw7if0shr" path="res://assets/UI/HUD Frame/Box.jpg" id="2_y5rfh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://fk87d3hq2j1q" path="res://assets/UI/HUD Frame/rectangle_3.jpg" id="5_7hl8x"]
 [ext_resource type="Texture2D" uid="uid://c7wnglkox06uh" path="res://assets/Object/coin.png" id="6_i4mu0"]
 [ext_resource type="Texture2D" uid="uid://cv2ge4odgh6o4" path="res://assets/UI/HUD Frame/rectangle_2.png" id="6_p1vvr"]
+[ext_resource type="Texture2D" uid="uid://d3ust1ysv15j3" path="res://assets/Object/ammobox.png" id="7_mkyk1"]
 [ext_resource type="PackedScene" uid="uid://bhi46nxjlij1j" path="res://scenes/Skill/skill_button.tscn" id="7_o4q3t"]
 [ext_resource type="Texture2D" uid="uid://wwsuxbaejukd" path="res://assets/UI/HUD Frame/rectangle_1.jpg" id="8_nx211"]
 [ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="9_acok5"]
@@ -201,7 +202,7 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="Resource/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Score"
+text = "Status"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Resource/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -213,6 +214,21 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Coins" type="Label" parent="Resource/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Resource/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Resource/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("7_mkyk1")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Ammo" type="Label" parent="Resource/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
