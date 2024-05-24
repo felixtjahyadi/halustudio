@@ -521,7 +521,7 @@ animation = &"idle"
 animation = &"sleep"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vy543"]
-graph_offset = Vector2(-313.168, 242.758)
+graph_offset = Vector2(-346.474, 38.5268)
 nodes/AttackTransition/node = SubResource("AnimationNodeTransition_hv5vb")
 nodes/AttackTransition/position = Vector2(180, 360)
 nodes/Awake/node = SubResource("AnimationNodeOneShot_rtqep")
