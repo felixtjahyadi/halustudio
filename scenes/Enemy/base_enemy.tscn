@@ -90,6 +90,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
+bus = &"sfx"
 
 [editable path="HurtBox"]
 [editable path="HurtBox2"]

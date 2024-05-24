@@ -1,6 +1,6 @@
 extends Skill
 
-class_name Immune
+class_name ImmuneS
 
 @export var immune_duration = 1
 
