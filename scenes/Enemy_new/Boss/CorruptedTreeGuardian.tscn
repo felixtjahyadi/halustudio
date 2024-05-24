@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/CorruptedTreeGuardian.gd" id="1_qfswb"]
 [ext_resource type="Texture2D" uid="uid://cy0lqerjactwn" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-all-anim-sheet.png" id="2_0h037"]
-[ext_resource type="Resource" path="res://resources/Enemies/Boss/CorruptedTreeGuardian.tres" id="2_q8ndo"]
+[ext_resource type="Resource" uid="uid://d2s6j345sgeda" path="res://resources/Enemies/Boss/CorruptedTreeGuardian.tres" id="2_q8ndo"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="4_5mtw1"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="5_nwwvg"]
 
