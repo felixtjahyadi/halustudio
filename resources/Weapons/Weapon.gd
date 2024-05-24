@@ -31,10 +31,13 @@ class_name WeaponResource
 var damage_multiplier: float = 1
 var projectile_speed_multiplier: float = 1
 var weapon_enabled: float = true
+var trail: PackedScene = load("res://scenes/Particle/projectile_trail.tscn")
+var trail_enable = false
 
 func get_damage():
 	return (baseDamage + (damageBonus * rarity)) * damage_multiplier
 	
-func multiplier_reset():
+func reset():
 	damage_multiplier = 1
 	projectile_speed_multiplier = 1
+	trail_enable = false

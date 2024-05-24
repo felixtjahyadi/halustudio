@@ -15,6 +15,13 @@ class_name HUD
 @onready var button_skills = $Utility/MarginContainer/VBoxContainer/ButtonSkills
 @onready var skill_button_scene: PackedScene = load("res://scenes/Skill/skill_button.tscn")
 
+@onready var boss_enemies = get_tree().get_nodes_in_group("boss")
+@onready var boss_info = $Boss
+@onready var boss_name_label = $Boss/MarginContainer/VBoxContainer/Name
+@onready var boss_hp_bar = $Boss/MarginContainer/VBoxContainer/ProgressBar
+
+var current_boss
+
 func _ready():
 	# Subscribe signal
 	global.swap.connect(_update)
@@ -23,8 +30,18 @@ func _ready():
 	global.player_node.immune.connect(update_immune_health_bar)
 	set_process(true)
 	
+	if len(boss_enemies) > 0:
+		for boss in boss_enemies:
+			var visible_notifier = boss.find_child("VisibleOnScreenNotifier2D")
+			visible_notifier.screen_entered.connect(update_boss_info.bind(boss))
+			visible_notifier.screen_exited.connect(remove_boss_info)
+			boss.tree_exited.connect(remove_boss_info)
+	
 func _process(delta):
 	update_cooldown()
+	
+	if current_boss:
+		update_boss_info(current_boss)
 
 func _update():
 	update_avatar()
@@ -94,3 +111,17 @@ func update_skill():
 		skill_button.setup(skill, key)
 		button_skills.add_child(skill_button)
 		key += 1
+
+func update_boss_info(boss):
+	if not is_instance_valid(boss): return
+	
+	boss_info.visible = true
+	current_boss = boss
+	
+	boss_name_label.text = boss.enemy.name
+	boss_hp_bar.max_value = boss.enemy.initial_health
+	boss_hp_bar.value = boss.hp
+
+func remove_boss_info():
+	boss_info.visible = false
+	current_boss = null

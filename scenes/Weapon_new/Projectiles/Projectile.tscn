@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fsewta3vbbrg"]
+[gd_scene load_steps=8 format=3 uid="uid://fsewta3vbbrg"]
 
 [ext_resource type="Script" path="res://scripts/Weapon/Projectiles/Projectile.gd" id="1_mkp3v"]
 [ext_resource type="Texture2D" uid="uid://bdd2ahb6um4rw" path="res://assets/Projectile/arrow.png" id="1_yb7iv"]
@@ -7,6 +7,23 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnxlr"]
 radius = 8.0
 height = 16.0
+
+[sub_resource type="Curve" id="Curve_6v8si"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ylfmg"]
+curve = SubResource("Curve_6v8si")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_exj2l"]
+lifetime_randomness = 0.5
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_ylfmg")
+color = Color(1, 0, 0, 1)
 
 [node name="Projectile" type="RigidBody2D"]
 collision_layer = 0
@@ -24,6 +41,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rnxlr")
 
 [node name="ProjectileHitBox" parent="." instance=ExtResource("3_wixkm")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_exj2l")
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
