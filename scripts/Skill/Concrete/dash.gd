@@ -1,6 +1,6 @@
 extends Skill
 
-class_name Dash
+#class_name Dash
 
 @export var immune_duration = 1
 @export var dash_duration = 0.2
