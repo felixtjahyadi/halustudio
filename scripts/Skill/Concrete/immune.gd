@@ -1,7 +1,5 @@
 extends Skill
 
-#class_name Immunes
-
 @export var immune_duration = 1
 
 func _init():

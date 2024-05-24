@@ -1,7 +1,5 @@
 extends FocusableSkill
 
-#class_name Explosion
-
 var area_of_effect = load("res://scenes/Skill/explosion_aoe.tscn")
 var area_scene: Node
 var area_duration = 2

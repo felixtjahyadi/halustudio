@@ -35,6 +35,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, -0.174533, 3.14159, 0.0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_slice_hitbox"
+}, {
+"args": [],
+"method": &"disable_slice_hitbox"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gmjo"]
 _data = {
@@ -43,7 +60,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqocq"]
-size = Vector2(8, 12)
+size = Vector2(8, 10)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3prf"]
 radius = 8.0
@@ -58,7 +75,6 @@ script = ExtResource("1_88djt")
 libraries = {
 "": SubResource("AnimationLibrary_7gmjo")
 }
-autoplay = "swing"
 
 [node name="WeaponNode" type="Node2D" parent="."]
 
@@ -66,11 +82,12 @@ autoplay = "swing"
 texture = ExtResource("3_i41c0")
 
 [node name="MeleeArea" parent="WeaponNode/WeaponSprite" instance=ExtResource("3_4gj4b")]
-damage = 50
+damage = 0
 
 [node name="CollisionShape2D" parent="WeaponNode/WeaponSprite/MeleeArea" index="0"]
-position = Vector2(0, -7)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_qqocq")
+disabled = true
 
 [node name="ProjectileSpawnPosition" type="Marker2D" parent="."]
 

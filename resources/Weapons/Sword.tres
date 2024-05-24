@@ -8,8 +8,8 @@
 script = ExtResource("2_edvhl")
 name = "Sword"
 texture = ExtResource("3_cxfa7")
-baseDamage = 10.0
-attackInterval = null
+baseDamage = 30.0
+attackInterval = 2.0
 attackCount = null
 type = "melee"
 rarity = null
