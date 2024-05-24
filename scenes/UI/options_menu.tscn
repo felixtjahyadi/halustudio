@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://w8gw4cg7eo6o"]
 
 [ext_resource type="Script" path="res://scripts/UI/options_menu.gd" id="1_36c6s"]
-[ext_resource type="Texture2D" uid="uid://cmj8j0q1vjhyj" path="res://assets/UI/mainmenu-bg.jpg" id="2_g11qn"]
+[ext_resource type="Texture2D" uid="uid://brq175p832ci7" path="res://assets/UI/mainmenu-bg.jpg" id="2_g11qn"]
 [ext_resource type="PackedScene" path="res://scenes/UI/vignette.tscn" id="2_hhaia"]
-[ext_resource type="PackedScene" uid="uid://ct72ef3l5urvg" path="res://scenes/UI/sound_button.tscn" id="3_otvbw"]
+[ext_resource type="PackedScene" path="res://scenes/UI/sound_button.tscn" id="3_otvbw"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 layer = 2

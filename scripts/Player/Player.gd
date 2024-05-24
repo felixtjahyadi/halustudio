@@ -96,6 +96,7 @@ func move():
 	move_and_slide()
 
 func _process(delta):
+	_health_bar_update()
 	if is_dead: return
 	set_animation()
 	swap_listen()
@@ -155,12 +156,20 @@ func damaged_animation():
 func _on_grab_area_entered(area):
 	if area.is_in_group("loot"):
 		area.target = self
+	else:
+		print(area)
 
 func _on_collect_area_entered(area):
 	if area.is_in_group("loot"):
-		var money_value = area.collect()
-		global.money += money_value
-		global.total_money_collected += money_value
+		if area.is_in_group("money"):
+			var money_value = area.collect()
+			global.money += money_value
+			global.total_money_collected += money_value
+		elif area.is_in_group("potion"):
+			var heal_value = area.heal()
+			player.health += heal_value
+			if player.health >= player.initial_health:
+				player.health == player.initial_health
 
 # health bar
 func get_health_percent():

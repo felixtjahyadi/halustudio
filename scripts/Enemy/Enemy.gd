@@ -14,6 +14,8 @@ var coins = preload("res://scenes/Loot/Coin.tscn")
 var potions = preload("res://scenes/Loot/Potion.tscn")
 var chase = false
 var current_player = null
+var loot_spawned: bool = false
+var weapon_drop: PackedScene = preload("res://scenes/Weapon_new/Weapon.tscn")
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
@@ -36,7 +38,7 @@ signal remove_from_array(object)
 
 func _ready():
 	enemy.setup()
-	
+	var weapon_drop = global.weapons.pick_random()
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 	hitbox.damage = enemy.initial_damage
 	screen_size = get_viewport_rect().size
@@ -64,6 +66,10 @@ func _physics_process(_delta):
 	if hp <= 0:
 		animationTree.set("parameters/Transition/transition_request", "dead")
 		dead_process()
+		if not loot_spawned:
+			loot_spawn()
+			loot_spawned = true
+
 	elif chase and player:
 		animationTree.set("parameters/Transition/transition_request", "walk")
 		
@@ -80,23 +86,31 @@ func _physics_process(_delta):
 		
 	else:
 		animationTree.set("parameters/Transition/transition_request", "idle")
+		print(global_position)
+		
 
 func dead_process():
 	var enemy_death = death.instantiate()
 	enemy_death.global_position = global_position
 	get_parent().call_deferred("add_child", enemy_death)
-	emit_signal("remove_from_array", self)
+
+func loot_spawn():
+	var new_weapon = WeaponClass
+	new_weapon = weapon_drop.instantiate() 
+	new_weapon.weapon = global.weapons.pick_random()
+	new_weapon.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+	loot_base.call_deferred("add_child", new_weapon)
+	var rand_num = randi() % 100
+	if rand_num == 1:
+		var new_potion = potions.instantiate()
+		new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+		loot_base.call_deferred("add_child", new_potion)
 	var num_coins = randi() % int(enemy.max_coins) + 1 if int(enemy.max_coins) > 0 else 0
-	#for i in range(num_coins):
-		#var new_coin = coins.instantiate()
-		#var new_potion = potions.instantiate()
-		#new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-		#new_coin.money = enemy.money
-		#new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-		#new_potion.money = enemy.money
-		#loot_base.call_deferred("add_child", new_coin)
-		#loot_base.call_deferred("add_child", new_potion)
-	#queue_free() # already implemented in AnimationPlayer
+	for i in range(num_coins):
+		var new_coin = coins.instantiate()
+		new_coin.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+		new_coin.money = enemy.money
+		loot_base.call_deferred("add_child", new_coin)
 
 func damaged_animation():
 	

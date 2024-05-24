@@ -62,7 +62,6 @@ var owned_characters: Array[PlayerResource] = [
 	all_characters["Reina"],
 	all_characters["Wade"],
 ]
-
 # Character Selection
 var used_characters: Array[PlayerResource] = [
 	all_characters["Archie"],
@@ -152,4 +151,19 @@ func spawn_character(spawner: PlayerSpawner):
 # Money
 var money = 0
 var total_money_collected = 0
+
+# Weapon
+var all_weapons: Dictionary = {
+	"Book": load("res://resources/Weapons/Book.tres"),
+	"Bow": load("res://resources/Weapons/Bow.tres"),
+	"Gun": load("res://resources/Weapons/Gun.tres"),
+	"Sword": load("res://resources/Weapons/Sword.tres")
+}
+
+var weapons: Array[WeaponResource] = [
+	all_weapons["Book"],
+	all_weapons["Bow"],
+	all_weapons["Gun"],
+	all_weapons["Sword"],
+]
 
