@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfewjh2kp763r"]
+[gd_scene load_steps=4 format=3 uid="uid://f6r7jdksv2cw"]
 
 [ext_resource type="Script" path="res://scripts/Ammo.gd" id="1_oo83m"]
 [ext_resource type="Texture2D" uid="uid://d3ust1ysv15j3" path="res://assets/Object/ammobox.png" id="2_2l2br"]

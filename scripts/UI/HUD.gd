@@ -22,6 +22,8 @@ class_name HUD
 @onready var boss_hp_bar = $Boss/MarginContainer/VBoxContainer/ProgressBar
 @onready var ammo = $Resource/MarginContainer/VBoxContainer/HBoxContainer2/Ammo
 
+@onready var pause_menu_scene = preload("res://scenes/UI/pause_menu.tscn")
+
 var current_boss
 
 func _ready():
@@ -135,3 +137,8 @@ func update_resource():
 
 func update_ammo():
 	ammo.text = str(global.player_node.get_weapon().ammo)
+
+
+func _on_texture_button_pressed():
+	add_child(pause_menu_scene.instantiate())
+	get_tree().root.set_input_as_handled()
