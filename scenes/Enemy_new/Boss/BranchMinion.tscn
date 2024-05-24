@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/BranchMinion.gd" id="1_j4hl2"]
 [ext_resource type="Resource" uid="uid://btva6odntxjof" path="res://resources/Enemies/Boss/BranchMinion.tres" id="2_1p6tl"]
 [ext_resource type="Texture2D" uid="uid://dpg4ir8k17w2v" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/branch-minion-all-anim-sheet.png" id="2_whi1h"]
-[ext_resource type="Texture2D" uid="uid://djvfnbti0xbhm" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="3_5x5ad"]
+[ext_resource type="Texture2D" uid="uid://qymkdiaisfwj" path="res://assets/Enemy/Slime/slime-anim-attack-sheet.png" id="3_5x5ad"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="4_x1205"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="5_34wq7"]
 
@@ -127,6 +127,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_s2bbs"]
@@ -389,6 +401,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.0, 200.0, 0.0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_gdnet"]
 resource_name = "walk"
@@ -520,6 +544,7 @@ disabled = true
 position = Vector2(0, -8)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyBody"]
+visible = false
 texture = ExtResource("2_whi1h")
 hframes = 4
 vframes = 3
@@ -535,6 +560,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="EnemyBody"]
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
 tree_root = SubResource("AnimationNodeBlendTree_bivn4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/active = false
@@ -593,7 +621,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
-bus = &"sfx"
 
 [editable path="BigAreaHitBox"]
 [editable path="EnemyBody/HurtBox"]
