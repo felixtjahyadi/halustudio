@@ -5,4 +5,4 @@
 [node name="Dialogue" type="Node2D"]
 
 [node name="Dialogue" parent="." instance=ExtResource("1_kxvwg")]
-dialogue_name = "level2"
+dialogue_name = "level1_start"
