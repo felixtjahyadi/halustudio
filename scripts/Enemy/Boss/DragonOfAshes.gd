@@ -2,7 +2,7 @@ extends EnemyClass
 
 class_name DragonOfAshes
 
-var attack_cooldown : float = 3
+var attack_cooldown : float = 0
 
 @export var hp_regen : int = 100
 @export var speed_buff : int = 150
