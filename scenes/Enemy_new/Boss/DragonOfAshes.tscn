@@ -1,7 +1,7 @@
 [gd_scene load_steps=64 format=3 uid="uid://bec0emnqv7r36"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/DragonOfAshes.gd" id="1_jmk6q"]
-[ext_resource type="Resource" uid="uid://hap4su5kgyab" path="res://resources/Enemies/Boss/DragonOfAshes.tres" id="2_ur50a"]
+[ext_resource type="Resource" path="res://resources/Enemies/Boss/DragonOfAshes.tres" id="2_ur50a"]
 [ext_resource type="Texture2D" uid="uid://b4l4tl7tg3pxl" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_head_rage_anim.png" id="3_3xvag"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="3_dxxj3"]
 [ext_resource type="Texture2D" uid="uid://c6sfm8idwwui4" path="res://assets/Enemy/Boss/Dragon of Ashes - Parts/dragon_wing_l_anim_sheet.png" id="3_ljmkt"]
@@ -5075,6 +5075,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../EnemyBody")
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
 tree_root = SubResource("AnimationNodeBlendTree_vy543")
 anim_player = NodePath("../AnimationPlayer")
 parameters/AttackBlend/blend_amount = 0.5
@@ -5297,6 +5300,8 @@ bus = &"sfx"
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
 zoom = Vector2(0.5, 0.5)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [editable path="EnemyBody/AttackNode/SmallAreaHitBox"]
 [editable path="EnemyBody/AttackNode/AreaHitBox"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddq0fqh1vmqg7"]
+[gd_scene load_steps=7 format=3 uid="uid://b0eliiyi02sym"]
 
 [ext_resource type="Script" path="res://scripts/Particle/projectile_trail.gd" id="1_n0uvr"]
 
