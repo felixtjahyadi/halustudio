@@ -26,12 +26,14 @@ func _physics_process(_delta):
 			animationTree.set("parameters/DeadTransition/transition_request", "dead")
 		else:
 			if isFlying:
+				$CollisionEnemy.disabled = true
 				animationTree.set("parameters/Transition/transition_request", "fly")
 				
 				var direction = global_position.direction_to(get_tree().get_first_node_in_group("player").global_position)
-				velocity = direction * enemy.initial_speed
+				velocity = direction * enemy.speed
 				move_and_slide()
 			else:
+				$CollisionEnemy.disabled = false
 				animationTree.set("parameters/Transition/transition_request", "idle")
 			
 	else:
@@ -53,13 +55,16 @@ func attack_phase():
 		ground_attack()
 
 func fly_attack():
-	var attackIdx = randi_range(0, 1)
+	var attackIdx = randi_range(0, 2)
 	if attackIdx == 0:
 		attack_cooldown = 1
 		transition()
 	elif attackIdx == 1:
 		attack_cooldown = 3
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
+	elif attackIdx == 2:
+		attack_cooldown = 7
+		animationTree.set("parameters/CommonAttackTransition/transition_request", "fly_dash")
 
 func ground_attack():
 	var attackIdx = randi_range(0, 4)
@@ -92,7 +97,7 @@ func find_player():
 	$EnemyBody/AttackNode/FrontHitBox.rotation = player_direction.angle()
 
 func go_to_player():
-	position = get_tree().get_first_node_in_group("player").global_position
+	global_position = get_tree().get_first_node_in_group("player").global_position
 
 func transition():
 	if isFlying:
@@ -115,6 +120,14 @@ func _take_damage(damage):
 	print('boss take damage, %d' %hp)
 	damaged_animation()
 	sound.play()
+
+
+func zero_speed():
+	enemy.speed = 0
+
+func reset_speed():
+	enemy.speed = enemy.initial_speed
+
 
 func _on_hurt_box_hurt(damage, angle, knock_back_amount):
 	_take_damage(damage)
