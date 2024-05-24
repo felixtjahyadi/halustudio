@@ -26,12 +26,12 @@ func _on_area_2d_body_entered(body: CharacterBody2D):
 				global.current_map_texture = global.MAP_TEXTURE.FOREST
 			
 			if global.level == 7:
-				get_tree().change_scene_to_file(global.LEVEL_PATH + "WinScreen" + ".tscn")
+				ScreenTransition.transition_to_scene(global.LEVEL_PATH + "WinScreen" + ".tscn")
 			elif global.level % 3 == 0:
 				print("boss")
-				get_tree().change_scene_to_file(global.MAIN_LEVEL_PATH + "Boss " + str(global.level) + ".tscn")
+				ScreenTransition.transition_to_scene(global.MAIN_LEVEL_PATH + "Boss " + str(global.level) + ".tscn")
 			else:
 				print("normal")
-				get_tree().change_scene_to_file(global.MAIN_LEVEL_PATH + "Level " + str(global.level) + ".tscn")
+				ScreenTransition.transition_to_scene(global.MAIN_LEVEL_PATH + "Level " + str(global.level) + ".tscn")
 		else:
-			get_tree().change_scene_to_file(global.VARIATIONS_LEVEL_PATH + str(randi_range(1, global.variationsLevelCount)) + ".tscn")
+			ScreenTransition.transition_to_scene(global.VARIATIONS_LEVEL_PATH + str(randi_range(1, global.variationsLevelCount)) + ".tscn")
