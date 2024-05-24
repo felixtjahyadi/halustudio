@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=9 format=3 uid="uid://dmpdkd62mrfy4"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=7 format=3 uid="uid://dmpdkd62mrfy4"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_bnpqm"]
 [ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="1_e5rln"]
 [ext_resource type="Resource" uid="uid://y8hujqw40pki" path="res://resources/Weapons/Bow.tres" id="2_0m26q"]
 [ext_resource type="Texture2D" uid="uid://2teushv0g54i" path="res://assets/Player/spritesheets/archie/archie-avatar.png" id="2_ialm4"]
 [ext_resource type="Texture2D" uid="uid://du7qga4xcv4sy" path="res://assets/Player/spritesheets/archie/archie-anim-sheet.png" id="2_o4rb4"]
-[ext_resource type="Script" path="res://scripts/Skill/concrete/immune.gd" id="4_qeffs"]
 [ext_resource type="Script" path="res://scripts/Skill/concrete/arrow_rain.gd" id="5_gdvnk"]
-[ext_resource type="Script" path="res://scripts/Skill/concrete/snipe.gd" id="6_aobj7"]
 
 [resource]
 script = ExtResource("1_bnpqm")
@@ -20,4 +18,4 @@ weapon = ExtResource("2_0m26q")
 art = ExtResource("1_e5rln")
 avatar = ExtResource("2_ialm4")
 cooldown = 5
-skills_script = Array[Script]([ExtResource("4_qeffs"), ExtResource("5_gdvnk"), ExtResource("6_aobj7")])
+skills_script = Array[Script]([ExtResource("5_gdvnk")])
