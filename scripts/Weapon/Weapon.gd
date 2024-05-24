@@ -38,6 +38,8 @@ func _ready():
 		weaponSprite.position.x = rangeToPlayer
 		playerDetector.set_collision_mask_value(1, false)
 		playerDetector.set_collision_mask_value(2, false)
+	
+	animation_component.stop()
 
 func _on_player_update_weapon_sprite(weapon):
 	self.weapon = weapon

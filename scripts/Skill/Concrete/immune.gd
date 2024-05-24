@@ -1,6 +1,6 @@
 extends Skill
 
-@export var immune_duration = 1
+@export var immune_duration = 2
 
 func _init():
 	cooldown = 10
