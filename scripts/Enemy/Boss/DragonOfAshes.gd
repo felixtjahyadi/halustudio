@@ -5,9 +5,11 @@ class_name DragonOfAshes
 var attack_cooldown : float = 3
 
 @export var hp_regen : int = 100
+@export var speed_buff : int = 150
 
 var isAwake : bool = false
 var isFlying : bool = false
+var isImmune : bool = false
 
 signal on_boss_dead()
 
@@ -38,6 +40,8 @@ func _physics_process(_delta):
 				$CollisionEnemy.disabled = false
 				animationTree.set("parameters/Transition/transition_request", "idle")
 			
+			if isImmune:
+				modulate = Color.SKY_BLUE
 	else:
 		animationTree.set("parameters/Transition/transition_request", "sleep")
 
@@ -46,7 +50,8 @@ func emit_boss_dead():
 
 func _reset():
 	await get_tree().create_timer(attack_cooldown).timeout
-	attack_phase()
+	if isAwake:
+		attack_phase()
 	_reset()
 
 func attack_phase():
@@ -57,7 +62,7 @@ func attack_phase():
 		ground_attack()
 
 func fly_attack():
-	var attackIdx = randi_range(0, 5)
+	var attackIdx = randi_range(0, 6)
 	if attackIdx == 0:
 		# transition
 		attack_cooldown = 1
@@ -72,8 +77,8 @@ func fly_attack():
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "fly_dash")
 	elif attackIdx == 3:
 		# speed buff
-		attack_cooldown = 2 
-		enemy.speed = 250
+		attack_cooldown = 1
+		enemy.speed += speed_buff
 		await get_tree().create_timer(2).timeout
 		enemy.speed = enemy.initial_speed
 	elif attackIdx == 4:
@@ -84,13 +89,13 @@ func fly_attack():
 		transition()
 	elif attackIdx == 5:
 		# heal
-		hp += hp_regen
-		modulate = Color.GREEN
-		await get_tree().create_timer(0.2).timeout
-		modulate = Color.WHITE
+		heal_skill()
+	elif attackIdx == 6:
+		# shield
+		shield_skill()
 
 func ground_attack():
-	var attackIdx = randi_range(0, 5)
+	var attackIdx = randi_range(0, 6)
 	if attackIdx == 0:
 		# transition
 		attack_cooldown = 1
@@ -117,10 +122,24 @@ func ground_attack():
 		transition()
 	elif attackIdx == 5:
 		# heal
-		hp += hp_regen
-		modulate = Color.GREEN
-		await get_tree().create_timer(0.2).timeout
-		modulate = Color.WHITE
+		heal_skill()
+	elif attackIdx == 6:
+		# shield
+		shield_skill()
+
+func heal_skill():
+	attack_cooldown = 0
+	hp += hp_regen
+	modulate = Color.GREEN
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color.WHITE
+
+func shield_skill():
+	attack_cooldown = 1
+	isImmune = true
+	await get_tree().create_timer(3).timeout
+	isImmune = false
+	modulate = Color.WHITE
 
 func reset_CommonAttackTransition():
 	if animationTree.get("parameters/CommonAttackTransition/current_state") != "none":
@@ -150,10 +169,11 @@ func start_animation():
 	_reset()
 
 func _take_damage(damage):
-	hp -= damage
-	print('boss take damage, %d' %hp)
-	damaged_animation()
-	sound.play()
+	if not isImmune:
+		hp -= damage
+		print('boss take damage, %d' %hp)
+		damaged_animation()
+		sound.play()
 
 
 func zero_speed():
