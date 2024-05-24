@@ -4,6 +4,7 @@ class_name Skill
 
 @export var cooldown: int
 @export var texture: Texture2D
+@export var skill_name: String
 @export var description: String
 
 func activate():

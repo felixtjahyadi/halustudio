@@ -19,3 +19,4 @@ art = ExtResource("1_e5rln")
 avatar = ExtResource("2_ialm4")
 cooldown = 5
 skills_script = Array[Script]([ExtResource("5_gdvnk")])
+description = "A formidable archer skilled in long-range attacks with his bow."

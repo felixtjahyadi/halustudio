@@ -15,7 +15,7 @@ func setup(skill_p: Skill, key_p: int):
 	skill = skill_p
 	key = key_p
 	texture_normal = skill_p.texture
-	tooltip_text = skill.description
+	tooltip_text = "%s\n%s" % [skill.skill_name, skill.description]
 
 func _ready():
 	update_shortcut_key()

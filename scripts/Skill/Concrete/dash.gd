@@ -12,7 +12,8 @@ var dash_ghost_node = load("res://scenes/Skill/dash_ghost.tscn")
 func _init():
 	cooldown = 5
 	texture = load("res://assets/Player/skill-icon/wade-dashnslash.png")
-	description = "Dash Skill"
+	skill_name = "Dash"
+	description = "Swiftly dashes through enemies and temporarily immune."
 
 func activate():
 	global.player_node.is_immune = true

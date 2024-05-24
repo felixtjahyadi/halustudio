@@ -19,3 +19,4 @@ art = ExtResource("1_esf6i")
 avatar = ExtResource("2_nfgl8")
 cooldown = 5
 skills_script = Array[Script]([ExtResource("4_1nxqv")])
+description = "A sharpshooter who relies on precision, making him a deadly threat on the battlefield."

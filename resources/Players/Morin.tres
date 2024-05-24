@@ -19,3 +19,4 @@ art = ExtResource("1_e6165")
 avatar = ExtResource("2_bpq60")
 cooldown = 5
 skills_script = Array[Script]([ExtResource("4_ogvl1")])
+description = "A powerful crusader with a strong shield, always at the front lines to protect the team from enemy attacks."

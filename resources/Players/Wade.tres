@@ -19,3 +19,4 @@ art = ExtResource("1_waxy4")
 avatar = ExtResource("2_10u80")
 cooldown = 5
 skills_script = Array[Script]([ExtResource("4_xf0dr")])
+description = "A swift and stealthy assassin, capable of moving quickly and eliminating targets."

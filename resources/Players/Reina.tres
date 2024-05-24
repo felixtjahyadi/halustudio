@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=6 format=3 uid="uid://dba5ygy4h3cf3"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=7 format=3 uid="uid://dba5ygy4h3cf3"]
 
 [ext_resource type="Texture2D" uid="uid://b6pcy0hcpf7b1" path="res://assets/Player/art/reina.png" id="1_auj4e"]
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_vtpia"]
 [ext_resource type="Texture2D" uid="uid://b7ijxeeethl8u" path="res://assets/Player/spritesheets/reina/reina-anim-sheet.png" id="2_48ch5"]
 [ext_resource type="Texture2D" uid="uid://bfnga8ujnhwye" path="res://assets/Player/spritesheets/reina/reina-avatar.png" id="2_miwvp"]
+[ext_resource type="Script" path="res://scripts/Skill/concrete/explosion.gd" id="4_uj0yf"]
 [ext_resource type="Resource" uid="uid://c6vfbyai3j7a2" path="res://resources/Weapons/Book.tres" id="6_vdjhc"]
 
 [resource]
@@ -17,4 +18,5 @@ weapon = ExtResource("6_vdjhc")
 art = ExtResource("1_auj4e")
 avatar = ExtResource("2_miwvp")
 cooldown = 5
-skills_script = Array[Script]([])
+skills_script = Array[Script]([ExtResource("4_uj0yf")])
+description = "A wise and powerful mage, using her magic to control elements."

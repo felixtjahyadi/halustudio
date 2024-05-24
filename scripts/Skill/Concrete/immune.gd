@@ -7,7 +7,8 @@ class_name Immunes
 func _init():
 	cooldown = 10
 	texture = load("res://assets/Player/skill-icon/morin-immunity.png")
-	description = "Immune Skill"
+	skill_name = "Immune"
+	description = "Temporarily becomes invulnerable to all damage."
 
 func activate():
 	global.player_node.is_immune = true

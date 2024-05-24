@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckuegc1yj5kb0"]
+[gd_scene load_steps=7 format=3 uid="uid://ckuegc1yj5kb0"]
 
 [ext_resource type="Script" path="res://scripts/UI/character_select_info2.gd" id="1_rslve"]
 [ext_resource type="Texture2D" uid="uid://b3chr2ky46m58" path="res://assets/Player/art/Archie.png" id="2_80s33"]
 [ext_resource type="Texture2D" uid="uid://bkt233xy3ldyj" path="res://assets/Icon/health.png" id="3_h2ies"]
 [ext_resource type="Texture2D" uid="uid://c7b2ou8g70iv8" path="res://assets/Icon/speed.png" id="4_fn6c5"]
 [ext_resource type="Texture2D" uid="uid://bxem1la2l0rbk" path="res://assets/Icon/shield.png" id="5_hwmbt"]
+[ext_resource type="Texture2D" uid="uid://cr2uj8fk283ow" path="res://assets/Player/skill-icon/archie-arrowrain.png" id="6_s4ddn"]
 
 [node name="CharacterSelectInfo" type="Control"]
 layout_mode = 3
@@ -99,10 +100,9 @@ text = "Character Name"
 
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterInfo"]
 clip_contents = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
 autowrap_mode = 2
 
 [node name="CharacterStat" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
@@ -174,6 +174,25 @@ text = "Character Skill
 [node name="Skills" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill"]
 layout_mode = 2
 theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill/Skills"]
+layout_mode = 2
+texture = ExtResource("6_s4ddn")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill/Skills"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="SkillName" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill/Skills/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Skill Name"
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/CharacterSkill/Skills/VBoxContainer"]
+layout_mode = 2
+text = "Description"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
