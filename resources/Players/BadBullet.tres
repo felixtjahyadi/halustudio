@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=6 format=3 uid="uid://rayiauay22qm"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=7 format=3 uid="uid://rayiauay22qm"]
 
 [ext_resource type="Script" path="res://resources/Players/Player.gd" id="1_1h05t"]
 [ext_resource type="Texture2D" uid="uid://cljjnfn8p3m2g" path="res://assets/Player/art/Ninja.png" id="1_esf6i"]
 [ext_resource type="Texture2D" uid="uid://dyrfm85ds3ya4" path="res://assets/Player/spritesheets/badbullet/badbullet-anim-sheet.png" id="2_agl11"]
 [ext_resource type="Texture2D" uid="uid://crmqmyplr5m7v" path="res://assets/Player/spritesheets/badbullet/badbullet-avatar.png" id="2_nfgl8"]
+[ext_resource type="Script" path="res://scripts/Skill/concrete/snipe.gd" id="4_1nxqv"]
 [ext_resource type="Resource" uid="uid://dfo5pbgjofu2f" path="res://resources/Weapons/Gun.tres" id="6_m35yx"]
 
 [resource]
@@ -17,4 +18,4 @@ weapon = ExtResource("6_m35yx")
 art = ExtResource("1_esf6i")
 avatar = ExtResource("2_nfgl8")
 cooldown = 5
-skills_script = Array[Script]([])
+skills_script = Array[Script]([ExtResource("4_1nxqv")])

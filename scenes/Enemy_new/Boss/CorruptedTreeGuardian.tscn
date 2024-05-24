@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Enemy/Boss/CorruptedTreeGuardian.gd" id="1_qfswb"]
 [ext_resource type="Texture2D" uid="uid://cy0lqerjactwn" path="res://assets/Enemy/Boss/Corrupted Tree Guardian/tree-boss-all-anim-sheet.png" id="2_0h037"]
-[ext_resource type="Resource" uid="uid://d2s6j345sgeda" path="res://resources/Enemies/Boss/CorruptedTreeGuardian.tres" id="2_q8ndo"]
+[ext_resource type="Resource" path="res://resources/Enemies/Boss/CorruptedTreeGuardian.tres" id="2_q8ndo"]
 [ext_resource type="PackedScene" uid="uid://bjdcaaumh0fhj" path="res://scenes/Utils/hurt_box.tscn" id="4_5mtw1"]
 [ext_resource type="PackedScene" uid="uid://3fk3erokqos" path="res://scenes/Utils/hit_box.tscn" id="5_nwwvg"]
 
@@ -594,6 +594,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../EnemyBody")
+libraries = {
+"": SubResource("AnimationLibrary_q2cqq")
+}
 tree_root = SubResource("AnimationNodeBlendTree_vy543")
 anim_player = NodePath("../AnimationPlayer")
 parameters/AttackTransition/current_state = "none"
@@ -702,8 +705,8 @@ pitch_scale = 1.5
 bus = &"sfx"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.999998, -12.5)
-scale = Vector2(6.8, 6.55)
+position = Vector2(-0.5, -12)
+scale = Vector2(13.15, 12.9)
 
 [editable path="BigAreaHitBox"]
 [editable path="FrontHitBox"]
