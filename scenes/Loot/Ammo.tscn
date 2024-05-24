@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfewjh2kp763r"]
+
+[ext_resource type="Script" path="res://scripts/Ammo.gd" id="1_oo83m"]
+[ext_resource type="Texture2D" uid="uid://d3ust1ysv15j3" path="res://assets/Object/ammobox.png" id="2_2l2br"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7saml"]
+size = Vector2(17, 11)
+
+[node name="Ammo" type="Area2D" groups=["ammo", "loot"]]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_oo83m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2l2br")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_7saml")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0

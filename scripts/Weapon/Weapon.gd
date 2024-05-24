@@ -96,7 +96,8 @@ func _melee_attack():
 
 ## range ##
 func _range_attack():
-	_spawn_projectile()
+	if weapon.maxAmmo >0:
+		_spawn_projectile()
 
 func _spawn_projectile():
 	if not weapon.weapon_enabled: return
@@ -113,6 +114,8 @@ func _spawn_projectile():
 	projectile_instance.rotation_degrees = rotation_degrees
 	projectile_instance.apply_impulse(Vector2(weapon.projectileSpeed * weapon.projectile_speed_multiplier, 0).rotated(rotation))
 	get_tree().get_root().add_child(projectile_instance)
+	weapon.maxAmmo -= 1
+	print(weapon.maxAmmo)
 
 func _attack_cooldown():
 	canAttack = false
