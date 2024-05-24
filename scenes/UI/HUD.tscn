@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6cn4doel2vsi"]
+[gd_scene load_steps=21 format=3 uid="uid://c6cn4doel2vsi"]
 
 [ext_resource type="Script" path="res://scripts/UI/HUD.gd" id="1_yqoym"]
 [ext_resource type="Texture2D" uid="uid://cx1aiw7if0shr" path="res://assets/UI/HUD Frame/Box.jpg" id="2_y5rfh"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bhi46nxjlij1j" path="res://scenes/Skill/skill_button.tscn" id="7_o4q3t"]
 [ext_resource type="Texture2D" uid="uid://wwsuxbaejukd" path="res://assets/UI/HUD Frame/rectangle_1.jpg" id="8_nx211"]
 [ext_resource type="PackedScene" uid="uid://ca8q6xbvpkbyx" path="res://scenes/Utils/health_bar.tscn" id="9_acok5"]
+[ext_resource type="Texture2D" uid="uid://hbehg7as4g2x" path="res://assets/UI/pause_button.jpg" id="12_tq4mo"]
+[ext_resource type="Texture2D" uid="uid://qin8v7bqopu8" path="res://assets/UI/pause_button_hover.png" id="13_5pqqp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brfot"]
 texture = ExtResource("2_y5rfh")
@@ -53,6 +55,8 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0saj"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_yqoym")
@@ -328,3 +332,26 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 show_percentage = true
+
+[node name="Pause Button" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o0saj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Button"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureButton" type="TextureButton" parent="Pause Button/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("12_tq4mo")
+texture_hover = ExtResource("13_5pqqp")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="pressed" from="Pause Button/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]

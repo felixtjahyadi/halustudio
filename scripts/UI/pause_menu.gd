@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 @onready var panel_container = %PanelContainer
+@onready var resume_button = %ResumeButton
+@onready var options_button = %OptionsButton
+@onready var quit_button = %QuitButton
 
 var options_menu_scene = preload("res://scenes/ui/options_menu.tscn")
 var is_closing
@@ -10,9 +13,9 @@ func _ready():
 	get_tree().paused = true
 	panel_container.pivot_offset = panel_container.size / 2
 	
-	$%ResumeButton.pressed.connect(on_resume_pressed)
-	$%OptionsButton.pressed.connect(on_options_pressed)
-	$%QuitButton.pressed.connect(on_quit_pressed)
+	resume_button.pressed.connect(on_resume_pressed)
+	options_button.pressed.connect(on_options_pressed)
+	quit_button.pressed.connect(on_quit_pressed)
 	
 	$AnimationPlayer.play("default")
 	var tween = create_tween()
