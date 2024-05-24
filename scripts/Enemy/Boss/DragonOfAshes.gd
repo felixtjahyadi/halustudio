@@ -4,6 +4,8 @@ class_name DragonOfAshes
 
 var attack_cooldown : float = 3
 
+@export var hp_regen : int = 100
+
 var isAwake : bool = false
 var isFlying : bool = false
 
@@ -55,47 +57,70 @@ func attack_phase():
 		ground_attack()
 
 func fly_attack():
-	var attackIdx = randi_range(0, 4)
+	var attackIdx = randi_range(0, 5)
 	if attackIdx == 0:
+		# transition
 		attack_cooldown = 1
 		transition()
 	elif attackIdx == 1:
+		# shoot front
 		attack_cooldown = 3
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
 	elif attackIdx == 2:
+		# fly dash
 		attack_cooldown = 7
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "fly_dash")
 	elif attackIdx == 3:
-		enemy.speed = 200
-		await get_tree().create_timer(3).timeout
+		# speed buff
+		attack_cooldown = 2 
+		enemy.speed = 250
+		await get_tree().create_timer(2).timeout
 		enemy.speed = enemy.initial_speed
 	elif attackIdx == 4:
+		# slam + transition
 		attack_cooldown = 3
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		transition()
+	elif attackIdx == 5:
+		# heal
+		hp += hp_regen
+		modulate = Color.GREEN
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color.WHITE
 
 func ground_attack():
-	var attackIdx = randi_range(0, 4)
+	var attackIdx = randi_range(0, 5)
 	if attackIdx == 0:
+		# transition
 		attack_cooldown = 1
 		transition()
 	elif attackIdx == 1:
+		# shoot front
 		attack_cooldown = 3
 		animationTree.set("parameters/CommonAttackTransition/transition_request", "front")
 	elif attackIdx == 2:
+		# slam
 		attack_cooldown = 2
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	elif attackIdx == 3:
+		# heavy slam
 		attack_cooldown = 3
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_big_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	elif attackIdx == 4:
+		# slam + transition
 		attack_cooldown = 3
 		animationTree.set("parameters/AttackTransition/transition_request", "attack_ground_slam")
 		animationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		transition()
+	elif attackIdx == 5:
+		# heal
+		hp += hp_regen
+		modulate = Color.GREEN
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color.WHITE
 
 func reset_CommonAttackTransition():
 	if animationTree.get("parameters/CommonAttackTransition/current_state") != "none":
