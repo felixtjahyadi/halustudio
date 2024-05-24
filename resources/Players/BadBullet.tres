@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyrfm85ds3ya4" path="res://assets/Player/spritesheets/badbullet/badbullet-anim-sheet.png" id="2_agl11"]
 [ext_resource type="Texture2D" uid="uid://crmqmyplr5m7v" path="res://assets/Player/spritesheets/badbullet/badbullet-avatar.png" id="2_nfgl8"]
 [ext_resource type="Script" path="res://scripts/Skill/concrete/snipe.gd" id="4_1nxqv"]
-[ext_resource type="Resource" path="res://resources/Weapons/MachineGun.tres" id="6_ltjoc"]
+[ext_resource type="Resource" uid="uid://cfr2mkhxwg8n" path="res://resources/Weapons/MachineGun.tres" id="6_ltjoc"]
 
 [resource]
 script = ExtResource("1_1h05t")

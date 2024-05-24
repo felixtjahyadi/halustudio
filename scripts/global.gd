@@ -52,7 +52,7 @@ var all_characters: Dictionary = {
 	"BadBullet": load("res://resources/Players/BadBullet.tres").setup(),
 	"Morin": load("res://resources/Players/Morin.tres").setup(),
 	"Reina": load("res://resources/Players/Reina.tres").setup(),
-	"Wade": load("res://resources/Players/Wade.tres").setup(),
+	#"Wade": load("res://resources/Players/Wade.tres").setup(),
 }
 
 var owned_characters: Array[PlayerResource] = [
@@ -60,7 +60,7 @@ var owned_characters: Array[PlayerResource] = [
 	all_characters["BadBullet"],
 	all_characters["Morin"],
 	all_characters["Reina"],
-	all_characters["Wade"],
+	#all_characters["Wade"],
 ]
 # Character Selection
 var used_characters: Array[PlayerResource] = [
