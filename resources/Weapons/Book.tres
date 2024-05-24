@@ -21,5 +21,7 @@ projectileScale = null
 projectileSpeed = 600.0
 projectileRange = null
 passEnemy = null
+maxAmmo = 40
+ammo = 40
 attackType = null
 attackScale = null

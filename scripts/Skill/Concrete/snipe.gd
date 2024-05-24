@@ -4,7 +4,7 @@ extends FocusableSkill
 var marker = load("res://scenes/Skill/sniper_marker.tscn")
 var marker_scene: Node
 
-var damage_multiplier: float = 3
+var damage_multiplier: float = 30
 var projectile_speed_multiplier: float = 0.5
 
 func _init():

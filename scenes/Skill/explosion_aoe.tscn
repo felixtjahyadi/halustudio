@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4nwvd6uf7t0f"]
+[gd_scene load_steps=18 format=3 uid="uid://doqnbuwmjru5w"]
 
 [ext_resource type="Script" path="res://scripts/Skill/explosion_aoe.gd" id="1_pjx8l"]
 [ext_resource type="Texture2D" uid="uid://ccesoebpuum83" path="res://assets/Skill/circle_2.png" id="2_mkecl"]
