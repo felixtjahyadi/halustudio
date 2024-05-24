@@ -594,9 +594,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../EnemyBody")
-libraries = {
-"": SubResource("AnimationLibrary_q2cqq")
-}
 tree_root = SubResource("AnimationNodeBlendTree_vy543")
 anim_player = NodePath("../AnimationPlayer")
 parameters/AttackTransition/current_state = "none"
@@ -702,6 +699,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 volume_db = -15.0
 pitch_scale = 1.5
+bus = &"sfx"
 
 [editable path="BigAreaHitBox"]
 [editable path="FrontHitBox"]
