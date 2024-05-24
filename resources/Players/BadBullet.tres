@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyrfm85ds3ya4" path="res://assets/Player/spritesheets/badbullet/badbullet-anim-sheet.png" id="2_agl11"]
 [ext_resource type="Texture2D" uid="uid://crmqmyplr5m7v" path="res://assets/Player/spritesheets/badbullet/badbullet-avatar.png" id="2_nfgl8"]
 [ext_resource type="Script" path="res://scripts/Skill/concrete/snipe.gd" id="4_1nxqv"]
-[ext_resource type="Resource" uid="uid://dfo5pbgjofu2f" path="res://resources/Weapons/Gun.tres" id="6_m35yx"]
+[ext_resource type="Resource" uid="uid://cfr2mkhxwg8n" path="res://resources/Weapons/MachineGun.tres" id="6_ltjoc"]
 
 [resource]
 script = ExtResource("1_1h05t")
@@ -14,7 +14,7 @@ texture = ExtResource("2_agl11")
 health = 7
 speed = 260.0
 armor = 2
-weapon = ExtResource("6_m35yx")
+weapon = ExtResource("6_ltjoc")
 art = ExtResource("1_esf6i")
 avatar = ExtResource("2_nfgl8")
 cooldown = 5

@@ -12,6 +12,7 @@ var screen_size
 var death = preload("res://scenes/Enemy/death.tscn")
 var coins = preload("res://scenes/Loot/Coin.tscn")
 var potions = preload("res://scenes/Loot/Potion.tscn")
+var ammos = preload("res://scenes/Loot/Ammo.tscn")
 var chase = false
 var current_player = null
 var loot_spawned: bool = false
@@ -86,7 +87,6 @@ func _physics_process(_delta):
 		
 	else:
 		animationTree.set("parameters/Transition/transition_request", "idle")
-		print(global_position)
 		
 
 func dead_process():
@@ -95,13 +95,13 @@ func dead_process():
 	get_parent().call_deferred("add_child", enemy_death)
 
 func loot_spawn():
-	var new_weapon = WeaponClass
-	new_weapon = weapon_drop.instantiate() 
-	new_weapon.weapon = global.weapons.pick_random()
-	new_weapon.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
-	loot_base.call_deferred("add_child", new_weapon)
-	var rand_num = randi() % 100
-	if rand_num == 1:
+	var ammo_chance = randi() % 50
+	if ammo_chance == 1:
+		var new_ammo = ammos.instantiate()
+		new_ammo.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+		loot_base.call_deferred("add_child", new_ammo)
+	var potion_chance = randi() % 100
+	if potion_chance == 1:
 		var new_potion = potions.instantiate()
 		new_potion.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
 		loot_base.call_deferred("add_child", new_potion)

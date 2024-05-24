@@ -8,7 +8,7 @@
 script = ExtResource("2_edvhl")
 name = "Sword"
 texture = ExtResource("3_cxfa7")
-baseDamage = 1.0
+baseDamage = 10.0
 attackInterval = 1.2
 attackCount = 1
 type = "melee"
@@ -21,5 +21,6 @@ projectileScale = Vector2(1, 1)
 projectileSpeed = 1000.0
 projectileRange = 600.0
 passEnemy = false
+maxAmmo = 10
 attackType = "slash"
 attackScale = 1.0

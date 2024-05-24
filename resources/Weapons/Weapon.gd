@@ -23,13 +23,15 @@ class_name WeaponResource
 @export var projectileSpeed : float = 1000.0
 @export var projectileRange : float = 600.0
 @export var passEnemy : bool = false
+@export var maxAmmo : int = 10
+@export var ammo : int = 10
 
 @export_group("Melee Properties")
 @export_enum("slash", "wide slash") var attackType : String = "slash"
 @export var attackScale : float = 1
 
 var damage_multiplier: float = 1
-var projectile_speed_multiplier: float = 1
+var projectile_speed_multiplier: float = 1d
 var weapon_enabled: float = true
 var trail: PackedScene = load("res://scenes/Particle/projectile_trail.tscn")
 var trail_enable = false
