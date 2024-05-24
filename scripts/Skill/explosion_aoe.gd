@@ -44,4 +44,6 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_damage_timer_timeout():
+	animation.visible = true
+	animation.play("default")
 	damage_enemy()

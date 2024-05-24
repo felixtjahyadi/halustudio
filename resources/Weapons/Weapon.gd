@@ -31,7 +31,7 @@ class_name WeaponResource
 @export var attackScale : float = 1
 
 var damage_multiplier: float = 1
-var projectile_speed_multiplier: float = 1d
+var projectile_speed_multiplier: float = 1
 var weapon_enabled: float = true
 var trail: PackedScene = load("res://scenes/Particle/projectile_trail.tscn")
 var trail_enable = false
