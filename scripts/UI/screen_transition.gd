@@ -5,9 +5,11 @@ signal transitioned_halfway
 var skip_emit = false
 
 
+
 func transition():
 	$AnimationPlayer.play("default")
 	await transitioned_halfway
+	await get_tree().create_timer(0.2).timeout
 	skip_emit = true
 	$AnimationPlayer.play_backwards("default")
 
