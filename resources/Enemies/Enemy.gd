@@ -9,7 +9,7 @@ class_name EnemyResource
 @export var speed : float = 250
 @export var armor : int = 1
 @export var baseDamage : int = 1
-@export var detectionRadius : float = 200.0
+@export var detectionRadius : float = 500.0
 @export var knock_back_recovery : float = 3.5
 @export var max_coins : int = 6
 @export var money : int = 2

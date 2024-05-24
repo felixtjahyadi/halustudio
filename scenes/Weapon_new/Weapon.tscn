@@ -49,7 +49,7 @@ size = Vector2(8, 12)
 radius = 8.0
 height = 16.0
 
-[node name="Weapon" type="Node2D"]
+[node name="Weapon" type="Node2D" groups=["weapon"]]
 script = ExtResource("1_88djt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -75,9 +75,10 @@ shape = SubResource("RectangleShape2D_qqocq")
 [node name="ProjectileSpawnPosition" type="Marker2D" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-visible = false
 shape = SubResource("CapsuleShape2D_n3prf")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
