@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://l4owv6sc1nqk"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://l4owv6sc1nqk"]
 
-[ext_resource type="Resource" uid="uid://7bys8i06wijs" path="res://resources/Projectiles/Arrow.tres" id="1_mi8gk"]
 [ext_resource type="Script" path="res://resources/Weapons/Weapon.gd" id="2_edvhl"]
 [ext_resource type="Texture2D" uid="uid://dsbkswvn32l7b" path="res://scenes/Weapons/sword_ability/sword.png" id="3_cxfa7"]
 
@@ -9,8 +8,8 @@ script = ExtResource("2_edvhl")
 name = "Sword"
 texture = ExtResource("3_cxfa7")
 baseDamage = 10.0
-attackInterval = 1.2
-attackCount = 1
+attackInterval = null
+attackCount = null
 type = "melee"
 rarity = 1
 damageBonus = 1.2

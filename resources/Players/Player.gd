@@ -12,6 +12,7 @@ class_name PlayerResource
 @export var avatar: Texture2D
 @export var cooldown: int
 @export var skills_script: Array[Script]
+@export var description: String = ""
 
 var initial_health : int
 var initial_speed : float

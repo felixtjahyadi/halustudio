@@ -10,8 +10,9 @@ var projectile_speed_multiplier: float = 0.5
 
 func _init():
 	cooldown = 5 
-	texture = load("res://assets/Skill/skill_image.png")
-	description = "Snipe Skill"
+	texture = load("res://assets/Player/skill-icon/badbullet-snipe.png")
+	skill_name = "Snipe"
+	description = "Fires a highly accurate and powerful shot at a single target."
 
 func activate():
 	global.player_node.enable_weapon()

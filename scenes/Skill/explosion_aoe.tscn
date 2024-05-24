@@ -1,0 +1,135 @@
+[gd_scene load_steps=18 format=3 uid="uid://c4nwvd6uf7t0f"]
+
+[ext_resource type="Script" path="res://scripts/Skill/explosion_aoe.gd" id="1_pjx8l"]
+[ext_resource type="Texture2D" uid="uid://ccesoebpuum83" path="res://assets/Skill/circle_2.png" id="2_mkecl"]
+[ext_resource type="Texture2D" uid="uid://dvevyet8of5c2" path="res://assets/Player/spritesheets/skills/explosion-anim-sheet.png" id="3_763hl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3tsfi"]
+radius = 50.0
+height = 178.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cl3l"]
+atlas = ExtResource("3_763hl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4hg0"]
+atlas = ExtResource("3_763hl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umx0c"]
+atlas = ExtResource("3_763hl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32bhh"]
+atlas = ExtResource("3_763hl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1881"]
+atlas = ExtResource("3_763hl")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqmpf"]
+atlas = ExtResource("3_763hl")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6htfq"]
+atlas = ExtResource("3_763hl")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70wd6"]
+atlas = ExtResource("3_763hl")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giuf4"]
+atlas = ExtResource("3_763hl")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf877"]
+atlas = ExtResource("3_763hl")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8aga"]
+atlas = ExtResource("3_763hl")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwxgf"]
+atlas = ExtResource("3_763hl")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xx7p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cl3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4hg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umx0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32bhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1881")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqmpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6htfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70wd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giuf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf877")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8aga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwxgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwxgf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Explosion" type="Area2D"]
+script = ExtResource("1_pjx8l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+scale = Vector2(0.5, 0.284722)
+texture = ExtResource("2_mkecl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3tsfi")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1, -104)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2xx7p")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

@@ -17,6 +17,7 @@ var player : PlayerResource = preload("res://resources/Players/Archie.tres")
 @onready var next_cooldown_timer: Timer = $NextCooldownTimer
 @onready var prev_cooldown_timer: Timer = $PrevCooldownTimer
 @onready var weapon = $Weapon
+@onready var sprite = $Sprite2D
 
 var last_direction = Vector2(0.1, 0.1)
 var can_swap = true
@@ -55,6 +56,7 @@ func setup(p_player: PlayerResource):
 
 func _ready():
 	_update()
+	print(sprite.frame)
 	
 func _update():
 	_update_sprite()
@@ -198,6 +200,8 @@ func swap_listen():
 		start_prev_cooldown_timer()
 
 func swap_player(character: PlayerResource):
+	reset_player()
+	
 	player = character
 	_update()
 	swap.emit(true)
@@ -206,8 +210,10 @@ func swap_player(character: PlayerResource):
 	await get_tree().create_timer(swap_delay).timeout	
 	can_swap = true
 	
-func _on_swap():
+func reset_player():
 	is_immune = false
+	player.speed = player.initial_speed
+	get_weapon().reset()
 
 func _on_all_dead(player):
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Map/Level/LoseScreen.tscn")
